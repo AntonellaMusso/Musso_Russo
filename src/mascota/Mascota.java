@@ -19,7 +19,6 @@ public class Mascota {
     private int peso;
     private String comentario;
     private ImageIcon foto;
-    private int nro;
 
     //Métodos de acceso
     public String getNombre() {
