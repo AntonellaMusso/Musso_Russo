@@ -14,18 +14,8 @@ public class Actividad {
     private Familiar familiar;
     private Mascota mascota;
     private String descripcion;
-    private int distancia;
+    private int distancia; 
     
-    public int atributoPrueba;
-
-    public int getAtributoPrueba() {
-        return atributoPrueba;
-    }
-
-    public void setAtributoPrueba(int atributoPrueba) {
-        this.atributoPrueba = atributoPrueba;
-    }
-
     //Métodos de acceso
     public Familiar getFamiliar() {
         return familiar;
