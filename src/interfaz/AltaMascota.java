@@ -7,6 +7,8 @@ package interfaz;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import mascota.Mascota;
+import mascota.Sistema;
 
 /**
  *
@@ -14,12 +16,10 @@ import javax.swing.ImageIcon;
  */
 public class AltaMascota extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AltaMascota
-     */
-    public AltaMascota() {
+    static Sistema sistema;
+    public AltaMascota(Sistema modelo) {
         initComponents();
-       
+       sistema = modelo;
     }
 
     /**
@@ -38,18 +38,18 @@ public class AltaMascota extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Imagen = new javax.swing.JLabel();
         NombreText = new javax.swing.JTextField();
-        NombreLabel = new javax.swing.JLabel();
+        FotoLabel = new javax.swing.JLabel();
         AlturaLabel = new javax.swing.JLabel();
         AlturaText = new javax.swing.JTextField();
-        AlturaLabel1 = new javax.swing.JLabel();
-        AlturaText1 = new javax.swing.JTextField();
-        AlturaLabel2 = new javax.swing.JLabel();
-        AlturaLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        NombreLabel1 = new javax.swing.JLabel();
-        AlturaLabel4 = new javax.swing.JLabel();
+        comentariosLabel = new javax.swing.JLabel();
+        pesoText = new javax.swing.JTextField();
+        kgLabel = new javax.swing.JLabel();
+        cmLabel = new javax.swing.JLabel();
+        AddFotoBoton = new javax.swing.JButton();
+        NombreLabel = new javax.swing.JLabel();
+        pesoLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        textoAreaComentario = new javax.swing.JTextArea();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -81,8 +81,8 @@ public class AltaMascota extends javax.swing.JFrame {
             }
         });
 
-        NombreLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        NombreLabel.setText("Foto");
+        FotoLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        FotoLabel.setText("Foto");
 
         AlturaLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         AlturaLabel.setText("Altura");
@@ -93,37 +93,37 @@ public class AltaMascota extends javax.swing.JFrame {
             }
         });
 
-        AlturaLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        AlturaLabel1.setText("Comentario");
+        comentariosLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        comentariosLabel.setText("Comentario");
 
-        AlturaText1.addActionListener(new java.awt.event.ActionListener() {
+        pesoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlturaText1ActionPerformed(evt);
+                pesoTextActionPerformed(evt);
             }
         });
 
-        AlturaLabel2.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        AlturaLabel2.setText("Kg");
+        kgLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        kgLabel.setText("Kg");
 
-        AlturaLabel3.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        AlturaLabel3.setText("Cm");
+        cmLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        cmLabel.setText("Cm");
 
-        jButton1.setText("+");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AddFotoBoton.setText("+");
+        AddFotoBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AddFotoBotonActionPerformed(evt);
             }
         });
 
-        NombreLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        NombreLabel1.setText("Nombre");
+        NombreLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        NombreLabel.setText("Nombre");
 
-        AlturaLabel4.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
-        AlturaLabel4.setText("Peso");
+        pesoLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        pesoLabel.setText("Peso");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        textoAreaComentario.setColumns(20);
+        textoAreaComentario.setRows(5);
+        jScrollPane2.setViewportView(textoAreaComentario);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,13 +144,13 @@ public class AltaMascota extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(NombreLabel1)
-                                    .addComponent(AlturaLabel1)
-                                    .addComponent(AlturaLabel4)
+                                    .addComponent(NombreLabel)
+                                    .addComponent(comentariosLabel)
+                                    .addComponent(pesoLabel)
                                     .addComponent(AlturaLabel)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(227, 227, 227)
-                                .addComponent(NombreLabel)))
+                                .addComponent(FotoLabel)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -160,12 +160,12 @@ public class AltaMascota extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(AlturaText, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                                    .addComponent(AlturaText1))
+                                    .addComponent(pesoText))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AlturaLabel2)
-                                    .addComponent(AlturaLabel3)))
-                            .addComponent(jButton1)
+                                    .addComponent(kgLabel)
+                                    .addComponent(cmLabel)))
+                            .addComponent(AddFotoBoton)
                             .addComponent(NombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(325, Short.MAX_VALUE))
         );
@@ -178,22 +178,22 @@ public class AltaMascota extends javax.swing.JFrame {
                     .addComponent(Titulo))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NombreLabel)
-                    .addComponent(jButton1))
+                    .addComponent(FotoLabel)
+                    .addComponent(AddFotoBoton))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NombreText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NombreLabel1))
+                    .addComponent(NombreLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AlturaLabel)
                     .addComponent(AlturaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AlturaLabel3))
+                    .addComponent(cmLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AlturaText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AlturaLabel2)
-                    .addComponent(AlturaLabel4))
+                    .addComponent(pesoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kgLabel)
+                    .addComponent(pesoLabel))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -202,7 +202,7 @@ public class AltaMascota extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AlturaLabel1)
+                            .addComponent(comentariosLabel)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)))
                 .addComponent(BotonRegistrar)
@@ -217,20 +217,28 @@ public class AltaMascota extends javax.swing.JFrame {
     }//GEN-LAST:event_NombreTextActionPerformed
 
     private void BotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarActionPerformed
-        // TODO add your handling code here:
+        String nombre = NombreText.getText();
+        int altura = Integer.parseInt(AlturaText.getText());
+        int peso = Integer.parseInt(pesoText.getText());
+        String comentario = textoAreaComentario.getText();
+        ImageIcon imagen = null; // arreglar despues
+        Mascota mascota = new Mascota(nombre,altura,peso,comentario,imagen);
+        
+        
+        
     }//GEN-LAST:event_BotonRegistrarActionPerformed
 
     private void AlturaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlturaTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AlturaTextActionPerformed
 
-    private void AlturaText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlturaText1ActionPerformed
+    private void pesoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesoTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AlturaText1ActionPerformed
+    }//GEN-LAST:event_pesoTextActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AddFotoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddFotoBotonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AddFotoBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -262,30 +270,30 @@ public class AltaMascota extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AltaMascota().setVisible(true);
+                new AltaMascota(sistema).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddFotoBoton;
     private javax.swing.JLabel AlturaLabel;
-    private javax.swing.JLabel AlturaLabel1;
-    private javax.swing.JLabel AlturaLabel2;
-    private javax.swing.JLabel AlturaLabel3;
-    private javax.swing.JLabel AlturaLabel4;
     private javax.swing.JTextField AlturaText;
-    private javax.swing.JTextField AlturaText1;
     private javax.swing.JButton BotonRegistrar;
+    private javax.swing.JLabel FotoLabel;
     private javax.swing.JLabel Imagen;
     private javax.swing.JLabel NombreLabel;
-    private javax.swing.JLabel NombreLabel1;
     private javax.swing.JTextField NombreText;
     private javax.swing.JLabel Titulo;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel cmLabel;
+    private javax.swing.JLabel comentariosLabel;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JLabel kgLabel;
+    private javax.swing.JLabel pesoLabel;
+    private javax.swing.JTextField pesoText;
+    private javax.swing.JTextArea textoAreaComentario;
     // End of variables declaration//GEN-END:variables
 }

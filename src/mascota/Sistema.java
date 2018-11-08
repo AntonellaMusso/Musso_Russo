@@ -10,5 +10,14 @@ package mascota;
  * @author Emiliano
  */
 public class Sistema {
+ 
+    
+   public void aniadirMascota(Mascota mascota){
+        
+       //luego insertarla en el arraylist
+       
+    }
+    
+    
     
 }
