@@ -18,7 +18,7 @@ public class Servicio {
     private Date fecha;
     private int hora;
     private int minutos;
-
+    
     //Métodos de acceso
     public String getNombreVeterinario() {
         return nombreVeterinario;

@@ -5,6 +5,9 @@
  */
 package interfaz;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author usuario
@@ -16,6 +19,7 @@ public class AltaMascota extends javax.swing.JFrame {
      */
     public AltaMascota() {
         initComponents();
+       
     }
 
     /**
@@ -27,21 +31,206 @@ public class AltaMascota extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        Titulo = new javax.swing.JLabel();
+        BotonRegistrar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        Imagen = new javax.swing.JLabel();
+        NombreText = new javax.swing.JTextField();
+        NombreLabel = new javax.swing.JLabel();
+        AlturaLabel = new javax.swing.JLabel();
+        AlturaText = new javax.swing.JTextField();
+        AlturaLabel1 = new javax.swing.JLabel();
+        AlturaText1 = new javax.swing.JTextField();
+        AlturaLabel2 = new javax.swing.JLabel();
+        AlturaLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        NombreLabel1 = new javax.swing.JLabel();
+        AlturaLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(720, 480));
+
+        Titulo.setBackground(new java.awt.Color(204, 204, 255));
+        Titulo.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
+        Titulo.setForeground(new java.awt.Color(0, 204, 255));
+        Titulo.setText("Registro Mascota");
+
+        BotonRegistrar.setBackground(new java.awt.Color(102, 255, 255));
+        BotonRegistrar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        BotonRegistrar.setForeground(new java.awt.Color(0, 153, 153));
+        BotonRegistrar.setText("Registrar");
+        BotonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonRegistrarActionPerformed(evt);
+            }
+        });
+
+        Imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/doggo2.png"))); // NOI18N
+
+        NombreText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreTextActionPerformed(evt);
+            }
+        });
+
+        NombreLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        NombreLabel.setText("Foto");
+
+        AlturaLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        AlturaLabel.setText("Altura");
+
+        AlturaText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlturaTextActionPerformed(evt);
+            }
+        });
+
+        AlturaLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        AlturaLabel1.setText("Comentario");
+
+        AlturaText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlturaText1ActionPerformed(evt);
+            }
+        });
+
+        AlturaLabel2.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        AlturaLabel2.setText("Kg");
+
+        AlturaLabel3.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        AlturaLabel3.setText("Cm");
+
+        jButton1.setText("+");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        NombreLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        NombreLabel1.setText("Nombre");
+
+        AlturaLabel4.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        AlturaLabel4.setText("Peso");
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addComponent(Titulo)
+                        .addGap(27, 27, 27)
+                        .addComponent(Imagen))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(308, 308, 308)
+                        .addComponent(BotonRegistrar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(NombreLabel1)
+                                    .addComponent(AlturaLabel1)
+                                    .addComponent(AlturaLabel4)
+                                    .addComponent(AlturaLabel)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(227, 227, 227)
+                                .addComponent(NombreLabel)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(AlturaText, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                                    .addComponent(AlturaText1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(AlturaLabel2)
+                                    .addComponent(AlturaLabel3)))
+                            .addComponent(jButton1)
+                            .addComponent(NombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(325, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Imagen)
+                    .addComponent(Titulo))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NombreLabel)
+                    .addComponent(jButton1))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NombreText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NombreLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AlturaLabel)
+                    .addComponent(AlturaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AlturaLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AlturaText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AlturaLabel2)
+                    .addComponent(AlturaLabel4))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(88, 88, 88))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AlturaLabel1)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)))
+                .addComponent(BotonRegistrar)
+                .addGap(32, 32, 32))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void NombreTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreTextActionPerformed
+
+    private void BotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonRegistrarActionPerformed
+
+    private void AlturaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlturaTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AlturaTextActionPerformed
+
+    private void AlturaText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlturaText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AlturaText1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +268,24 @@ public class AltaMascota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AlturaLabel;
+    private javax.swing.JLabel AlturaLabel1;
+    private javax.swing.JLabel AlturaLabel2;
+    private javax.swing.JLabel AlturaLabel3;
+    private javax.swing.JLabel AlturaLabel4;
+    private javax.swing.JTextField AlturaText;
+    private javax.swing.JTextField AlturaText1;
+    private javax.swing.JButton BotonRegistrar;
+    private javax.swing.JLabel Imagen;
+    private javax.swing.JLabel NombreLabel;
+    private javax.swing.JLabel NombreLabel1;
+    private javax.swing.JTextField NombreText;
+    private javax.swing.JLabel Titulo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }
