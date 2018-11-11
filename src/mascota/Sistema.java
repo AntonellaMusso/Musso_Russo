@@ -7,6 +7,7 @@ package mascota;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -110,7 +111,22 @@ public class Sistema {
     }
 
     //Métodos de modificación de elementos de los listados
-    public boolean modificarMascota(ArrayList<Mascota> listado, Mascota mas) {
-    return true;
+    public boolean modificarMascota(ArrayList<Mascota> listado, String nombre,
+            int altura, int peso, String comentario, ImageIcon foto) {
+        boolean modificar = false;
+        Iterator<Mascota> it = listado.iterator();
+        while (it.hasNext()){
+            Mascota m = it.next();
+            if (!m.getNombre().equalsIgnoreCase(nombre)){
+                modificar = false;
+            } else {
+                m.setPeso(peso);
+                m.setAltura(altura);
+                m.setComentario(comentario);
+                m.setImagen(foto);
+                modificar = true;
+            }
+        }
+    return modificar;
     }
 }

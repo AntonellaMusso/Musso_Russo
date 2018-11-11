@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
@@ -6,25 +5,12 @@
         <group>
             <file>file:/C:/Users/usuario/Desktop/Mascota/src/interfaz/Veterinaria.java</file>
             <file>file:/C:/Users/usuario/Desktop/Mascota/src/interfaz/VentanaPrincipal.java</file>
+            <file>file:/C:/Users/usuario/Desktop/Mascota/src/interfaz/AltaMascota.java</file>
             <file>file:/C:/Users/usuario/Desktop/Mascota/src/interfaz/Calendario.java</file>
+            <file>file:/C:/Users/usuario/Desktop/Mascota/src/interfaz/AltaUsuario.java</file>
             <file>file:/C:/Users/usuario/Desktop/Mascota/src/mascota/Main.java</file>
             <file>file:/C:/Users/usuario/Desktop/Mascota/src/mascota/Sistema.java</file>
             <file>file:/C:/Users/usuario/Desktop/Mascota/src/mascota/Mascota.java</file>
         </group>
     </open-files>
 </project-private>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Emiliano/Documents/NetBeansProjects/Musso_Russo/src/interfaz/VentanaPrincipal.java</file>
-            <file>file:/C:/Users/Emiliano/Documents/NetBeansProjects/Musso_Russo/src/interfaz/AltaMascota.java</file>
-            <file>file:/C:/Users/Emiliano/Documents/NetBeansProjects/Musso_Russo/src/mascota/Mascota.java</file>
-            <file>file:/C:/Users/Emiliano/Documents/NetBeansProjects/Musso_Russo/src/mascota/Main.java</file>
-            <file>file:/C:/Users/Emiliano/Documents/NetBeansProjects/Musso_Russo/src/mascota/Sistema.java</file>
-        </group>
-    </open-files>
-</project-private>
->>>>>>> 4cdd08e46a283fb8baf31e905202927cf812b93a

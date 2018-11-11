@@ -56,7 +56,6 @@ public class AltaMascota extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(720, 480));
 
         Titulo.setBackground(new java.awt.Color(204, 204, 255));
         Titulo.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
@@ -159,7 +158,7 @@ public class AltaMascota extends javax.swing.JFrame {
                                 .addComponent(jLabel3))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(AlturaText, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                                    .addComponent(AlturaText, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
                                     .addComponent(pesoText))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

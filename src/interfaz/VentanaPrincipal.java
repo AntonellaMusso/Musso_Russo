@@ -14,7 +14,8 @@ import mascota.Sistema;
 public class VentanaPrincipal extends javax.swing.JFrame {
 
    
-     static Sistema sistema ;
+    //static Sistema sistema ;
+    private Sistema sistema;
     public VentanaPrincipal(Sistema modelo) {
         initComponents();
         sistema = modelo;
@@ -200,11 +201,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new VentanaPrincipal(sistema).setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
