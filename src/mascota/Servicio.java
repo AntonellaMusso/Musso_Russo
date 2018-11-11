@@ -18,6 +18,7 @@ public class Servicio {
     private Date fecha;
     private int hora;
     private int minutos;
+    private String estado;
     
     //Métodos de acceso
     public String getNombreVeterinario() {
@@ -38,6 +39,10 @@ public class Servicio {
 
     public int getMinutos() {
         return minutos;
+    }
+    
+    public String getEstado(){
+        return this.estado;
     }
     
     //Métodos de modificación
@@ -65,13 +70,23 @@ public class Servicio {
         }
     }
     
+    public void setEstado(String estado){
+        if(estado.equalsIgnoreCase("hecho") || 
+           estado.equalsIgnoreCase("pendiente") || 
+           estado.equalsIgnoreCase("pendiente")){
+            this.setEstado(estado);
+        }
+    }
+    
     //Constructores
-    public Servicio(String nombreVeterinario, String servicio, Date fecha, int hora, int minutos) {
-        this.nombreVeterinario = nombreVeterinario;
-        this.servicio = servicio;
-        this.fecha = fecha;
-        this.hora = hora;
-        this.minutos = minutos;
+    public Servicio(String nombreVeterinario, String servicio, Date fecha, 
+                    int hora, int minutos, String estado) {
+        this.setNombreVeterinario(nombreVeterinario);
+        this.setServicio(servicio);
+        this.setFecha(fecha);
+        this.setHora(hora);
+        this.setMinutos(minutos);
+        this.setEstado(estado);
     }
     
     public Servicio() {
@@ -80,6 +95,7 @@ public class Servicio {
         this.setFecha(new java.util.Date());
         this.setHora(0);
         this.setMinutos(0);
+        this.setEstado("pendiente");
     }
 
     @Override
@@ -87,7 +103,7 @@ public class Servicio {
         return "Nombre veterinario" + this.getNombreVeterinario()
                 + ", servicio: " + this.getServicio()+ " a la hora: "
                 + this.getHora() + ":" + this.getMinutos() + " el día: " + 
-                this.getFecha();
+                this.getFecha() + ". Estado actual: " + this.getEstado();
     }
 
 }

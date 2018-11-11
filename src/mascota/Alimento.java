@@ -19,6 +19,7 @@ public class Alimento {
     private String alimento;
     private int hora;
     private int minutos;
+    private String estado;
 
     //Metodos de acceso
     public Familiar getFamiliar() {
@@ -43,6 +44,10 @@ public class Alimento {
     
     public String getAlimento() {
         return this.alimento;
+    }
+    
+    public String getEstado(){
+        return this.estado;
     }
 
     //Métodos de modificación
@@ -75,14 +80,24 @@ public class Alimento {
         this.alimento = a;
         }
     }
+    
+    public void setEstado(String estado){
+        if(estado.equalsIgnoreCase("hecho") || 
+           estado.equalsIgnoreCase("pendiente") || 
+           estado.equalsIgnoreCase("pendiente")){
+            this.setEstado(estado);
+        }
+    }
+    
     //Constructores
     public Alimento(Familiar unF, Mascota unaM, int unahora, int minuto,
-            Date fech, String alimento) {
+            Date fech, String alimento, String estado) {
         this.setFamiliar(unF);
         this.setMascota(unaM);
         this.setHora(unahora);
         this.setMinutos(minuto);
         this.setFecha(fech);
+        this.setEstado(estado);
     }
 
     public Alimento() {
@@ -91,7 +106,8 @@ public class Alimento {
         this.setHora(0);
         this.setMinutos(0);
         this.setFecha(new java.util.Date());
-        this.setAlimento("Galletitas");
+        this.setAlimento("Alimento por Defecto");
+        this.setEstado("pendiente");
     }
 
     @Override
@@ -100,6 +116,7 @@ public class Alimento {
                 this.getFamiliar().getNombre() + " alimenta a: " 
                 + this.getMascota().getNombre() + " a la hora: "
                 + this.getHora() + ":" + this.getMinutos() + " el día: " + 
-                this.getFecha() + ", alimenta con: " + this.getAlimento();
+                this.getFecha() + ", alimenta con: " + this.getAlimento() +
+                ". Estado actual: " + this.getEstado();
     }
 }

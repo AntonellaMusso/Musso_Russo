@@ -129,4 +129,23 @@ public class Sistema {
         }
     return modificar;
     }
+    
+    public boolean modificarFamiliar(ArrayList<Familiar> listado, String nombre,
+            int altura, int peso, String comentario, ImageIcon foto) {
+        boolean modificar = false;
+        Iterator<Familiar> it = listado.iterator();
+        while (it.hasNext()){
+            Familiar f = it.next();
+            if (!f.getNombre().equalsIgnoreCase(nombre)){
+                modificar = false;
+            } else {
+                f.setPeso(peso);
+                f.setAltura(altura);
+                f.setComentario(comentario);
+                f.setImagen(foto);
+                modificar = true;
+            }
+        }
+    return modificar;
+    }
 }

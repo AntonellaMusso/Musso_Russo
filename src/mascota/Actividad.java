@@ -15,7 +15,7 @@ public class Actividad {
     private Mascota mascota;
     private String descripcion;
     private int distancia; 
-    
+    private String estado; 
     //Métodos de acceso
     public Familiar getFamiliar() {
         return familiar;
@@ -31,6 +31,10 @@ public class Actividad {
 
     public int getDistancia() {
         return distancia;
+    }
+    
+    public String getEstado(){
+        return estado;
     }
 
     //Métodos de modificación 
@@ -53,14 +57,23 @@ public class Actividad {
             this.distancia = distancia;
         }
     }
+    
+    public void setEstado(String estado){
+        if(estado.equalsIgnoreCase("hecho") || 
+           estado.equalsIgnoreCase("pendiente") || 
+           estado.equalsIgnoreCase("pendiente")){
+            this.setEstado(estado);
+        }
+    }
 
     //Constructor
     public Actividad(Familiar familiar, Mascota mascota, String descripcion, 
-            int distancia) {
+            int distancia, String estado) {
         this.setFamiliar(familiar);
         this.setMascota(mascota);
         this.setDescripcion(descripcion);
         this.setDistancia(distancia);
+        this.setEstado(estado);
     }
     
     public Actividad() {
@@ -68,13 +81,15 @@ public class Actividad {
         this.setMascota(new Mascota());
         this.setDescripcion("Descripción por defecto");
         this.setDistancia(0);
+        this.setEstado("pendiente");
     }
 
     @Override
     public String toString() {
         return "Actividad realizada: " + this.getDescripcion() + 
                 ", familiar a cargo " + this.getFamiliar().getNombre()+
-                ". Nombre de la mascota: " + this.getMascota().getNombre();
+                ". Nombre de la mascota: " + this.getMascota().getNombre() + 
+                        ". Estado de la actividad: " + this.getEstado();
                 }
     
     
