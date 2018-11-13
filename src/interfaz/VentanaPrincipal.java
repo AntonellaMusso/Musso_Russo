@@ -36,21 +36,60 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         switch (numeroMascotas) {
             case 1:
                 NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
+                pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso()));
+                alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura()));
+                comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());
                 break;
             case 2:
+                //mascota1
                 NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
+                pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso()));
+                alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura()));
+                comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());
+                //mascota 2
                 NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());
+                pesoLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getPeso()));
+                alturaLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getAltura()));
+                comentarioLabel2.setText(sistema.getListaMascotas().get(1).getComentario());
                 break;
             case 3:
+                //mascota1
                 NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
+                pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso()));
+                alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura()));
+                comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());
+                //mascota 2
                 NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());
+                pesoLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getPeso()));
+                alturaLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getAltura()));
+                comentarioLabel2.setText(sistema.getListaMascotas().get(1).getComentario());
+                //mascota 3
                 NombreMascota3.setText(sistema.getListaMascotas().get(2).getNombre());
+                pesoLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getPeso()));
+                alturaLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getAltura()));
+                comentarioLabel3.setText(sistema.getListaMascotas().get(2).getComentario());
                 break;
             case 4:
+                 //mascota1
                 NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
+                pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso()));
+                alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura()));
+                comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());
+                //mascota 2
                 NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());
+                pesoLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getPeso()));
+                alturaLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getAltura()));
+                comentarioLabel2.setText(sistema.getListaMascotas().get(1).getComentario());
+                //mascota 3
                 NombreMascota3.setText(sistema.getListaMascotas().get(2).getNombre());
+                pesoLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getPeso()));
+                alturaLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getAltura()));
+                comentarioLabel3.setText(sistema.getListaMascotas().get(2).getComentario());
+                //mascota 4
                 NombreMascota4.setText(sistema.getListaMascotas().get(3).getNombre());
+                pesoLabel4.setText(String.valueOf(sistema.getListaMascotas().get(3).getPeso()));
+                alturaLabel4.setText(String.valueOf(sistema.getListaMascotas().get(3).getAltura()));
+                comentarioLabel4.setText(sistema.getListaMascotas().get(3).getComentario());
                 break;
         }
 
@@ -66,23 +105,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        perfilMascota1 = new javax.swing.JButton();
-        borrarMascota1 = new javax.swing.JButton();
         NombreMascota1 = new javax.swing.JLabel();
+        comentarioLabel1 = new javax.swing.JLabel();
+        pesoLabel1 = new javax.swing.JLabel();
+        alturaLabel1 = new javax.swing.JLabel();
         ImagenMascota1 = new javax.swing.JLabel();
-        perfilMascota2 = new javax.swing.JButton();
-        borrarMascota2 = new javax.swing.JButton();
         NombreMascota2 = new javax.swing.JLabel();
+        pesoLabel2 = new javax.swing.JLabel();
+        comentarioLabel2 = new javax.swing.JLabel();
+        alturaLabel2 = new javax.swing.JLabel();
         ImagenMascota2 = new javax.swing.JLabel();
-        borrarMascota3 = new javax.swing.JButton();
-        perfilMascota3 = new javax.swing.JButton();
         NombreMascota3 = new javax.swing.JLabel();
+        pesoLabel3 = new javax.swing.JLabel();
+        alturaLabel3 = new javax.swing.JLabel();
+        comentarioLabel3 = new javax.swing.JLabel();
         ImagenMascota3 = new javax.swing.JLabel();
-        perfilMascota4 = new javax.swing.JButton();
-        borrarMascota4 = new javax.swing.JButton();
+        pesoLabel4 = new javax.swing.JLabel();
+        alturaLabel4 = new javax.swing.JLabel();
+        comentarioLabel4 = new javax.swing.JLabel();
         NombreMascota4 = new javax.swing.JLabel();
         ImagenMascota4 = new javax.swing.JLabel();
         UsernameLabel = new javax.swing.JLabel();
+        PanelSostieneInfo = new javax.swing.JPanel();
         perfilSeleccionBoton = new javax.swing.JButton();
         registrarMascota = new javax.swing.JButton();
         VeterinarioBoton = new javax.swing.JButton();
@@ -95,86 +139,110 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setLayout(null);
 
-        perfilMascota1.setBackground(new java.awt.Color(204, 255, 204));
-        perfilMascota1.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
-        jPanel1.add(perfilMascota1);
-        perfilMascota1.setBounds(120, 390, 40, 10);
-
-        borrarMascota1.setBackground(new java.awt.Color(255, 153, 153));
-        borrarMascota1.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
-        jPanel1.add(borrarMascota1);
-        borrarMascota1.setBounds(160, 390, 20, 10);
-
         NombreMascota1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         NombreMascota1.setText("Nombre mascota 1");
         jPanel1.add(NombreMascota1);
-        NombreMascota1.setBounds(100, 360, 120, 30);
+        NombreMascota1.setBounds(90, 260, 120, 30);
+
+        comentarioLabel1.setText("Comentario");
+        jPanel1.add(comentarioLabel1);
+        comentarioLabel1.setBounds(90, 340, 100, 14);
+
+        pesoLabel1.setText("peso kg");
+        jPanel1.add(pesoLabel1);
+        pesoLabel1.setBounds(90, 300, 50, 14);
+
+        alturaLabel1.setText("altura cm");
+        jPanel1.add(alturaLabel1);
+        alturaLabel1.setBounds(90, 320, 50, 14);
 
         ImagenMascota1.setText("IMAGEN");
         jPanel1.add(ImagenMascota1);
-        ImagenMascota1.setBounds(120, 300, 50, 30);
-
-        perfilMascota2.setBackground(new java.awt.Color(204, 255, 204));
-        perfilMascota2.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
-        jPanel1.add(perfilMascota2);
-        perfilMascota2.setBounds(270, 390, 40, 10);
-
-        borrarMascota2.setBackground(new java.awt.Color(255, 153, 153));
-        borrarMascota2.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
-        jPanel1.add(borrarMascota2);
-        borrarMascota2.setBounds(310, 390, 20, 10);
+        ImagenMascota1.setBounds(120, 220, 50, 30);
 
         NombreMascota2.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         NombreMascota2.setText("Nombre mascota 2");
         jPanel1.add(NombreMascota2);
-        NombreMascota2.setBounds(250, 360, 120, 30);
+        NombreMascota2.setBounds(240, 260, 120, 30);
+
+        pesoLabel2.setText("peso kg");
+        jPanel1.add(pesoLabel2);
+        pesoLabel2.setBounds(240, 300, 50, 14);
+
+        comentarioLabel2.setText("Comentario");
+        jPanel1.add(comentarioLabel2);
+        comentarioLabel2.setBounds(240, 340, 100, 14);
+
+        alturaLabel2.setText("altura cm");
+        jPanel1.add(alturaLabel2);
+        alturaLabel2.setBounds(240, 320, 50, 14);
 
         ImagenMascota2.setText("IMAGEN");
         jPanel1.add(ImagenMascota2);
-        ImagenMascota2.setBounds(270, 300, 50, 30);
-
-        borrarMascota3.setBackground(new java.awt.Color(255, 153, 153));
-        borrarMascota3.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
-        jPanel1.add(borrarMascota3);
-        borrarMascota3.setBounds(460, 390, 20, 10);
-
-        perfilMascota3.setBackground(new java.awt.Color(204, 255, 204));
-        perfilMascota3.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
-        jPanel1.add(perfilMascota3);
-        perfilMascota3.setBounds(420, 390, 40, 10);
+        ImagenMascota2.setBounds(270, 220, 50, 30);
 
         NombreMascota3.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         NombreMascota3.setText("Nombre mascota 3");
         jPanel1.add(NombreMascota3);
-        NombreMascota3.setBounds(400, 360, 120, 30);
+        NombreMascota3.setBounds(390, 260, 120, 30);
+
+        pesoLabel3.setText("peso kg");
+        jPanel1.add(pesoLabel3);
+        pesoLabel3.setBounds(390, 300, 50, 14);
+
+        alturaLabel3.setText("altura cm");
+        jPanel1.add(alturaLabel3);
+        alturaLabel3.setBounds(390, 320, 50, 14);
+
+        comentarioLabel3.setText("Comentario");
+        jPanel1.add(comentarioLabel3);
+        comentarioLabel3.setBounds(390, 340, 100, 14);
 
         ImagenMascota3.setText("IMAGEN");
         jPanel1.add(ImagenMascota3);
-        ImagenMascota3.setBounds(420, 300, 50, 30);
+        ImagenMascota3.setBounds(420, 220, 50, 30);
 
-        perfilMascota4.setBackground(new java.awt.Color(204, 255, 204));
-        perfilMascota4.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
-        jPanel1.add(perfilMascota4);
-        perfilMascota4.setBounds(570, 390, 40, 10);
+        pesoLabel4.setText("peso kg");
+        jPanel1.add(pesoLabel4);
+        pesoLabel4.setBounds(540, 300, 50, 14);
 
-        borrarMascota4.setBackground(new java.awt.Color(255, 153, 153));
-        borrarMascota4.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
-        jPanel1.add(borrarMascota4);
-        borrarMascota4.setBounds(610, 390, 20, 10);
+        alturaLabel4.setText("altura cm");
+        jPanel1.add(alturaLabel4);
+        alturaLabel4.setBounds(540, 320, 50, 14);
+
+        comentarioLabel4.setText("Comentario");
+        jPanel1.add(comentarioLabel4);
+        comentarioLabel4.setBounds(540, 340, 100, 14);
 
         NombreMascota4.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         NombreMascota4.setText("Nombre mascota 4");
         jPanel1.add(NombreMascota4);
-        NombreMascota4.setBounds(550, 360, 120, 30);
+        NombreMascota4.setBounds(540, 260, 120, 30);
 
         ImagenMascota4.setText("IMAGEN");
         jPanel1.add(ImagenMascota4);
-        ImagenMascota4.setBounds(570, 300, 50, 30);
+        ImagenMascota4.setBounds(570, 220, 50, 30);
 
         UsernameLabel.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         UsernameLabel.setText("NOMBRE USUARIO");
         jPanel1.add(UsernameLabel);
         UsernameLabel.setBounds(60, 90, 110, 30);
+
+        PanelSostieneInfo.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout PanelSostieneInfoLayout = new javax.swing.GroupLayout(PanelSostieneInfo);
+        PanelSostieneInfo.setLayout(PanelSostieneInfoLayout);
+        PanelSostieneInfoLayout.setHorizontalGroup(
+            PanelSostieneInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 610, Short.MAX_VALUE)
+        );
+        PanelSostieneInfoLayout.setVerticalGroup(
+            PanelSostieneInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 110, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(PanelSostieneInfo);
+        PanelSostieneInfo.setBounds(60, 260, 610, 110);
 
         perfilSeleccionBoton.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         perfilSeleccionBoton.setText("Seleccionar Perfil");
@@ -320,19 +388,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel NombreMascota2;
     private javax.swing.JLabel NombreMascota3;
     private javax.swing.JLabel NombreMascota4;
+    private javax.swing.JPanel PanelSostieneInfo;
     private javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton VeterinarioBoton;
-    private javax.swing.JButton borrarMascota1;
-    private javax.swing.JButton borrarMascota2;
-    private javax.swing.JButton borrarMascota3;
-    private javax.swing.JButton borrarMascota4;
+    private javax.swing.JLabel alturaLabel1;
+    private javax.swing.JLabel alturaLabel2;
+    private javax.swing.JLabel alturaLabel3;
+    private javax.swing.JLabel alturaLabel4;
     private javax.swing.JButton calendarioBoton;
+    private javax.swing.JLabel comentarioLabel1;
+    private javax.swing.JLabel comentarioLabel2;
+    private javax.swing.JLabel comentarioLabel3;
+    private javax.swing.JLabel comentarioLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton perfilMascota1;
-    private javax.swing.JButton perfilMascota2;
-    private javax.swing.JButton perfilMascota3;
-    private javax.swing.JButton perfilMascota4;
     private javax.swing.JButton perfilSeleccionBoton;
+    private javax.swing.JLabel pesoLabel1;
+    private javax.swing.JLabel pesoLabel2;
+    private javax.swing.JLabel pesoLabel3;
+    private javax.swing.JLabel pesoLabel4;
     private javax.swing.JButton registrarMascota;
     // End of variables declaration//GEN-END:variables
 }
