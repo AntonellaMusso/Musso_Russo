@@ -66,12 +66,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        perfilMascota1 = new javax.swing.JButton();
+        borrarMascota1 = new javax.swing.JButton();
         NombreMascota1 = new javax.swing.JLabel();
         ImagenMascota1 = new javax.swing.JLabel();
+        perfilMascota2 = new javax.swing.JButton();
+        borrarMascota2 = new javax.swing.JButton();
         NombreMascota2 = new javax.swing.JLabel();
         ImagenMascota2 = new javax.swing.JLabel();
+        borrarMascota3 = new javax.swing.JButton();
+        perfilMascota3 = new javax.swing.JButton();
         NombreMascota3 = new javax.swing.JLabel();
         ImagenMascota3 = new javax.swing.JLabel();
+        perfilMascota4 = new javax.swing.JButton();
+        borrarMascota4 = new javax.swing.JButton();
         NombreMascota4 = new javax.swing.JLabel();
         ImagenMascota4 = new javax.swing.JLabel();
         UsernameLabel = new javax.swing.JLabel();
@@ -87,6 +95,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setLayout(null);
 
+        perfilMascota1.setBackground(new java.awt.Color(204, 255, 204));
+        perfilMascota1.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
+        jPanel1.add(perfilMascota1);
+        perfilMascota1.setBounds(120, 390, 40, 10);
+
+        borrarMascota1.setBackground(new java.awt.Color(255, 153, 153));
+        borrarMascota1.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
+        jPanel1.add(borrarMascota1);
+        borrarMascota1.setBounds(160, 390, 20, 10);
+
         NombreMascota1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         NombreMascota1.setText("Nombre mascota 1");
         jPanel1.add(NombreMascota1);
@@ -95,6 +113,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ImagenMascota1.setText("IMAGEN");
         jPanel1.add(ImagenMascota1);
         ImagenMascota1.setBounds(120, 300, 50, 30);
+
+        perfilMascota2.setBackground(new java.awt.Color(204, 255, 204));
+        perfilMascota2.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
+        jPanel1.add(perfilMascota2);
+        perfilMascota2.setBounds(270, 390, 40, 10);
+
+        borrarMascota2.setBackground(new java.awt.Color(255, 153, 153));
+        borrarMascota2.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
+        jPanel1.add(borrarMascota2);
+        borrarMascota2.setBounds(310, 390, 20, 10);
 
         NombreMascota2.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         NombreMascota2.setText("Nombre mascota 2");
@@ -105,6 +133,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.add(ImagenMascota2);
         ImagenMascota2.setBounds(270, 300, 50, 30);
 
+        borrarMascota3.setBackground(new java.awt.Color(255, 153, 153));
+        borrarMascota3.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
+        jPanel1.add(borrarMascota3);
+        borrarMascota3.setBounds(460, 390, 20, 10);
+
+        perfilMascota3.setBackground(new java.awt.Color(204, 255, 204));
+        perfilMascota3.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
+        jPanel1.add(perfilMascota3);
+        perfilMascota3.setBounds(420, 390, 40, 10);
+
         NombreMascota3.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         NombreMascota3.setText("Nombre mascota 3");
         jPanel1.add(NombreMascota3);
@@ -113,6 +151,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ImagenMascota3.setText("IMAGEN");
         jPanel1.add(ImagenMascota3);
         ImagenMascota3.setBounds(420, 300, 50, 30);
+
+        perfilMascota4.setBackground(new java.awt.Color(204, 255, 204));
+        perfilMascota4.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
+        jPanel1.add(perfilMascota4);
+        perfilMascota4.setBounds(570, 390, 40, 10);
+
+        borrarMascota4.setBackground(new java.awt.Color(255, 153, 153));
+        borrarMascota4.setFont(new java.awt.Font("Calibri", 0, 10)); // NOI18N
+        jPanel1.add(borrarMascota4);
+        borrarMascota4.setBounds(610, 390, 20, 10);
 
         NombreMascota4.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         NombreMascota4.setText("Nombre mascota 4");
@@ -178,7 +226,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         ImagenUsuario.setText("Imagen Usuario (el texto se borra)");
         jPanel1.add(ImagenUsuario);
-        ImagenUsuario.setBounds(40, 40, 170, 16);
+        ImagenUsuario.setBounds(40, 40, 170, 14);
 
         ImagenDeFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/dog summer.jpg"))); // NOI18N
         jPanel1.add(ImagenDeFondo);
@@ -274,8 +322,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel NombreMascota4;
     private javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton VeterinarioBoton;
+    private javax.swing.JButton borrarMascota1;
+    private javax.swing.JButton borrarMascota2;
+    private javax.swing.JButton borrarMascota3;
+    private javax.swing.JButton borrarMascota4;
     private javax.swing.JButton calendarioBoton;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton perfilMascota1;
+    private javax.swing.JButton perfilMascota2;
+    private javax.swing.JButton perfilMascota3;
+    private javax.swing.JButton perfilMascota4;
     private javax.swing.JButton perfilSeleccionBoton;
     private javax.swing.JButton registrarMascota;
     // End of variables declaration//GEN-END:variables

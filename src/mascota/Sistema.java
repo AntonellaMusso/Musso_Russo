@@ -79,7 +79,9 @@ public class Sistema {
     }
     
     public void agregoMascotaALista(Mascota mascota) {
+        if (getListaMascotas().size() < 4){
         this.getListaMascotas().add(mascota);
+        }
     }
 
     public void agregoFamiliarALista(Familiar familiar) {
