@@ -29,18 +29,31 @@ public class Veterinaria extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        atrasBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Veterinaria");
+
+        atrasBoton.setText("Atras");
+        atrasBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atrasBotonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(299, 299, 299)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(299, 299, 299)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(atrasBoton)))
                 .addContainerGap(369, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -48,11 +61,19 @@ public class Veterinaria extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(jLabel1)
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 346, Short.MAX_VALUE)
+                .addComponent(atrasBoton)
+                .addGap(30, 30, 30))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void atrasBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasBotonActionPerformed
+        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(sistema);
+        ventanaPrincipal.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_atrasBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,6 +112,7 @@ public class Veterinaria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton atrasBoton;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

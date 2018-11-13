@@ -1,3 +1,5 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -50,6 +52,7 @@ public class AltaMascota extends javax.swing.JFrame {
         pesoLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         textoAreaComentario = new javax.swing.JTextArea();
+        cancelarBoton = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -62,7 +65,7 @@ public class AltaMascota extends javax.swing.JFrame {
         Titulo.setForeground(new java.awt.Color(0, 204, 255));
         Titulo.setText("Registro Mascota");
 
-        BotonRegistrar.setBackground(new java.awt.Color(102, 255, 255));
+        BotonRegistrar.setBackground(new java.awt.Color(255, 255, 255));
         BotonRegistrar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         BotonRegistrar.setForeground(new java.awt.Color(0, 153, 153));
         BotonRegistrar.setText("Registrar");
@@ -124,6 +127,14 @@ public class AltaMascota extends javax.swing.JFrame {
         textoAreaComentario.setRows(5);
         jScrollPane2.setViewportView(textoAreaComentario);
 
+        cancelarBoton.setForeground(new java.awt.Color(204, 0, 0));
+        cancelarBoton.setText("Cancelar");
+        cancelarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarBotonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -136,7 +147,9 @@ public class AltaMascota extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addComponent(Imagen))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(308, 308, 308)
+                        .addGap(69, 69, 69)
+                        .addComponent(cancelarBoton)
+                        .addGap(166, 166, 166)
                         .addComponent(BotonRegistrar))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +217,9 @@ public class AltaMascota extends javax.swing.JFrame {
                             .addComponent(comentariosLabel)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)))
-                .addComponent(BotonRegistrar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonRegistrar)
+                    .addComponent(cancelarBoton))
                 .addGap(32, 32, 32))
         );
 
@@ -222,9 +237,10 @@ public class AltaMascota extends javax.swing.JFrame {
         String comentario = textoAreaComentario.getText();
         ImageIcon imagen = null; // arreglar despues
         Mascota mascota = new Mascota(nombre,altura,peso,comentario,imagen);
-        
-        
-        
+        sistema.agregoMascotaALista(mascota);     
+        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(sistema);
+        ventanaPrincipal.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_BotonRegistrarActionPerformed
 
     private void AlturaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlturaTextActionPerformed
@@ -238,6 +254,12 @@ public class AltaMascota extends javax.swing.JFrame {
     private void AddFotoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddFotoBotonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AddFotoBotonActionPerformed
+
+    private void cancelarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBotonActionPerformed
+       VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(sistema);
+       ventanaPrincipal.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_cancelarBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,6 +306,7 @@ public class AltaMascota extends javax.swing.JFrame {
     private javax.swing.JLabel NombreLabel;
     private javax.swing.JTextField NombreText;
     private javax.swing.JLabel Titulo;
+    private javax.swing.JButton cancelarBoton;
     private javax.swing.JLabel cmLabel;
     private javax.swing.JLabel comentariosLabel;
     private javax.swing.JLabel jLabel3;
@@ -296,3 +319,4 @@ public class AltaMascota extends javax.swing.JFrame {
     private javax.swing.JTextArea textoAreaComentario;
     // End of variables declaration//GEN-END:variables
 }
+

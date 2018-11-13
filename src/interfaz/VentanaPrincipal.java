@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,6 +6,8 @@
  */
 package interfaz;
 
+import mascota.Familiar;
+import mascota.Mascota;
 import mascota.Sistema;
 
 /**
@@ -13,12 +16,44 @@ import mascota.Sistema;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
-   
-    //static Sistema sistema ;
-    private Sistema sistema;
+    static private Sistema sistema;
+    private Familiar username;
+
     public VentanaPrincipal(Sistema modelo) {
         initComponents();
         sistema = modelo;
+        //configuro usuario
+        username = sistema.getUsuarioSeleccionado();
+        UsernameLabel.setText(username.getNombre());
+        ImagenUsuario.setIcon(username.getFoto());
+        //configuro mascota
+        int numeroMascotas = sistema.getListaMascotas().size();
+        //porque se muestran las 4 primeras
+        if (numeroMascotas > 4) {
+            numeroMascotas = 4;
+        }
+
+        switch (numeroMascotas) {
+            case 1:
+                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
+                break;
+            case 2:
+                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
+                NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());
+                break;
+            case 3:
+                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
+                NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());
+                NombreMascota3.setText(sistema.getListaMascotas().get(2).getNombre());
+                break;
+            case 4:
+                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
+                NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());
+                NombreMascota3.setText(sistema.getListaMascotas().get(2).getNombre());
+                NombreMascota4.setText(sistema.getListaMascotas().get(3).getNombre());
+                break;
+        }
+
     }
 
     /**
@@ -40,6 +75,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         NombreMascota4 = new javax.swing.JLabel();
         ImagenMascota4 = new javax.swing.JLabel();
         UsernameLabel = new javax.swing.JLabel();
+        perfilSeleccionBoton = new javax.swing.JButton();
         registrarMascota = new javax.swing.JButton();
         VeterinarioBoton = new javax.swing.JButton();
         calendarioBoton = new javax.swing.JButton();
@@ -92,7 +128,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.add(UsernameLabel);
         UsernameLabel.setBounds(60, 90, 110, 30);
 
-        registrarMascota.setBackground(new java.awt.Color(153, 204, 255));
+        perfilSeleccionBoton.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        perfilSeleccionBoton.setText("Seleccionar Perfil");
+        perfilSeleccionBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                perfilSeleccionBotonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(perfilSeleccionBoton);
+        perfilSeleccionBoton.setBounds(20, 440, 150, 25);
+
+        registrarMascota.setBackground(new java.awt.Color(204, 255, 255));
+        registrarMascota.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         registrarMascota.setForeground(new java.awt.Color(0, 102, 102));
         registrarMascota.setText("Registrar mascota");
         registrarMascota.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +148,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
         jPanel1.add(registrarMascota);
-        registrarMascota.setBounds(550, 440, 130, 23);
+        registrarMascota.setBounds(550, 440, 140, 25);
 
         VeterinarioBoton.setBackground(new java.awt.Color(153, 204, 255));
         VeterinarioBoton.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
@@ -131,7 +178,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         ImagenUsuario.setText("Imagen Usuario (el texto se borra)");
         jPanel1.add(ImagenUsuario);
-        ImagenUsuario.setBounds(40, 40, 170, 14);
+        ImagenUsuario.setBounds(40, 40, 170, 16);
 
         ImagenDeFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/dog summer.jpg"))); // NOI18N
         jPanel1.add(ImagenDeFondo);
@@ -168,10 +215,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_VeterinarioBotonActionPerformed
 
     private void registrarMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarMascotaActionPerformed
-        AltaMascota am = new AltaMascota(sistema);
-        am.setVisible(true);
+        AltaMascota altaMascota = new AltaMascota(sistema);
+        altaMascota.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_registrarMascotaActionPerformed
+
+    private void perfilSeleccionBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfilSeleccionBotonActionPerformed
+        Perfiles perfiles = new Perfiles(sistema);
+        perfiles.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_perfilSeleccionBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,11 +254,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        /*java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaPrincipal(sistema).setVisible(true);
+                //   new VentanaPrincipal(sistema,username).setVisible(true);.
             }
-        });*/
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -223,6 +276,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton VeterinarioBoton;
     private javax.swing.JButton calendarioBoton;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton perfilSeleccionBoton;
     private javax.swing.JButton registrarMascota;
     // End of variables declaration//GEN-END:variables
 }
+

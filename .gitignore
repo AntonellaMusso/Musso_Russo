@@ -2,4 +2,8 @@
 /build/
 nbproject/private/private.xml
 nbproject/private/private.xml
+<<<<<<< Upstream, based on origin/Developer
 nbproject/private/private.xml
+=======
+/dist/
+>>>>>>> 38dd1ef en este commit se avanzo mucho en las interfaces,se creo una ventana nueva que es la selectora de perfil para iniciar la ventana principal. Se configuro el tema de mostrar el nombre del perfil seleccionado asi  como las mascotas regitradas8

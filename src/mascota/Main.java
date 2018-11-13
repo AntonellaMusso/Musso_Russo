@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package mascota;
-import interfaz.VentanaPrincipal;
+import interfaz.Perfiles;
 
 public class Main {
 
@@ -14,8 +14,8 @@ public class Main {
     public static void main(String[] args) {
         
         Sistema sistema = new Sistema();
-        VentanaPrincipal inicio = new VentanaPrincipal(sistema);
-        inicio.setVisible(true);
+        Perfiles seleccion = new Perfiles(sistema);
+        seleccion.setVisible(true);
                
     }
     

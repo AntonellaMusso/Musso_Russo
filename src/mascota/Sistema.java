@@ -1,3 +1,5 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,7 +17,10 @@ import javax.swing.ImageIcon;
  */
 public class Sistema {
 
-    //Atributos
+    
+   
+    //Atributos    
+    private Familiar usuarioSeleccionado; // usuario el cual usara la aplicacion
     private ArrayList<Mascota> listadoMascota;
     private ArrayList<Familiar> listadoFamiliar;
     private ArrayList<Actividad> listadoActividades;
@@ -29,9 +34,25 @@ public class Sistema {
         listadoActividades = new ArrayList<Actividad>();
         listadoAlimento = new ArrayList<Alimento>();
         listadoServicio = new ArrayList<Servicio>();
+        usuarioSeleccionado = null;
+        listadoFamiliar.add(new Familiar("Emiliano",20,63,"blablabla",null)); //borrar luego
     }
 
     //Métodos de acceso
+    public Familiar getUsuarioSeleccionadoPorNombre(String name){
+        Familiar usuario = null;
+        for (int i = 0; i < getListaFamiliares().size(); i++) {
+            if (getListaFamiliares().get(i).getNombre() == name ){
+                usuario = getListaFamiliares().get(i);
+            }
+        }            
+        return usuario; // si es null no se encontro conicidencia
+    }
+  
+    public Familiar getUsuarioSeleccionado() { 
+        return usuarioSeleccionado;
+    }
+    
     public ArrayList<Mascota> getListaMascotas() {
         return listadoMascota;
     }
@@ -52,7 +73,11 @@ public class Sistema {
         return listadoServicio;
     }
 
-    //Agregar listado al sistema    
+    //Agregar listado al sistema   
+    public void setUsuarioSeleccionado(Familiar usuarioSeleccionado) {
+        this.usuarioSeleccionado = usuarioSeleccionado;
+    }
+    
     public void agregoMascotaALista(Mascota mascota) {
         this.getListaMascotas().add(mascota);
     }
@@ -111,26 +136,7 @@ public class Sistema {
     }
 
     //Métodos de modificación de elementos de los listados
-    public boolean modificarMascota(ArrayList<Mascota> listado, String nombre,
-            int altura, int peso, String comentario, ImageIcon foto) {
-        boolean modificar = false;
-        Iterator<Mascota> it = listado.iterator();
-        while (it.hasNext()){
-            Mascota m = it.next();
-            if (!m.getNombre().equalsIgnoreCase(nombre)){
-                modificar = false;
-            } else {
-                m.setPeso(peso);
-                m.setAltura(altura);
-                m.setComentario(comentario);
-                m.setImagen(foto);
-                modificar = true;
-            }
-        }
-    return modificar;
-    }
-    
-    public boolean modificarFamiliar(ArrayList<Familiar> listado, String nombre,
+     public boolean modificarFamiliar(ArrayList<Familiar> listado, String nombre,
             int altura, int peso, String comentario, ImageIcon foto) {
         boolean modificar = false;
         Iterator<Familiar> it = listado.iterator();
@@ -149,3 +155,4 @@ public class Sistema {
     return modificar;
     }
 }
+
