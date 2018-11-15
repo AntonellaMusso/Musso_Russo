@@ -1,5 +1,3 @@
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,8 +15,6 @@ import javax.swing.ImageIcon;
  */
 public class Sistema {
 
-    
-   
     //Atributos    
     private Familiar usuarioSeleccionado; // usuario el cual usara la aplicacion
     private ArrayList<Mascota> listadoMascota;
@@ -26,6 +22,7 @@ public class Sistema {
     private ArrayList<Actividad> listadoActividades;
     private ArrayList<Alimento> listadoAlimento;
     private ArrayList<Servicio> listadoServicio;
+    private ArrayList<String> listadoEventos;
 
     //Constructor
     public Sistema() {
@@ -35,24 +32,28 @@ public class Sistema {
         listadoAlimento = new ArrayList<Alimento>();
         listadoServicio = new ArrayList<Servicio>();
         usuarioSeleccionado = null;
-        listadoFamiliar.add(new Familiar("Emiliano",20,63,"blablabla",null)); //borrar luego
+        listadoFamiliar.add(new Familiar("Emiliano", 20, 63, "blablabla", null)); //borrar luego
     }
 
     //Métodos de acceso
-    public Familiar getUsuarioSeleccionadoPorNombre(String name){
+    public Familiar getUsuarioSeleccionadoPorNombre(String name) {
         Familiar usuario = null;
         for (int i = 0; i < getListaFamiliares().size(); i++) {
-            if (getListaFamiliares().get(i).getNombre() == name ){
+            if (getListaFamiliares().get(i).getNombre() == name) {
                 usuario = getListaFamiliares().get(i);
             }
-        }            
+        }
         return usuario; // si es null no se encontro conicidencia
     }
-  
-    public Familiar getUsuarioSeleccionado() { 
+
+    public ArrayList<String> getListadoEventos() {
+        return listadoEventos;
+    }
+
+    public Familiar getUsuarioSeleccionado() {
         return usuarioSeleccionado;
     }
-    
+
     public ArrayList<Mascota> getListaMascotas() {
         return listadoMascota;
     }
@@ -73,14 +74,18 @@ public class Sistema {
         return listadoServicio;
     }
 
-    //Agregar listado al sistema   
+    //Agregar listado al sistema
+    public void setListadoEventos(ArrayList<String> listadoEventos) {
+        this.listadoEventos = listadoEventos;
+    }
+
     public void setUsuarioSeleccionado(Familiar usuarioSeleccionado) {
         this.usuarioSeleccionado = usuarioSeleccionado;
     }
-    
+
     public void agregoMascotaALista(Mascota mascota) {
-        if (getListaMascotas().size() < 4){
-        this.getListaMascotas().add(mascota);
+        if (getListaMascotas().size() < 4) {
+            this.getListaMascotas().add(mascota);
         }
     }
 
@@ -138,13 +143,13 @@ public class Sistema {
     }
 
     //Métodos de modificación de elementos de los listados
-     public boolean modificarFamiliar(ArrayList<Familiar> listado, String nombre,
+    public boolean modificarFamiliar(ArrayList<Familiar> listado, String nombre,
             int altura, int peso, String comentario, ImageIcon foto) {
         boolean modificar = false;
         Iterator<Familiar> it = listado.iterator();
-        while (it.hasNext()){
+        while (it.hasNext()) {
             Familiar f = it.next();
-            if (!f.getNombre().equalsIgnoreCase(nombre)){
+            if (!f.getNombre().equalsIgnoreCase(nombre)) {
                 modificar = false;
             } else {
                 f.setPeso(peso);
@@ -154,7 +159,6 @@ public class Sistema {
                 modificar = true;
             }
         }
-    return modificar;
+        return modificar;
     }
 }
-
