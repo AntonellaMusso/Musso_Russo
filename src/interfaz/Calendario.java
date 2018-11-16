@@ -32,7 +32,7 @@ public class Calendario extends javax.swing.JFrame {
         atrasBoton = new javax.swing.JButton();
         calendario = new com.toedter.calendar.JCalendar();
         eventoText = new javax.swing.JTextField();
-        agregarEventoBoton = new javax.swing.JButton();
+        agregarActividadBoton = new javax.swing.JButton();
         borrarEventoBoton = new javax.swing.JButton();
         eventosDiaBoton = new javax.swing.JButton();
         refresh = new javax.swing.JButton();
@@ -56,14 +56,19 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
-        agregarEventoBoton.setText("Agregar Evento");
-        agregarEventoBoton.addActionListener(new java.awt.event.ActionListener() {
+        agregarActividadBoton.setText("Agregar Actividad");
+        agregarActividadBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregarEventoBotonActionPerformed(evt);
+                agregarActividadBotonActionPerformed(evt);
             }
         });
 
         borrarEventoBoton.setText("Borrar Eventos");
+        borrarEventoBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarEventoBotonActionPerformed(evt);
+            }
+        });
 
         eventosDiaBoton.setText("Ver eventos del dia");
         eventosDiaBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +77,7 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
-        refresh.setText("Eventos mes");
+        refresh.setText("Eventos del mes");
         refresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshActionPerformed(evt);
@@ -86,25 +91,25 @@ public class Calendario extends javax.swing.JFrame {
 
         paseosBoton.setText("Asignar responsable de paseos");
 
-        eventLabel1.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
+        eventLabel1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         eventLabel1.setText("jLabel1");
 
-        eventLabel2.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
+        eventLabel2.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         eventLabel2.setText("jLabel2");
 
-        eventLabel3.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
+        eventLabel3.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         eventLabel3.setText("jLabel3");
 
-        eventLabel4.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
+        eventLabel4.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         eventLabel4.setText("jLabel4");
 
-        eventLabel5.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
+        eventLabel5.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         eventLabel5.setText("jLabel5");
 
-        eventLabel6.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
+        eventLabel6.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         eventLabel6.setText("jLabel6");
 
-        eventLabel7.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
+        eventLabel7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         eventLabel7.setText("jLabel7");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -122,7 +127,7 @@ public class Calendario extends javax.swing.JFrame {
                                 .addGap(55, 55, 55)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(agregarEventoBoton)
+                                        .addComponent(agregarActividadBoton)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(eventoText, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
@@ -132,8 +137,8 @@ public class Calendario extends javax.swing.JFrame {
                             .addComponent(linea1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
+                        .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
                         .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +182,7 @@ public class Calendario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(eventoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(agregarEventoBoton))
+                    .addComponent(agregarActividadBoton))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
@@ -250,13 +255,14 @@ public class Calendario extends javax.swing.JFrame {
                 + "/" + fecha.charAt(24) + "" + fecha.charAt(25) + fecha.charAt(26) + fecha.charAt(27);
         return aux;
     }
-    private void agregarEventoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarEventoBotonActionPerformed
+    private void agregarActividadBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActividadBotonActionPerformed
         String fecha = calendario.getDate().toString();
         String aux = conversionFecha(fecha);
         sistema.agregarEvento(aux + " " + eventoText.getText());
-        System.out.println("Se agrego: " + aux + " " + eventoText.getText());
+        eventoText.setText("");
+       
 
-    }//GEN-LAST:event_agregarEventoBotonActionPerformed
+    }//GEN-LAST:event_agregarActividadBotonActionPerformed
     void visibilidadEventos(boolean x) {
         eventLabel1.setVisible(x);
         eventLabel2.setVisible(x);
@@ -315,15 +321,19 @@ public class Calendario extends javax.swing.JFrame {
 
             i++;
         }
+        if (n==1)
+        visibilidadEventos(false);
 
 
     }//GEN-LAST:event_eventosDiaBotonActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-        System.out.println("DIAS CON EVENTOS: " + sistema.getDiasConEventosEnMes("11", "2018"));
-        String eventos = sistema.getDiasConEventosEnMes("11", "2018");
-        eventos = eventos.substring(0,eventos.length()-1);
+        String mes = calendario.getDate().toString().substring(4,7);
+        String anio = calendario.getDate().toString().substring(24,28);
+        mes= String.valueOf(conversionMesANumero(mes));      
+        String eventos = sistema.getDiasConEventosEnMes(mes, anio);       
         if (!eventos.isEmpty()) {
+            eventos = eventos.substring(0,eventos.length()-1);
             hayEventosLosDiasLabel.setVisible(true);
             linea1Label.setVisible(true);
             linea1Label.setText(eventos);
@@ -333,6 +343,18 @@ public class Calendario extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_refreshActionPerformed
+
+    private void borrarEventoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarEventoBotonActionPerformed
+       String eventoSeleccioando = calendario.getDate().toString();
+       eventoSeleccioando = conversionFecha(eventoSeleccioando);
+        for (int i = 0; i < sistema.getListadoEventos().size(); i++) {
+            String evento = sistema.getFechaDeEvento(i);
+            if (eventoSeleccioando == evento){
+                sistema.quitarEvento(evento);
+            }          
+        }
+        
+    }//GEN-LAST:event_borrarEventoBotonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -367,7 +389,7 @@ public class Calendario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregarEventoBoton;
+    private javax.swing.JButton agregarActividadBoton;
     private javax.swing.JButton atrasBoton;
     private javax.swing.JButton borrarEventoBoton;
     private com.toedter.calendar.JCalendar calendario;

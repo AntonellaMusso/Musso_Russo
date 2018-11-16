@@ -77,7 +77,7 @@ public class Sistema {
         for (int i = 0; i < listadoEventos.size(); i++) {
             String evento =listadoEventos.get(i);
            if (evento.substring(3,10).equalsIgnoreCase(mes+"/"+Anio)){
-               
+               System.out.println(evento.substring(3,10)+" es igual a esto "+mes+"/"+Anio);
              matris[Integer.parseInt(evento.substring(0,2))]  = true; 
            }                 
         }
@@ -88,6 +88,11 @@ public class Sistema {
         }
        
        return texto;
+    }
+    public void quitarEvento(String evento){
+        for (int i = 0; i < listadoEventos.size(); i++) {
+            //si coincide quitar y reordenar el array
+        }
     }
         
 
