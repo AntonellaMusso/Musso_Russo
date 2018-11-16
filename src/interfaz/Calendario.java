@@ -20,11 +20,7 @@ public class Calendario extends javax.swing.JFrame {
         initComponents();
         sistema = modelo;
         hayEventosLosDiasLabel.setVisible(false);
-        unoAlDiez.setVisible(false);
-        onceAlDiecisiete.setVisible(false);
-        dieciochoAlVeinticuatro.setVisible(false);
-        veinticincoAlTreintayuno.setVisible(false);
-
+        linea1Label.setVisible(false);     
         visibilidadEventos(false);
 
     }
@@ -40,10 +36,7 @@ public class Calendario extends javax.swing.JFrame {
         borrarEventoBoton = new javax.swing.JButton();
         eventosDiaBoton = new javax.swing.JButton();
         refresh = new javax.swing.JButton();
-        unoAlDiez = new javax.swing.JLabel();
-        onceAlDiecisiete = new javax.swing.JLabel();
-        dieciochoAlVeinticuatro = new javax.swing.JLabel();
-        veinticincoAlTreintayuno = new javax.swing.JLabel();
+        linea1Label = new javax.swing.JLabel();
         hayEventosLosDiasLabel = new javax.swing.JLabel();
         paseosBoton = new javax.swing.JButton();
         eventLabel1 = new javax.swing.JLabel();
@@ -79,32 +72,39 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
-        refresh.setText("Refrescar");
+        refresh.setText("Eventos mes");
+        refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshActionPerformed(evt);
+            }
+        });
 
-        unoAlDiez.setText("1,2,3,4,5,6,7,8,9,10");
+        linea1Label.setText("1,2,3,4,5,6,7,8,9,10");
 
-        onceAlDiecisiete.setText("11,12,13,14,15,16,17");
-
-        dieciochoAlVeinticuatro.setText("18,19,20,21,22,23,24");
-
-        veinticincoAlTreintayuno.setText("25,26,27,28,29,30,31");
-
+        hayEventosLosDiasLabel.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         hayEventosLosDiasLabel.setText("Hay eventos los dias");
 
         paseosBoton.setText("Asignar responsable de paseos");
 
+        eventLabel1.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
         eventLabel1.setText("jLabel1");
 
+        eventLabel2.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
         eventLabel2.setText("jLabel2");
 
+        eventLabel3.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
         eventLabel3.setText("jLabel3");
 
+        eventLabel4.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
         eventLabel4.setText("jLabel4");
 
+        eventLabel5.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
         eventLabel5.setText("jLabel5");
 
+        eventLabel6.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
         eventLabel6.setText("jLabel6");
 
+        eventLabel7.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
         eventLabel7.setText("jLabel7");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -112,20 +112,30 @@ public class Calendario extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(refresh)
-                                .addComponent(unoAlDiez, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(onceAlDiecisiete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(dieciochoAlVeinticuatro)
-                            .addComponent(veinticincoAlTreintayuno)
-                            .addComponent(hayEventosLosDiasLabel))
-                        .addGap(83, 83, 83)
-                        .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
+                            .addComponent(hayEventosLosDiasLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(atrasBoton)
+                                .addGap(55, 55, 55)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(agregarEventoBoton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(eventoText, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(borrarEventoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(paseosBoton))))
+                            .addComponent(linea1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(eventosDiaBoton)
                             .addComponent(eventLabel1)
@@ -134,42 +144,17 @@ public class Calendario extends javax.swing.JFrame {
                             .addComponent(eventLabel4)
                             .addComponent(eventLabel5)
                             .addComponent(eventLabel6)
-                            .addComponent(eventLabel7)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(atrasBoton)
-                        .addGap(55, 55, 55)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(agregarEventoBoton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(eventoText, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(borrarEventoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(paseosBoton)))))
+                            .addComponent(eventLabel7))))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(refresh)
-                        .addGap(27, 27, 27)
-                        .addComponent(hayEventosLosDiasLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(unoAlDiez)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(onceAlDiecisiete)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dieciochoAlVeinticuatro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(veinticincoAlTreintayuno))
-                    .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(eventosDiaBoton)
-                        .addGap(27, 27, 27)
+                        .addGap(45, 45, 45)
                         .addComponent(eventLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(eventLabel2)
@@ -182,8 +167,14 @@ public class Calendario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(eventLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(eventLabel7)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                        .addComponent(eventLabel7))
+                    .addComponent(refresh)
+                    .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(hayEventosLosDiasLabel)
+                .addGap(5, 5, 5)
+                .addComponent(linea1Label)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(eventoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(agregarEventoBoton))
@@ -266,8 +257,8 @@ public class Calendario extends javax.swing.JFrame {
         System.out.println("Se agrego: " + aux + " " + eventoText.getText());
 
     }//GEN-LAST:event_agregarEventoBotonActionPerformed
-    void visibilidadEventos (boolean x){
-         eventLabel1.setVisible(x);
+    void visibilidadEventos(boolean x) {
+        eventLabel1.setVisible(x);
         eventLabel2.setVisible(x);
         eventLabel3.setVisible(x);
         eventLabel4.setVisible(x);
@@ -275,15 +266,15 @@ public class Calendario extends javax.swing.JFrame {
         eventLabel6.setVisible(x);
         eventLabel7.setVisible(x);
     }
-    
-    
+
+
     private void eventosDiaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventosDiaBotonActionPerformed
         String fecha = calendario.getDate().toString();
         String aux = conversionFecha(fecha);
         int n = 1;
         int i = 0;
-         visibilidadEventos(false);
-        
+        visibilidadEventos(false);
+
         while (sistema.getListadoEventos().size() > i) {
 
             if (sistema.getFechaDeEvento(i).equalsIgnoreCase(aux)) {
@@ -328,6 +319,21 @@ public class Calendario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_eventosDiaBotonActionPerformed
 
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+        System.out.println("DIAS CON EVENTOS: " + sistema.getDiasConEventosEnMes("11", "2018"));
+        String eventos = sistema.getDiasConEventosEnMes("11", "2018");
+        eventos = eventos.substring(0,eventos.length()-1);
+        if (!eventos.isEmpty()) {
+            hayEventosLosDiasLabel.setVisible(true);
+            linea1Label.setVisible(true);
+            linea1Label.setText(eventos);
+        } else {
+            hayEventosLosDiasLabel.setVisible(false);
+            linea1Label.setVisible(false);
+        
+        }
+    }//GEN-LAST:event_refreshActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -365,7 +371,6 @@ public class Calendario extends javax.swing.JFrame {
     private javax.swing.JButton atrasBoton;
     private javax.swing.JButton borrarEventoBoton;
     private com.toedter.calendar.JCalendar calendario;
-    private javax.swing.JLabel dieciochoAlVeinticuatro;
     private javax.swing.JLabel eventLabel1;
     private javax.swing.JLabel eventLabel2;
     private javax.swing.JLabel eventLabel3;
@@ -376,10 +381,8 @@ public class Calendario extends javax.swing.JFrame {
     private javax.swing.JTextField eventoText;
     private javax.swing.JButton eventosDiaBoton;
     private javax.swing.JLabel hayEventosLosDiasLabel;
-    private javax.swing.JLabel onceAlDiecisiete;
+    private javax.swing.JLabel linea1Label;
     private javax.swing.JButton paseosBoton;
     private javax.swing.JButton refresh;
-    private javax.swing.JLabel unoAlDiez;
-    private javax.swing.JLabel veinticincoAlTreintayuno;
     // End of variables declaration//GEN-END:variables
 }

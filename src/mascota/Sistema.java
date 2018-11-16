@@ -33,7 +33,7 @@ public class Sistema {
         listadoServicio = new ArrayList<Servicio>();
         listadoEventos = new ArrayList();
         usuarioSeleccionado = null;
-        listadoFamiliar.add(new Familiar("Emiliano", 20, 63, "blablabla", null)); //borrar luego
+        listadoFamiliar.add(new Familiar("Emiliano", 20, 65, "estudiante", null)); //borrar luego
     }
 
     //Métodos de acceso
@@ -46,7 +46,6 @@ public class Sistema {
         }
         return usuario; // si es null no se encontro conicidencia
     }
-
     public ArrayList<String> getListadoEventos() {
         return listadoEventos;
     }
@@ -70,6 +69,25 @@ public class Sistema {
             }
         }
         return texto;
+    }
+    public String getDiasConEventosEnMes(String mes,String Anio){
+       String texto = "";
+       boolean matris[] = new boolean[32];       
+       
+        for (int i = 0; i < listadoEventos.size(); i++) {
+            String evento =listadoEventos.get(i);
+           if (evento.substring(3,10).equalsIgnoreCase(mes+"/"+Anio)){
+               
+             matris[Integer.parseInt(evento.substring(0,2))]  = true; 
+           }                 
+        }
+        for (int i = 0; i < matris.length; i++) {
+            if (matris[i]){              
+                texto += String.valueOf(i)+",";
+            }
+        }
+       
+       return texto;
     }
         
 

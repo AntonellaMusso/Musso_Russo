@@ -23,23 +23,37 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="refresh" min="-2" max="-2" attributes="0"/>
-                              <Component id="unoAlDiez" max="32767" attributes="0"/>
-                              <Component id="onceAlDiecisiete" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="dieciochoAlVeinticuatro" min="-2" max="-2" attributes="0"/>
-                          <Component id="veinticincoAlTreintayuno" min="-2" max="-2" attributes="0"/>
                           <Component id="hayEventosLosDiasLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="atrasBoton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="agregarEventoBoton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="eventoText" min="-2" pref="237" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="borrarEventoBoton" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="paseosBoton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Component id="linea1Label" alignment="0" min="-2" pref="564" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                      <Component id="calendario" min="-2" pref="347" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="refresh" min="-2" pref="115" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="calendario" min="-2" pref="400" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="eventosDiaBoton" min="-2" max="-2" attributes="0"/>
                           <Component id="eventLabel1" min="-2" max="-2" attributes="0"/>
@@ -51,22 +65,6 @@
                           <Component id="eventLabel7" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="atrasBoton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="agregarEventoBoton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="eventoText" min="-2" pref="237" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="borrarEventoBoton" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="paseosBoton" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
               </Group>
               <EmptySpace pref="55" max="32767" attributes="0"/>
           </Group>
@@ -75,25 +73,11 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="refresh" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="hayEventosLosDiasLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="unoAlDiez" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="onceAlDiecisiete" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="dieciochoAlVeinticuatro" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="veinticincoAlTreintayuno" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="calendario" min="-2" pref="246" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
                       <Component id="eventosDiaBoton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="eventLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="eventLabel2" min="-2" max="-2" attributes="0"/>
@@ -108,8 +92,14 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="eventLabel7" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="refresh" min="-2" max="-2" attributes="0"/>
+                  <Component id="calendario" min="-2" pref="225" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="85" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <Component id="hayEventosLosDiasLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <Component id="linea1Label" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="63" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="eventoText" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="agregarEventoBoton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -168,31 +158,22 @@
     </Component>
     <Component class="javax.swing.JButton" name="refresh">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Refrescar"/>
+        <Property name="text" type="java.lang.String" value="Eventos mes"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="unoAlDiez">
+    <Component class="javax.swing.JLabel" name="linea1Label">
       <Properties>
         <Property name="text" type="java.lang.String" value="1,2,3,4,5,6,7,8,9,10"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="onceAlDiecisiete">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="11,12,13,14,15,16,17"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="dieciochoAlVeinticuatro">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="18,19,20,21,22,23,24"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="veinticincoAlTreintayuno">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="25,26,27,28,29,30,31"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="hayEventosLosDiasLabel">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="12" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Hay eventos los dias"/>
       </Properties>
     </Component>
@@ -203,36 +184,57 @@
     </Component>
     <Component class="javax.swing.JLabel" name="eventLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="11" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="eventLabel2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="11" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="eventLabel3">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="11" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jLabel3"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="eventLabel4">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="11" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jLabel4"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="eventLabel5">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="11" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jLabel5"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="eventLabel6">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="11" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jLabel6"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="eventLabel7">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="11" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="jLabel7"/>
       </Properties>
     </Component>
