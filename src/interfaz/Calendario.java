@@ -287,8 +287,7 @@ public class Calendario extends javax.swing.JFrame {
         while (sistema.getListadoEventos().size() > i) {
 
             if (sistema.getFechaDeEvento(i).equalsIgnoreCase(aux)) {
-                //son iguales y hay que mostrarlo en un label
-                System.out.println("Se encontro prro");
+                //son iguales y hay que mostrarlo en un label           
                 switch (n) {
                     case 1:
                         eventLabel1.setVisible(true);
