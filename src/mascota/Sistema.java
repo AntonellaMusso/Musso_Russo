@@ -31,6 +31,7 @@ public class Sistema {
         listadoActividades = new ArrayList<Actividad>();
         listadoAlimento = new ArrayList<Alimento>();
         listadoServicio = new ArrayList<Servicio>();
+        listadoEventos = new ArrayList();
         usuarioSeleccionado = null;
         listadoFamiliar.add(new Familiar("Emiliano", 20, 63, "blablabla", null)); //borrar luego
     }
@@ -49,6 +50,28 @@ public class Sistema {
     public ArrayList<String> getListadoEventos() {
         return listadoEventos;
     }
+    public String getFechaDeEvento(int i){
+        String texto = "";
+        if (listadoEventos.size() > i){
+            for (int j = 0; j < 10; j++) {
+                texto += listadoEventos.get(i).charAt(j);
+            }
+        }
+        texto+="";
+        return texto;
+    }
+    public String getEvento(int i){
+        String texto = "";
+        int cont = 11;
+        if (listadoEventos.size() > i){
+            while(cont < listadoEventos.get(i).length()){
+                texto +=listadoEventos.get(i).charAt(cont);
+                cont++;
+            }
+        }
+        return texto;
+    }
+        
 
     public Familiar getUsuarioSeleccionado() {
         return usuarioSeleccionado;
@@ -75,8 +98,8 @@ public class Sistema {
     }
 
     //Agregar listado al sistema
-    public void setListadoEventos(ArrayList<String> listadoEventos) {
-        this.listadoEventos = listadoEventos;
+    public void agregarEvento(String event) {
+        listadoEventos.add(event);
     }
 
     public void setUsuarioSeleccionado(Familiar usuarioSeleccionado) {
