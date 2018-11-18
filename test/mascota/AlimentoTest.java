@@ -123,6 +123,20 @@ public class AlimentoTest {
     }
 
     /**
+     * Test of getEstado method, of class Alimento.
+     */
+    @Test
+    public void testGetEstado() {
+        System.out.println("getEstado");
+        Alimento instance = new Alimento();
+        String expResult = "";
+        String result = instance.getEstado();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
      * Test of setFamiliar method, of class Alimento.
      */
     @Test
@@ -196,6 +210,19 @@ public class AlimentoTest {
         String a = "";
         Alimento instance = new Alimento();
         instance.setAlimento(a);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setEstado method, of class Alimento.
+     */
+    @Test
+    public void testSetEstado() {
+        System.out.println("setEstado");
+        String estado = "";
+        Alimento instance = new Alimento();
+        instance.setEstado(estado);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

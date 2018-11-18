@@ -109,6 +109,20 @@ public class ServicioTest {
     }
 
     /**
+     * Test of getEstado method, of class Servicio.
+     */
+    @Test
+    public void testGetEstado() {
+        System.out.println("getEstado");
+        Servicio instance = new Servicio();
+        String expResult = "";
+        String result = instance.getEstado();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
      * Test of setNombreVeterinario method, of class Servicio.
      */
     @Test
@@ -169,6 +183,19 @@ public class ServicioTest {
         int min = 0;
         Servicio instance = new Servicio();
         instance.setMinutos(min);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setEstado method, of class Servicio.
+     */
+    @Test
+    public void testSetEstado() {
+        System.out.println("setEstado");
+        String estado = "";
+        Servicio instance = new Servicio();
+        instance.setEstado(estado);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

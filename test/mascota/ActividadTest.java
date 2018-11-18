@@ -94,6 +94,20 @@ public class ActividadTest {
     }
 
     /**
+     * Test of getEstado method, of class Actividad.
+     */
+    @Test
+    public void testGetEstado() {
+        System.out.println("getEstado");
+        Actividad instance = new Actividad();
+        String expResult = "";
+        String result = instance.getEstado();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
      * Test of setFamiliar method, of class Actividad.
      */
     @Test
@@ -141,6 +155,19 @@ public class ActividadTest {
         int distancia = 0;
         Actividad instance = new Actividad();
         instance.setDistancia(distancia);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setEstado method, of class Actividad.
+     */
+    @Test
+    public void testSetEstado() {
+        System.out.println("setEstado");
+        String estado = "";
+        Actividad instance = new Actividad();
+        instance.setEstado(estado);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
