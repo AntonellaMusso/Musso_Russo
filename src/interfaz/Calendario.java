@@ -25,10 +25,7 @@ public class Calendario extends javax.swing.JFrame {
         initComponents();
         sistema = modelo;
         hayEventosLosDiasLabel.setVisible(false);
-        linea1Label.setVisible(false);
-        AlimentacionLabel.setVisible(false);
-        paseosLabel.setVisible(false);
-        actividadLabel.setVisible(false);
+        diasLabel.setVisible(false);
 
     }
 
@@ -39,15 +36,11 @@ public class Calendario extends javax.swing.JFrame {
         atrasBoton = new javax.swing.JButton();
         calendario = new com.toedter.calendar.JCalendar();
         eventosDiaBoton = new javax.swing.JButton();
-        linea1Label = new javax.swing.JLabel();
+        diasLabel = new javax.swing.JLabel();
         hayEventosLosDiasLabel = new javax.swing.JLabel();
         actPeriodicaBoton = new javax.swing.JButton();
-        AlimentacionLabel = new javax.swing.JLabel();
-        paseosLabel = new javax.swing.JLabel();
-        actividadLabel = new javax.swing.JLabel();
         actividadRegBoton = new javax.swing.JButton();
         eventosDiaBoton1 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,7 +58,7 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
-        linea1Label.setText("1,2,3,4,5,6,7,8,9,10");
+        diasLabel.setText("[");
 
         hayEventosLosDiasLabel.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         hayEventosLosDiasLabel.setText("Hay eventos los dias");
@@ -76,15 +69,6 @@ public class Calendario extends javax.swing.JFrame {
                 actPeriodicaBotonActionPerformed(evt);
             }
         });
-
-        AlimentacionLabel.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        AlimentacionLabel.setText("Alimentacion");
-
-        paseosLabel.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        paseosLabel.setText("Paseos");
-
-        actividadLabel.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        actividadLabel.setText("Actividad");
 
         actividadRegBoton.setText("Registrar una actividad Realizada");
         actividadRegBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -100,49 +84,35 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("ver  todo listas");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(atrasBoton)
-                        .addGap(92, 92, 92)
-                        .addComponent(actPeriodicaBoton)
-                        .addGap(18, 18, 18)
-                        .addComponent(actividadRegBoton))
+                        .addComponent(hayEventosLosDiasLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(eventosDiaBoton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(hayEventosLosDiasLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(actividadLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(paseosLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(AlimentacionLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(linea1Label, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE))
-                                .addGap(340, 340, 340)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(eventosDiaBoton)
-                            .addComponent(jButton1))))
+                        .addComponent(diasLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(atrasBoton)
+                .addGap(92, 92, 92)
+                .addComponent(actPeriodicaBoton)
+                .addGap(18, 18, 18)
+                .addComponent(actividadRegBoton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(eventosDiaBoton1)
+                .addGap(18, 18, 18)
+                .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addComponent(eventosDiaBoton)
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,16 +125,8 @@ public class Calendario extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addComponent(hayEventosLosDiasLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(linea1Label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AlimentacionLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(paseosLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(actividadLabel)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(diasLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(atrasBoton)
                     .addComponent(actPeriodicaBoton)
@@ -184,12 +146,16 @@ public class Calendario extends javax.swing.JFrame {
 
     private void eventosDiaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventosDiaBotonActionPerformed
         Date fechaSelected = calendario.getDate();
+        MuestraActividadesInterfaz muestra;
+        muestra = new MuestraActividadesInterfaz(sistema, fechaSelected);
+        muestra.setVisible(true);
+        this.setVisible(false);
 
     }//GEN-LAST:event_eventosDiaBotonActionPerformed
 
     private void actPeriodicaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actPeriodicaBotonActionPerformed
-
-        registroActividadPeriodica rg = new registroActividadPeriodica(sistema, calendario.getDate());
+        registroActividadPeriodica rg;
+        rg = new registroActividadPeriodica(sistema, calendario.getDate());
         rg.setVisible(true);
         this.setVisible(false);
 
@@ -198,13 +164,13 @@ public class Calendario extends javax.swing.JFrame {
 
     private void actividadRegBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadRegBotonActionPerformed
         Calendar cal = Calendar.getInstance();
-          RegsitroActividad ra;
+        RegsitroActividad ra;
         if (!sistema.fechasIguales(calendario.getDate(), cal.getTime())) {
             System.out.println("No son iguales");
             Date menorFecha = null;
             menorFecha = sistema.fechaMenor(calendario.getDate(), cal.getTime());
             if (sistema.fechasIguales(menorFecha, calendario.getDate())) {
-               ra = new RegsitroActividad(sistema, calendario.getDate());
+                ra = new RegsitroActividad(sistema, calendario.getDate());
                 ra.setVisible(true);
                 this.setVisible(false);
             } else {
@@ -214,31 +180,45 @@ public class Calendario extends javax.swing.JFrame {
         } else {
             //son el mismo dia asi que se peude
             System.out.println("Son el mismo dia");
-             ra = new RegsitroActividad(sistema, calendario.getDate());
+            ra = new RegsitroActividad(sistema, calendario.getDate());
             ra.setVisible(true);
             this.setVisible(false);
         }
     }//GEN-LAST:event_actividadRegBotonActionPerformed
 
     private void eventosDiaBoton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventosDiaBoton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eventosDiaBoton1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        boolean arrayDias[] = new boolean[32];
         for (int i = 0; i < sistema.getListaActividades().size(); i++) {
-            Actividad act = sistema.getListaActividades().get(i);
-            System.out.println(act.toString());
-        }
-        for (int i = 0; i < sistema.getListaAlimentos().size(); i++) {
-            Alimento a = sistema.getListaAlimentos().get(i);
-        }
+           Actividad act = sistema.getListaActividades().get(i);
+           if (sistema.getMes(act.getFecha()) == (sistema.getMes(calendario.getDate()))
+                   && act.getFecha().getYear() == calendario.getDate().getYear()){
+               arrayDias[act.getFecha().getDate()] = true;
+           }
+        }//termina el recorrido de actividades
+        for (int i = 0; i < sistema.getListadoAlimento().size(); i++) {
+           Alimento al = sistema.getListaAlimentos().get(i);
+           if (sistema.getMes(al.getFecha()) == (sistema.getMes(calendario.getDate()))
+                   && al.getFecha().getYear() == calendario.getDate().getYear()){
+               arrayDias[al.getFecha().getDate()] = true;
+           }
+        }//termina el recorrido de alimentos
         for (int i = 0; i < sistema.getListadoPaseos().size(); i++) {
-            Paseo p = sistema.getListadoPaseos().get(i);
-            System.out.println(p);
+           Paseo paseo = sistema.getListadoPaseos().get(i);
+           if (sistema.getMes(paseo.getFecha()) == (sistema.getMes(calendario.getDate()))
+                   && paseo.getFecha().getYear() == calendario.getDate().getYear()){
+               arrayDias[paseo.getFecha().getDate()] = true;
+           }
+        }//termina el recorrido de Paseos
+        
+        for (int i = 0; i < arrayDias.length; i++) {
+            if (arrayDias[i]){
+                diasLabel.setVisible(true);
+                diasLabel.setText(diasLabel.getText()+" "+i);
+            }
         }
+        diasLabel.setText(diasLabel.getText()+"]");
         
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_eventosDiaBoton1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -273,17 +253,13 @@ public class Calendario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AlimentacionLabel;
     private javax.swing.JButton actPeriodicaBoton;
-    private javax.swing.JLabel actividadLabel;
     private javax.swing.JButton actividadRegBoton;
     private javax.swing.JButton atrasBoton;
     private com.toedter.calendar.JCalendar calendario;
+    private javax.swing.JLabel diasLabel;
     private javax.swing.JButton eventosDiaBoton;
     private javax.swing.JButton eventosDiaBoton1;
     private javax.swing.JLabel hayEventosLosDiasLabel;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel linea1Label;
-    private javax.swing.JLabel paseosLabel;
     // End of variables declaration//GEN-END:variables
 }

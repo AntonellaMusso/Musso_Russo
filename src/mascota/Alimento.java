@@ -82,9 +82,11 @@ public class Alimento {
 
     @Override
     public String toString() {
-        return "Fmiliar a cargo de la alimientació: " + 
+        return "Familiar a cargo alimentar: " + 
                 this.getFamiliar().getNombre() + " alimenta a: " 
-                + this.getMascota().getNombre() + " a la hora: "
-                + this.getFecha() + ", alimenta con: " + this.getAlimento();
+                + this.getMascota().getNombre() + " el dia: "
+                + this.getFecha().getDate()+"/"+this.getFecha().getMonth()+"/"
+                + (this.getFecha().getYear()+1900)+" "
+                + ", alimenta con: " + this.getAlimento();
     }
 }

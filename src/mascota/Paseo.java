@@ -61,7 +61,8 @@ public class Paseo {
     @Override
     public String toString() {
         return "Familiar a cargo del paseo: " + this.getFamiliar().getNombre()
-                + " pasea a: " + this.getMascota().getNombre() + " a la hora: "
-                + this.getFecha();
+                + " pasea a: " + this.getMascota().getNombre() + " el dia: "
+                + this.getFecha().getDate()+"/"+this.getFecha().getMonth()+"/"
+                + (this.getFecha().getYear()+1900);
     }
 }
