@@ -5,18 +5,22 @@
  */
 package mascota;
 
-/**
- *
- * @author usuario
- */
+//estas actividades son cosas que sucedieron (no que estan por suceder)
+import java.util.Date;
+
 public class Actividad {
 
     private Familiar familiar;
     private Mascota mascota;
     private String descripcion;
-    private int distancia; 
-    private String estado; 
+    private Date fecha;
+    private int distancia;
     //Métodos de acceso
+
+    public Date getFecha() {
+        return fecha;
+    }
+
     public Familiar getFamiliar() {
         return familiar;
     }
@@ -32,12 +36,12 @@ public class Actividad {
     public int getDistancia() {
         return distancia;
     }
-    
-    public String getEstado(){
-        return estado;
-    }
 
     //Métodos de modificación 
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
     public void setFamiliar(Familiar familiar) {
         this.familiar = familiar;
     }
@@ -57,40 +61,37 @@ public class Actividad {
             this.distancia = distancia;
         }
     }
-    
-    public void setEstado(String estado){
-        if(estado.equalsIgnoreCase("hecho") || 
-           estado.equalsIgnoreCase("pendiente") || 
-           estado.equalsIgnoreCase("pendiente")){
-            this.setEstado(estado);
-        }
-    }
 
     //Constructor
-    public Actividad(Familiar familiar, Mascota mascota, String descripcion, 
-            int distancia, String estado) {
+    public Actividad(Familiar familiar, Mascota mascota, String descripcion,
+            Date fecha, int distancia) {
         this.setFamiliar(familiar);
         this.setMascota(mascota);
         this.setDescripcion(descripcion);
+        this.setFecha(fecha);
         this.setDistancia(distancia);
-        this.setEstado(estado);
     }
-    
+
     public Actividad() {
         this.setFamiliar(new Familiar());
         this.setMascota(new Mascota());
         this.setDescripcion("Descripción por defecto");
         this.setDistancia(0);
-        this.setEstado("pendiente");
     }
 
     @Override
     public String toString() {
-        return "Actividad realizada: " + this.getDescripcion() + 
-                ", familiar a cargo " + this.getFamiliar().getNombre()+
-                ". Nombre de la mascota: " + this.getMascota().getNombre() + 
-                        ". Estado de la actividad: " + this.getEstado();
-                }
-    
-    
+        if (getDistancia() == 0){
+        return "Actividad realizada: " + this.getDescripcion()
+                + ", familiar a cargo " + this.getFamiliar().getNombre()
+                + ". Nombre de la mascota: " + this.getMascota().getNombre();
+        }else{
+             return "Actividad realizada: " + this.getDescripcion()
+                + ", familiar a cargo " + this.getFamiliar().getNombre()
+                + ", Nombre de la mascota: " + this.getMascota().getNombre()
+                +" , Distancia recorrida; "+this.getDistancia()+ " KM";
+        }
+
+    }
+
 }

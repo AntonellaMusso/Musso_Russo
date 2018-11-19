@@ -6,8 +6,10 @@
 package mascota;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,8 +23,8 @@ public class Sistema {
     private ArrayList<Familiar> listadoFamiliar;
     private ArrayList<Actividad> listadoActividades;
     private ArrayList<Alimento> listadoAlimento;
+    private ArrayList<Paseo> listadoPaseos;
     private ArrayList<Servicio> listadoServicio;
-    private ArrayList<String> listadoEventos;
 
     //Constructor
     public Sistema() {
@@ -31,70 +33,223 @@ public class Sistema {
         listadoActividades = new ArrayList<Actividad>();
         listadoAlimento = new ArrayList<Alimento>();
         listadoServicio = new ArrayList<Servicio>();
-        listadoEventos = new ArrayList();
+        listadoPaseos = new ArrayList();
         usuarioSeleccionado = null;
         listadoFamiliar.add(new Familiar("Emiliano", 20, 65, "estudiante", null)); //borrar luego
+        listadoMascota.add(new Mascota("Firulais", 20, 64, "perro sin raza", null));
+    }
+
+    //Metodos de calendario
+    public Date sumarDiasAFecha(Date fecha, int diasSuma, int limite) {
+        System.out.println("------------------------------------");
+        System.out.println("***");
+        System.out.println("Dia antes de sumar " + fecha.getDate());
+        int dia = fecha.getDate() + diasSuma;
+        System.out.println("Dia despues del sumado " + dia);
+        System.out.println("***");
+        if (dia > limite) {
+            System.out.println("No deberia entrar aca");
+            dia = dia - limite;
+            if (fecha.getMonth() <= 11) {
+                fecha.setMonth(fecha.getMonth() + 1);
+            } else {
+                fecha.setYear(fecha.getYear() + 1);
+                fecha.setMonth(1);
+            }
+        }
+        System.out.println("Vamos a hacer un date con esto");
+        System.out.println("Year: " + fecha.getYear());
+        System.out.println("Month: " + fecha.getMonth());
+        System.out.println("Day: " + dia);
+        System.out.println("****** La hacemos **** ");
+        Date date = new Date(fecha.getYear(), fecha.getMonth(), dia);
+        System.out.println("date a punto de retornar" + date.toString());
+        System.out.println("-------------------------------------");
+        return date;
+    }
+
+    public int conversionMesANumero(String mes) {
+        int mesNumerico = 0;
+        switch (mes) {
+            case "Jan":
+                mesNumerico = 1;
+                break;
+            case "Feb":
+                mesNumerico = 2;
+                break;
+            case "Mar":
+                mesNumerico = 3;
+                break;
+            case "Apr":
+                mesNumerico = 4;
+                break;
+            case "May":
+                mesNumerico = 5;
+                break;
+            case "Jun":
+                mesNumerico = 6;
+                break;
+            case "Jul":
+                mesNumerico = 7;
+                break;
+            case "Aug":
+                mesNumerico = 8;
+                break;
+            case "Sep":
+                mesNumerico = 9;
+                break;
+            case "Oct":
+                mesNumerico = 10;
+                break;
+            case "Nov":
+                mesNumerico = 11;
+                break;
+            case "Dec":
+                mesNumerico = 12;
+                break;
+        }
+
+        return mesNumerico;
+    }
+
+    public int getMes(Date fecha) {
+        int mes = conversionMesANumero(fecha.toString().substring(4, 7));
+        return mes;
+    }
+
+    public int ultimoDiaDelMes(int mes) {
+        int ultimoDia = 0;
+        switch (mes) {
+            case 1:
+                //enero
+                ultimoDia = 31;
+                break;
+            case 2:
+                //febrero
+                ultimoDia = 28;
+                break;
+            case 3:
+                //marzo
+                ultimoDia = 31;
+                break;
+            case 4:
+                //abril
+                ultimoDia = 30;
+                break;
+            case 5:
+                //mayo
+                ultimoDia = 31;
+                break;
+            case 6:
+                //junio
+                ultimoDia = 30;
+                break;
+            case 7:
+                //julio
+                ultimoDia = 31;
+                break;
+            case 8:
+                //agosto
+                ultimoDia = 31;
+                break;
+            case 9:
+                //septiembre
+                ultimoDia = 30;
+                break;
+            case 10:
+                //octubre
+                ultimoDia = 31;
+                break;
+            case 11:
+                //noviembre
+                ultimoDia = 30;
+                break;
+            case 12:
+                //diciembre
+                ultimoDia = 31;
+                break;
+        }
+        return ultimoDia;
+    }
+
+    public Date fechaMenor(Date fecha1, Date fecha2) {
+        if (fecha1.getYear() == fecha2.getYear()) {
+            //anios iguales
+            if (fecha1.getMonth() == fecha2.getMonth()) {
+                //meses iguales
+                if (fecha1.getDate() == fecha2.getDate()) {
+                    //dias iguales, aca no deberia llegar
+                    return fecha1; // retorno cualquiera
+                } else {
+                    // dias diferentes
+                    if (fecha1.getDate() < fecha2.getDate()) {
+                        return fecha1;
+                    } else {
+                        return fecha2;
+                    }
+                }
+            } else {
+                //meses diferentes
+                if (fecha1.getMonth() < fecha2.getMonth()) {
+                    return fecha1;
+                } else {
+                    return fecha2;
+                }
+            }
+        } else {
+            //anios diferentes
+            if (fecha1.getYear() < fecha2.getYear()) {
+                return fecha1;
+            } else {
+                return fecha2;
+            }
+        }
+    }
+
+    public boolean fechasIguales(Date fecha1, Date fecha2) {
+        return fecha1.getYear() == fecha2.getYear()
+                && fecha1.getMonth() == fecha2.getMonth()
+                && fecha1.getDate() == fecha2.getDate();
     }
 
     //Métodos de acceso
+    public ArrayList<Alimento> getListadoAlimento() {
+        return listadoAlimento;
+    }
+
+    public ArrayList<Paseo> getListadoPaseos() {
+        return listadoPaseos;
+    }
+
+    public Mascota getMascotaPorNombre(String mascota) {
+
+        if (mascota != null) {
+            for (int i = 0; i < listadoMascota.size(); i++) {
+                Mascota m = getListaMascotas().get(i);
+                if (m.getNombre().equalsIgnoreCase(mascota)) {
+                    return m;
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay mascota seleccionada");
+        }
+        return null; // si es null no se encontro coincidencia
+    }
+
     public Familiar getUsuarioSeleccionadoPorNombre(String name) {
-        Familiar usuario = null;
-        for (int i = 0; i < getListaFamiliares().size(); i++) {
-            if (getListaFamiliares().get(i).getNombre() == name) {
-                usuario = getListaFamiliares().get(i);
+        if (name != null) {
+            Familiar usuario = null;
+            for (int i = 0; i < getListaFamiliares().size(); i++) {
+                if (getListaFamiliares().get(i).getNombre().equalsIgnoreCase(name)) {
+                    usuario = getListaFamiliares().get(i);
+                }
             }
-        }
-        return usuario; // si es null no se encontro conicidencia
-    }
-    public ArrayList<String> getListadoEventos() {
-        return listadoEventos;
-    }
-    public String getFechaDeEvento(int i){
-        String texto = "";
-        if (listadoEventos.size() > i){
-            for (int j = 0; j < 10; j++) {
-                texto += listadoEventos.get(i).charAt(j);
-            }
-        }
-        texto+="";
-        return texto;
-    }
-    public String getEvento(int i){
-        String texto = "";
-        int cont = 11;
-        if (listadoEventos.size() > i){
-            while(cont < listadoEventos.get(i).length()){
-                texto +=listadoEventos.get(i).charAt(cont);
-                cont++;
-            }
-        }
-        return texto;
-    }
-    public String getDiasConEventosEnMes(String mes,String Anio){
-       String texto = "";
-       boolean matris[] = new boolean[32];       
-       
-        for (int i = 0; i < listadoEventos.size(); i++) {
-            String evento =listadoEventos.get(i);
-           if (evento.substring(3,10).equalsIgnoreCase(mes+"/"+Anio)){
-               System.out.println(evento.substring(3,10)+" es igual a esto "+mes+"/"+Anio);
-             matris[Integer.parseInt(evento.substring(0,2))]  = true; 
-           }                 
-        }
-        for (int i = 0; i < matris.length; i++) {
-            if (matris[i]){              
-                texto += String.valueOf(i)+",";
-            }
-        }
-       
-       return texto;
-    }
-    public void quitarEvento(String evento){
-        for (int i = 0; i < listadoEventos.size(); i++) {
-            //si coincide quitar y reordenar el array
+            return usuario; // si es null no se encontro conicidencia
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay usuario seleccionado");
+            return null;
         }
     }
-        
 
     public Familiar getUsuarioSeleccionado() {
         return usuarioSeleccionado;
@@ -121,8 +276,12 @@ public class Sistema {
     }
 
     //Agregar listado al sistema
-    public void agregarEvento(String event) {
-        listadoEventos.add(event);
+    public void setListadoAlimento(ArrayList<Alimento> listadoAlimento) {
+        this.listadoAlimento = listadoAlimento;
+    }
+
+    public void setListadoPaseos(ArrayList<Paseo> listadoPaseos) {
+        this.listadoPaseos = listadoPaseos;
     }
 
     public void setUsuarioSeleccionado(Familiar usuarioSeleccionado) {

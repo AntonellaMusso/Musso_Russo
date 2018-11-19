@@ -17,9 +17,6 @@ public class Alimento {
     private Familiar familiar;
     private Date fecha;
     private String alimento;
-    private int hora;
-    private int minutos;
-    private String estado;
 
     //Metodos de acceso
     public Familiar getFamiliar() {
@@ -30,14 +27,6 @@ public class Alimento {
         return this.mascota;
     }
 
-    public int getHora() {
-        return this.hora;
-    }
-
-    public int getMinutos() {
-        return this.minutos;
-    }
-
     public Date getFecha() {
         return this.fecha;
     }
@@ -46,9 +35,7 @@ public class Alimento {
         return this.alimento;
     }
     
-    public String getEstado(){
-        return this.estado;
-    }
+ 
 
     //Métodos de modificación
     public void setFamiliar(Familiar fam) {
@@ -57,18 +44,6 @@ public class Alimento {
 
     public void setMascota(Mascota mas) {
         this.mascota = mas;
-    }
-
-    public void setHora(int hor) {
-        if (hor >= 0 && hor <= 23) {
-            this.hora = hor;
-        }
-    }
-
-    public void setMinutos(int min) {
-        if (min >= 0 && min <= 60) {
-            this.minutos = min;
-        }
     }
 
     public void setFecha(Date f) {
@@ -90,21 +65,16 @@ public class Alimento {
     }
     
     //Constructores
-    public Alimento(Familiar unF, Mascota unaM, int unahora, int minuto,
-            Date fech, String alimento, String estado) {
+    public Alimento(Familiar unF, Mascota unaM,Date fech, String alimento) {
         this.setFamiliar(unF);
         this.setMascota(unaM);
-        this.setHora(unahora);
-        this.setMinutos(minuto);
         this.setFecha(fech);
-        this.setEstado(estado);
+        this.setAlimento(alimento);
     }
 
     public Alimento() {
         this.setFamiliar(new Familiar());
         this.setMascota(new Mascota());
-        this.setHora(0);
-        this.setMinutos(0);
         this.setFecha(new java.util.Date());
         this.setAlimento("Alimento por Defecto");
         this.setEstado("pendiente");
@@ -115,8 +85,6 @@ public class Alimento {
         return "Fmiliar a cargo de la alimientació: " + 
                 this.getFamiliar().getNombre() + " alimenta a: " 
                 + this.getMascota().getNombre() + " a la hora: "
-                + this.getHora() + ":" + this.getMinutos() + " el día: " + 
-                this.getFecha() + ", alimenta con: " + this.getAlimento() +
-                ". Estado actual: " + this.getEstado();
+                + this.getFecha() + ", alimenta con: " + this.getAlimento();
     }
 }
