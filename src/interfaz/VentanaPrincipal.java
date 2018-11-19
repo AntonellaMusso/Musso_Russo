@@ -273,7 +273,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         VeterinarioBoton.setBackground(new java.awt.Color(153, 204, 255));
         VeterinarioBoton.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        VeterinarioBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/veterinaria.jpg"))); // NOI18N
+        VeterinarioBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/veterinaria.jpg"))); // NOI18N
         VeterinarioBoton.setMaximumSize(new java.awt.Dimension(10, 10));
         VeterinarioBoton.setMinimumSize(new java.awt.Dimension(5, 5));
         VeterinarioBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -286,7 +286,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         calendarioBoton.setBackground(new java.awt.Color(153, 204, 255));
         calendarioBoton.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        calendarioBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/calendario.jpg"))); // NOI18N
+        calendarioBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calendario.jpg"))); // NOI18N
         calendarioBoton.setMaximumSize(new java.awt.Dimension(10, 10));
         calendarioBoton.setMinimumSize(new java.awt.Dimension(5, 5));
         calendarioBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -301,7 +301,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.add(ImagenUsuario);
         ImagenUsuario.setBounds(40, 40, 170, 14);
 
-        ImagenDeFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/dog summer.jpg"))); // NOI18N
+        ImagenDeFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dog summer.jpg"))); // NOI18N
         jPanel1.add(ImagenDeFondo);
         ImagenDeFondo.setBounds(0, 0, 950, 480);
 

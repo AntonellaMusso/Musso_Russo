@@ -357,7 +357,7 @@
               <Font name="Calibri" size="12" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/veterinaria.jpg"/>
+              <Image iconType="3" name="/imagenes/veterinaria.jpg"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[10, 10]"/>
@@ -384,7 +384,7 @@
               <Font name="Calibri" size="12" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/calendario.jpg"/>
+              <Image iconType="3" name="/imagenes/calendario.jpg"/>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[10, 10]"/>
@@ -415,7 +415,7 @@
         <Component class="javax.swing.JLabel" name="ImagenDeFondo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/dog summer.jpg"/>
+              <Image iconType="3" name="/imagenes/dog summer.jpg"/>
             </Property>
           </Properties>
           <Constraints>
