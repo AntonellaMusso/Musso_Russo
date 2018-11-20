@@ -6,7 +6,11 @@
  */
 package interfaz;
 
+import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import mascota.Actividad;
 import mascota.Familiar;
@@ -21,13 +25,14 @@ public class Mapa extends javax.swing.JFrame {
 
     static private Sistema sistema;
     Actividad act;
-    boolean cord[][] = new boolean[6][6]; // en realidad de 5 y 5
+   ArrayList<String> calles; 
 
     public Mapa(Sistema modelo,Actividad actividad) {
         initComponents();
         sistema = modelo;
-        desactivarCalles();
+        //desactivarCalles();
         act = actividad;
+        calles = new ArrayList();
     }
 
     @SuppressWarnings("unchecked")
@@ -37,31 +42,6 @@ public class Mapa extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         guardarBoton = new javax.swing.JButton();
-        p33 = new javax.swing.JRadioButton();
-        p32 = new javax.swing.JRadioButton();
-        p23 = new javax.swing.JRadioButton();
-        p22 = new javax.swing.JRadioButton();
-        p42 = new javax.swing.JRadioButton();
-        p43 = new javax.swing.JRadioButton();
-        p40 = new javax.swing.JRadioButton();
-        p41 = new javax.swing.JRadioButton();
-        p20 = new javax.swing.JRadioButton();
-        p21 = new javax.swing.JRadioButton();
-        p30 = new javax.swing.JRadioButton();
-        p31 = new javax.swing.JRadioButton();
-        p01 = new javax.swing.JRadioButton();
-        p00 = new javax.swing.JRadioButton();
-        p02 = new javax.swing.JRadioButton();
-        p03 = new javax.swing.JRadioButton();
-        p13 = new javax.swing.JRadioButton();
-        p12 = new javax.swing.JRadioButton();
-        p10 = new javax.swing.JRadioButton();
-        p11 = new javax.swing.JRadioButton();
-        p44 = new javax.swing.JRadioButton();
-        p34 = new javax.swing.JRadioButton();
-        p24 = new javax.swing.JRadioButton();
-        p14 = new javax.swing.JRadioButton();
-        p04 = new javax.swing.JRadioButton();
         c0001 = new javax.swing.JButton();
         c1011 = new javax.swing.JButton();
         c2021 = new javax.swing.JButton();
@@ -139,363 +119,363 @@ public class Mapa extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(580, 0, 140, 480);
 
-        p33.addActionListener(new java.awt.event.ActionListener() {
+        c0001.setBackground(new java.awt.Color(204, 204, 204));
+        c0001.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p33ActionPerformed(evt);
+                c0001ActionPerformed(evt);
             }
         });
-        jPanel1.add(p33);
-        p33.setBounds(420, 110, 20, 21);
-
-        p32.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p32ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p32);
-        p32.setBounds(280, 110, 20, 21);
-
-        p23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p23ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p23);
-        p23.setBounds(420, 230, 20, 21);
-
-        p22.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p22ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p22);
-        p22.setBounds(280, 230, 20, 21);
-
-        p42.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p42ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p42);
-        p42.setBounds(280, 0, 20, 21);
-
-        p43.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p43ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p43);
-        p43.setBounds(420, 0, 20, 21);
-
-        p40.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p40ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p40);
-        p40.setBounds(0, 0, 20, 21);
-
-        p41.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p41ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p41);
-        p41.setBounds(140, 0, 20, 21);
-
-        p20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p20ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p20);
-        p20.setBounds(0, 230, 20, 21);
-
-        p21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p21ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p21);
-        p21.setBounds(140, 230, 20, 21);
-
-        p30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p30ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p30);
-        p30.setBounds(0, 110, 20, 21);
-
-        p31.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p31ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p31);
-        p31.setBounds(140, 110, 20, 21);
-
-        p01.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p01ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p01);
-        p01.setBounds(140, 460, 20, 21);
-
-        p00.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p00ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p00);
-        p00.setBounds(0, 460, 20, 21);
-
-        p02.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p02ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p02);
-        p02.setBounds(280, 460, 20, 21);
-
-        p03.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p03ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p03);
-        p03.setBounds(420, 460, 20, 21);
-
-        p13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p13ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p13);
-        p13.setBounds(420, 340, 20, 21);
-
-        p12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p12ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p12);
-        p12.setBounds(280, 340, 20, 21);
-
-        p10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p10ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p10);
-        p10.setBounds(0, 340, 20, 21);
-
-        p11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p11ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p11);
-        p11.setBounds(140, 340, 20, 21);
-
-        p44.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p44ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p44);
-        p44.setBounds(560, 0, 20, 21);
-
-        p34.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p34ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p34);
-        p34.setBounds(560, 110, 20, 21);
-
-        p24.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p24ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p24);
-        p24.setBounds(560, 230, 20, 21);
-
-        p14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p14ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p14);
-        p14.setBounds(560, 340, 20, 21);
-
-        p04.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                p04ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(p04);
-        p04.setBounds(560, 460, 20, 21);
-
-        c0001.setBackground(new java.awt.Color(255, 153, 51));
         jPanel1.add(c0001);
         c0001.setBounds(30, 460, 100, 20);
 
-        c1011.setBackground(new java.awt.Color(255, 153, 51));
+        c1011.setBackground(new java.awt.Color(204, 204, 204));
+        c1011.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c1011ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c1011);
         c1011.setBounds(30, 340, 100, 20);
 
-        c2021.setBackground(new java.awt.Color(255, 153, 51));
+        c2021.setBackground(new java.awt.Color(204, 204, 204));
+        c2021.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2021ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c2021);
         c2021.setBounds(30, 230, 100, 20);
 
-        c3031.setBackground(new java.awt.Color(255, 153, 51));
+        c3031.setBackground(new java.awt.Color(204, 204, 204));
+        c3031.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3031ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c3031);
         c3031.setBounds(30, 110, 100, 20);
 
-        c4041.setBackground(new java.awt.Color(255, 153, 51));
+        c4041.setBackground(new java.awt.Color(204, 204, 204));
+        c4041.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c4041ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c4041);
         c4041.setBounds(30, 0, 100, 20);
 
-        c0102.setBackground(new java.awt.Color(255, 153, 51));
+        c0102.setBackground(new java.awt.Color(204, 204, 204));
+        c0102.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c0102ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c0102);
         c0102.setBounds(170, 460, 100, 20);
 
-        c1112.setBackground(new java.awt.Color(255, 153, 51));
+        c1112.setBackground(new java.awt.Color(204, 204, 204));
+        c1112.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c1112ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c1112);
         c1112.setBounds(170, 340, 100, 20);
 
-        c2122.setBackground(new java.awt.Color(255, 153, 51));
+        c2122.setBackground(new java.awt.Color(204, 204, 204));
+        c2122.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2122ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c2122);
         c2122.setBounds(170, 230, 100, 20);
 
-        c3132.setBackground(new java.awt.Color(255, 153, 51));
+        c3132.setBackground(new java.awt.Color(204, 204, 204));
+        c3132.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3132ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c3132);
         c3132.setBounds(170, 110, 100, 20);
 
-        c4142.setBackground(new java.awt.Color(255, 153, 51));
+        c4142.setBackground(new java.awt.Color(204, 204, 204));
+        c4142.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c4142ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c4142);
         c4142.setBounds(170, 0, 100, 20);
 
-        c0304.setBackground(new java.awt.Color(255, 153, 51));
+        c0304.setBackground(new java.awt.Color(204, 204, 204));
+        c0304.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c0304ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c0304);
         c0304.setBounds(450, 460, 100, 20);
 
-        c3334.setBackground(new java.awt.Color(255, 153, 51));
+        c3334.setBackground(new java.awt.Color(204, 204, 204));
+        c3334.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3334ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c3334);
         c3334.setBounds(450, 110, 100, 20);
 
-        c1314.setBackground(new java.awt.Color(255, 153, 51));
+        c1314.setBackground(new java.awt.Color(204, 204, 204));
+        c1314.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c1314ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c1314);
         c1314.setBounds(450, 340, 100, 20);
 
-        c2324.setBackground(new java.awt.Color(255, 153, 51));
+        c2324.setBackground(new java.awt.Color(204, 204, 204));
+        c2324.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2324ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c2324);
         c2324.setBounds(450, 230, 100, 20);
 
-        c4344.setBackground(new java.awt.Color(255, 153, 51));
+        c4344.setBackground(new java.awt.Color(204, 204, 204));
+        c4344.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c4344ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c4344);
         c4344.setBounds(450, 0, 100, 20);
 
-        c0203.setBackground(new java.awt.Color(255, 153, 51));
+        c0203.setBackground(new java.awt.Color(204, 204, 204));
+        c0203.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c0203ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c0203);
         c0203.setBounds(310, 460, 100, 20);
 
-        c1213.setBackground(new java.awt.Color(255, 153, 51));
+        c1213.setBackground(new java.awt.Color(204, 204, 204));
+        c1213.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c1213ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c1213);
         c1213.setBounds(310, 340, 100, 20);
 
-        c2223.setBackground(new java.awt.Color(255, 153, 51));
+        c2223.setBackground(new java.awt.Color(204, 204, 204));
+        c2223.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2223ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c2223);
         c2223.setBounds(310, 230, 100, 20);
 
-        c3233.setBackground(new java.awt.Color(255, 153, 51));
+        c3233.setBackground(new java.awt.Color(204, 204, 204));
+        c3233.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3233ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c3233);
         c3233.setBounds(310, 110, 100, 20);
 
-        c4243.setBackground(new java.awt.Color(255, 153, 51));
+        c4243.setBackground(new java.awt.Color(204, 204, 204));
+        c4243.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c4243ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c4243);
         c4243.setBounds(310, 0, 100, 20);
 
-        c0010.setBackground(new java.awt.Color(255, 153, 0));
+        c0010.setBackground(new java.awt.Color(204, 204, 204));
+        c0010.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c0010ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c0010);
         c0010.setBounds(0, 360, 20, 100);
 
-        c1020.setBackground(new java.awt.Color(255, 153, 0));
+        c1020.setBackground(new java.awt.Color(204, 204, 204));
+        c1020.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c1020ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c1020);
         c1020.setBounds(0, 250, 20, 100);
 
-        c2030.setBackground(new java.awt.Color(255, 153, 0));
+        c2030.setBackground(new java.awt.Color(204, 204, 204));
+        c2030.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2030ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c2030);
         c2030.setBounds(0, 130, 20, 100);
 
-        c3040.setBackground(new java.awt.Color(255, 153, 0));
+        c3040.setBackground(new java.awt.Color(204, 204, 204));
+        c3040.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3040ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c3040);
         c3040.setBounds(0, 20, 20, 100);
 
-        c0111.setBackground(new java.awt.Color(255, 153, 0));
+        c0111.setBackground(new java.awt.Color(204, 204, 204));
+        c0111.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c0111ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c0111);
         c0111.setBounds(140, 360, 20, 100);
 
-        c1121.setBackground(new java.awt.Color(255, 153, 0));
+        c1121.setBackground(new java.awt.Color(204, 204, 204));
+        c1121.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c1121ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c1121);
         c1121.setBounds(140, 250, 20, 100);
 
-        c2131.setBackground(new java.awt.Color(255, 153, 0));
+        c2131.setBackground(new java.awt.Color(204, 204, 204));
+        c2131.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2131ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c2131);
         c2131.setBounds(140, 130, 20, 100);
 
-        c3141.setBackground(new java.awt.Color(255, 153, 0));
+        c3141.setBackground(new java.awt.Color(204, 204, 204));
+        c3141.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3141ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c3141);
         c3141.setBounds(140, 20, 20, 100);
 
-        c0212.setBackground(new java.awt.Color(255, 153, 0));
+        c0212.setBackground(new java.awt.Color(204, 204, 204));
+        c0212.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c0212ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c0212);
         c0212.setBounds(280, 360, 20, 100);
 
-        c1222.setBackground(new java.awt.Color(255, 153, 0));
+        c1222.setBackground(new java.awt.Color(204, 204, 204));
+        c1222.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c1222ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c1222);
         c1222.setBounds(280, 250, 20, 100);
 
-        c2232.setBackground(new java.awt.Color(255, 153, 0));
+        c2232.setBackground(new java.awt.Color(204, 204, 204));
+        c2232.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2232ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c2232);
         c2232.setBounds(280, 130, 20, 100);
 
-        c3242.setBackground(new java.awt.Color(255, 153, 0));
+        c3242.setBackground(new java.awt.Color(204, 204, 204));
+        c3242.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3242ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c3242);
         c3242.setBounds(280, 20, 20, 100);
 
-        c0313.setBackground(new java.awt.Color(255, 153, 0));
+        c0313.setBackground(new java.awt.Color(204, 204, 204));
+        c0313.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c0313ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c0313);
         c0313.setBounds(420, 360, 20, 100);
 
-        c1323.setBackground(new java.awt.Color(255, 153, 0));
+        c1323.setBackground(new java.awt.Color(204, 204, 204));
+        c1323.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c1323ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c1323);
         c1323.setBounds(420, 250, 20, 100);
 
-        c2333.setBackground(new java.awt.Color(255, 153, 0));
+        c2333.setBackground(new java.awt.Color(204, 204, 204));
+        c2333.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2333ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c2333);
         c2333.setBounds(420, 130, 20, 100);
 
-        c3343.setBackground(new java.awt.Color(255, 153, 0));
+        c3343.setBackground(new java.awt.Color(204, 204, 204));
+        c3343.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3343ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c3343);
         c3343.setBounds(420, 20, 20, 100);
 
-        c3444.setBackground(new java.awt.Color(255, 153, 0));
+        c3444.setBackground(new java.awt.Color(204, 204, 204));
+        c3444.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c3444ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c3444);
         c3444.setBounds(560, 20, 20, 100);
 
-        c0414.setBackground(new java.awt.Color(255, 153, 0));
+        c0414.setBackground(new java.awt.Color(204, 204, 204));
+        c0414.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c0414ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c0414);
         c0414.setBounds(560, 360, 20, 100);
 
-        c2434.setBackground(new java.awt.Color(255, 153, 0));
+        c2434.setBackground(new java.awt.Color(204, 204, 204));
+        c2434.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c2434ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c2434);
         c2434.setBounds(560, 130, 20, 100);
 
-        c1424.setBackground(new java.awt.Color(255, 153, 0));
+        c1424.setBackground(new java.awt.Color(204, 204, 204));
+        c1424.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c1424ActionPerformed(evt);
+            }
+        });
         jPanel1.add(c1424);
         c1424.setBounds(560, 250, 20, 100);
 
@@ -522,22 +502,12 @@ public class Mapa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBotonActionPerformed
-        //recorremos los 25 puntos
         String cordenadas = "";
-        boolean anterior = false;
-        for (int i = 0; i < 6; i++) {
-            anterior = false;
-            for (int j = 0; j < 6; j++) {
-                if (cord[i][j]){
-                    cordenadas = cordenadas +" "+ i+j;
-                    anterior = true;
-                }else{
-                    if (anterior ==true){
-                        j=7;
-                    }
-                }
-            }
-        }//termina el recorrido de la matriz
+        if (calles.size() != 0){
+        for (int i = 0; i < calles.size(); i++) {
+            cordenadas += " "+calles.get(i);
+        }
+        //-------------
         Actividad actividad;
         Familiar f = act.getFamiliar();
         Mascota m = act.getMascota();
@@ -546,114 +516,17 @@ public class Mapa extends javax.swing.JFrame {
         int distancia = act.getDistancia();
         String cor = cordenadas;
         actividad = new Actividad(f,m,descrip,fecha,distancia,cor);
+        //---------------------------
         sistema.getListaActividades().add(actividad);
         JOptionPane.showMessageDialog(null, "  Paseo registrado ! ");
         Calendario c = new Calendario(sistema);
         c.setVisible(true);
         this.setVisible(false);
+        }else{
+           JOptionPane.showMessageDialog(null, "ninguna callle registrada");
+        }
         
     }//GEN-LAST:event_guardarBotonActionPerformed
-
-    private void p00ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p00ActionPerformed
-       cord[0][0] = !cord[0][0];
-    }//GEN-LAST:event_p00ActionPerformed
-
-    private void p01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p01ActionPerformed
-          cord[0][1] = !cord[0][1];
-    }//GEN-LAST:event_p01ActionPerformed
-
-    private void p02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p02ActionPerformed
-         cord[0][2] = !cord[0][2];
-    }//GEN-LAST:event_p02ActionPerformed
-
-    private void p03ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p03ActionPerformed
-                cord[0][3] = !cord[0][3];
-    }//GEN-LAST:event_p03ActionPerformed
-
-    private void p04ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p04ActionPerformed
-            cord[0][4] = !cord[0][4];
-    }//GEN-LAST:event_p04ActionPerformed
-
-    private void p10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p10ActionPerformed
-           cord[1][0] = !cord[1][0];
-    }//GEN-LAST:event_p10ActionPerformed
-
-    private void p11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p11ActionPerformed
-            cord[1][1] = !cord[1][1];
-    }//GEN-LAST:event_p11ActionPerformed
-
-    private void p12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p12ActionPerformed
-            cord[1][2] = !cord[1][2];
-    }//GEN-LAST:event_p12ActionPerformed
-
-    private void p13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p13ActionPerformed
-          cord[1][3] = !cord[1][3];
-    }//GEN-LAST:event_p13ActionPerformed
-
-    private void p14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p14ActionPerformed
-            cord[1][4] = !cord[1][4];
-    }//GEN-LAST:event_p14ActionPerformed
-
-    private void p20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p20ActionPerformed
-           cord[2][0] = !cord[2][0];
-    }//GEN-LAST:event_p20ActionPerformed
-
-    private void p21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p21ActionPerformed
-            cord[2][1] = !cord[2][1];
-    }//GEN-LAST:event_p21ActionPerformed
-
-    private void p22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p22ActionPerformed
-           cord[2][2] = !cord[2][2];
-    }//GEN-LAST:event_p22ActionPerformed
-
-    private void p23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p23ActionPerformed
-            cord[2][3] = !cord[2][3];
-    }//GEN-LAST:event_p23ActionPerformed
-
-    private void p24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p24ActionPerformed
-            cord[2][4] = !cord[2][4];
-    }//GEN-LAST:event_p24ActionPerformed
-
-    private void p30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p30ActionPerformed
-            cord[3][0] = !cord[3][0];
-    }//GEN-LAST:event_p30ActionPerformed
-
-    private void p31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p31ActionPerformed
-            cord[3][1] = !cord[3][1];
-    }//GEN-LAST:event_p31ActionPerformed
-
-    private void p32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p32ActionPerformed
-            cord[3][2] = !cord[3][2];
-    }//GEN-LAST:event_p32ActionPerformed
-
-    private void p33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p33ActionPerformed
-            cord[3][3] = !cord[3][3];
-    }//GEN-LAST:event_p33ActionPerformed
-
-    private void p34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p34ActionPerformed
-           cord[3][4] = !cord[3][4];
-    }//GEN-LAST:event_p34ActionPerformed
-
-    private void p40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p40ActionPerformed
-           cord[4][0] = !cord[4][0];
-    }//GEN-LAST:event_p40ActionPerformed
-
-    private void p41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p41ActionPerformed
-           cord[4][1] = !cord[4][1];
-    }//GEN-LAST:event_p41ActionPerformed
-
-    private void p42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p42ActionPerformed
-           cord[4][2] = !cord[4][2];
-    }//GEN-LAST:event_p42ActionPerformed
-
-    private void p43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p43ActionPerformed
-            cord[4][3] = !cord[4][3];
-    }//GEN-LAST:event_p43ActionPerformed
-
-    private void p44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_p44ActionPerformed
-           cord[4][4] = !cord[4][4];
-    }//GEN-LAST:event_p44ActionPerformed
-
     void desactivarCalles() {
         //Horizontales
         c0001.setVisible(false);
@@ -699,6 +572,207 @@ public class Mapa extends javax.swing.JFrame {
         c3444.setVisible(false);
 
     }
+    private void c0001ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0001ActionPerformed
+        calles.add("0001");
+        c0001.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c0001ActionPerformed
+
+    private void c0102ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0102ActionPerformed
+        calles.add("0102");
+        c0102.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c0102ActionPerformed
+
+    private void c0203ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0203ActionPerformed
+        calles.add("0203");
+        c0203.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c0203ActionPerformed
+
+    private void c0304ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0304ActionPerformed
+        calles.add("0304");
+        c0304.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c0304ActionPerformed
+
+    private void c0010ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0010ActionPerformed
+        calles.add("0010");
+        c0010.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c0010ActionPerformed
+
+    private void c0111ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0111ActionPerformed
+        calles.add("0111");
+        c0111.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c0111ActionPerformed
+
+    private void c0212ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0212ActionPerformed
+        calles.add("0212");
+        c0212.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c0212ActionPerformed
+
+    private void c0313ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0313ActionPerformed
+        calles.add("0313");
+        c0313.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c0313ActionPerformed
+
+    private void c0414ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0414ActionPerformed
+        calles.add("0414");
+        c0414.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c0414ActionPerformed
+
+    private void c1011ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1011ActionPerformed
+       calles.add("1011");
+       c1011.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c1011ActionPerformed
+
+    private void c1112ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1112ActionPerformed
+        calles.add("1112");
+        c1112.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c1112ActionPerformed
+
+    private void c1213ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1213ActionPerformed
+      calles.add("1213");
+      c1213.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c1213ActionPerformed
+
+    private void c1314ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1314ActionPerformed
+        calles.add("1314");
+        c1314.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c1314ActionPerformed
+
+    private void c1020ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1020ActionPerformed
+        calles.add("1020");
+        c1020.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c1020ActionPerformed
+
+    private void c1121ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1121ActionPerformed
+       calles.add("1121");
+       c1121.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c1121ActionPerformed
+
+    private void c1222ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1222ActionPerformed
+        calles.add("1222");
+         c1222.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c1222ActionPerformed
+
+    private void c1323ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1323ActionPerformed
+      calles.add("1323");
+      c1323.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c1323ActionPerformed
+
+    private void c1424ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1424ActionPerformed
+       calles.add("1424");
+       c1424.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c1424ActionPerformed
+
+    private void c2021ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2021ActionPerformed
+        calles.add("2021");
+        c2021.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c2021ActionPerformed
+
+    private void c2122ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2122ActionPerformed
+        calles.add("2122");
+        c2122.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c2122ActionPerformed
+
+    private void c2223ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2223ActionPerformed
+        calles.add("2223");
+        c2223.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c2223ActionPerformed
+
+    private void c2324ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2324ActionPerformed
+        calles.add("2324");
+        c2324.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c2324ActionPerformed
+
+    private void c2030ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2030ActionPerformed
+      calles.add("2030");
+      c2030.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c2030ActionPerformed
+
+    private void c2131ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2131ActionPerformed
+        calles.add("2131");
+        c2131.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c2131ActionPerformed
+
+    private void c2232ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2232ActionPerformed
+        calles.add("2232");
+        c2232.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c2232ActionPerformed
+
+    private void c2333ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2333ActionPerformed
+       calles.add("2333");
+       c2333.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c2333ActionPerformed
+
+    private void c2434ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2434ActionPerformed
+       calles.add("2434");
+       c2434.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c2434ActionPerformed
+
+    private void c3031ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3031ActionPerformed
+        calles.add("3031");
+        c3031.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c3031ActionPerformed
+
+    private void c3132ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3132ActionPerformed
+       calles.add("3132");
+       c3132.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c3132ActionPerformed
+
+    private void c3233ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3233ActionPerformed
+        calles.add("3233");
+        c3233.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c3233ActionPerformed
+
+    private void c3334ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3334ActionPerformed
+        calles.add("3334");
+        c3334.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c3334ActionPerformed
+
+    private void c3040ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3040ActionPerformed
+        calles.add("3040");
+        c3040.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c3040ActionPerformed
+
+    private void c3141ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3141ActionPerformed
+        calles.add("3141");
+        c3141.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c3141ActionPerformed
+
+    private void c3242ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3242ActionPerformed
+       calles.add("3242");
+       c3242.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c3242ActionPerformed
+
+    private void c3343ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3343ActionPerformed
+        calles.add("3343");
+        c3343.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c3343ActionPerformed
+
+    private void c3444ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3444ActionPerformed
+        calles.add("3444");
+        c3444.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c3444ActionPerformed
+
+    private void c4041ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4041ActionPerformed
+       calles.add("4041");
+       c4041.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c4041ActionPerformed
+
+    private void c4142ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4142ActionPerformed
+        calles.add("4142");
+        c4142.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c4142ActionPerformed
+
+    private void c4243ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4243ActionPerformed
+        calles.add("4243");
+        c4243.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c4243ActionPerformed
+
+    private void c4344ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4344ActionPerformed
+        calles.add("4344");
+        c4344.setBackground(Color.BLUE);
+    }//GEN-LAST:event_c4344ActionPerformed
+
+   
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -778,30 +852,5 @@ public class Mapa extends javax.swing.JFrame {
     private javax.swing.JButton guardarBoton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton p00;
-    private javax.swing.JRadioButton p01;
-    private javax.swing.JRadioButton p02;
-    private javax.swing.JRadioButton p03;
-    private javax.swing.JRadioButton p04;
-    private javax.swing.JRadioButton p10;
-    private javax.swing.JRadioButton p11;
-    private javax.swing.JRadioButton p12;
-    private javax.swing.JRadioButton p13;
-    private javax.swing.JRadioButton p14;
-    private javax.swing.JRadioButton p20;
-    private javax.swing.JRadioButton p21;
-    private javax.swing.JRadioButton p22;
-    private javax.swing.JRadioButton p23;
-    private javax.swing.JRadioButton p24;
-    private javax.swing.JRadioButton p30;
-    private javax.swing.JRadioButton p31;
-    private javax.swing.JRadioButton p32;
-    private javax.swing.JRadioButton p33;
-    private javax.swing.JRadioButton p34;
-    private javax.swing.JRadioButton p40;
-    private javax.swing.JRadioButton p41;
-    private javax.swing.JRadioButton p42;
-    private javax.swing.JRadioButton p43;
-    private javax.swing.JRadioButton p44;
     // End of variables declaration//GEN-END:variables
 }

@@ -83,21 +83,12 @@ public class MapaMuestra extends javax.swing.JFrame {
     }
     
    void inicializarCalles(String cordenadas){
-       int hasta = (cordenadas.length()/3)-1;
-       int inicio =1;
-       int fin = 3;
-       for (int i = 0; i < hasta; i++) {
-           String pun1 = cordenadas.substring(inicio, fin);
-           String pun2 = cordenadas.substring(inicio+3, fin+3);
-           String key = pun1+pun2;
-           System.out.println("calle a revelar: "+key);    
-           if (calles.containsKey(key)){
-           calles.get(key).setVisible(true);
-           }
-           inicio = inicio+3;
-           fin = fin+3;
+       cordenadas = cordenadas.substring(1); // acomodamos el espacio que habia
+      String listaCalles[] = cordenadas.split(" ");
+      
+       for (int i = 0; i < listaCalles.length; i++) {
+           calles.get(listaCalles[i]).setVisible(true);
        }
-       
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -105,6 +96,7 @@ public class MapaMuestra extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         c0001 = new javax.swing.JButton();
         c1011 = new javax.swing.JButton();
         c2021 = new javax.swing.JButton();
@@ -152,15 +144,30 @@ public class MapaMuestra extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setLayout(null);
 
+        jButton1.setBackground(new java.awt.Color(0, 51, 51));
+        jButton1.setForeground(new java.awt.Color(255, 102, 0));
+        jButton1.setText("Ok");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(28, 28, 28))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(428, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(29, 29, 29))
         );
 
         jPanel1.add(jPanel2);
@@ -348,6 +355,10 @@ public class MapaMuestra extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     
     void desactivarCalles() {
         //Horizontales
@@ -472,6 +483,7 @@ public class MapaMuestra extends javax.swing.JFrame {
     private javax.swing.JButton c4142;
     private javax.swing.JButton c4243;
     private javax.swing.JButton c4344;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
