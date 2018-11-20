@@ -25,6 +25,7 @@ public class Sistema {
     private ArrayList<Alimento> listadoAlimento;
     private ArrayList<Paseo> listadoPaseos;
     private ArrayList<Servicio> listadoServicio;
+    private ArrayList<String> cordenadasMapa;
 
     //Constructor
     public Sistema() {
@@ -35,9 +36,15 @@ public class Sistema {
         listadoServicio = new ArrayList<Servicio>();
         listadoPaseos = new ArrayList();
         usuarioSeleccionado = null;
+        cordenadasMapa = new ArrayList();
         listadoFamiliar.add(new Familiar("Emiliano", 20, 65, "estudiante", null)); //borrar luego
         listadoMascota.add(new Mascota("Firulais", 20, 64, "perro sin raza", null));
+        
     }
+
+   
+
+  
 
     //Metodos de calendario
     public Date sumarDiasAFecha(Date fecha, int diasSuma, int limite) {
@@ -213,6 +220,10 @@ public class Sistema {
     }
 
     //Métodos de acceso
+     public ArrayList<String> getCordenadasMapa() {
+        return cordenadasMapa;
+    }
+    
     public ArrayList<Alimento> getListadoAlimento() {
         return listadoAlimento;
     }
@@ -276,6 +287,10 @@ public class Sistema {
     }
 
     //Agregar listado al sistema
+      public void agregarCordenada(String cord) {
+        getCordenadasMapa().add(cord);
+    }
+    
     public void setListadoAlimento(ArrayList<Alimento> listadoAlimento) {
         this.listadoAlimento = listadoAlimento;
     }

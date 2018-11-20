@@ -29,7 +29,7 @@ public class RegsitroActividad extends javax.swing.JFrame {
         sistema = modelo;
         fecha = date;
         //--------------------
-         //para rellenar lista familiares
+        //para rellenar lista familiares
         String[] selections = new String[sistema.getListaFamiliares().size()];
         for (int i = 0; i < sistema.getListaFamiliares().size(); i++) {
             selections[i] = sistema.getListaFamiliares().get(i).getNombre();
@@ -42,7 +42,7 @@ public class RegsitroActividad extends javax.swing.JFrame {
         }
         mascotaLista.setListData(selecciones);
         //--------------
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -205,25 +205,31 @@ public class RegsitroActividad extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void registrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarBotonActionPerformed
-       Actividad act ;
-       Familiar fam = sistema.getUsuarioSeleccionadoPorNombre(listaFamiliares.getSelectedValue()); 
-       Mascota masc = sistema.getMascotaPorNombre(mascotaLista.getSelectedValue()); 
-       String des = descripcionText.getText();  
-       
-       if (fam != null && masc != null){
-        if (esPaseo) {
-            int distancia = Integer.parseInt(distanciaText.getText());
-           act = new Actividad(fam,masc,des,fecha,distancia);           
+        Actividad act;
+        Familiar fam = sistema.getUsuarioSeleccionadoPorNombre(listaFamiliares.getSelectedValue());
+        Mascota masc = sistema.getMascotaPorNombre(mascotaLista.getSelectedValue());
+        String des = descripcionText.getText();
+
+        if (fam != null && masc != null) {
+            if (esPaseo) {
+                int distancia = Integer.parseInt(distanciaText.getText());
+                //se crea para para ahorrar pasar tantos parametros
+                act = new Actividad(fam, masc, des, fecha, distancia,null);               
+                Mapa mapa = new Mapa(sistema,act);
+                mapa.setVisible(true);
+                this.setVisible(false);
+            } else {
+                act = new Actividad(fam, masc, des, fecha, 0,null);
+                sistema.agregoActividadALista(act);
+                Calendario c = new Calendario(sistema);
+                c.setVisible(true);
+                this.setVisible(false);
+            }
+            
+
         } else {
-            act = new Actividad(fam,masc,des,fecha,0);
+            JOptionPane.showMessageDialog(null, "Familiar o Mascota no sin seleccionar");
         }
-        sistema.agregoActividadALista(act);
-        Calendario c = new Calendario(sistema);
-        c.setVisible(true);
-        this.setVisible(false);       
-       }else{
-          
-       }
     }//GEN-LAST:event_registrarBotonActionPerformed
 
     /**

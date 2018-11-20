@@ -15,7 +15,12 @@ public class Actividad {
     private String descripcion;
     private Date fecha;
     private int distancia;
+    private String cordenadasDePaseo;
     //Métodos de acceso
+
+    public String getCordenadasDePaseo() {
+        return cordenadasDePaseo;
+    }
 
     public Date getFecha() {
         return fecha;
@@ -38,6 +43,12 @@ public class Actividad {
     }
 
     //Métodos de modificación 
+
+    public void setCordenadasDePaseo(String cordenadasDePaseo) {
+        this.cordenadasDePaseo = cordenadasDePaseo;
+    }
+    
+    
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
@@ -64,12 +75,13 @@ public class Actividad {
 
     //Constructor
     public Actividad(Familiar familiar, Mascota mascota, String descripcion,
-            Date fecha, int distancia) {
+            Date fecha, int distancia,String cordenadas) {
         this.setFamiliar(familiar);
         this.setMascota(mascota);
         this.setDescripcion(descripcion);
         this.setFecha(fecha);
         this.setDistancia(distancia);
+        this.setCordenadasDePaseo(cordenadas);
     }
 
     public Actividad() {
