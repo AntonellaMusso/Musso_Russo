@@ -10,6 +10,7 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
 
     Date fecha;
     Sistema sistema;
+    Actividad actividad[] = new Actividad[8];
 
     public MuestraActividadesInterfaz(Sistema modelo, Date date) {
         initComponents();
@@ -23,8 +24,15 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
         linea5.setVisible(false);
         linea6.setVisible(false);
         linea7.setVisible(false);
+        m1.setVisible(false);
+        m2.setVisible(false);
+        m3.setVisible(false);
+        m4.setVisible(false);
+        m5.setVisible(false);
+        m6.setVisible(false);
+        m7.setVisible(false);
 
-        jLabel1.setText("Estas son las actividades del dia: " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + (date.getYear()+1900));
+        jLabel1.setText("Estas son las actividades del dia: " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + (date.getYear() + 1900));
         //vamos con actividades
         for (int i = 0; i < sistema.getListaActividades().size(); i++) {
             Actividad act;
@@ -36,36 +44,64 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
                         linea1.setText(act.toString());
                         contador++;
                         linea1.setVisible(true);
+                        if (act.getCordenadasDePaseo() != null) {
+                            m1.setVisible(true);
+                            actividad[1] = act;
+                        }
                         break;
                     case 2:
                         linea2.setText(act.toString());
                         contador++;
                         linea2.setVisible(true);
+                        if (act.getCordenadasDePaseo() != null) {
+                            m2.setVisible(true);
+                            actividad[2] = act;
+                        }
                         break;
                     case 3:
                         linea3.setText(act.toString());
                         contador++;
                         linea3.setVisible(true);
+                        if (act.getCordenadasDePaseo() != null) {
+                            m3.setVisible(true);
+                            actividad[3] = act;
+                        }
                         break;
                     case 4:
                         linea4.setText(act.toString());
                         contador++;
                         linea4.setVisible(true);
+                        if (act.getCordenadasDePaseo() != null) {
+                            m4.setVisible(true);
+                            actividad[4] = act;
+                        }
                         break;
                     case 5:
                         linea5.setText(act.toString());
                         contador++;
                         linea5.setVisible(true);
+                        if (act.getCordenadasDePaseo() != null) {
+                            m5.setVisible(true);
+                            actividad[5] = act;
+                        }
                         break;
                     case 6:
                         linea6.setText(act.toString());
                         contador++;
                         linea6.setVisible(true);
+                        if (act.getCordenadasDePaseo() != null) {
+                            m6.setVisible(true);
+                            actividad[6] = act;
+                        }
                         break;
                     case 7:
                         linea7.setText(act.toString());
                         contador++;
                         linea7.setVisible(true);
+                        if (act.getCordenadasDePaseo() != null) {
+                            m7.setVisible(true);
+                            actividad[7] = act;
+                        }
                         break;
                 }
 
@@ -74,17 +110,16 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
         //vamos con el resto
         for (int i = 0; i < sistema.getListaAlimentos().size(); i++) {
             Alimento a = sistema.getListaAlimentos().get(i);
-            if (sistema.fechasIguales(a.getFecha(), fecha)){
+            if (sistema.fechasIguales(a.getFecha(), fecha)) {
                 alimento.setText(a.toString());
             }
         }
         for (int i = 0; i < sistema.getListadoPaseos().size(); i++) {
             Paseo p = sistema.getListadoPaseos().get(i);
-            if (sistema.fechasIguales(p.getFecha(), fecha)){
+            if (sistema.fechasIguales(p.getFecha(), fecha)) {
                 paseo.setText(p.toString());
             }
         }
-        
 
     }
 
@@ -92,7 +127,7 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        ok = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         linea1 = new javax.swing.JLabel();
         linea2 = new javax.swing.JLabel();
@@ -105,15 +140,22 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
         alimento = new javax.swing.JLabel();
         paseo = new javax.swing.JLabel();
         titulo2 = new javax.swing.JLabel();
+        m7 = new javax.swing.JButton();
+        m6 = new javax.swing.JButton();
+        m5 = new javax.swing.JButton();
+        m4 = new javax.swing.JButton();
+        m3 = new javax.swing.JButton();
+        m2 = new javax.swing.JButton();
+        m1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setBackground(new java.awt.Color(153, 255, 153));
-        jButton1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        jButton1.setText("Ok");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ok.setBackground(new java.awt.Color(153, 255, 153));
+        ok.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        ok.setText("Ok");
+        ok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                okActionPerformed(evt);
             }
         });
 
@@ -153,31 +195,61 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
         titulo2.setForeground(new java.awt.Color(255, 102, 51));
         titulo2.setText("Actividades fijadas para hoy");
 
+        m7.setText("Mapa");
+        m7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m7ActionPerformed(evt);
+            }
+        });
+
+        m6.setText("Mapa");
+        m6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m6ActionPerformed(evt);
+            }
+        });
+
+        m5.setText("Mapa");
+        m5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m5ActionPerformed(evt);
+            }
+        });
+
+        m4.setText("Mapa");
+        m4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m4ActionPerformed(evt);
+            }
+        });
+
+        m3.setText("Mapa");
+        m3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m3ActionPerformed(evt);
+            }
+        });
+
+        m2.setText("Mapa");
+        m2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m2ActionPerformed(evt);
+            }
+        });
+
+        m1.setText("Mapa");
+        m1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                m1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(314, 314, 314)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(linea3)
-                            .addComponent(linea4)
-                            .addComponent(linea5)
-                            .addComponent(linea6)
-                            .addComponent(linea7)
-                            .addComponent(linea2)
-                            .addComponent(linea1))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 20, Short.MAX_VALUE)
+                .addGap(0, 80, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -185,31 +257,85 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(paseo)
                             .addComponent(alimento))))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(217, 217, 217)
-                .addComponent(titulo2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(linea7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(m7))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(284, 284, 284)
+                                .addComponent(ok))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(187, 187, 187)
+                                .addComponent(titulo2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(135, 135, 135)
+                                .addComponent(jLabel1)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(linea6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(m6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(linea5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(m5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(linea4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(m4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(linea3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(m3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(linea2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(m2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(linea1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(m1)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(24, 24, 24)
-                .addComponent(linea1)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(linea1)
+                    .addComponent(m1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(linea2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(linea2)
+                    .addComponent(m2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(linea3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(linea3)
+                    .addComponent(m3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(linea4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(linea4)
+                    .addComponent(m4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(linea5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(linea5)
+                    .addComponent(m5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(linea6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(linea6)
+                    .addComponent(m6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(linea7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(linea7)
+                    .addComponent(m7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -218,24 +344,65 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
                 .addComponent(alimento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(paseo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addComponent(ok)
                 .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         Calendario c = new Calendario(sistema);
         c.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_okActionPerformed
+
+    private void m1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m1ActionPerformed
+        MapaMuestra mp;
+        mp = new MapaMuestra(sistema, actividad[1].getCordenadasDePaseo());
+        mp.setVisible(true);
+    }//GEN-LAST:event_m1ActionPerformed
+
+    private void m2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m2ActionPerformed
+        MapaMuestra mp;
+        mp = new MapaMuestra(sistema, actividad[2].getCordenadasDePaseo());
+        mp.setVisible(true);
+    }//GEN-LAST:event_m2ActionPerformed
+
+    private void m3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m3ActionPerformed
+        MapaMuestra mp;
+        mp = new MapaMuestra(sistema, actividad[3].getCordenadasDePaseo());
+        mp.setVisible(true);
+    }//GEN-LAST:event_m3ActionPerformed
+
+    private void m4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m4ActionPerformed
+        MapaMuestra mp;
+        mp = new MapaMuestra(sistema, actividad[4].getCordenadasDePaseo());
+        mp.setVisible(true);
+    }//GEN-LAST:event_m4ActionPerformed
+
+    private void m5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m5ActionPerformed
+        MapaMuestra mp;
+        mp = new MapaMuestra(sistema, actividad[5].getCordenadasDePaseo());
+        mp.setVisible(true);
+    }//GEN-LAST:event_m5ActionPerformed
+
+    private void m6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m6ActionPerformed
+        MapaMuestra mp;
+        mp = new MapaMuestra(sistema, actividad[6].getCordenadasDePaseo());
+        mp.setVisible(true);
+    }//GEN-LAST:event_m6ActionPerformed
+
+    private void m7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m7ActionPerformed
+        MapaMuestra mp;
+        mp = new MapaMuestra(sistema, actividad[7].getCordenadasDePaseo());
+        mp.setVisible(true);
+    }//GEN-LAST:event_m7ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel alimento;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel linea1;
@@ -245,6 +412,14 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel linea5;
     private javax.swing.JLabel linea6;
     private javax.swing.JLabel linea7;
+    private javax.swing.JButton m1;
+    private javax.swing.JButton m2;
+    private javax.swing.JButton m3;
+    private javax.swing.JButton m4;
+    private javax.swing.JButton m5;
+    private javax.swing.JButton m6;
+    private javax.swing.JButton m7;
+    private javax.swing.JButton ok;
     private javax.swing.JLabel paseo;
     private javax.swing.JLabel titulo2;
     // End of variables declaration//GEN-END:variables

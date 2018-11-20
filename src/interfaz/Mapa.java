@@ -524,10 +524,17 @@ public class Mapa extends javax.swing.JFrame {
     private void guardarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBotonActionPerformed
         //recorremos los 25 puntos
         String cordenadas = "";
+        boolean anterior = false;
         for (int i = 0; i < 6; i++) {
+            anterior = false;
             for (int j = 0; j < 6; j++) {
                 if (cord[i][j]){
                     cordenadas = cordenadas +" "+ i+j;
+                    anterior = true;
+                }else{
+                    if (anterior ==true){
+                        j=7;
+                    }
                 }
             }
         }//termina el recorrido de la matriz
@@ -540,7 +547,7 @@ public class Mapa extends javax.swing.JFrame {
         String cor = cordenadas;
         actividad = new Actividad(f,m,descrip,fecha,distancia,cor);
         sistema.getListaActividades().add(actividad);
-        JOptionPane.showMessageDialog(null, "Paseo registrado!");
+        JOptionPane.showMessageDialog(null, "  Paseo registrado ! ");
         Calendario c = new Calendario(sistema);
         c.setVisible(true);
         this.setVisible(false);
