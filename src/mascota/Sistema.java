@@ -220,6 +220,16 @@ public class Sistema {
     }
 
     //Métodos de acceso
+    public void borrarActividadPorNombre(String actividad){
+        for (int i = 0; i < getListaActividades().size(); i++) {
+            Actividad a = getListaActividades().get(i);
+            if (a.getDescripcion().equalsIgnoreCase(actividad)){
+                System.out.println("Borramos actividad");
+                getListaActividades().remove(a);
+            }
+        }
+    }
+    
      public ArrayList<String> getCordenadasMapa() {
         return cordenadasMapa;
     }

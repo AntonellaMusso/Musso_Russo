@@ -127,7 +127,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ImagenMascota4 = new javax.swing.JLabel();
         UsernameLabel = new javax.swing.JLabel();
         PanelSostieneInfo = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         perfilSeleccionBoton = new javax.swing.JButton();
         registrarMascota = new javax.swing.JButton();
         VeterinarioBoton = new javax.swing.JButton();
@@ -244,10 +243,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(PanelSostieneInfo);
         PanelSostieneInfo.setBounds(60, 260, 610, 110);
-
-        jButton1.setText("Registrar Paseo");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(570, 100, 130, 30);
 
         perfilSeleccionBoton.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         perfilSeleccionBoton.setText("Seleccionar Perfil");
@@ -405,7 +400,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel comentarioLabel2;
     private javax.swing.JLabel comentarioLabel3;
     private javax.swing.JLabel comentarioLabel4;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton perfilSeleccionBoton;
     private javax.swing.JLabel pesoLabel1;

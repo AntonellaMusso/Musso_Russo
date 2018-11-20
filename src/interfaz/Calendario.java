@@ -29,6 +29,8 @@ public class Calendario extends javax.swing.JFrame {
 
     }
 
+    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -41,6 +43,7 @@ public class Calendario extends javax.swing.JFrame {
         actPeriodicaBoton = new javax.swing.JButton();
         actividadRegBoton = new javax.swing.JButton();
         eventosDiaBoton1 = new javax.swing.JButton();
+        borrarActividad = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,6 +87,13 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
+        borrarActividad.setText("Borrar una actividad");
+        borrarActividad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarActividadActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,8 +112,10 @@ public class Calendario extends javax.swing.JFrame {
                 .addComponent(atrasBoton)
                 .addGap(92, 92, 92)
                 .addComponent(actPeriodicaBoton)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(actividadRegBoton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(borrarActividad)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
@@ -130,7 +142,8 @@ public class Calendario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(atrasBoton)
                     .addComponent(actPeriodicaBoton)
-                    .addComponent(actividadRegBoton))
+                    .addComponent(actividadRegBoton)
+                    .addComponent(borrarActividad))
                 .addContainerGap())
         );
 
@@ -220,6 +233,12 @@ public class Calendario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_eventosDiaBoton1ActionPerformed
 
+    private void borrarActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActividadActionPerformed
+        BorrarActividad ba = new BorrarActividad(sistema, calendario.getDate());
+        ba.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_borrarActividadActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -256,6 +275,7 @@ public class Calendario extends javax.swing.JFrame {
     private javax.swing.JButton actPeriodicaBoton;
     private javax.swing.JButton actividadRegBoton;
     private javax.swing.JButton atrasBoton;
+    private javax.swing.JButton borrarActividad;
     private com.toedter.calendar.JCalendar calendario;
     private javax.swing.JLabel diasLabel;
     private javax.swing.JButton eventosDiaBoton;
