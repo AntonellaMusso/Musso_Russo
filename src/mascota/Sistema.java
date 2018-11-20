@@ -38,7 +38,7 @@ public class Sistema {
         usuarioSeleccionado = null;
         cordenadasMapa = new ArrayList();
         listadoFamiliar.add(new Familiar("Emiliano", 20, 65, "estudiante", null)); //borrar luego
-        listadoMascota.add(new Mascota("Firulais", 20, 64, "perro sin raza", null));
+        listadoMascota.add(new Mascota("Firulais", 5, 25, "perro sin raza", null));
         
     }
 
@@ -220,6 +220,8 @@ public class Sistema {
     }
 
     //Métodos de acceso
+    
+    
     public void borrarActividadPorNombre(String actividad){
         for (int i = 0; i < getListaActividades().size(); i++) {
             Actividad a = getListaActividades().get(i);

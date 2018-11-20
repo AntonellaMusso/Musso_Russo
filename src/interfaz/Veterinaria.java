@@ -5,6 +5,11 @@
  */
 package interfaz;
 
+import static interfaz.Perfiles.sistema;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import mascota.Mascota;
+import mascota.Servicio;
 import mascota.Sistema;
 
 /**
@@ -14,10 +19,19 @@ import mascota.Sistema;
 public class Veterinaria extends javax.swing.JFrame {
 
     static Sistema sistema;
-    public Veterinaria(Sistema modelo) {
+    Date fecha;
+    public Veterinaria(Sistema modelo,Date date) {
         initComponents();
         sistema = modelo;
+          String[] selections = new String[sistema.getListaMascotas().size()];
+        for (int i = 0; i < sistema.getListaMascotas().size(); i++) {
+            selections[i] = sistema.getListaMascotas().get(i).getNombre();
+        }
+        listaMascotas.setListData(selections);
+        fecha = date;
     }
+
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,10 +44,19 @@ public class Veterinaria extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         atrasBoton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaMascotas = new javax.swing.JList<>();
+        jLabel2 = new javax.swing.JLabel();
+        registrarBoton = new javax.swing.JButton();
+        nameBox = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        servicioBox = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Veterinaria");
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel1.setText("Lista Mascotas");
 
         atrasBoton.setText("Atras");
         atrasBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -42,6 +65,30 @@ public class Veterinaria extends javax.swing.JFrame {
             }
         });
 
+        listaMascotas.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        listaMascotas.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(listaMascotas);
+
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel2.setText("Registro de Servicio");
+
+        registrarBoton.setText("Registrar");
+        registrarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarBotonActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel3.setText("Nombre Veterinario");
+
+        jLabel4.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jLabel4.setText("Servicio");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -49,21 +96,66 @@ public class Veterinaria extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(299, 299, 299)
-                        .addComponent(jLabel1))
+                        .addGap(30, 30, 30)
+                        .addComponent(atrasBoton)
+                        .addGap(219, 219, 219)
+                        .addComponent(registrarBoton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(atrasBoton)))
-                .addContainerGap(369, Short.MAX_VALUE))
+                        .addGap(76, 76, 76)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(servicioBox, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(71, 71, 71))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(254, 254, 254)
+                    .addComponent(jLabel2)
+                    .addContainerGap(274, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addContainerGap(77, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 346, Short.MAX_VALUE)
-                .addComponent(atrasBoton)
-                .addGap(30, 30, 30))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(servicioBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(registrarBoton)
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(atrasBoton)
+                        .addGap(26, 26, 26))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(34, 34, 34)
+                    .addComponent(jLabel2)
+                    .addContainerGap(416, Short.MAX_VALUE)))
         );
 
         pack();
@@ -75,44 +167,36 @@ public class Veterinaria extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_atrasBotonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Veterinaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Veterinaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Veterinaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Veterinaria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void registrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarBotonActionPerformed
+        Mascota m = sistema.getMascotaPorNombre(listaMascotas.getSelectedValue());
+        String nombreVet = nameBox.getText();
+        String servicio = servicioBox.getText();
+        if (m != null && nombreVet!= null && servicio != null){
+        Servicio s = new Servicio(m,nombreVet,servicio,fecha);
+        sistema.agregoServicioALista(s);
+         Calendario c = new Calendario(sistema);
+        c.setVisible(true);
+        this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "Hay campos sin rellenar");
         }
-        //</editor-fold>
-        //</editor-fold>
+       
+    }//GEN-LAST:event_registrarBotonActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Veterinaria(sistema).setVisible(true);
-            }
-        });
-    }
+  
+
+     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atrasBoton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listaMascotas;
+    private javax.swing.JTextField nameBox;
+    private javax.swing.JButton registrarBoton;
+    private javax.swing.JTextField servicioBox;
     // End of variables declaration//GEN-END:variables
 }

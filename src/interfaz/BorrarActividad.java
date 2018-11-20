@@ -23,7 +23,7 @@ public class BorrarActividad extends javax.swing.JFrame {
         initComponents();
         sistema = modelo;
         fecha = date;
-        titulo.setText("Estas son las actividades del dia"+date.getDate()+"/"+date.getMonth()+"/"+date.getYear());
+        titulo.setText("Estas son las actividades del dia "+date.getDate()+"/"+date.getMonth()+"/"+date.getYear());
           String[] selections = new String[sistema.getListaActividades().size()];
         for (int i = 0; i < sistema.getListaActividades().size(); i++) {
             Actividad a = sistema.getListaActividades().get(i);

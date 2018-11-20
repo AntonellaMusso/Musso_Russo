@@ -129,7 +129,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         PanelSostieneInfo = new javax.swing.JPanel();
         perfilSeleccionBoton = new javax.swing.JButton();
         registrarMascota = new javax.swing.JButton();
-        VeterinarioBoton = new javax.swing.JButton();
         calendarioBoton = new javax.swing.JButton();
         ImagenUsuario = new javax.swing.JLabel();
         ImagenDeFondo = new javax.swing.JLabel();
@@ -266,19 +265,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.add(registrarMascota);
         registrarMascota.setBounds(550, 440, 140, 25);
 
-        VeterinarioBoton.setBackground(new java.awt.Color(153, 204, 255));
-        VeterinarioBoton.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        VeterinarioBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/veterinaria.jpg"))); // NOI18N
-        VeterinarioBoton.setMaximumSize(new java.awt.Dimension(10, 10));
-        VeterinarioBoton.setMinimumSize(new java.awt.Dimension(5, 5));
-        VeterinarioBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VeterinarioBotonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(VeterinarioBoton);
-        VeterinarioBoton.setBounds(430, 100, 120, 30);
-
         calendarioBoton.setBackground(new java.awt.Color(153, 204, 255));
         calendarioBoton.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         calendarioBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calendario.jpg"))); // NOI18N
@@ -323,12 +309,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         calendario.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_calendarioBotonActionPerformed
-
-    private void VeterinarioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VeterinarioBotonActionPerformed
-        Veterinaria vet = new Veterinaria(sistema);
-        vet.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_VeterinarioBotonActionPerformed
 
     private void registrarMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarMascotaActionPerformed
         AltaMascota altaMascota = new AltaMascota(sistema);
@@ -390,7 +370,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel NombreMascota4;
     private javax.swing.JPanel PanelSostieneInfo;
     private javax.swing.JLabel UsernameLabel;
-    private javax.swing.JButton VeterinarioBoton;
     private javax.swing.JLabel alturaLabel1;
     private javax.swing.JLabel alturaLabel2;
     private javax.swing.JLabel alturaLabel3;

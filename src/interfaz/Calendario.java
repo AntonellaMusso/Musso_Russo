@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import mascota.Actividad;
 import mascota.Alimento;
 import mascota.Paseo;
+import mascota.Servicio;
 import mascota.Sistema;
 
 /**
@@ -44,6 +45,7 @@ public class Calendario extends javax.swing.JFrame {
         actividadRegBoton = new javax.swing.JButton();
         eventosDiaBoton1 = new javax.swing.JButton();
         borrarActividad = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +96,13 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/veterinaria.jpg"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -108,16 +117,6 @@ public class Calendario extends javax.swing.JFrame {
                         .addComponent(diasLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(atrasBoton)
-                .addGap(92, 92, 92)
-                .addComponent(actPeriodicaBoton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(actividadRegBoton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(borrarActividad)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(eventosDiaBoton1)
                 .addGap(18, 18, 18)
@@ -125,6 +124,20 @@ public class Calendario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addComponent(eventosDiaBoton)
                 .addGap(39, 39, 39))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(atrasBoton)
+                .addGap(92, 92, 92)
+                .addComponent(actPeriodicaBoton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(actividadRegBoton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106)
+                .addComponent(borrarActividad)
+                .addGap(256, 256, 256))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,12 +151,15 @@ public class Calendario extends javax.swing.JFrame {
                 .addComponent(hayEventosLosDiasLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(diasLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(borrarActividad)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(atrasBoton)
                     .addComponent(actPeriodicaBoton)
-                    .addComponent(actividadRegBoton)
-                    .addComponent(borrarActividad))
+                    .addComponent(actividadRegBoton))
                 .addContainerGap())
         );
 
@@ -221,8 +237,14 @@ public class Calendario extends javax.swing.JFrame {
                    && paseo.getFecha().getYear() == calendario.getDate().getYear()){
                arrayDias[paseo.getFecha().getDate()] = true;
            }
-        }//termina el recorrido de Paseos
-        
+        }//termina el recorrido de Paseos      
+         for (int i = 0; i < sistema.getListaServicios().size(); i++) {
+           Servicio s = sistema.getListaServicios().get(i);
+           if (sistema.getMes(s.getFecha()) == (sistema.getMes(calendario.getDate()))
+                   && s.getFecha().getYear() == calendario.getDate().getYear()){
+               arrayDias[s.getFecha().getDate()] = true;
+           }
+        }             
         for (int i = 0; i < arrayDias.length; i++) {
             if (arrayDias[i]){
                 diasLabel.setVisible(true);
@@ -238,6 +260,12 @@ public class Calendario extends javax.swing.JFrame {
         ba.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_borrarActividadActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Veterinaria v = new Veterinaria(sistema,calendario.getDate());
+        v.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -281,5 +309,6 @@ public class Calendario extends javax.swing.JFrame {
     private javax.swing.JButton eventosDiaBoton;
     private javax.swing.JButton eventosDiaBoton1;
     private javax.swing.JLabel hayEventosLosDiasLabel;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

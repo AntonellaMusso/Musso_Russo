@@ -14,13 +14,17 @@ import java.util.Date;
 public class Servicio {
 
     private String nombreVeterinario;
+    private Mascota mascota;
     private String servicio;
     private Date fecha;
-    private int hora;
-    private int minutos;
-    private String estado;
-    
+
     //Métodos de acceso
+
+    public Mascota getMascota() {
+        return mascota;
+    }
+    
+    
     public String getNombreVeterinario() {
         return nombreVeterinario;
     }
@@ -33,19 +37,15 @@ public class Servicio {
         return fecha;
     }
 
-    public int getHora() {
-        return hora;
-    }
 
-    public int getMinutos() {
-        return minutos;
-    }
-    
-    public String getEstado(){
-        return this.estado;
-    }
     
     //Métodos de modificación
+    
+    
+    public void setMascota(Mascota mascota) {
+        this.mascota = mascota;
+    }
+
     public void setNombreVeterinario(String nombreVeterinario) {
         this.nombreVeterinario = nombreVeterinario;
     }
@@ -58,52 +58,30 @@ public class Servicio {
         this.fecha = fecha;
     }
 
-   public void setHora(int hor) {
-        if (hor >= 0 && hor <= 23) {
-            this.hora = hor;
-        }
-    }
 
-    public void setMinutos(int min) {
-        if (min >= 0 && min <= 60) {
-            this.minutos = min;
-        }
-    }
     
-    public void setEstado(String estado){
-        if(estado.equalsIgnoreCase("hecho") || 
-           estado.equalsIgnoreCase("pendiente") || 
-           estado.equalsIgnoreCase("pendiente")){
-            this.setEstado(estado);
-        }
-    }
+   
     
     //Constructores
-    public Servicio(String nombreVeterinario, String servicio, Date fecha, 
-                    int hora, int minutos, String estado) {
+    public Servicio(Mascota m,String nombreVeterinario, String servicio, Date fecha) {
+        this.setMascota(m);
         this.setNombreVeterinario(nombreVeterinario);
         this.setServicio(servicio);
         this.setFecha(fecha);
-        this.setHora(hora);
-        this.setMinutos(minutos);
-        this.setEstado(estado);
     }
     
     public Servicio() {
         this.setNombreVeterinario("Veterinario por defecto");
         this.setServicio("Servicio por defecto");
         this.setFecha(new java.util.Date());
-        this.setHora(0);
-        this.setMinutos(0);
-        this.setEstado("pendiente");
     }
 
     @Override
     public String toString() {
-        return "Nombre veterinario" + this.getNombreVeterinario()
-                + ", servicio: " + this.getServicio()+ " a la hora: "
-                + this.getHora() + ":" + this.getMinutos() + " el día: " + 
-                this.getFecha() + ". Estado actual: " + this.getEstado();
+        return "  Veterinario: " + this.getNombreVeterinario() + " Mascota "+
+                this.getMascota().getNombre()
+                + ", servicio: " + this.getServicio()+" el día: " + 
+                this.getFecha() ;
     }
 
 }
