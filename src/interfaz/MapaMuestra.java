@@ -29,6 +29,7 @@ public class MapaMuestra extends javax.swing.JFrame {
     public MapaMuestra(Sistema modelo,String cordenadas) {
         initComponents();
         sistema = modelo;
+        setLocationRelativeTo(null); 
         desactivarCalles();
         cord = cordenadas;         
         calles = new HashMap();

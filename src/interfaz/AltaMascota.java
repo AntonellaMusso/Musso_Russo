@@ -22,6 +22,7 @@ public class AltaMascota extends javax.swing.JFrame {
     public AltaMascota(Sistema modelo) {
         initComponents();
        sistema = modelo;
+       setLocationRelativeTo(null); 
     }
 
     /**

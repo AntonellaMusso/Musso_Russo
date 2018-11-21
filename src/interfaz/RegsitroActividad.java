@@ -27,6 +27,7 @@ public class RegsitroActividad extends javax.swing.JFrame {
         distanciaText.setVisible(false);
         distanciaLabel.setVisible(false);
         sistema = modelo;
+        setLocationRelativeTo(null); 
         fecha = date;
         //--------------------
         //para rellenar lista familiares

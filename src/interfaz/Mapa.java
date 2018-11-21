@@ -30,6 +30,7 @@ public class Mapa extends javax.swing.JFrame {
     public Mapa(Sistema modelo,Actividad actividad) {
         initComponents();
         sistema = modelo;
+        setLocationRelativeTo(null); 
         //desactivarCalles();
         act = actividad;
         calles = new ArrayList();

@@ -23,6 +23,7 @@ public class Veterinaria extends javax.swing.JFrame {
     public Veterinaria(Sistema modelo,Date date) {
         initComponents();
         sistema = modelo;
+        setLocationRelativeTo(null); 
           String[] selections = new String[sistema.getListaMascotas().size()];
         for (int i = 0; i < sistema.getListaMascotas().size(); i++) {
             selections[i] = sistema.getListaMascotas().get(i).getNombre();

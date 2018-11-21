@@ -29,6 +29,7 @@ public class registroActividadPeriodica extends javax.swing.JFrame {
     public registroActividadPeriodica(Sistema modelo, Date date) {
         initComponents();
         sistema = modelo;
+        setLocationRelativeTo(null); 
         fechaInicio = date;
         mes = sistema.conversionMesANumero(date.toString().substring(4, 7));
         //para rellenar lista familiares

@@ -19,10 +19,12 @@ import mascota.Sistema;
 public class Perfiles extends javax.swing.JFrame {
 
     static Sistema sistema;
+    
     private Familiar usuario;
     public Perfiles(Sistema modelo) {
         initComponents();
-        sistema = modelo;   
+        sistema = modelo;
+        setLocationRelativeTo(null); 
          String[] selections = new String[sistema.getListaFamiliares().size()];
         for (int i = 0; i < sistema.getListaFamiliares().size(); i++) {
             selections[i] = sistema.getListaFamiliares().get(i).getNombre();
@@ -41,6 +43,7 @@ public class Perfiles extends javax.swing.JFrame {
         ingresarBoton = new javax.swing.JButton();
         regsitrarBoton = new javax.swing.JButton();
         actualizarBoton = new javax.swing.JButton();
+        borrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +79,16 @@ public class Perfiles extends javax.swing.JFrame {
             }
         });
 
+        borrar.setBackground(new java.awt.Color(255, 51, 51));
+        borrar.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        borrar.setForeground(new java.awt.Color(255, 255, 51));
+        borrar.setText("Borrar Usuario");
+        borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,7 +109,9 @@ public class Perfiles extends javax.swing.JFrame {
                         .addComponent(regsitrarBoton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ingresarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(308, 308, 308))))
+                        .addGap(168, 168, 168)
+                        .addComponent(borrar)
+                        .addGap(67, 67, 67))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +125,8 @@ public class Perfiles extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ingresarBoton)
-                    .addComponent(regsitrarBoton))
+                    .addComponent(regsitrarBoton)
+                    .addComponent(borrar))
                 .addGap(29, 29, 29))
         );
 
@@ -143,6 +159,11 @@ public class Perfiles extends javax.swing.JFrame {
         lista.setListData(selections);
 
     }//GEN-LAST:event_actualizarBotonActionPerformed
+
+    private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
+        Familiar fam = sistema.getUsuarioSeleccionadoPorNombre(lista.getSelectedValue());
+        sistema.eliminarFamiliarDeLista(fam);
+    }//GEN-LAST:event_borrarActionPerformed
 
  
     
@@ -183,6 +204,7 @@ public class Perfiles extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizarBoton;
+    private javax.swing.JButton borrar;
     private javax.swing.JButton ingresarBoton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> lista;

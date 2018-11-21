@@ -25,6 +25,7 @@ public class Calendario extends javax.swing.JFrame {
     public Calendario(Sistema modelo) {
         initComponents();
         sistema = modelo;
+        setLocationRelativeTo(null); 
         hayEventosLosDiasLabel.setVisible(false);
         diasLabel.setVisible(false);
 
@@ -56,6 +57,9 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
+        eventosDiaBoton.setBackground(new java.awt.Color(153, 153, 153));
+        eventosDiaBoton.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        eventosDiaBoton.setForeground(new java.awt.Color(204, 255, 255));
         eventosDiaBoton.setText("Ver eventos del dia");
         eventosDiaBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +125,7 @@ public class Calendario extends javax.swing.JFrame {
                 .addComponent(eventosDiaBoton1)
                 .addGap(18, 18, 18)
                 .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(eventosDiaBoton)
                 .addGap(39, 39, 39))
             .addGroup(layout.createSequentialGroup()

@@ -37,8 +37,8 @@ public class Sistema {
         listadoPaseos = new ArrayList();
         usuarioSeleccionado = null;
         cordenadasMapa = new ArrayList();
-        listadoFamiliar.add(new Familiar("Emiliano", 20, 65, "estudiante", null)); //borrar luego
-        listadoMascota.add(new Mascota("Firulais", 5, 25, "perro sin raza", null));
+        listadoFamiliar.add(new Familiar("Emiliano", 170, 65, "estudiante", null)); //borrar luego
+        listadoMascota.add(new Mascota("Firulais", 50, 13, "perro sin raza", null));
         
     }
 

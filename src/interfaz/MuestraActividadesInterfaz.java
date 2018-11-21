@@ -15,6 +15,7 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
 
     public MuestraActividadesInterfaz(Sistema modelo, Date date) {
         initComponents();
+        setLocationRelativeTo(null); 
         int contador = 1;
         sistema = modelo;
         fecha = date;

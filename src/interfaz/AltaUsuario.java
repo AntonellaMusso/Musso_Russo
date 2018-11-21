@@ -21,6 +21,7 @@ public class AltaUsuario extends javax.swing.JFrame {
     public AltaUsuario(Sistema modelo) {
         initComponents();
        sistema = modelo;
+       setLocationRelativeTo(null); 
     }
 
     /**
@@ -163,7 +164,8 @@ public class AltaUsuario extends javax.swing.JFrame {
                                     .addComponent(kgLabel)
                                     .addComponent(cmLabel)))
                             .addComponent(AddFotoBoton)
-                            .addComponent(NombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(NombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -174,8 +176,8 @@ public class AltaUsuario extends javax.swing.JFrame {
                                 .addComponent(cancelarBoton)
                                 .addGap(190, 190, 190)
                                 .addComponent(BotonRegistrar)))
-                        .addGap(0, 77, Short.MAX_VALUE)))
-                .addContainerGap(326, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(304, 304, 304))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
