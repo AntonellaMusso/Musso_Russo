@@ -116,7 +116,6 @@ public class BorrarActividad extends javax.swing.JFrame {
     private void borrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarBotonActionPerformed
         String act = listaActividades.getSelectedValue();
         if (act!=null){
-            System.out.println("Entrmoas");
             sistema.borrarActividadPorNombre(act);
         }else{
             JOptionPane.showMessageDialog(null, "Actividad sin seleccionar");

@@ -190,6 +190,7 @@ public class Calendario extends javax.swing.JFrame {
 
 
     private void eventosDiaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventosDiaBotonActionPerformed
+        //este boton abre una nueva ventan para ver los metodos de dia seleccionado
         Date fechaSelected = calendario.getDate();
         MuestraActividadesInterfaz muestra;
         muestra = new MuestraActividadesInterfaz(sistema, fechaSelected);
@@ -211,7 +212,7 @@ public class Calendario extends javax.swing.JFrame {
         Calendar cal = Calendar.getInstance();
         RegsitroActividad ra;
         if (!sistema.fechasIguales(calendario.getDate(), cal.getTime())) {
-            System.out.println("No son iguales");
+            //no son iguales
             Date menorFecha = null;
             menorFecha = sistema.fechaMenor(calendario.getDate(), cal.getTime());
             if (sistema.fechasIguales(menorFecha, calendario.getDate())) {
@@ -219,12 +220,11 @@ public class Calendario extends javax.swing.JFrame {
                 ra.setVisible(true);
                 this.setVisible(false);
             } else {
-                //abrir un panel con el error de no poder registrar en futuro
+                //se abre un panel que no pueden registrarse en dias posteriores
                 JOptionPane.showMessageDialog(null, "No es posible registrar recordatorios en dias futuros");
             }
         } else {
             //son el mismo dia asi que se peude
-            System.out.println("Son el mismo dia");
             ra = new RegsitroActividad(sistema, calendario.getDate());
             ra.setVisible(true);
             this.setVisible(false);

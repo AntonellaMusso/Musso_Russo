@@ -24,6 +24,7 @@ public class Veterinaria extends javax.swing.JFrame {
         initComponents();
         sistema = modelo;
         setLocationRelativeTo(null); 
+        //inicializo la lista de mascotas
           String[] selections = new String[sistema.getListaMascotas().size()];
         for (int i = 0; i < sistema.getListaMascotas().size(); i++) {
             selections[i] = sistema.getListaMascotas().get(i).getNombre();
@@ -172,6 +173,7 @@ public class Veterinaria extends javax.swing.JFrame {
         Mascota m = sistema.getMascotaPorNombre(listaMascotas.getSelectedValue());
         String nombreVet = nameBox.getText();
         String servicio = servicioBox.getText();
+        // si los campos no estan vacios procedo
         if (m != null && nombreVet!= null && servicio != null){
         Servicio s = new Servicio(m,nombreVet,servicio,fecha);
         sistema.agregoServicioALista(s);

@@ -25,10 +25,10 @@ public class RegsitroActividad extends javax.swing.JFrame {
 
     public RegsitroActividad(Sistema modelo, Date date) {
         initComponents();
+        sistema = modelo;
+        setLocationRelativeTo(null);
         distanciaText.setVisible(false);
         distanciaLabel.setVisible(false);
-        sistema = modelo;
-        setLocationRelativeTo(null); 
         fecha = date;
         //--------------------
         //para rellenar lista familiares
@@ -222,28 +222,27 @@ public class RegsitroActividad extends javax.swing.JFrame {
             if (esPaseo) {
                 int distancia = Integer.parseInt(distanciaText.getText());
                 //se crea para para ahorrar pasar tantos parametros
-                act = new Actividad(fam, masc, des, fecha, distancia,null);               
-                Mapa mapa = new Mapa(sistema,act);
+                act = new Actividad(fam, masc, des, fecha, distancia, null);
+                Mapa mapa = new Mapa(sistema, act);
                 mapa.setVisible(true);
                 this.setVisible(false);
             } else {
-                act = new Actividad(fam, masc, des, fecha, 0,null);
+                act = new Actividad(fam, masc, des, fecha, 0, null);
                 sistema.agregoActividadALista(act);
                 Calendario c = new Calendario(sistema);
                 c.setVisible(true);
                 this.setVisible(false);
             }
-            
 
         } else {
-            JOptionPane.showMessageDialog(null, "Familiar o Mascota no sin seleccionar");
+            JOptionPane.showMessageDialog(null, "Familiar o Mascota sin seleccionar");
         }
     }//GEN-LAST:event_registrarBotonActionPerformed
 
     private void distanciaTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_distanciaTextKeyTyped
-         char c = evt.getKeyChar();
-        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE 
-                ||c == KeyEvent.VK_DELETE){
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE
+                || c == KeyEvent.VK_DELETE) {
             evt.consume();
         }
     }//GEN-LAST:event_distanciaTextKeyTyped

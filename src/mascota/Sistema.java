@@ -47,15 +47,10 @@ public class Sistema {
   
 
     //Metodos de calendario
-    public Date sumarDiasAFecha(Date fecha, int diasSuma, int limite) {
-        System.out.println("------------------------------------");
-        System.out.println("***");
-        System.out.println("Dia antes de sumar " + fecha.getDate());
+    public Date sumarDiasAFecha(Date fecha, int diasSuma, int limite) {   
         int dia = fecha.getDate() + diasSuma;
-        System.out.println("Dia despues del sumado " + dia);
-        System.out.println("***");
-        if (dia > limite) {
-            System.out.println("No deberia entrar aca");
+        
+        if (dia > limite) {         
             dia = dia - limite;
             if (fecha.getMonth() <= 11) {
                 fecha.setMonth(fecha.getMonth() + 1);
@@ -64,14 +59,7 @@ public class Sistema {
                 fecha.setMonth(1);
             }
         }
-        System.out.println("Vamos a hacer un date con esto");
-        System.out.println("Year: " + fecha.getYear());
-        System.out.println("Month: " + fecha.getMonth());
-        System.out.println("Day: " + dia);
-        System.out.println("****** La hacemos **** ");
         Date date = new Date(fecha.getYear(), fecha.getMonth(), dia);
-        System.out.println("date a punto de retornar" + date.toString());
-        System.out.println("-------------------------------------");
         return date;
     }
 
@@ -223,7 +211,7 @@ public class Sistema {
         for (int i = 0; i < getListaActividades().size(); i++) {
             Actividad a = getListaActividades().get(i);
             if (a.getDescripcion().equalsIgnoreCase(actividad)){
-                System.out.println("Borramos actividad");
+                //borramos actividad
                 getListaActividades().remove(a);
             }
         }

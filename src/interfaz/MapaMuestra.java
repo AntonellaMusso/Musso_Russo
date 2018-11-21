@@ -23,7 +23,7 @@ public class MapaMuestra extends javax.swing.JFrame {
 
     static private Sistema sistema;
     String cord;
-    HashMap<String, JButton> calles;
+    HashMap<String, JButton> calles; //diccionario para acceder a las calles
 
 
     public MapaMuestra(Sistema modelo,String cordenadas) {
@@ -84,6 +84,7 @@ public class MapaMuestra extends javax.swing.JFrame {
     }
     
    void inicializarCalles(String cordenadas){
+       //este metodo se basa en el hashmap
        cordenadas = cordenadas.substring(1); // acomodamos el espacio que habia
       String listaCalles[] = cordenadas.split(" ");
       

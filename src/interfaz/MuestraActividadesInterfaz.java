@@ -19,6 +19,7 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
         int contador = 1;
         sistema = modelo;
         fecha = date;
+        //todas las lineas a desactivar
         linea1.setVisible(false);
         linea2.setVisible(false);
         linea3.setVisible(false);
@@ -43,7 +44,7 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
             Actividad act;
             act = sistema.getListaActividades().get(i);
             if (sistema.fechasIguales(fecha, act.getFecha())) {
-                //insertar actividad en label
+                //insertar actividad en la linea que corresponda (una vacia)
                 switch (contador) {
                     case 1:
                         linea1.setText(act.toString());
@@ -128,7 +129,6 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
         //vamos con servicios
         for (int i = 0; i < sistema.getListaServicios().size(); i++) {
             Servicio s = sistema.getListaServicios().get(i);
-            System.out.println("Recorremos servicios");
             if (sistema.fechasIguales(s.getFecha(), fecha)){
                 servicio1.setText(s.toString());
                 servicio1.setVisible(true);
@@ -406,7 +406,7 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
         c.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_okActionPerformed
-
+    //abren el mapa con su debido recorrido
     private void m1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_m1ActionPerformed
         MapaMuestra mp;
         mp = new MapaMuestra(sistema, actividad[1].getCordenadasDePaseo());
