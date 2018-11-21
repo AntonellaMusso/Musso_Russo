@@ -218,10 +218,7 @@ public class Sistema {
                 && fecha1.getMonth() == fecha2.getMonth()
                 && fecha1.getDate() == fecha2.getDate();
     }
-
-    //Métodos de acceso
-    
-    
+  
     public void borrarActividadPorNombre(String actividad){
         for (int i = 0; i < getListaActividades().size(); i++) {
             Actividad a = getListaActividades().get(i);
@@ -232,6 +229,7 @@ public class Sistema {
         }
     }
     
+    //Métodos de acceso
      public ArrayList<String> getCordenadasMapa() {
         return cordenadasMapa;
     }
@@ -347,10 +345,9 @@ public class Sistema {
     }
 
     //Método que valida que no exista mascota con el mismo nombre en el listado
-    public boolean validoNombreMascota(ArrayList<Mascota> lista,
-            String nombre) {
+    public boolean validoNombreMascota(String nombre) {
         boolean esValido = true;
-        Iterator<Mascota> it = lista.iterator();
+        Iterator<Mascota> it = getListaMascotas().iterator();
         while (it.hasNext()) {
             Mascota mas = it.next();
             if (mas.getNombre().equalsIgnoreCase(nombre)) {
@@ -361,10 +358,9 @@ public class Sistema {
     }
 
     //Método que valida que no exista familiar con el mismo nombre en el listado
-    public boolean validoNombreFamiliar(ArrayList<Familiar> lista,
-            String nombre) {
+    public boolean validoNombreFamiliar(String nombre) {    
         boolean esValido = true;
-        Iterator<Familiar> it = lista.iterator();
+        Iterator<Familiar> it =  getListaFamiliares().iterator();
         while (it.hasNext()) {
             Familiar fam = it.next();
             if (fam.getNombre().equalsIgnoreCase(nombre)) {

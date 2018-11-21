@@ -216,6 +216,7 @@
     <Component class="javax.swing.JTextField" name="AlturaText">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AlturaTextActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="AlturaTextKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="comentariosLabel">
@@ -229,6 +230,7 @@
     <Component class="javax.swing.JTextField" name="pesoText">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesoTextActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pesoTextKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="kgLabel">

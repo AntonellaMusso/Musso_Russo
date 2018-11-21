@@ -6,6 +6,7 @@
 package interfaz;
 
 import static interfaz.Perfiles.sistema;
+import java.awt.event.KeyEvent;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import mascota.Alimento;
@@ -116,6 +117,12 @@ public class registroActividadPeriodica extends javax.swing.JFrame {
 
         jLabel1.setText("Cada cuantos dias");
 
+        diferenciaDias.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                diferenciaDiasKeyTyped(evt);
+            }
+        });
+
         atras.setText("Atras");
         atras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,7 +196,6 @@ public class registroActividadPeriodica extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(diferenciaDias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
@@ -285,6 +291,14 @@ public class registroActividadPeriodica extends javax.swing.JFrame {
         c.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_atrasActionPerformed
+
+    private void diferenciaDiasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diferenciaDiasKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE 
+                ||c == KeyEvent.VK_DELETE){
+            evt.consume();
+        }
+    }//GEN-LAST:event_diferenciaDiasKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

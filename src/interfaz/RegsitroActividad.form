@@ -204,6 +204,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="distanciaText">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="distanciaTextKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="distanciaLabel">
       <Properties>

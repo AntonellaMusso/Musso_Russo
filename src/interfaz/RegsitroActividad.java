@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import java.awt.event.KeyEvent;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import mascota.Actividad;
@@ -104,6 +105,12 @@ public class RegsitroActividad extends javax.swing.JFrame {
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        distanciaText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                distanciaTextKeyTyped(evt);
             }
         });
 
@@ -232,6 +239,14 @@ public class RegsitroActividad extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Familiar o Mascota no sin seleccionar");
         }
     }//GEN-LAST:event_registrarBotonActionPerformed
+
+    private void distanciaTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_distanciaTextKeyTyped
+         char c = evt.getKeyChar();
+        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE 
+                ||c == KeyEvent.VK_DELETE){
+            evt.consume();
+        }
+    }//GEN-LAST:event_distanciaTextKeyTyped
 
     /**
      * @param args the command line arguments

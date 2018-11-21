@@ -8,7 +8,9 @@
 package interfaz;
 
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import mascota.Mascota;
 import mascota.Sistema;
 
@@ -95,6 +97,11 @@ public class AltaMascota extends javax.swing.JFrame {
                 AlturaTextActionPerformed(evt);
             }
         });
+        AlturaText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                AlturaTextKeyTyped(evt);
+            }
+        });
 
         comentariosLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         comentariosLabel.setText("Comentario");
@@ -102,6 +109,11 @@ public class AltaMascota extends javax.swing.JFrame {
         pesoText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesoTextActionPerformed(evt);
+            }
+        });
+        pesoText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pesoTextKeyTyped(evt);
             }
         });
 
@@ -238,10 +250,14 @@ public class AltaMascota extends javax.swing.JFrame {
         String comentario = textoAreaComentario.getText();
         ImageIcon imagen = null; // arreglar despues
         Mascota mascota = new Mascota(nombre,altura,peso,comentario,imagen);
+        if (sistema.validoNombreMascota(nombre)){
         sistema.agregoMascotaALista(mascota);     
         VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(sistema);
         ventanaPrincipal.setVisible(true);
         this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null, "Mascota ya existente");
+        }
     }//GEN-LAST:event_BotonRegistrarActionPerformed
 
     private void AlturaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlturaTextActionPerformed
@@ -261,6 +277,22 @@ public class AltaMascota extends javax.swing.JFrame {
        ventanaPrincipal.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_cancelarBotonActionPerformed
+
+    private void AlturaTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AlturaTextKeyTyped
+         char c = evt.getKeyChar();
+        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE 
+                ||c == KeyEvent.VK_DELETE){
+            evt.consume();
+        }
+    }//GEN-LAST:event_AlturaTextKeyTyped
+
+    private void pesoTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesoTextKeyTyped
+         char c = evt.getKeyChar();
+        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE 
+                ||c == KeyEvent.VK_DELETE){
+            evt.consume();
+        }
+    }//GEN-LAST:event_pesoTextKeyTyped
 
     /**
      * @param args the command line arguments
