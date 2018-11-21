@@ -92,9 +92,8 @@ public class Mapa extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setLayout(null);
 
-        guardarBoton.setBackground(new java.awt.Color(0, 102, 102));
+        guardarBoton.setBackground(new java.awt.Color(255, 255, 255));
         guardarBoton.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        guardarBoton.setForeground(new java.awt.Color(255, 255, 255));
         guardarBoton.setText("Guardar");
         guardarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

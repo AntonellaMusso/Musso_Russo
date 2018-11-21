@@ -57,9 +57,13 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
-        eventosDiaBoton.setBackground(new java.awt.Color(153, 153, 153));
+        calendario.setBackground(new java.awt.Color(0, 204, 204));
+        calendario.setForeground(new java.awt.Color(51, 51, 51));
+        calendario.setDecorationBackgroundColor(new java.awt.Color(0, 204, 153));
+
+        eventosDiaBoton.setBackground(new java.awt.Color(0, 204, 153));
         eventosDiaBoton.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        eventosDiaBoton.setForeground(new java.awt.Color(204, 255, 255));
+        eventosDiaBoton.setForeground(new java.awt.Color(255, 255, 255));
         eventosDiaBoton.setText("Ver eventos del dia");
         eventosDiaBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +76,8 @@ public class Calendario extends javax.swing.JFrame {
         hayEventosLosDiasLabel.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         hayEventosLosDiasLabel.setText("Hay eventos los dias");
 
+        actPeriodicaBoton.setBackground(new java.awt.Color(255, 255, 255));
+        actPeriodicaBoton.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         actPeriodicaBoton.setText("Responsable actividad periodica");
         actPeriodicaBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +85,8 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
+        actividadRegBoton.setBackground(new java.awt.Color(255, 255, 255));
+        actividadRegBoton.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         actividadRegBoton.setText("Registrar una actividad Realizada");
         actividadRegBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +94,8 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
+        eventosDiaBoton1.setBackground(new java.awt.Color(255, 255, 255));
+        eventosDiaBoton1.setForeground(new java.awt.Color(102, 102, 102));
         eventosDiaBoton1.setText("Ver dias con eventos");
         eventosDiaBoton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,30 +128,32 @@ public class Calendario extends javax.swing.JFrame {
                         .addComponent(hayEventosLosDiasLabel)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(diasLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+                        .addComponent(diasLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(eventosDiaBoton1)
-                .addGap(18, 18, 18)
-                .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(eventosDiaBoton)
-                .addGap(39, 39, 39))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(atrasBoton)
-                .addGap(92, 92, 92)
-                .addComponent(actPeriodicaBoton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(eventosDiaBoton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(eventosDiaBoton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(atrasBoton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(borrarActividad)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(actividadRegBoton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
-                .addComponent(borrarActividad)
-                .addGap(256, 256, 256))
+                .addGap(2, 2, 2)
+                .addComponent(actPeriodicaBoton)
+                .addGap(98, 98, 98))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,15 +167,15 @@ public class Calendario extends javax.swing.JFrame {
                 .addComponent(hayEventosLosDiasLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(diasLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(actividadRegBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(actPeriodicaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(borrarActividad)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(atrasBoton)
-                    .addComponent(actPeriodicaBoton)
-                    .addComponent(actividadRegBoton))
+                    .addComponent(borrarActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(atrasBoton))
                 .addContainerGap())
         );
 
