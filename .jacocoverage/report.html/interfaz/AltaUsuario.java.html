@@ -6,7 +6,11 @@
 package interfaz;
 
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import mascota.Familiar;
 import mascota.Mascota;
 import mascota.Sistema;
@@ -18,10 +22,13 @@ import mascota.Sistema;
 public class AltaUsuario extends javax.swing.JFrame {
 
     static Sistema sistema;
-<span class="nc" id="L21">    public AltaUsuario(Sistema modelo) {</span>
-<span class="nc" id="L22">        initComponents();</span>
-<span class="nc" id="L23">       sistema = modelo;</span>
-<span class="nc" id="L24">    }</span>
+    File imagen;
+
+<span class="nc" id="L27">    public AltaUsuario(Sistema modelo) {</span>
+<span class="nc" id="L28">        initComponents();</span>
+<span class="nc" id="L29">        sistema = modelo;</span>
+<span class="nc" id="L30">        setLocationRelativeTo(null);</span>
+<span class="nc" id="L31">    }</span>
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,230 +39,275 @@ public class AltaUsuario extends javax.swing.JFrame {
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L35">        jScrollPane1 = new javax.swing.JScrollPane();</span>
-<span class="nc" id="L36">        jTextArea1 = new javax.swing.JTextArea();</span>
-<span class="nc" id="L37">        Titulo = new javax.swing.JLabel();</span>
-<span class="nc" id="L38">        BotonRegistrar = new javax.swing.JButton();</span>
-<span class="nc" id="L39">        jLabel3 = new javax.swing.JLabel();</span>
-<span class="nc" id="L40">        NombreText = new javax.swing.JTextField();</span>
-<span class="nc" id="L41">        FotoLabel = new javax.swing.JLabel();</span>
-<span class="nc" id="L42">        AlturaLabel = new javax.swing.JLabel();</span>
-<span class="nc" id="L43">        AlturaText = new javax.swing.JTextField();</span>
-<span class="nc" id="L44">        comentariosLabel = new javax.swing.JLabel();</span>
-<span class="nc" id="L45">        pesoText = new javax.swing.JTextField();</span>
-<span class="nc" id="L46">        kgLabel = new javax.swing.JLabel();</span>
-<span class="nc" id="L47">        cmLabel = new javax.swing.JLabel();</span>
-<span class="nc" id="L48">        AddFotoBoton = new javax.swing.JButton();</span>
-<span class="nc" id="L49">        NombreLabel = new javax.swing.JLabel();</span>
-<span class="nc" id="L50">        pesoLabel = new javax.swing.JLabel();</span>
-<span class="nc" id="L51">        jScrollPane2 = new javax.swing.JScrollPane();</span>
-<span class="nc" id="L52">        textoAreaComentario = new javax.swing.JTextArea();</span>
-<span class="nc" id="L53">        cancelarBoton = new javax.swing.JButton();</span>
+<span class="nc" id="L42">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L43">        jTextArea1 = new javax.swing.JTextArea();</span>
+<span class="nc" id="L44">        Titulo = new javax.swing.JLabel();</span>
+<span class="nc" id="L45">        BotonRegistrar = new javax.swing.JButton();</span>
+<span class="nc" id="L46">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L47">        NombreText = new javax.swing.JTextField();</span>
+<span class="nc" id="L48">        FotoLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L49">        AlturaLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L50">        AlturaText = new javax.swing.JTextField();</span>
+<span class="nc" id="L51">        comentariosLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L52">        pesoText = new javax.swing.JTextField();</span>
+<span class="nc" id="L53">        kgLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L54">        cmLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L55">        AddFotoBoton = new javax.swing.JButton();</span>
+<span class="nc" id="L56">        NombreLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L57">        pesoLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L58">        jScrollPane2 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L59">        textoAreaComentario = new javax.swing.JTextArea();</span>
+<span class="nc" id="L60">        cancelarBoton = new javax.swing.JButton();</span>
 
-<span class="nc" id="L55">        jTextArea1.setColumns(20);</span>
-<span class="nc" id="L56">        jTextArea1.setRows(5);</span>
-<span class="nc" id="L57">        jScrollPane1.setViewportView(jTextArea1);</span>
+<span class="nc" id="L62">        jTextArea1.setColumns(20);</span>
+<span class="nc" id="L63">        jTextArea1.setRows(5);</span>
+<span class="nc" id="L64">        jScrollPane1.setViewportView(jTextArea1);</span>
 
-<span class="nc" id="L59">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L66">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
 
-<span class="nc" id="L61">        Titulo.setBackground(new java.awt.Color(204, 204, 255));</span>
-<span class="nc" id="L62">        Titulo.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 36)); // NOI18N</span>
-<span class="nc" id="L63">        Titulo.setForeground(new java.awt.Color(0, 153, 153));</span>
-<span class="nc" id="L64">        Titulo.setText(&quot;Registrar Usuario&quot;);</span>
+<span class="nc" id="L68">        Titulo.setBackground(new java.awt.Color(204, 204, 255));</span>
+<span class="nc" id="L69">        Titulo.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 36)); // NOI18N</span>
+<span class="nc" id="L70">        Titulo.setForeground(new java.awt.Color(0, 153, 153));</span>
+<span class="nc" id="L71">        Titulo.setText(&quot;Registrar Usuario&quot;);</span>
 
-<span class="nc" id="L66">        BotonRegistrar.setBackground(new java.awt.Color(204, 255, 255));</span>
-<span class="nc" id="L67">        BotonRegistrar.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 14)); // NOI18N</span>
-<span class="nc" id="L68">        BotonRegistrar.setForeground(new java.awt.Color(0, 153, 153));</span>
-<span class="nc" id="L69">        BotonRegistrar.setText(&quot;Registrar&quot;);</span>
-<span class="nc" id="L70">        BotonRegistrar.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L73">        BotonRegistrar.setBackground(new java.awt.Color(204, 255, 255));</span>
+<span class="nc" id="L74">        BotonRegistrar.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L75">        BotonRegistrar.setForeground(new java.awt.Color(0, 153, 153));</span>
+<span class="nc" id="L76">        BotonRegistrar.setText(&quot;Registrar&quot;);</span>
+<span class="nc" id="L77">        BotonRegistrar.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L72">                BotonRegistrarActionPerformed(evt);</span>
-<span class="nc" id="L73">            }</span>
+<span class="nc" id="L79">                BotonRegistrarActionPerformed(evt);</span>
+<span class="nc" id="L80">            }</span>
         });
 
-<span class="nc" id="L76">        NombreText.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L83">        NombreText.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L78">                NombreTextActionPerformed(evt);</span>
-<span class="nc" id="L79">            }</span>
+<span class="nc" id="L85">                NombreTextActionPerformed(evt);</span>
+<span class="nc" id="L86">            }</span>
         });
 
-<span class="nc" id="L82">        FotoLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L83">        FotoLabel.setText(&quot;Foto&quot;);</span>
+<span class="nc" id="L89">        FotoLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L90">        FotoLabel.setText(&quot;Foto&quot;);</span>
 
-<span class="nc" id="L85">        AlturaLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L86">        AlturaLabel.setText(&quot;Altura&quot;);</span>
+<span class="nc" id="L92">        AlturaLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L93">        AlturaLabel.setText(&quot;Altura&quot;);</span>
 
-<span class="nc" id="L88">        AlturaText.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L95">        AlturaText.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L90">                AlturaTextActionPerformed(evt);</span>
-<span class="nc" id="L91">            }</span>
+<span class="nc" id="L97">                AlturaTextActionPerformed(evt);</span>
+<span class="nc" id="L98">            }</span>
+        });
+<span class="nc" id="L100">        AlturaText.addKeyListener(new java.awt.event.KeyAdapter() {</span>
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+<span class="nc" id="L102">                AlturaTextKeyTyped(evt);</span>
+<span class="nc" id="L103">            }</span>
         });
 
-<span class="nc" id="L94">        comentariosLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L95">        comentariosLabel.setText(&quot;Comentario&quot;);</span>
+<span class="nc" id="L106">        comentariosLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L107">        comentariosLabel.setText(&quot;Comentario&quot;);</span>
 
-<span class="nc" id="L97">        pesoText.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L109">        pesoText.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L99">                pesoTextActionPerformed(evt);</span>
-<span class="nc" id="L100">            }</span>
+<span class="nc" id="L111">                pesoTextActionPerformed(evt);</span>
+<span class="nc" id="L112">            }</span>
+        });
+<span class="nc" id="L114">        pesoText.addKeyListener(new java.awt.event.KeyAdapter() {</span>
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+<span class="nc" id="L116">                pesoTextKeyTyped(evt);</span>
+<span class="nc" id="L117">            }</span>
         });
 
-<span class="nc" id="L103">        kgLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L104">        kgLabel.setText(&quot;Kg&quot;);</span>
+<span class="nc" id="L120">        kgLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L121">        kgLabel.setText(&quot;Kg&quot;);</span>
 
-<span class="nc" id="L106">        cmLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L107">        cmLabel.setText(&quot;Cm&quot;);</span>
+<span class="nc" id="L123">        cmLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L124">        cmLabel.setText(&quot;Cm&quot;);</span>
 
-<span class="nc" id="L109">        AddFotoBoton.setText(&quot;+&quot;);</span>
-<span class="nc" id="L110">        AddFotoBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L126">        AddFotoBoton.setText(&quot;+&quot;);</span>
+<span class="nc" id="L127">        AddFotoBoton.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L112">                AddFotoBotonActionPerformed(evt);</span>
-<span class="nc" id="L113">            }</span>
-        });
-
-<span class="nc" id="L116">        NombreLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L117">        NombreLabel.setText(&quot;Nombre&quot;);</span>
-
-<span class="nc" id="L119">        pesoLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
-<span class="nc" id="L120">        pesoLabel.setText(&quot;Peso&quot;);</span>
-
-<span class="nc" id="L122">        textoAreaComentario.setColumns(20);</span>
-<span class="nc" id="L123">        textoAreaComentario.setRows(5);</span>
-<span class="nc" id="L124">        jScrollPane2.setViewportView(textoAreaComentario);</span>
-
-<span class="nc" id="L126">        cancelarBoton.setText(&quot;Cancelar&quot;);</span>
-<span class="nc" id="L127">        cancelarBoton.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L129">                cancelarBotonActionPerformed(evt);</span>
+<span class="nc" id="L129">                AddFotoBotonActionPerformed(evt);</span>
 <span class="nc" id="L130">            }</span>
         });
 
-<span class="nc" id="L133">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L134">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L135">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L136">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L137">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L138">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L139">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L140">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L141">                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L142">                                .addContainerGap()</span>
-<span class="nc" id="L143">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
-<span class="nc" id="L144">                                    .addComponent(NombreLabel)</span>
-<span class="nc" id="L145">                                    .addComponent(comentariosLabel)</span>
-<span class="nc" id="L146">                                    .addComponent(pesoLabel)</span>
-<span class="nc" id="L147">                                    .addComponent(AlturaLabel)))</span>
-<span class="nc" id="L148">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L149">                                .addGap(227, 227, 227)</span>
-<span class="nc" id="L150">                                .addComponent(FotoLabel)))</span>
-<span class="nc" id="L151">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L152">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L153">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L154">                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L155">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L156">                                .addComponent(jLabel3))</span>
-<span class="nc" id="L157">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L158">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
-<span class="nc" id="L159">                                    .addComponent(AlturaText, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)</span>
-<span class="nc" id="L160">                                    .addComponent(pesoText))</span>
-<span class="nc" id="L161">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L162">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L163">                                    .addComponent(kgLabel)</span>
-<span class="nc" id="L164">                                    .addComponent(cmLabel)))</span>
-<span class="nc" id="L165">                            .addComponent(AddFotoBoton)</span>
-<span class="nc" id="L166">                            .addComponent(NombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
-<span class="nc" id="L167">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L168">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L169">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L170">                                .addGap(211, 211, 211)</span>
-<span class="nc" id="L171">                                .addComponent(Titulo))</span>
-<span class="nc" id="L172">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L173">                                .addGap(45, 45, 45)</span>
-<span class="nc" id="L174">                                .addComponent(cancelarBoton)</span>
-<span class="nc" id="L175">                                .addGap(190, 190, 190)</span>
-<span class="nc" id="L176">                                .addComponent(BotonRegistrar)))</span>
-<span class="nc" id="L177">                        .addGap(0, 77, Short.MAX_VALUE)))</span>
-<span class="nc" id="L178">                .addContainerGap(326, Short.MAX_VALUE))</span>
+<span class="nc" id="L133">        NombreLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L134">        NombreLabel.setText(&quot;Nombre&quot;);</span>
+
+<span class="nc" id="L136">        pesoLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L137">        pesoLabel.setText(&quot;Peso&quot;);</span>
+
+<span class="nc" id="L139">        textoAreaComentario.setColumns(20);</span>
+<span class="nc" id="L140">        textoAreaComentario.setRows(5);</span>
+<span class="nc" id="L141">        jScrollPane2.setViewportView(textoAreaComentario);</span>
+
+<span class="nc" id="L143">        cancelarBoton.setText(&quot;Cancelar&quot;);</span>
+<span class="nc" id="L144">        cancelarBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L146">                cancelarBotonActionPerformed(evt);</span>
+<span class="nc" id="L147">            }</span>
+        });
+
+<span class="nc" id="L150">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L151">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L152">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L153">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L154">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L155">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L156">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L157">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L158">                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L159">                                .addContainerGap()</span>
+<span class="nc" id="L160">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L161">                                    .addComponent(NombreLabel)</span>
+<span class="nc" id="L162">                                    .addComponent(comentariosLabel)</span>
+<span class="nc" id="L163">                                    .addComponent(pesoLabel)</span>
+<span class="nc" id="L164">                                    .addComponent(AlturaLabel)))</span>
+<span class="nc" id="L165">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L166">                                .addGap(227, 227, 227)</span>
+<span class="nc" id="L167">                                .addComponent(FotoLabel)))</span>
+<span class="nc" id="L168">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L169">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L170">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L171">                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L172">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L173">                                .addComponent(jLabel3))</span>
+<span class="nc" id="L174">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L175">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
+<span class="nc" id="L176">                                    .addComponent(AlturaText, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)</span>
+<span class="nc" id="L177">                                    .addComponent(pesoText))</span>
+<span class="nc" id="L178">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L179">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L180">                                    .addComponent(kgLabel)</span>
+<span class="nc" id="L181">                                    .addComponent(cmLabel)))</span>
+<span class="nc" id="L182">                            .addComponent(AddFotoBoton)</span>
+<span class="nc" id="L183">                            .addComponent(NombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L184">                        .addGap(22, 22, 22))</span>
+<span class="nc" id="L185">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L186">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L187">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L188">                                .addGap(211, 211, 211)</span>
+<span class="nc" id="L189">                                .addComponent(Titulo))</span>
+<span class="nc" id="L190">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L191">                                .addGap(45, 45, 45)</span>
+<span class="nc" id="L192">                                .addComponent(cancelarBoton)</span>
+<span class="nc" id="L193">                                .addGap(190, 190, 190)</span>
+<span class="nc" id="L194">                                .addComponent(BotonRegistrar)))</span>
+<span class="nc" id="L195">                        .addGap(0, 0, Short.MAX_VALUE)))</span>
+<span class="nc" id="L196">                .addGap(304, 304, 304))</span>
         );
-<span class="nc" id="L180">        layout.setVerticalGroup(</span>
-<span class="nc" id="L181">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L182">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L183">                .addGap(17, 17, 17)</span>
-<span class="nc" id="L184">                .addComponent(Titulo)</span>
-<span class="nc" id="L185">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L186">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L187">                    .addComponent(FotoLabel)</span>
-<span class="nc" id="L188">                    .addComponent(AddFotoBoton))</span>
-<span class="nc" id="L189">                .addGap(22, 22, 22)</span>
-<span class="nc" id="L190">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L191">                    .addComponent(NombreText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L192">                    .addComponent(NombreLabel))</span>
-<span class="nc" id="L193">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L194">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L195">                    .addComponent(AlturaLabel)</span>
-<span class="nc" id="L196">                    .addComponent(AlturaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L197">                    .addComponent(cmLabel))</span>
-<span class="nc" id="L198">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L199">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L200">                    .addComponent(pesoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L201">                    .addComponent(kgLabel)</span>
-<span class="nc" id="L202">                    .addComponent(pesoLabel))</span>
-<span class="nc" id="L203">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L204">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L205">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L206">                        .addComponent(jLabel3)</span>
-<span class="nc" id="L207">                        .addGap(88, 88, 88))</span>
-<span class="nc" id="L208">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L209">                        .addGap(18, 18, 18)</span>
-<span class="nc" id="L210">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L211">                            .addComponent(comentariosLabel)</span>
-<span class="nc" id="L212">                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L213">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)))</span>
-<span class="nc" id="L214">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L215">                    .addComponent(BotonRegistrar)</span>
-<span class="nc" id="L216">                    .addComponent(cancelarBoton))</span>
-<span class="nc" id="L217">                .addGap(32, 32, 32))</span>
+<span class="nc" id="L198">        layout.setVerticalGroup(</span>
+<span class="nc" id="L199">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L200">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L201">                .addGap(17, 17, 17)</span>
+<span class="nc" id="L202">                .addComponent(Titulo)</span>
+<span class="nc" id="L203">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L204">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L205">                    .addComponent(FotoLabel)</span>
+<span class="nc" id="L206">                    .addComponent(AddFotoBoton))</span>
+<span class="nc" id="L207">                .addGap(22, 22, 22)</span>
+<span class="nc" id="L208">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L209">                    .addComponent(NombreText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L210">                    .addComponent(NombreLabel))</span>
+<span class="nc" id="L211">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L212">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L213">                    .addComponent(AlturaLabel)</span>
+<span class="nc" id="L214">                    .addComponent(AlturaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L215">                    .addComponent(cmLabel))</span>
+<span class="nc" id="L216">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L217">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L218">                    .addComponent(pesoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L219">                    .addComponent(kgLabel)</span>
+<span class="nc" id="L220">                    .addComponent(pesoLabel))</span>
+<span class="nc" id="L221">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L222">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L223">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L224">                        .addComponent(jLabel3)</span>
+<span class="nc" id="L225">                        .addGap(88, 88, 88))</span>
+<span class="nc" id="L226">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L227">                        .addGap(18, 18, 18)</span>
+<span class="nc" id="L228">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L229">                            .addComponent(comentariosLabel)</span>
+<span class="nc" id="L230">                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L231">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)))</span>
+<span class="nc" id="L232">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L233">                    .addComponent(BotonRegistrar)</span>
+<span class="nc" id="L234">                    .addComponent(cancelarBoton))</span>
+<span class="nc" id="L235">                .addGap(32, 32, 32))</span>
         );
 
-<span class="nc" id="L220">        pack();</span>
-<span class="nc" id="L221">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L238">        pack();</span>
+<span class="nc" id="L239">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void NombreTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreTextActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L225">    }//GEN-LAST:event_NombreTextActionPerformed</span>
+<span class="nc" id="L243">    }//GEN-LAST:event_NombreTextActionPerformed</span>
 
     private void BotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarActionPerformed
-<span class="nc" id="L228">        String nombre = NombreText.getText();</span>
-<span class="nc" id="L229">        int altura = Integer.parseInt(AlturaText.getText());</span>
-<span class="nc" id="L230">        int peso = Integer.parseInt(pesoText.getText());</span>
-<span class="nc" id="L231">        String comentario = textoAreaComentario.getText();</span>
-<span class="nc" id="L232">        ImageIcon imagen = null; // arreglar despues             </span>
-<span class="nc" id="L233">        Familiar usuario = new Familiar(nombre,altura,peso,comentario,imagen); </span>
-<span class="nc" id="L234">        sistema.agregoFamiliarALista(usuario);</span>
-        //ahora abrimos la ventana de perfiles
-<span class="nc" id="L236">        Perfiles perfiles = new Perfiles(sistema);</span>
-<span class="nc" id="L237">        perfiles.setVisible(true);</span>
-<span class="nc" id="L238">        this.setVisible(false);</span>
-        
-<span class="nc" id="L240">    }//GEN-LAST:event_BotonRegistrarActionPerformed</span>
+<span class="nc" id="L246">        String nombre = NombreText.getText();</span>
+<span class="nc" id="L247">        int altura = 0;</span>
+<span class="nc" id="L248">        int peso = 0;</span>
+<span class="nc bnc" id="L249" title="All 4 branches missed.">        if (!AlturaText.getText().isEmpty() &amp;&amp; !pesoText.getText().isEmpty()) {</span>
+<span class="nc" id="L250">            altura = Integer.parseInt(AlturaText.getText());</span>
+<span class="nc" id="L251">            peso = Integer.parseInt(pesoText.getText());</span>
+        }
+<span class="nc" id="L253">        String comentario = textoAreaComentario.getText();</span>
+
+<span class="nc bnc" id="L255" title="All 8 branches missed.">        if (altura != 0 &amp;&amp; imagen != null &amp;&amp; nombre != null &amp;&amp; peso != 0) {</span>
+<span class="nc" id="L256">            Familiar usuario = new Familiar(nombre, altura, peso, comentario, imagen);</span>
+<span class="nc bnc" id="L257" title="All 2 branches missed.">            if (sistema.validoNombreFamiliar(nombre)) {</span>
+<span class="nc" id="L258">                sistema.agregoFamiliarALista(usuario);</span>
+                //ahora abrimos la ventana de perfiles
+<span class="nc" id="L260">                Perfiles perfiles = new Perfiles(sistema);</span>
+<span class="nc" id="L261">                perfiles.setVisible(true);</span>
+<span class="nc" id="L262">                this.setVisible(false);</span>
+<span class="nc" id="L263">            } else {</span>
+<span class="nc" id="L264">                JOptionPane.showMessageDialog(null, &quot;Usuario ya registrado&quot;);</span>
+            }
+<span class="nc" id="L266">        }else{</span>
+<span class="nc" id="L267">            JOptionPane.showMessageDialog(null, &quot;Rellene todos los campos&quot;);</span>
+        }
+
+<span class="nc" id="L270">    }//GEN-LAST:event_BotonRegistrarActionPerformed</span>
 
     private void AlturaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlturaTextActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L244">    }//GEN-LAST:event_AlturaTextActionPerformed</span>
+<span class="nc" id="L274">    }//GEN-LAST:event_AlturaTextActionPerformed</span>
 
     private void pesoTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesoTextActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L248">    }//GEN-LAST:event_pesoTextActionPerformed</span>
+<span class="nc" id="L278">    }//GEN-LAST:event_pesoTextActionPerformed</span>
 
     private void AddFotoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddFotoBotonActionPerformed
-        // TODO add your handling code here:
-<span class="nc" id="L252">    }//GEN-LAST:event_AddFotoBotonActionPerformed</span>
+<span class="nc" id="L281">        JFileChooser buscador = new JFileChooser();</span>
+<span class="nc" id="L282">        buscador.setDialogTitle(&quot;Buscar Imagen&quot;);</span>
+<span class="nc bnc" id="L283" title="All 2 branches missed.">        if (buscador.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {</span>
+<span class="nc" id="L284">            imagen = new File(buscador.getSelectedFile().toString());</span>
+        }
+
+<span class="nc" id="L287">    }//GEN-LAST:event_AddFotoBotonActionPerformed</span>
 
     private void cancelarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBotonActionPerformed
-<span class="nc" id="L255">        Perfiles perfiles = new Perfiles(sistema);    </span>
-<span class="nc" id="L256">        perfiles.setVisible(true);</span>
-<span class="nc" id="L257">        this.setVisible(false);</span>
-<span class="nc" id="L258">    }//GEN-LAST:event_cancelarBotonActionPerformed</span>
+<span class="nc" id="L290">        Perfiles perfiles = new Perfiles(sistema);</span>
+<span class="nc" id="L291">        perfiles.setVisible(true);</span>
+<span class="nc" id="L292">        this.setVisible(false);</span>
+<span class="nc" id="L293">    }//GEN-LAST:event_cancelarBotonActionPerformed</span>
+
+    private void AlturaTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AlturaTextKeyTyped
+<span class="nc" id="L296">        char c = evt.getKeyChar();</span>
+<span class="nc bnc" id="L297" title="All 6 branches missed.">        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE</span>
+                || c == KeyEvent.VK_DELETE) {
+<span class="nc" id="L299">            evt.consume();</span>
+        }
+
+<span class="nc" id="L302">    }//GEN-LAST:event_AlturaTextKeyTyped</span>
+
+    private void pesoTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesoTextKeyTyped
+<span class="nc" id="L305">        char c = evt.getKeyChar();</span>
+<span class="nc bnc" id="L306" title="All 6 branches missed.">        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE</span>
+                || c == KeyEvent.VK_DELETE) {
+<span class="nc" id="L308">            evt.consume();</span>
+        }
+<span class="nc" id="L310">    }//GEN-LAST:event_pesoTextKeyTyped</span>
 
     /**
      * @param args the command line arguments
@@ -267,31 +319,31 @@ public class AltaUsuario extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="nc bnc" id="L270" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L271" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L272">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L273">                    break;</span>
+<span class="nc bnc" id="L322" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L323" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L324">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L325">                    break;</span>
                 }
             }
-<span class="nc" id="L276">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L277">            java.util.logging.Logger.getLogger(AltaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L278">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L279">            java.util.logging.Logger.getLogger(AltaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L280">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L281">            java.util.logging.Logger.getLogger(AltaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L282">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L283">            java.util.logging.Logger.getLogger(AltaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L284">        }</span>
+<span class="nc" id="L328">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L329">            java.util.logging.Logger.getLogger(AltaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L330">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L331">            java.util.logging.Logger.getLogger(AltaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L332">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L333">            java.util.logging.Logger.getLogger(AltaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L334">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L335">            java.util.logging.Logger.getLogger(AltaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L336">        }</span>
         //&lt;/editor-fold&gt;
         //&lt;/editor-fold&gt;
 
         /* Create and display the form */
-<span class="nc" id="L289">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L341">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L291">                new AltaUsuario(sistema).setVisible(true);</span>
-<span class="nc" id="L292">            }</span>
+<span class="nc" id="L343">                new AltaUsuario(sistema).setVisible(true);</span>
+<span class="nc" id="L344">            }</span>
         });
-<span class="nc" id="L294">    }</span>
+<span class="nc" id="L346">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddFotoBoton;

@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>registroActividadPeriodica.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Mascota&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaz</a> &gt; <span class="el_source">registroActividadPeriodica.java</span></div><h1>registroActividadPeriodica.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package interfaz;
+
+import static interfaz.Perfiles.sistema;
+import java.awt.event.KeyEvent;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import mascota.Alimento;
+import mascota.Familiar;
+import mascota.Mascota;
+import mascota.Paseo;
+import mascota.Sistema;
+
+/**
+ *
+ * @author Emiliano
+ */
+public class registroActividadPeriodica extends javax.swing.JFrame {
+
+    Sistema sistema;
+    Date fechaInicio;
+    int mes;
+<span class="nc" id="L27">    boolean paseo = false;</span>
+<span class="nc" id="L28">    boolean alimento = false;</span>
+
+<span class="nc" id="L30">    public registroActividadPeriodica(Sistema modelo, Date date) {</span>
+<span class="nc" id="L31">        initComponents();</span>
+<span class="nc" id="L32">        sistema = modelo;</span>
+<span class="nc" id="L33">        setLocationRelativeTo(null);</span>
+<span class="nc" id="L34">        fechaInicio = date;</span>
+<span class="nc" id="L35">        mes = sistema.conversionMesANumero(date.toString().substring(4, 7));</span>
+        //para rellenar lista familiares
+<span class="nc" id="L37">        String[] selections = new String[sistema.getListaFamiliares().size()];</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        for (int i = 0; i &lt; sistema.getListaFamiliares().size(); i++) {</span>
+<span class="nc" id="L39">            selections[i] = sistema.getListaFamiliares().get(i).getNombre();</span>
+        }
+<span class="nc" id="L41">        familiarList.setListData(selections);</span>
+        //para rellenar lista mascotas
+<span class="nc" id="L43">        String[] selecciones = new String[sistema.getListaMascotas().size()];</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        for (int i = 0; i &lt; sistema.getListaMascotas().size(); i++) {</span>
+<span class="nc" id="L45">            selecciones[i] = sistema.getListaMascotas().get(i).getNombre();</span>
+        }
+<span class="nc" id="L47">        mascotaList.setListData(selecciones);</span>
+<span class="nc" id="L48">        alimentoLabel.setVisible(false);</span>
+<span class="nc" id="L49">        alimentoText.setVisible(false);</span>
+<span class="nc" id="L50">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L56">        mascotaLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L57">        esPaseo = new javax.swing.JCheckBox();</span>
+<span class="nc" id="L58">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L59">        mascotaList = new javax.swing.JList&lt;&gt;();</span>
+<span class="nc" id="L60">        titulo = new javax.swing.JLabel();</span>
+<span class="nc" id="L61">        familiarLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L62">        jScrollPane2 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L63">        familiarList = new javax.swing.JList&lt;&gt;();</span>
+<span class="nc" id="L64">        registrar = new javax.swing.JButton();</span>
+<span class="nc" id="L65">        esAlimentacion = new javax.swing.JCheckBox();</span>
+<span class="nc" id="L66">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L67">        diferenciaDias = new javax.swing.JTextField();</span>
+<span class="nc" id="L68">        atras = new javax.swing.JButton();</span>
+<span class="nc" id="L69">        alimentoLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L70">        alimentoText = new javax.swing.JTextField();</span>
+
+<span class="nc" id="L72">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+
+<span class="nc" id="L74">        mascotaLabel.setFont(new java.awt.Font(&quot;Cambria&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L75">        mascotaLabel.setText(&quot;Mascota&quot;);</span>
+
+<span class="nc" id="L77">        esPaseo.setText(&quot;Es Paseo&quot;);</span>
+<span class="nc" id="L78">        esPaseo.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L80">                esPaseoActionPerformed(evt);</span>
+<span class="nc" id="L81">            }</span>
+        });
+
+<span class="nc" id="L84">        mascotaList.setModel(new javax.swing.AbstractListModel&lt;String&gt;() {</span>
+<span class="nc" id="L85">            String[] strings = { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot;, &quot;Item 5&quot; };</span>
+<span class="nc" id="L86">            public int getSize() { return strings.length; }</span>
+<span class="nc" id="L87">            public String getElementAt(int i) { return strings[i]; }</span>
+        });
+<span class="nc" id="L89">        jScrollPane1.setViewportView(mascotaList);</span>
+
+<span class="nc" id="L91">        titulo.setFont(new java.awt.Font(&quot;Cambria&quot;, 0, 36)); // NOI18N</span>
+<span class="nc" id="L92">        titulo.setText(&quot;Registro Actividad Periodica&quot;);</span>
+
+<span class="nc" id="L94">        familiarLabel.setFont(new java.awt.Font(&quot;Cambria&quot;, 0, 24)); // NOI18N</span>
+<span class="nc" id="L95">        familiarLabel.setText(&quot;Familiar&quot;);</span>
+
+<span class="nc" id="L97">        familiarList.setModel(new javax.swing.AbstractListModel&lt;String&gt;() {</span>
+<span class="nc" id="L98">            String[] strings = { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot;, &quot;Item 5&quot; };</span>
+<span class="nc" id="L99">            public int getSize() { return strings.length; }</span>
+<span class="nc" id="L100">            public String getElementAt(int i) { return strings[i]; }</span>
+        });
+<span class="nc" id="L102">        jScrollPane2.setViewportView(familiarList);</span>
+
+<span class="nc" id="L104">        registrar.setText(&quot;Registrar&quot;);</span>
+<span class="nc" id="L105">        registrar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L107">                registrarActionPerformed(evt);</span>
+<span class="nc" id="L108">            }</span>
+        });
+
+<span class="nc" id="L111">        esAlimentacion.setText(&quot;Es alimentacion&quot;);</span>
+<span class="nc" id="L112">        esAlimentacion.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L114">                esAlimentacionActionPerformed(evt);</span>
+<span class="nc" id="L115">            }</span>
+        });
+
+<span class="nc" id="L118">        jLabel1.setText(&quot;Cada cuantos dias&quot;);</span>
+
+<span class="nc" id="L120">        diferenciaDias.addKeyListener(new java.awt.event.KeyAdapter() {</span>
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+<span class="nc" id="L122">                diferenciaDiasKeyTyped(evt);</span>
+<span class="nc" id="L123">            }</span>
+        });
+
+<span class="nc" id="L126">        atras.setText(&quot;Atras&quot;);</span>
+<span class="nc" id="L127">        atras.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L129">                atrasActionPerformed(evt);</span>
+<span class="nc" id="L130">            }</span>
+        });
+
+<span class="nc" id="L133">        alimentoLabel.setText(&quot;Alimento&quot;);</span>
+
+<span class="nc" id="L135">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L136">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L137">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L138">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L139">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L140">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L141">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L142">                        .addGap(235, 235, 235)</span>
+<span class="nc" id="L143">                        .addComponent(mascotaLabel))</span>
+<span class="nc" id="L144">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L145">                        .addGap(223, 223, 223)</span>
+<span class="nc" id="L146">                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L147">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L148">                        .addGap(20, 20, 20)</span>
+<span class="nc" id="L149">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L150">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L151">                                .addComponent(atras)</span>
+<span class="nc" id="L152">                                .addGap(134, 134, 134)</span>
+<span class="nc" id="L153">                                .addComponent(registrar))</span>
+<span class="nc" id="L154">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L155">                                .addComponent(esPaseo)</span>
+<span class="nc" id="L156">                                .addGap(18, 18, 18)</span>
+<span class="nc" id="L157">                                .addComponent(esAlimentacion))))</span>
+<span class="nc" id="L158">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L159">                        .addGap(65, 65, 65)</span>
+<span class="nc" id="L160">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="nc" id="L161">                            .addComponent(jLabel1)</span>
+<span class="nc" id="L162">                            .addComponent(alimentoLabel))</span>
+<span class="nc" id="L163">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L164">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L165">                            .addComponent(diferenciaDias, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L166">                            .addComponent(alimentoText, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))</span>
+<span class="nc" id="L167">                .addContainerGap(470, Short.MAX_VALUE))</span>
+<span class="nc" id="L168">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L169">                .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L170">                    .addGap(176, 176, 176)</span>
+<span class="nc" id="L171">                    .addComponent(titulo)</span>
+<span class="nc" id="L172">                    .addContainerGap(200, Short.MAX_VALUE)))</span>
+<span class="nc" id="L173">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L174">                .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L175">                    .addGap(84, 84, 84)</span>
+<span class="nc" id="L176">                    .addComponent(familiarLabel)</span>
+<span class="nc" id="L177">                    .addContainerGap(641, Short.MAX_VALUE)))</span>
+<span class="nc" id="L178">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L179">                .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L180">                    .addGap(84, 84, 84)</span>
+<span class="nc" id="L181">                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L182">                    .addContainerGap(609, Short.MAX_VALUE)))</span>
+        );
+<span class="nc" id="L184">        layout.setVerticalGroup(</span>
+<span class="nc" id="L185">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L186">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L187">                .addGap(69, 69, 69)</span>
+<span class="nc" id="L188">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L189">                    .addComponent(esAlimentacion)</span>
+<span class="nc" id="L190">                    .addComponent(esPaseo))</span>
+<span class="nc" id="L191">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L192">                .addComponent(mascotaLabel)</span>
+<span class="nc" id="L193">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L194">                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L195">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)</span>
+<span class="nc" id="L196">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L197">                    .addComponent(jLabel1)</span>
+<span class="nc" id="L198">                    .addComponent(diferenciaDias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L199">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L200">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L201">                        .addGap(68, 68, 68)</span>
+<span class="nc" id="L202">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L203">                            .addComponent(registrar)</span>
+<span class="nc" id="L204">                            .addComponent(atras)))</span>
+<span class="nc" id="L205">                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L206">                        .addComponent(alimentoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L207">                        .addComponent(alimentoLabel)))</span>
+<span class="nc" id="L208">                .addGap(40, 40, 40))</span>
+<span class="nc" id="L209">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L210">                .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L211">                    .addGap(21, 21, 21)</span>
+<span class="nc" id="L212">                    .addComponent(titulo)</span>
+<span class="nc" id="L213">                    .addContainerGap(445, Short.MAX_VALUE)))</span>
+<span class="nc" id="L214">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L215">                .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L216">                    .addGap(112, 112, 112)</span>
+<span class="nc" id="L217">                    .addComponent(familiarLabel)</span>
+<span class="nc" id="L218">                    .addContainerGap(368, Short.MAX_VALUE)))</span>
+<span class="nc" id="L219">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L220">                .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L221">                    .addGap(143, 143, 143)</span>
+<span class="nc" id="L222">                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L223">                    .addContainerGap(182, Short.MAX_VALUE)))</span>
+        );
+
+<span class="nc" id="L226">        pack();</span>
+<span class="nc" id="L227">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+
+    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
+
+<span class="nc bnc" id="L232" title="All 2 branches missed.">        if (paseo != alimento) {</span>
+            //listo para crearla  
+<span class="nc" id="L234">            int cadaCuanto = 0;</span>
+<span class="nc bnc" id="L235" title="All 2 branches missed.">            if (!diferenciaDias.getText().isEmpty()) {</span>
+<span class="nc bnc" id="L236" title="All 2 branches missed.">                if (paseo) {</span>
+                    Familiar persona;
+                    Mascota mascota;
+<span class="nc" id="L239">                    persona = sistema.getUsuarioSeleccionadoPorNombre(familiarList.getSelectedValue());</span>
+<span class="nc" id="L240">                    mascota = sistema.getMascotaPorNombre(mascotaList.getSelectedValue());</span>
+<span class="nc" id="L241">                    cadaCuanto = Integer.parseInt(diferenciaDias.getText());</span>
+<span class="nc" id="L242">                    Date fecha = fechaInicio;</span>
+<span class="nc bnc" id="L243" title="All 2 branches missed.">                    while (sistema.getMes(fecha) == mes) {</span>
+                        //1) registro
+                        //2) sumo
+<span class="nc" id="L246">                        Paseo paseo = new Paseo(persona, mascota, fecha);</span>
+<span class="nc" id="L247">                        sistema.getListadoPaseos().add(paseo);</span>
+<span class="nc" id="L248">                        fecha = sistema.sumarDiasAFecha(fecha, cadaCuanto, </span>
+<span class="nc" id="L249">                                sistema.ultimoDiaDelMes(sistema.getMes(fecha)));</span>
+<span class="nc" id="L250">                    }</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">                } else if (alimento) {</span>
+                    Familiar persona;
+                    Mascota mascota;
+<span class="nc" id="L254">                    persona = sistema.getUsuarioSeleccionadoPorNombre(familiarList.getSelectedValue());</span>
+<span class="nc" id="L255">                    mascota = sistema.getMascotaPorNombre(mascotaList.getSelectedValue());</span>
+<span class="nc" id="L256">                    Date fecha = fechaInicio;</span>
+<span class="nc" id="L257">                    cadaCuanto = Integer.parseInt(diferenciaDias.getText());</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">                    while (sistema.getMes(fecha) == mes) {</span>
+                        //1) registro
+                        //2) sumo
+<span class="nc" id="L261">                        Alimento alimento = new Alimento(persona, mascota, fecha, </span>
+<span class="nc" id="L262">                                alimentoText.getText());</span>
+<span class="nc" id="L263">                        sistema.getListaAlimentos().add(alimento);</span>
+<span class="nc" id="L264">                        fecha = sistema.sumarDiasAFecha(fecha, cadaCuanto, </span>
+<span class="nc" id="L265">                                sistema.ultimoDiaDelMes(sistema.getMes(fecha)));</span>
+<span class="nc" id="L266">                    }</span>
+                }
+<span class="nc" id="L268">            JOptionPane.showMessageDialog(null, &quot;Actividad periódica registrada con éxito!&quot;);</span>
+<span class="nc" id="L269">            Calendario c = new Calendario(sistema);</span>
+<span class="nc" id="L270">            c.setVisible(true);</span>
+<span class="nc" id="L271">            this.setVisible(false);</span>
+<span class="nc" id="L272">            }else{</span>
+<span class="nc" id="L273">                JOptionPane.showMessageDialog(null, &quot;Campos sin completar&quot;);</span>
+            }
+           
+<span class="nc" id="L276">        } else {</span>
+            //avisar por ventana que son iguales
+<span class="nc" id="L278">            JOptionPane.showMessageDialog(null, &quot;No pueden haber 2 selecciones &quot;</span>
+                    + &quot;o 2 sin seleccionar&quot;);
+        }
+
+<span class="nc" id="L282">    }//GEN-LAST:event_registrarActionPerformed</span>
+
+    private void esPaseoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esPaseoActionPerformed
+<span class="nc bnc" id="L285" title="All 2 branches missed.">        paseo = !paseo;</span>
+<span class="nc" id="L286">    }//GEN-LAST:event_esPaseoActionPerformed</span>
+
+    private void esAlimentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esAlimentacionActionPerformed
+<span class="nc bnc" id="L289" title="All 2 branches missed.">        alimento = !alimento;</span>
+<span class="nc bnc" id="L290" title="All 2 branches missed.">        if (alimento) {</span>
+<span class="nc" id="L291">            alimentoLabel.setVisible(true);</span>
+<span class="nc" id="L292">            alimentoText.setVisible(true);</span>
+        } else {
+<span class="nc" id="L294">            alimentoLabel.setVisible(false);</span>
+<span class="nc" id="L295">            alimentoText.setVisible(false);</span>
+        }
+
+<span class="nc" id="L298">    }//GEN-LAST:event_esAlimentacionActionPerformed</span>
+
+    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+<span class="nc" id="L301">        Calendario c = new Calendario(sistema);</span>
+<span class="nc" id="L302">        c.setVisible(true);</span>
+<span class="nc" id="L303">        this.setVisible(false);</span>
+<span class="nc" id="L304">    }//GEN-LAST:event_atrasActionPerformed</span>
+
+    private void diferenciaDiasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diferenciaDiasKeyTyped
+<span class="nc" id="L307">        char c = evt.getKeyChar();</span>
+<span class="nc bnc" id="L308" title="All 6 branches missed.">        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE</span>
+                || c == KeyEvent.VK_DELETE) {
+<span class="nc" id="L310">            evt.consume();</span>
+        }
+<span class="nc" id="L312">    }//GEN-LAST:event_diferenciaDiasKeyTyped</span>
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel alimentoLabel;
+    private javax.swing.JTextField alimentoText;
+    private javax.swing.JButton atras;
+    private javax.swing.JTextField diferenciaDias;
+    private javax.swing.JCheckBox esAlimentacion;
+    private javax.swing.JCheckBox esPaseo;
+    private javax.swing.JLabel familiarLabel;
+    private javax.swing.JList&lt;String&gt; familiarList;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel mascotaLabel;
+    private javax.swing.JList&lt;String&gt; mascotaList;
+    private javax.swing.JButton registrar;
+    private javax.swing.JLabel titulo;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

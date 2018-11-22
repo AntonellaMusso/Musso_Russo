@@ -92,8 +92,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         switch (numeroMascotas) {
             case 1:          
                 activarDisplay1();
+                if (sistema.getListaMascotas().get(0).getFoto()!=null){
                 rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota1, 
-                        sistema.getListaMascotas().get(0).getFoto().toString());
+                sistema.getListaMascotas().get(0).getFoto().toString());
+                }
                 NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
                 pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso())+" Kg");
                 alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura())+" Cm");

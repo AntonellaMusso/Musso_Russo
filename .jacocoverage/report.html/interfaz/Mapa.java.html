@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Mapa.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Mascota&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaz</a> &gt; <span class="el_source">Mapa.java</span></div><h1>Mapa.java</h1><pre class="source lang-java linenums">
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package interfaz;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import mascota.Actividad;
+import mascota.Familiar;
+import mascota.Mascota;
+import mascota.Sistema;
+
+/**
+ *
+ * @author usuario
+ */
+public class Mapa extends javax.swing.JFrame {
+
+    static private Sistema sistema;
+    Actividad act;
+   ArrayList&lt;String&gt; calles; 
+
+<span class="nc" id="L30">    public Mapa(Sistema modelo,Actividad actividad) {</span>
+<span class="nc" id="L31">        initComponents();</span>
+<span class="nc" id="L32">        sistema = modelo;</span>
+<span class="nc" id="L33">        setLocationRelativeTo(null); </span>
+        //desactivarCalles();
+<span class="nc" id="L35">        act = actividad;</span>
+<span class="nc" id="L36">        calles = new ArrayList();</span>
+<span class="nc" id="L37">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L43">        jPanel1 = new javax.swing.JPanel();</span>
+<span class="nc" id="L44">        jPanel2 = new javax.swing.JPanel();</span>
+<span class="nc" id="L45">        guardarBoton = new javax.swing.JButton();</span>
+<span class="nc" id="L46">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L47">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L48">        c0001 = new javax.swing.JButton();</span>
+<span class="nc" id="L49">        c1011 = new javax.swing.JButton();</span>
+<span class="nc" id="L50">        c2021 = new javax.swing.JButton();</span>
+<span class="nc" id="L51">        c3031 = new javax.swing.JButton();</span>
+<span class="nc" id="L52">        c4041 = new javax.swing.JButton();</span>
+<span class="nc" id="L53">        c0102 = new javax.swing.JButton();</span>
+<span class="nc" id="L54">        c1112 = new javax.swing.JButton();</span>
+<span class="nc" id="L55">        c2122 = new javax.swing.JButton();</span>
+<span class="nc" id="L56">        c3132 = new javax.swing.JButton();</span>
+<span class="nc" id="L57">        c4142 = new javax.swing.JButton();</span>
+<span class="nc" id="L58">        c0304 = new javax.swing.JButton();</span>
+<span class="nc" id="L59">        c3334 = new javax.swing.JButton();</span>
+<span class="nc" id="L60">        c1314 = new javax.swing.JButton();</span>
+<span class="nc" id="L61">        c2324 = new javax.swing.JButton();</span>
+<span class="nc" id="L62">        c4344 = new javax.swing.JButton();</span>
+<span class="nc" id="L63">        c0203 = new javax.swing.JButton();</span>
+<span class="nc" id="L64">        c1213 = new javax.swing.JButton();</span>
+<span class="nc" id="L65">        c2223 = new javax.swing.JButton();</span>
+<span class="nc" id="L66">        c3233 = new javax.swing.JButton();</span>
+<span class="nc" id="L67">        c4243 = new javax.swing.JButton();</span>
+<span class="nc" id="L68">        c0010 = new javax.swing.JButton();</span>
+<span class="nc" id="L69">        c1020 = new javax.swing.JButton();</span>
+<span class="nc" id="L70">        c2030 = new javax.swing.JButton();</span>
+<span class="nc" id="L71">        c3040 = new javax.swing.JButton();</span>
+<span class="nc" id="L72">        c0111 = new javax.swing.JButton();</span>
+<span class="nc" id="L73">        c1121 = new javax.swing.JButton();</span>
+<span class="nc" id="L74">        c2131 = new javax.swing.JButton();</span>
+<span class="nc" id="L75">        c3141 = new javax.swing.JButton();</span>
+<span class="nc" id="L76">        c0212 = new javax.swing.JButton();</span>
+<span class="nc" id="L77">        c1222 = new javax.swing.JButton();</span>
+<span class="nc" id="L78">        c2232 = new javax.swing.JButton();</span>
+<span class="nc" id="L79">        c3242 = new javax.swing.JButton();</span>
+<span class="nc" id="L80">        c0313 = new javax.swing.JButton();</span>
+<span class="nc" id="L81">        c1323 = new javax.swing.JButton();</span>
+<span class="nc" id="L82">        c2333 = new javax.swing.JButton();</span>
+<span class="nc" id="L83">        c3343 = new javax.swing.JButton();</span>
+<span class="nc" id="L84">        c3444 = new javax.swing.JButton();</span>
+<span class="nc" id="L85">        c0414 = new javax.swing.JButton();</span>
+<span class="nc" id="L86">        c2434 = new javax.swing.JButton();</span>
+<span class="nc" id="L87">        c1424 = new javax.swing.JButton();</span>
+<span class="nc" id="L88">        ImagenDeFondo = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L90">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+
+<span class="nc" id="L92">        jPanel1.setBackground(new java.awt.Color(255, 153, 153));</span>
+<span class="nc" id="L93">        jPanel1.setLayout(null);</span>
+
+<span class="nc" id="L95">        guardarBoton.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L96">        guardarBoton.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L97">        guardarBoton.setText(&quot;Guardar&quot;);</span>
+<span class="nc" id="L98">        guardarBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L100">                guardarBotonActionPerformed(evt);</span>
+<span class="nc" id="L101">            }</span>
+        });
+
+<span class="nc" id="L104">        jLabel1.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L105">        jLabel1.setText(&quot;Selecciona las calles&quot;);</span>
+
+<span class="nc" id="L107">        jLabel2.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 14)); // NOI18N</span>
+<span class="nc" id="L108">        jLabel2.setText(&quot;recorridas&quot;);</span>
+
+<span class="nc" id="L110">        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);</span>
+<span class="nc" id="L111">        jPanel2.setLayout(jPanel2Layout);</span>
+<span class="nc" id="L112">        jPanel2Layout.setHorizontalGroup(</span>
+<span class="nc" id="L113">            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L114">            .addGroup(jPanel2Layout.createSequentialGroup()</span>
+<span class="nc" id="L115">                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L116">                    .addGroup(jPanel2Layout.createSequentialGroup()</span>
+<span class="nc" id="L117">                        .addGap(26, 26, 26)</span>
+<span class="nc" id="L118">                        .addComponent(guardarBoton))</span>
+<span class="nc" id="L119">                    .addGroup(jPanel2Layout.createSequentialGroup()</span>
+<span class="nc" id="L120">                        .addContainerGap()</span>
+<span class="nc" id="L121">                        .addComponent(jLabel1))</span>
+<span class="nc" id="L122">                    .addGroup(jPanel2Layout.createSequentialGroup()</span>
+<span class="nc" id="L123">                        .addContainerGap()</span>
+<span class="nc" id="L124">                        .addComponent(jLabel2)))</span>
+<span class="nc" id="L125">                .addContainerGap(19, Short.MAX_VALUE))</span>
+        );
+<span class="nc" id="L127">        jPanel2Layout.setVerticalGroup(</span>
+<span class="nc" id="L128">            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L129">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()</span>
+<span class="nc" id="L130">                .addGap(27, 27, 27)</span>
+<span class="nc" id="L131">                .addComponent(jLabel1)</span>
+<span class="nc" id="L132">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L133">                .addComponent(jLabel2)</span>
+<span class="nc" id="L134">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 359, Short.MAX_VALUE)</span>
+<span class="nc" id="L135">                .addComponent(guardarBoton)</span>
+<span class="nc" id="L136">                .addGap(29, 29, 29))</span>
+        );
+
+<span class="nc" id="L139">        jPanel1.add(jPanel2);</span>
+<span class="nc" id="L140">        jPanel2.setBounds(580, 0, 140, 480);</span>
+
+<span class="nc" id="L142">        c0001.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L143">        c0001.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L145">                c0001ActionPerformed(evt);</span>
+<span class="nc" id="L146">            }</span>
+        });
+<span class="nc" id="L148">        jPanel1.add(c0001);</span>
+<span class="nc" id="L149">        c0001.setBounds(30, 460, 100, 20);</span>
+
+<span class="nc" id="L151">        c1011.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L152">        c1011.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L154">                c1011ActionPerformed(evt);</span>
+<span class="nc" id="L155">            }</span>
+        });
+<span class="nc" id="L157">        jPanel1.add(c1011);</span>
+<span class="nc" id="L158">        c1011.setBounds(30, 340, 100, 20);</span>
+
+<span class="nc" id="L160">        c2021.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L161">        c2021.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L163">                c2021ActionPerformed(evt);</span>
+<span class="nc" id="L164">            }</span>
+        });
+<span class="nc" id="L166">        jPanel1.add(c2021);</span>
+<span class="nc" id="L167">        c2021.setBounds(30, 230, 100, 20);</span>
+
+<span class="nc" id="L169">        c3031.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L170">        c3031.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L172">                c3031ActionPerformed(evt);</span>
+<span class="nc" id="L173">            }</span>
+        });
+<span class="nc" id="L175">        jPanel1.add(c3031);</span>
+<span class="nc" id="L176">        c3031.setBounds(30, 110, 100, 20);</span>
+
+<span class="nc" id="L178">        c4041.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L179">        c4041.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L181">                c4041ActionPerformed(evt);</span>
+<span class="nc" id="L182">            }</span>
+        });
+<span class="nc" id="L184">        jPanel1.add(c4041);</span>
+<span class="nc" id="L185">        c4041.setBounds(30, 0, 100, 20);</span>
+
+<span class="nc" id="L187">        c0102.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L188">        c0102.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L190">                c0102ActionPerformed(evt);</span>
+<span class="nc" id="L191">            }</span>
+        });
+<span class="nc" id="L193">        jPanel1.add(c0102);</span>
+<span class="nc" id="L194">        c0102.setBounds(170, 460, 100, 20);</span>
+
+<span class="nc" id="L196">        c1112.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L197">        c1112.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L199">                c1112ActionPerformed(evt);</span>
+<span class="nc" id="L200">            }</span>
+        });
+<span class="nc" id="L202">        jPanel1.add(c1112);</span>
+<span class="nc" id="L203">        c1112.setBounds(170, 340, 100, 20);</span>
+
+<span class="nc" id="L205">        c2122.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L206">        c2122.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L208">                c2122ActionPerformed(evt);</span>
+<span class="nc" id="L209">            }</span>
+        });
+<span class="nc" id="L211">        jPanel1.add(c2122);</span>
+<span class="nc" id="L212">        c2122.setBounds(170, 230, 100, 20);</span>
+
+<span class="nc" id="L214">        c3132.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L215">        c3132.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L217">                c3132ActionPerformed(evt);</span>
+<span class="nc" id="L218">            }</span>
+        });
+<span class="nc" id="L220">        jPanel1.add(c3132);</span>
+<span class="nc" id="L221">        c3132.setBounds(170, 110, 100, 20);</span>
+
+<span class="nc" id="L223">        c4142.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L224">        c4142.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L226">                c4142ActionPerformed(evt);</span>
+<span class="nc" id="L227">            }</span>
+        });
+<span class="nc" id="L229">        jPanel1.add(c4142);</span>
+<span class="nc" id="L230">        c4142.setBounds(170, 0, 100, 20);</span>
+
+<span class="nc" id="L232">        c0304.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L233">        c0304.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L235">                c0304ActionPerformed(evt);</span>
+<span class="nc" id="L236">            }</span>
+        });
+<span class="nc" id="L238">        jPanel1.add(c0304);</span>
+<span class="nc" id="L239">        c0304.setBounds(450, 460, 100, 20);</span>
+
+<span class="nc" id="L241">        c3334.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L242">        c3334.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L244">                c3334ActionPerformed(evt);</span>
+<span class="nc" id="L245">            }</span>
+        });
+<span class="nc" id="L247">        jPanel1.add(c3334);</span>
+<span class="nc" id="L248">        c3334.setBounds(450, 110, 100, 20);</span>
+
+<span class="nc" id="L250">        c1314.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L251">        c1314.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L253">                c1314ActionPerformed(evt);</span>
+<span class="nc" id="L254">            }</span>
+        });
+<span class="nc" id="L256">        jPanel1.add(c1314);</span>
+<span class="nc" id="L257">        c1314.setBounds(450, 340, 100, 20);</span>
+
+<span class="nc" id="L259">        c2324.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L260">        c2324.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L262">                c2324ActionPerformed(evt);</span>
+<span class="nc" id="L263">            }</span>
+        });
+<span class="nc" id="L265">        jPanel1.add(c2324);</span>
+<span class="nc" id="L266">        c2324.setBounds(450, 230, 100, 20);</span>
+
+<span class="nc" id="L268">        c4344.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L269">        c4344.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L271">                c4344ActionPerformed(evt);</span>
+<span class="nc" id="L272">            }</span>
+        });
+<span class="nc" id="L274">        jPanel1.add(c4344);</span>
+<span class="nc" id="L275">        c4344.setBounds(450, 0, 100, 20);</span>
+
+<span class="nc" id="L277">        c0203.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L278">        c0203.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L280">                c0203ActionPerformed(evt);</span>
+<span class="nc" id="L281">            }</span>
+        });
+<span class="nc" id="L283">        jPanel1.add(c0203);</span>
+<span class="nc" id="L284">        c0203.setBounds(310, 460, 100, 20);</span>
+
+<span class="nc" id="L286">        c1213.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L287">        c1213.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L289">                c1213ActionPerformed(evt);</span>
+<span class="nc" id="L290">            }</span>
+        });
+<span class="nc" id="L292">        jPanel1.add(c1213);</span>
+<span class="nc" id="L293">        c1213.setBounds(310, 340, 100, 20);</span>
+
+<span class="nc" id="L295">        c2223.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L296">        c2223.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L298">                c2223ActionPerformed(evt);</span>
+<span class="nc" id="L299">            }</span>
+        });
+<span class="nc" id="L301">        jPanel1.add(c2223);</span>
+<span class="nc" id="L302">        c2223.setBounds(310, 230, 100, 20);</span>
+
+<span class="nc" id="L304">        c3233.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L305">        c3233.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L307">                c3233ActionPerformed(evt);</span>
+<span class="nc" id="L308">            }</span>
+        });
+<span class="nc" id="L310">        jPanel1.add(c3233);</span>
+<span class="nc" id="L311">        c3233.setBounds(310, 110, 100, 20);</span>
+
+<span class="nc" id="L313">        c4243.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L314">        c4243.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L316">                c4243ActionPerformed(evt);</span>
+<span class="nc" id="L317">            }</span>
+        });
+<span class="nc" id="L319">        jPanel1.add(c4243);</span>
+<span class="nc" id="L320">        c4243.setBounds(310, 0, 100, 20);</span>
+
+<span class="nc" id="L322">        c0010.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L323">        c0010.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L325">                c0010ActionPerformed(evt);</span>
+<span class="nc" id="L326">            }</span>
+        });
+<span class="nc" id="L328">        jPanel1.add(c0010);</span>
+<span class="nc" id="L329">        c0010.setBounds(0, 360, 20, 100);</span>
+
+<span class="nc" id="L331">        c1020.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L332">        c1020.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L334">                c1020ActionPerformed(evt);</span>
+<span class="nc" id="L335">            }</span>
+        });
+<span class="nc" id="L337">        jPanel1.add(c1020);</span>
+<span class="nc" id="L338">        c1020.setBounds(0, 250, 20, 100);</span>
+
+<span class="nc" id="L340">        c2030.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L341">        c2030.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L343">                c2030ActionPerformed(evt);</span>
+<span class="nc" id="L344">            }</span>
+        });
+<span class="nc" id="L346">        jPanel1.add(c2030);</span>
+<span class="nc" id="L347">        c2030.setBounds(0, 130, 20, 100);</span>
+
+<span class="nc" id="L349">        c3040.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L350">        c3040.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L352">                c3040ActionPerformed(evt);</span>
+<span class="nc" id="L353">            }</span>
+        });
+<span class="nc" id="L355">        jPanel1.add(c3040);</span>
+<span class="nc" id="L356">        c3040.setBounds(0, 20, 20, 100);</span>
+
+<span class="nc" id="L358">        c0111.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L359">        c0111.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L361">                c0111ActionPerformed(evt);</span>
+<span class="nc" id="L362">            }</span>
+        });
+<span class="nc" id="L364">        jPanel1.add(c0111);</span>
+<span class="nc" id="L365">        c0111.setBounds(140, 360, 20, 100);</span>
+
+<span class="nc" id="L367">        c1121.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L368">        c1121.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L370">                c1121ActionPerformed(evt);</span>
+<span class="nc" id="L371">            }</span>
+        });
+<span class="nc" id="L373">        jPanel1.add(c1121);</span>
+<span class="nc" id="L374">        c1121.setBounds(140, 250, 20, 100);</span>
+
+<span class="nc" id="L376">        c2131.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L377">        c2131.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L379">                c2131ActionPerformed(evt);</span>
+<span class="nc" id="L380">            }</span>
+        });
+<span class="nc" id="L382">        jPanel1.add(c2131);</span>
+<span class="nc" id="L383">        c2131.setBounds(140, 130, 20, 100);</span>
+
+<span class="nc" id="L385">        c3141.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L386">        c3141.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L388">                c3141ActionPerformed(evt);</span>
+<span class="nc" id="L389">            }</span>
+        });
+<span class="nc" id="L391">        jPanel1.add(c3141);</span>
+<span class="nc" id="L392">        c3141.setBounds(140, 20, 20, 100);</span>
+
+<span class="nc" id="L394">        c0212.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L395">        c0212.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L397">                c0212ActionPerformed(evt);</span>
+<span class="nc" id="L398">            }</span>
+        });
+<span class="nc" id="L400">        jPanel1.add(c0212);</span>
+<span class="nc" id="L401">        c0212.setBounds(280, 360, 20, 100);</span>
+
+<span class="nc" id="L403">        c1222.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L404">        c1222.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L406">                c1222ActionPerformed(evt);</span>
+<span class="nc" id="L407">            }</span>
+        });
+<span class="nc" id="L409">        jPanel1.add(c1222);</span>
+<span class="nc" id="L410">        c1222.setBounds(280, 250, 20, 100);</span>
+
+<span class="nc" id="L412">        c2232.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L413">        c2232.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L415">                c2232ActionPerformed(evt);</span>
+<span class="nc" id="L416">            }</span>
+        });
+<span class="nc" id="L418">        jPanel1.add(c2232);</span>
+<span class="nc" id="L419">        c2232.setBounds(280, 130, 20, 100);</span>
+
+<span class="nc" id="L421">        c3242.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L422">        c3242.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L424">                c3242ActionPerformed(evt);</span>
+<span class="nc" id="L425">            }</span>
+        });
+<span class="nc" id="L427">        jPanel1.add(c3242);</span>
+<span class="nc" id="L428">        c3242.setBounds(280, 20, 20, 100);</span>
+
+<span class="nc" id="L430">        c0313.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L431">        c0313.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L433">                c0313ActionPerformed(evt);</span>
+<span class="nc" id="L434">            }</span>
+        });
+<span class="nc" id="L436">        jPanel1.add(c0313);</span>
+<span class="nc" id="L437">        c0313.setBounds(420, 360, 20, 100);</span>
+
+<span class="nc" id="L439">        c1323.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L440">        c1323.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L442">                c1323ActionPerformed(evt);</span>
+<span class="nc" id="L443">            }</span>
+        });
+<span class="nc" id="L445">        jPanel1.add(c1323);</span>
+<span class="nc" id="L446">        c1323.setBounds(420, 250, 20, 100);</span>
+
+<span class="nc" id="L448">        c2333.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L449">        c2333.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L451">                c2333ActionPerformed(evt);</span>
+<span class="nc" id="L452">            }</span>
+        });
+<span class="nc" id="L454">        jPanel1.add(c2333);</span>
+<span class="nc" id="L455">        c2333.setBounds(420, 130, 20, 100);</span>
+
+<span class="nc" id="L457">        c3343.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L458">        c3343.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L460">                c3343ActionPerformed(evt);</span>
+<span class="nc" id="L461">            }</span>
+        });
+<span class="nc" id="L463">        jPanel1.add(c3343);</span>
+<span class="nc" id="L464">        c3343.setBounds(420, 20, 20, 100);</span>
+
+<span class="nc" id="L466">        c3444.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L467">        c3444.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L469">                c3444ActionPerformed(evt);</span>
+<span class="nc" id="L470">            }</span>
+        });
+<span class="nc" id="L472">        jPanel1.add(c3444);</span>
+<span class="nc" id="L473">        c3444.setBounds(560, 20, 20, 100);</span>
+
+<span class="nc" id="L475">        c0414.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L476">        c0414.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L478">                c0414ActionPerformed(evt);</span>
+<span class="nc" id="L479">            }</span>
+        });
+<span class="nc" id="L481">        jPanel1.add(c0414);</span>
+<span class="nc" id="L482">        c0414.setBounds(560, 360, 20, 100);</span>
+
+<span class="nc" id="L484">        c2434.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L485">        c2434.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L487">                c2434ActionPerformed(evt);</span>
+<span class="nc" id="L488">            }</span>
+        });
+<span class="nc" id="L490">        jPanel1.add(c2434);</span>
+<span class="nc" id="L491">        c2434.setBounds(560, 130, 20, 100);</span>
+
+<span class="nc" id="L493">        c1424.setBackground(new java.awt.Color(204, 204, 204));</span>
+<span class="nc" id="L494">        c1424.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L496">                c1424ActionPerformed(evt);</span>
+<span class="nc" id="L497">            }</span>
+        });
+<span class="nc" id="L499">        jPanel1.add(c1424);</span>
+<span class="nc" id="L500">        c1424.setBounds(560, 250, 20, 100);</span>
+
+<span class="nc" id="L502">        ImagenDeFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/imagenes/mapa.JPG&quot;))); // NOI18N</span>
+<span class="nc" id="L503">        jPanel1.add(ImagenDeFondo);</span>
+<span class="nc" id="L504">        ImagenDeFondo.setBounds(0, 0, 950, 480);</span>
+
+<span class="nc" id="L506">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L507">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L508">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L509">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L510">            .addGap(0, 719, Short.MAX_VALUE)</span>
+<span class="nc" id="L511">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L512">                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE))</span>
+        );
+<span class="nc" id="L514">        layout.setVerticalGroup(</span>
+<span class="nc" id="L515">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L516">            .addGap(0, 480, Short.MAX_VALUE)</span>
+<span class="nc" id="L517">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L518">                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))</span>
+        );
+
+<span class="nc" id="L521">        pack();</span>
+<span class="nc" id="L522">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void guardarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBotonActionPerformed
+<span class="nc" id="L525">        String cordenadas = &quot;&quot;;</span>
+<span class="nc bnc" id="L526" title="All 2 branches missed.">        if (calles.size() != 0){</span>
+<span class="nc bnc" id="L527" title="All 2 branches missed.">        for (int i = 0; i &lt; calles.size(); i++) {</span>
+<span class="nc" id="L528">            cordenadas += &quot; &quot;+calles.get(i);</span>
+        }
+        //-------------
+        Actividad actividad;
+<span class="nc" id="L532">        Familiar f = act.getFamiliar();</span>
+<span class="nc" id="L533">        Mascota m = act.getMascota();</span>
+<span class="nc" id="L534">        String descrip = act.getDescripcion();</span>
+<span class="nc" id="L535">        Date fecha = act.getFecha();</span>
+<span class="nc" id="L536">        int distancia = act.getDistancia();</span>
+<span class="nc" id="L537">        String cor = cordenadas;</span>
+<span class="nc" id="L538">        actividad = new Actividad(f,m,descrip,fecha,distancia,cor);</span>
+        //---------------------------
+<span class="nc" id="L540">        sistema.getListaActividades().add(actividad);</span>
+<span class="nc" id="L541">        JOptionPane.showMessageDialog(null, &quot;  Paseo registrado ! &quot;);</span>
+<span class="nc" id="L542">        Calendario c = new Calendario(sistema);</span>
+<span class="nc" id="L543">        c.setVisible(true);</span>
+<span class="nc" id="L544">        this.setVisible(false);</span>
+<span class="nc" id="L545">        }else{</span>
+<span class="nc" id="L546">           JOptionPane.showMessageDialog(null, &quot;ninguna callle registrada&quot;);</span>
+        }
+        
+<span class="nc" id="L549">    }//GEN-LAST:event_guardarBotonActionPerformed</span>
+    void desactivarCalles() {
+        //Horizontales
+<span class="nc" id="L552">        c0001.setVisible(false);</span>
+<span class="nc" id="L553">        c0102.setVisible(false);</span>
+<span class="nc" id="L554">        c0203.setVisible(false);</span>
+<span class="nc" id="L555">        c0304.setVisible(false);</span>
+<span class="nc" id="L556">        c1011.setVisible(false);</span>
+<span class="nc" id="L557">        c1112.setVisible(false);</span>
+<span class="nc" id="L558">        c1213.setVisible(false);</span>
+<span class="nc" id="L559">        c1314.setVisible(false);</span>
+<span class="nc" id="L560">        c2021.setVisible(false);</span>
+<span class="nc" id="L561">        c2122.setVisible(false);</span>
+<span class="nc" id="L562">        c2223.setVisible(false);</span>
+<span class="nc" id="L563">        c2324.setVisible(false);</span>
+<span class="nc" id="L564">        c3031.setVisible(false);</span>
+<span class="nc" id="L565">        c3132.setVisible(false);</span>
+<span class="nc" id="L566">        c3233.setVisible(false);</span>
+<span class="nc" id="L567">        c3334.setVisible(false);</span>
+<span class="nc" id="L568">        c4041.setVisible(false);</span>
+<span class="nc" id="L569">        c4142.setVisible(false);</span>
+<span class="nc" id="L570">        c4243.setVisible(false);</span>
+<span class="nc" id="L571">        c4344.setVisible(false);</span>
+        //Verticales
+<span class="nc" id="L573">        c0010.setVisible(false);</span>
+<span class="nc" id="L574">        c1020.setVisible(false);</span>
+<span class="nc" id="L575">        c2030.setVisible(false);</span>
+<span class="nc" id="L576">        c3040.setVisible(false);</span>
+<span class="nc" id="L577">        c0111.setVisible(false);</span>
+<span class="nc" id="L578">        c1121.setVisible(false);</span>
+<span class="nc" id="L579">        c2131.setVisible(false);</span>
+<span class="nc" id="L580">        c3141.setVisible(false);</span>
+<span class="nc" id="L581">        c0212.setVisible(false);</span>
+<span class="nc" id="L582">        c1222.setVisible(false);</span>
+<span class="nc" id="L583">        c2232.setVisible(false);</span>
+<span class="nc" id="L584">        c3242.setVisible(false);</span>
+<span class="nc" id="L585">        c0313.setVisible(false);</span>
+<span class="nc" id="L586">        c1323.setVisible(false);</span>
+<span class="nc" id="L587">        c2333.setVisible(false);</span>
+<span class="nc" id="L588">        c3343.setVisible(false);</span>
+<span class="nc" id="L589">        c0414.setVisible(false);</span>
+<span class="nc" id="L590">        c1424.setVisible(false);</span>
+<span class="nc" id="L591">        c2434.setVisible(false);</span>
+<span class="nc" id="L592">        c3444.setVisible(false);</span>
+
+<span class="nc" id="L594">    }</span>
+    private void c0001ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0001ActionPerformed
+<span class="nc" id="L596">        calles.add(&quot;0001&quot;);</span>
+<span class="nc" id="L597">        c0001.setBackground(Color.BLUE);</span>
+<span class="nc" id="L598">    }//GEN-LAST:event_c0001ActionPerformed</span>
+
+    private void c0102ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0102ActionPerformed
+<span class="nc" id="L601">        calles.add(&quot;0102&quot;);</span>
+<span class="nc" id="L602">        c0102.setBackground(Color.BLUE);</span>
+<span class="nc" id="L603">    }//GEN-LAST:event_c0102ActionPerformed</span>
+
+    private void c0203ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0203ActionPerformed
+<span class="nc" id="L606">        calles.add(&quot;0203&quot;);</span>
+<span class="nc" id="L607">        c0203.setBackground(Color.BLUE);</span>
+<span class="nc" id="L608">    }//GEN-LAST:event_c0203ActionPerformed</span>
+
+    private void c0304ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0304ActionPerformed
+<span class="nc" id="L611">        calles.add(&quot;0304&quot;);</span>
+<span class="nc" id="L612">        c0304.setBackground(Color.BLUE);</span>
+<span class="nc" id="L613">    }//GEN-LAST:event_c0304ActionPerformed</span>
+
+    private void c0010ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0010ActionPerformed
+<span class="nc" id="L616">        calles.add(&quot;0010&quot;);</span>
+<span class="nc" id="L617">        c0010.setBackground(Color.BLUE);</span>
+<span class="nc" id="L618">    }//GEN-LAST:event_c0010ActionPerformed</span>
+
+    private void c0111ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0111ActionPerformed
+<span class="nc" id="L621">        calles.add(&quot;0111&quot;);</span>
+<span class="nc" id="L622">        c0111.setBackground(Color.BLUE);</span>
+<span class="nc" id="L623">    }//GEN-LAST:event_c0111ActionPerformed</span>
+
+    private void c0212ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0212ActionPerformed
+<span class="nc" id="L626">        calles.add(&quot;0212&quot;);</span>
+<span class="nc" id="L627">        c0212.setBackground(Color.BLUE);</span>
+<span class="nc" id="L628">    }//GEN-LAST:event_c0212ActionPerformed</span>
+
+    private void c0313ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0313ActionPerformed
+<span class="nc" id="L631">        calles.add(&quot;0313&quot;);</span>
+<span class="nc" id="L632">        c0313.setBackground(Color.BLUE);</span>
+<span class="nc" id="L633">    }//GEN-LAST:event_c0313ActionPerformed</span>
+
+    private void c0414ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c0414ActionPerformed
+<span class="nc" id="L636">        calles.add(&quot;0414&quot;);</span>
+<span class="nc" id="L637">        c0414.setBackground(Color.BLUE);</span>
+<span class="nc" id="L638">    }//GEN-LAST:event_c0414ActionPerformed</span>
+
+    private void c1011ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1011ActionPerformed
+<span class="nc" id="L641">       calles.add(&quot;1011&quot;);</span>
+<span class="nc" id="L642">       c1011.setBackground(Color.BLUE);</span>
+<span class="nc" id="L643">    }//GEN-LAST:event_c1011ActionPerformed</span>
+
+    private void c1112ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1112ActionPerformed
+<span class="nc" id="L646">        calles.add(&quot;1112&quot;);</span>
+<span class="nc" id="L647">        c1112.setBackground(Color.BLUE);</span>
+<span class="nc" id="L648">    }//GEN-LAST:event_c1112ActionPerformed</span>
+
+    private void c1213ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1213ActionPerformed
+<span class="nc" id="L651">      calles.add(&quot;1213&quot;);</span>
+<span class="nc" id="L652">      c1213.setBackground(Color.BLUE);</span>
+<span class="nc" id="L653">    }//GEN-LAST:event_c1213ActionPerformed</span>
+
+    private void c1314ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1314ActionPerformed
+<span class="nc" id="L656">        calles.add(&quot;1314&quot;);</span>
+<span class="nc" id="L657">        c1314.setBackground(Color.BLUE);</span>
+<span class="nc" id="L658">    }//GEN-LAST:event_c1314ActionPerformed</span>
+
+    private void c1020ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1020ActionPerformed
+<span class="nc" id="L661">        calles.add(&quot;1020&quot;);</span>
+<span class="nc" id="L662">        c1020.setBackground(Color.BLUE);</span>
+<span class="nc" id="L663">    }//GEN-LAST:event_c1020ActionPerformed</span>
+
+    private void c1121ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1121ActionPerformed
+<span class="nc" id="L666">       calles.add(&quot;1121&quot;);</span>
+<span class="nc" id="L667">       c1121.setBackground(Color.BLUE);</span>
+<span class="nc" id="L668">    }//GEN-LAST:event_c1121ActionPerformed</span>
+
+    private void c1222ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1222ActionPerformed
+<span class="nc" id="L671">        calles.add(&quot;1222&quot;);</span>
+<span class="nc" id="L672">         c1222.setBackground(Color.BLUE);</span>
+<span class="nc" id="L673">    }//GEN-LAST:event_c1222ActionPerformed</span>
+
+    private void c1323ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1323ActionPerformed
+<span class="nc" id="L676">      calles.add(&quot;1323&quot;);</span>
+<span class="nc" id="L677">      c1323.setBackground(Color.BLUE);</span>
+<span class="nc" id="L678">    }//GEN-LAST:event_c1323ActionPerformed</span>
+
+    private void c1424ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1424ActionPerformed
+<span class="nc" id="L681">       calles.add(&quot;1424&quot;);</span>
+<span class="nc" id="L682">       c1424.setBackground(Color.BLUE);</span>
+<span class="nc" id="L683">    }//GEN-LAST:event_c1424ActionPerformed</span>
+
+    private void c2021ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2021ActionPerformed
+<span class="nc" id="L686">        calles.add(&quot;2021&quot;);</span>
+<span class="nc" id="L687">        c2021.setBackground(Color.BLUE);</span>
+<span class="nc" id="L688">    }//GEN-LAST:event_c2021ActionPerformed</span>
+
+    private void c2122ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2122ActionPerformed
+<span class="nc" id="L691">        calles.add(&quot;2122&quot;);</span>
+<span class="nc" id="L692">        c2122.setBackground(Color.BLUE);</span>
+<span class="nc" id="L693">    }//GEN-LAST:event_c2122ActionPerformed</span>
+
+    private void c2223ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2223ActionPerformed
+<span class="nc" id="L696">        calles.add(&quot;2223&quot;);</span>
+<span class="nc" id="L697">        c2223.setBackground(Color.BLUE);</span>
+<span class="nc" id="L698">    }//GEN-LAST:event_c2223ActionPerformed</span>
+
+    private void c2324ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2324ActionPerformed
+<span class="nc" id="L701">        calles.add(&quot;2324&quot;);</span>
+<span class="nc" id="L702">        c2324.setBackground(Color.BLUE);</span>
+<span class="nc" id="L703">    }//GEN-LAST:event_c2324ActionPerformed</span>
+
+    private void c2030ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2030ActionPerformed
+<span class="nc" id="L706">      calles.add(&quot;2030&quot;);</span>
+<span class="nc" id="L707">      c2030.setBackground(Color.BLUE);</span>
+<span class="nc" id="L708">    }//GEN-LAST:event_c2030ActionPerformed</span>
+
+    private void c2131ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2131ActionPerformed
+<span class="nc" id="L711">        calles.add(&quot;2131&quot;);</span>
+<span class="nc" id="L712">        c2131.setBackground(Color.BLUE);</span>
+<span class="nc" id="L713">    }//GEN-LAST:event_c2131ActionPerformed</span>
+
+    private void c2232ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2232ActionPerformed
+<span class="nc" id="L716">        calles.add(&quot;2232&quot;);</span>
+<span class="nc" id="L717">        c2232.setBackground(Color.BLUE);</span>
+<span class="nc" id="L718">    }//GEN-LAST:event_c2232ActionPerformed</span>
+
+    private void c2333ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2333ActionPerformed
+<span class="nc" id="L721">       calles.add(&quot;2333&quot;);</span>
+<span class="nc" id="L722">       c2333.setBackground(Color.BLUE);</span>
+<span class="nc" id="L723">    }//GEN-LAST:event_c2333ActionPerformed</span>
+
+    private void c2434ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2434ActionPerformed
+<span class="nc" id="L726">       calles.add(&quot;2434&quot;);</span>
+<span class="nc" id="L727">       c2434.setBackground(Color.BLUE);</span>
+<span class="nc" id="L728">    }//GEN-LAST:event_c2434ActionPerformed</span>
+
+    private void c3031ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3031ActionPerformed
+<span class="nc" id="L731">        calles.add(&quot;3031&quot;);</span>
+<span class="nc" id="L732">        c3031.setBackground(Color.BLUE);</span>
+<span class="nc" id="L733">    }//GEN-LAST:event_c3031ActionPerformed</span>
+
+    private void c3132ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3132ActionPerformed
+<span class="nc" id="L736">       calles.add(&quot;3132&quot;);</span>
+<span class="nc" id="L737">       c3132.setBackground(Color.BLUE);</span>
+<span class="nc" id="L738">    }//GEN-LAST:event_c3132ActionPerformed</span>
+
+    private void c3233ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3233ActionPerformed
+<span class="nc" id="L741">        calles.add(&quot;3233&quot;);</span>
+<span class="nc" id="L742">        c3233.setBackground(Color.BLUE);</span>
+<span class="nc" id="L743">    }//GEN-LAST:event_c3233ActionPerformed</span>
+
+    private void c3334ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3334ActionPerformed
+<span class="nc" id="L746">        calles.add(&quot;3334&quot;);</span>
+<span class="nc" id="L747">        c3334.setBackground(Color.BLUE);</span>
+<span class="nc" id="L748">    }//GEN-LAST:event_c3334ActionPerformed</span>
+
+    private void c3040ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3040ActionPerformed
+<span class="nc" id="L751">        calles.add(&quot;3040&quot;);</span>
+<span class="nc" id="L752">        c3040.setBackground(Color.BLUE);</span>
+<span class="nc" id="L753">    }//GEN-LAST:event_c3040ActionPerformed</span>
+
+    private void c3141ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3141ActionPerformed
+<span class="nc" id="L756">        calles.add(&quot;3141&quot;);</span>
+<span class="nc" id="L757">        c3141.setBackground(Color.BLUE);</span>
+<span class="nc" id="L758">    }//GEN-LAST:event_c3141ActionPerformed</span>
+
+    private void c3242ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3242ActionPerformed
+<span class="nc" id="L761">       calles.add(&quot;3242&quot;);</span>
+<span class="nc" id="L762">       c3242.setBackground(Color.BLUE);</span>
+<span class="nc" id="L763">    }//GEN-LAST:event_c3242ActionPerformed</span>
+
+    private void c3343ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3343ActionPerformed
+<span class="nc" id="L766">        calles.add(&quot;3343&quot;);</span>
+<span class="nc" id="L767">        c3343.setBackground(Color.BLUE);</span>
+<span class="nc" id="L768">    }//GEN-LAST:event_c3343ActionPerformed</span>
+
+    private void c3444ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3444ActionPerformed
+<span class="nc" id="L771">        calles.add(&quot;3444&quot;);</span>
+<span class="nc" id="L772">        c3444.setBackground(Color.BLUE);</span>
+<span class="nc" id="L773">    }//GEN-LAST:event_c3444ActionPerformed</span>
+
+    private void c4041ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4041ActionPerformed
+<span class="nc" id="L776">       calles.add(&quot;4041&quot;);</span>
+<span class="nc" id="L777">       c4041.setBackground(Color.BLUE);</span>
+<span class="nc" id="L778">    }//GEN-LAST:event_c4041ActionPerformed</span>
+
+    private void c4142ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4142ActionPerformed
+<span class="nc" id="L781">        calles.add(&quot;4142&quot;);</span>
+<span class="nc" id="L782">        c4142.setBackground(Color.BLUE);</span>
+<span class="nc" id="L783">    }//GEN-LAST:event_c4142ActionPerformed</span>
+
+    private void c4243ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4243ActionPerformed
+<span class="nc" id="L786">        calles.add(&quot;4243&quot;);</span>
+<span class="nc" id="L787">        c4243.setBackground(Color.BLUE);</span>
+<span class="nc" id="L788">    }//GEN-LAST:event_c4243ActionPerformed</span>
+
+    private void c4344ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4344ActionPerformed
+<span class="nc" id="L791">        calles.add(&quot;4344&quot;);</span>
+<span class="nc" id="L792">        c4344.setBackground(Color.BLUE);</span>
+<span class="nc" id="L793">    }//GEN-LAST:event_c4344ActionPerformed</span>
+
+   
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+<span class="nc bnc" id="L804" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L805" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L806">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L807">                    break;</span>
+                }
+            }
+<span class="nc" id="L810">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L811">            java.util.logging.Logger.getLogger(Mapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L812">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L813">            java.util.logging.Logger.getLogger(Mapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L814">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L815">            java.util.logging.Logger.getLogger(Mapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L816">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L817">            java.util.logging.Logger.getLogger(Mapa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L818">        }</span>
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L823">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+                //   new VentanaPrincipal(sistema,username).setVisible(true);.
+<span class="nc" id="L826">            }</span>
+        });
+<span class="nc" id="L828">    }</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ImagenDeFondo;
+    private javax.swing.JButton c0001;
+    private javax.swing.JButton c0010;
+    private javax.swing.JButton c0102;
+    private javax.swing.JButton c0111;
+    private javax.swing.JButton c0203;
+    private javax.swing.JButton c0212;
+    private javax.swing.JButton c0304;
+    private javax.swing.JButton c0313;
+    private javax.swing.JButton c0414;
+    private javax.swing.JButton c1011;
+    private javax.swing.JButton c1020;
+    private javax.swing.JButton c1112;
+    private javax.swing.JButton c1121;
+    private javax.swing.JButton c1213;
+    private javax.swing.JButton c1222;
+    private javax.swing.JButton c1314;
+    private javax.swing.JButton c1323;
+    private javax.swing.JButton c1424;
+    private javax.swing.JButton c2021;
+    private javax.swing.JButton c2030;
+    private javax.swing.JButton c2122;
+    private javax.swing.JButton c2131;
+    private javax.swing.JButton c2223;
+    private javax.swing.JButton c2232;
+    private javax.swing.JButton c2324;
+    private javax.swing.JButton c2333;
+    private javax.swing.JButton c2434;
+    private javax.swing.JButton c3031;
+    private javax.swing.JButton c3040;
+    private javax.swing.JButton c3132;
+    private javax.swing.JButton c3141;
+    private javax.swing.JButton c3233;
+    private javax.swing.JButton c3242;
+    private javax.swing.JButton c3334;
+    private javax.swing.JButton c3343;
+    private javax.swing.JButton c3444;
+    private javax.swing.JButton c4041;
+    private javax.swing.JButton c4142;
+    private javax.swing.JButton c4243;
+    private javax.swing.JButton c4344;
+    private javax.swing.JButton guardarBoton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

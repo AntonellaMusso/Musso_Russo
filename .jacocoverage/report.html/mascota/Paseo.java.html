@@ -15,79 +15,55 @@ public class Paseo {
     //Atributos
     private Familiar familiar;
     private Mascota mascota;
-    private int hora;
-    private int minutos;
     private Date fecha;
 
     //Metodos de acceso
     public Familiar getFamiliar() {
-<span class="fc" id="L24">        return this.familiar;</span>
+<span class="nc" id="L22">        return this.familiar;</span>
     }
 
     public Mascota getMascota() {
-<span class="fc" id="L28">        return this.mascota;</span>
+<span class="nc" id="L26">        return this.mascota;</span>
     }
 
-    public int getHora() {
-<span class="fc" id="L32">        return this.hora;</span>
-    }
-
-    public int getMinutos() {
-<span class="fc" id="L36">        return this.minutos;</span>
-    }
 
     public Date getFecha() {
-<span class="fc" id="L40">        return this.fecha;</span>
+<span class="nc" id="L31">        return this.fecha;</span>
     }
 
     //Métodos de modificación
     public void setFamiliar(Familiar fam) {
-<span class="fc" id="L45">        this.familiar = fam;</span>
-<span class="fc" id="L46">    }</span>
+<span class="nc" id="L36">        this.familiar = fam;</span>
+<span class="nc" id="L37">    }</span>
 
     public void setMascota(Mascota mas) {
-<span class="fc" id="L49">        this.mascota = mas;</span>
-<span class="fc" id="L50">    }</span>
+<span class="nc" id="L40">        this.mascota = mas;</span>
+<span class="nc" id="L41">    }</span>
 
-    public void setHora(int hor) {
-<span class="pc bpc" id="L53" title="2 of 4 branches missed.">        if (hor &gt;= 0 &amp;&amp; hor &lt;= 23) {</span>
-<span class="fc" id="L54">            this.hora = hor;</span>
-        }
-<span class="fc" id="L56">    }</span>
-
-    public void setMinutos(int min) {
-<span class="pc bpc" id="L59" title="2 of 4 branches missed.">        if (min &gt;= 0 &amp;&amp; min &lt;= 60) {</span>
-<span class="fc" id="L60">            this.minutos = min;</span>
-        }
-<span class="fc" id="L62">    }</span>
 
     public void setFecha(Date f) {
-<span class="fc" id="L65">        this.fecha = f;</span>
-<span class="fc" id="L66">    }</span>
+<span class="nc" id="L45">        this.fecha = f;</span>
+<span class="nc" id="L46">    }</span>
 
     //Constructores
-<span class="nc" id="L69">    public Paseo(Familiar unF, Mascota unaM, int unahora, int minuto, Date fech) {</span>
-<span class="nc" id="L70">        this.setFamiliar(unF);</span>
-<span class="nc" id="L71">        this.setMascota(unaM);</span>
-<span class="nc" id="L72">        this.setHora(unahora);</span>
-<span class="nc" id="L73">        this.setMinutos(minuto);</span>
-<span class="nc" id="L74">        this.setFecha(fech);</span>
-<span class="nc" id="L75">    }</span>
+<span class="nc" id="L49">    public Paseo(Familiar unF, Mascota unaM, Date fecha) {</span>
+<span class="nc" id="L50">        this.setFamiliar(unF);</span>
+<span class="nc" id="L51">        this.setMascota(unaM);</span>
+<span class="nc" id="L52">        this.setFecha(fecha);</span>
+<span class="nc" id="L53">    }</span>
 
-<span class="fc" id="L77">    public Paseo() {</span>
-<span class="fc" id="L78">        this.setFamiliar(new Familiar());</span>
-<span class="fc" id="L79">        this.setMascota(new Mascota());</span>
-<span class="fc" id="L80">        this.setHora(0);</span>
-<span class="fc" id="L81">        this.setMinutos(0);</span>
-<span class="fc" id="L82">        this.setFecha(new java.util.Date());</span>
-<span class="fc" id="L83">    }</span>
+<span class="nc" id="L55">    public Paseo() {</span>
+<span class="nc" id="L56">        this.setFamiliar(new Familiar());</span>
+<span class="nc" id="L57">        this.setMascota(new Mascota());</span>
+<span class="nc" id="L58">        this.setFecha(new java.util.Date());</span>
+<span class="nc" id="L59">    }</span>
 
     @Override
     public String toString() {
-<span class="fc" id="L87">        return &quot;Fmiliar a cargo del paseo: &quot; + this.getFamiliar().getNombre()</span>
-<span class="fc" id="L88">                + &quot; pasea a: &quot; + this.getMascota().getNombre() + &quot; a la hora: &quot;</span>
-<span class="fc" id="L89">                + this.getHora() + &quot;:&quot; + this.getMinutos() + &quot; el día: &quot; + </span>
-<span class="fc" id="L90">                this.getFecha();</span>
+<span class="nc" id="L63">        return &quot;Familiar a cargo del paseo: &quot; + this.getFamiliar().getNombre()</span>
+<span class="nc" id="L64">                + &quot; pasea a: &quot; + this.getMascota().getNombre() + &quot; el dia: &quot;</span>
+<span class="nc" id="L65">                + this.getFecha().getDate()+&quot;/&quot;+this.getFecha().getMonth()+&quot;/&quot;</span>
+<span class="nc" id="L66">                + (this.getFecha().getYear()+1900);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

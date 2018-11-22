@@ -5,93 +5,106 @@
  */
 package mascota;
 
-/**
- *
- * @author usuario
- */
+//estas actividades son cosas que sucedieron (no que estan por suceder)
+import java.util.Date;
+
 public class Actividad {
 
     private Familiar familiar;
     private Mascota mascota;
     private String descripcion;
-    private int distancia; 
-    private String estado; 
+    private Date fecha;
+    private int distancia;
+    private String cordenadasDePaseo;
     //Métodos de acceso
+
+    public String getCordenadasDePaseo() {
+<span class="nc" id="L22">        return cordenadasDePaseo;</span>
+    }
+
+    public Date getFecha() {
+<span class="nc" id="L26">        return fecha;</span>
+    }
+
     public Familiar getFamiliar() {
-<span class="nc" id="L21">        return familiar;</span>
+<span class="nc" id="L30">        return familiar;</span>
     }
 
     public Mascota getMascota() {
-<span class="nc" id="L25">        return mascota;</span>
+<span class="nc" id="L34">        return mascota;</span>
     }
 
     public String getDescripcion() {
-<span class="nc" id="L29">        return descripcion;</span>
+<span class="nc" id="L38">        return descripcion;</span>
     }
 
     public int getDistancia() {
-<span class="nc" id="L33">        return distancia;</span>
-    }
-    
-    public String getEstado(){
-<span class="nc" id="L37">        return estado;</span>
+<span class="nc" id="L42">        return distancia;</span>
     }
 
     //Métodos de modificación 
+
+    public void setCordenadasDePaseo(String cordenadasDePaseo) {
+<span class="nc" id="L48">        this.cordenadasDePaseo = cordenadasDePaseo;</span>
+<span class="nc" id="L49">    }</span>
+    
+    
+    public void setFecha(Date fecha) {
+<span class="nc" id="L53">        this.fecha = fecha;</span>
+<span class="nc" id="L54">    }</span>
+
     public void setFamiliar(Familiar familiar) {
-<span class="fc" id="L42">        this.familiar = familiar;</span>
-<span class="fc" id="L43">    }</span>
+<span class="nc" id="L57">        this.familiar = familiar;</span>
+<span class="nc" id="L58">    }</span>
 
     public void setMascota(Mascota mascota) {
-<span class="fc" id="L46">        this.mascota = mascota;</span>
-<span class="fc" id="L47">    }</span>
+<span class="nc" id="L61">        this.mascota = mascota;</span>
+<span class="nc" id="L62">    }</span>
 
     public void setDescripcion(String descripcion) {
-<span class="pc bpc" id="L50" title="2 of 4 branches missed.">        if (descripcion.length() &gt; 0 &amp;&amp; descripcion.length() &lt; 200) {</span>
-<span class="fc" id="L51">            this.descripcion = descripcion;</span>
+<span class="nc bnc" id="L65" title="All 4 branches missed.">        if (descripcion.length() &gt; 0 &amp;&amp; descripcion.length() &lt; 200) {</span>
+<span class="nc" id="L66">            this.descripcion = descripcion;</span>
         }
-<span class="fc" id="L53">    }</span>
+<span class="nc" id="L68">    }</span>
 
     public void setDistancia(int distancia) {
-<span class="pc bpc" id="L56" title="1 of 2 branches missed.">        if (distancia &gt; 0) {</span>
-<span class="nc" id="L57">            this.distancia = distancia;</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (distancia &gt; 0) {</span>
+<span class="nc" id="L72">            this.distancia = distancia;</span>
         }
-<span class="fc" id="L59">    }</span>
-    
-    public void setEstado(String estado){
-<span class="pc bpc" id="L62" title="1 of 2 branches missed.">        if(estado.equalsIgnoreCase(&quot;hecho&quot;) || </span>
-<span class="pc bpc" id="L63" title="1 of 2 branches missed.">           estado.equalsIgnoreCase(&quot;pendiente&quot;) || </span>
-<span class="nc bnc" id="L64" title="All 2 branches missed.">           estado.equalsIgnoreCase(&quot;pendiente&quot;)){</span>
-<span class="nc" id="L65">            this.setEstado(estado);</span>
-        }
-<span class="nc" id="L67">    }</span>
+<span class="nc" id="L74">    }</span>
 
     //Constructor
-    public Actividad(Familiar familiar, Mascota mascota, String descripcion, 
-<span class="nc" id="L71">            int distancia, String estado) {</span>
-<span class="nc" id="L72">        this.setFamiliar(familiar);</span>
-<span class="nc" id="L73">        this.setMascota(mascota);</span>
-<span class="nc" id="L74">        this.setDescripcion(descripcion);</span>
-<span class="nc" id="L75">        this.setDistancia(distancia);</span>
-<span class="nc" id="L76">        this.setEstado(estado);</span>
-<span class="nc" id="L77">    }</span>
-    
-<span class="fc" id="L79">    public Actividad() {</span>
-<span class="fc" id="L80">        this.setFamiliar(new Familiar());</span>
-<span class="fc" id="L81">        this.setMascota(new Mascota());</span>
-<span class="fc" id="L82">        this.setDescripcion(&quot;Descripción por defecto&quot;);</span>
-<span class="fc" id="L83">        this.setDistancia(0);</span>
-<span class="nc" id="L84">        this.setEstado(&quot;pendiente&quot;);</span>
+    public Actividad(Familiar familiar, Mascota mascota, String descripcion,
+<span class="nc" id="L78">            Date fecha, int distancia,String cordenadas) {</span>
+<span class="nc" id="L79">        this.setFamiliar(familiar);</span>
+<span class="nc" id="L80">        this.setMascota(mascota);</span>
+<span class="nc" id="L81">        this.setDescripcion(descripcion);</span>
+<span class="nc" id="L82">        this.setFecha(fecha);</span>
+<span class="nc" id="L83">        this.setDistancia(distancia);</span>
+<span class="nc" id="L84">        this.setCordenadasDePaseo(cordenadas);</span>
 <span class="nc" id="L85">    }</span>
+
+<span class="nc" id="L87">    public Actividad() {</span>
+<span class="nc" id="L88">        this.setFamiliar(new Familiar());</span>
+<span class="nc" id="L89">        this.setMascota(new Mascota());</span>
+<span class="nc" id="L90">        this.setDescripcion(&quot;Descripción por defecto&quot;);</span>
+<span class="nc" id="L91">        this.setDistancia(0);</span>
+<span class="nc" id="L92">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L89">        return &quot;Actividad realizada: &quot; + this.getDescripcion() + </span>
-<span class="nc" id="L90">                &quot;, familiar a cargo &quot; + this.getFamiliar().getNombre()+</span>
-<span class="nc" id="L91">                &quot;. Nombre de la mascota: &quot; + this.getMascota().getNombre() + </span>
-<span class="nc" id="L92">                        &quot;. Estado de la actividad: &quot; + this.getEstado();</span>
-                }
-    
-    
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        if (getDistancia() == 0){</span>
+<span class="nc" id="L97">        return &quot;Actividad realizada: &quot; + this.getDescripcion()</span>
+<span class="nc" id="L98">                + &quot;, familiar a cargo &quot; + this.getFamiliar().getNombre()</span>
+<span class="nc" id="L99">                + &quot;. Nombre de la mascota: &quot; + this.getMascota().getNombre();</span>
+        }else{
+<span class="nc" id="L101">             return &quot;Actividad realizada: &quot; + this.getDescripcion()</span>
+<span class="nc" id="L102">                + &quot;, familiar a cargo &quot; + this.getFamiliar().getNombre()</span>
+<span class="nc" id="L103">                + &quot;, Nombre de la mascota: &quot; + this.getMascota().getNombre()</span>
+<span class="nc" id="L104">                +&quot; , Distancia recorrida; &quot;+this.getDistancia()+ &quot; KM&quot;;</span>
+        }
+
+    }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

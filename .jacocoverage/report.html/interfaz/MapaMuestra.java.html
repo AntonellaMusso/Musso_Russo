@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MapaMuestra.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Mascota&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaz</a> &gt; <span class="el_source">MapaMuestra.java</span></div><h1>MapaMuestra.java</h1><pre class="source lang-java linenums">
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package interfaz;
+
+import java.util.Date;
+import java.util.HashMap;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import mascota.Actividad;
+import mascota.Familiar;
+import mascota.Mascota;
+import mascota.Sistema;
+
+/**
+ *
+ * @author usuario
+ */
+public class MapaMuestra extends javax.swing.JFrame {
+
+    static private Sistema sistema;
+    String cord;
+    HashMap&lt;String, JButton&gt; calles; //diccionario para acceder a las calles
+
+
+<span class="nc" id="L29">    public MapaMuestra(Sistema modelo,String cordenadas) {</span>
+<span class="nc" id="L30">        initComponents();</span>
+<span class="nc" id="L31">        sistema = modelo;</span>
+<span class="nc" id="L32">        setLocationRelativeTo(null); </span>
+<span class="nc" id="L33">        desactivarCalles();</span>
+<span class="nc" id="L34">        cord = cordenadas;         </span>
+<span class="nc" id="L35">        calles = new HashMap();</span>
+<span class="nc" id="L36">        iniciarHashMap();</span>
+<span class="nc" id="L37">        inicializarCalles(cord);//calles las cuales camino</span>
+        
+<span class="nc" id="L39">    }</span>
+    
+    void iniciarHashMap(){
+<span class="nc" id="L42">        calles.put(&quot;0001&quot;, c0001);</span>
+<span class="nc" id="L43">        calles.put(&quot;0010&quot;, c0010);</span>
+<span class="nc" id="L44">        calles.put(&quot;0102&quot;, c0102);</span>
+<span class="nc" id="L45">        calles.put(&quot;0111&quot;, c0111);</span>
+<span class="nc" id="L46">        calles.put(&quot;0203&quot;, c0203);</span>
+<span class="nc" id="L47">        calles.put(&quot;0212&quot;, c0212);</span>
+<span class="nc" id="L48">        calles.put(&quot;0304&quot;, c0304);</span>
+<span class="nc" id="L49">        calles.put(&quot;0313&quot;, c0313);</span>
+<span class="nc" id="L50">        calles.put(&quot;0414&quot;, c0414);</span>
+<span class="nc" id="L51">        calles.put(&quot;1011&quot;, c1011);</span>
+<span class="nc" id="L52">        calles.put(&quot;1020&quot;, c1020);</span>
+<span class="nc" id="L53">        calles.put(&quot;1112&quot;, c1112);</span>
+<span class="nc" id="L54">        calles.put(&quot;1121&quot;, c1121);</span>
+<span class="nc" id="L55">        calles.put(&quot;1213&quot;, c1213);</span>
+<span class="nc" id="L56">        calles.put(&quot;1222&quot;, c1222);</span>
+<span class="nc" id="L57">        calles.put(&quot;1314&quot;, c1314);</span>
+<span class="nc" id="L58">        calles.put(&quot;1323&quot;, c1323);</span>
+<span class="nc" id="L59">        calles.put(&quot;1424&quot;, c1424);</span>
+<span class="nc" id="L60">        calles.put(&quot;2021&quot;, c2021);</span>
+<span class="nc" id="L61">        calles.put(&quot;2030&quot;, c2030);</span>
+<span class="nc" id="L62">        calles.put(&quot;2122&quot;, c2122);</span>
+<span class="nc" id="L63">        calles.put(&quot;2131&quot;, c2131);</span>
+<span class="nc" id="L64">        calles.put(&quot;2223&quot;, c2223);</span>
+<span class="nc" id="L65">        calles.put(&quot;2232&quot;, c2232);</span>
+<span class="nc" id="L66">        calles.put(&quot;2324&quot;, c2324);</span>
+<span class="nc" id="L67">        calles.put(&quot;2333&quot;, c2333);</span>
+<span class="nc" id="L68">        calles.put(&quot;2434&quot;, c2434);</span>
+<span class="nc" id="L69">        calles.put(&quot;3031&quot;, c3031);</span>
+<span class="nc" id="L70">        calles.put(&quot;3040&quot;, c3040);</span>
+<span class="nc" id="L71">        calles.put(&quot;3132&quot;, c3132);</span>
+<span class="nc" id="L72">        calles.put(&quot;3141&quot;, c3141);</span>
+<span class="nc" id="L73">        calles.put(&quot;3233&quot;, c3233);</span>
+<span class="nc" id="L74">        calles.put(&quot;3242&quot;, c3242);</span>
+<span class="nc" id="L75">        calles.put(&quot;3343&quot;, c3343);</span>
+<span class="nc" id="L76">        calles.put(&quot;3444&quot;, c3444);</span>
+<span class="nc" id="L77">        calles.put(&quot;4041&quot;, c4041);</span>
+<span class="nc" id="L78">        calles.put(&quot;4142&quot;, c4142);</span>
+<span class="nc" id="L79">        calles.put(&quot;4243&quot;, c4243);</span>
+<span class="nc" id="L80">        calles.put(&quot;4344&quot;, c4344);  </span>
+<span class="nc" id="L81">        calles.put(&quot;3334&quot;, c3334);  </span>
+        
+        
+<span class="nc" id="L84">    }</span>
+    
+   void inicializarCalles(String cordenadas){
+       //este metodo se basa en el hashmap
+<span class="nc" id="L88">       cordenadas = cordenadas.substring(1); // acomodamos el espacio que habia</span>
+<span class="nc" id="L89">      String listaCalles[] = cordenadas.split(&quot; &quot;);</span>
+      
+<span class="nc bnc" id="L91" title="All 2 branches missed.">       for (int i = 0; i &lt; listaCalles.length; i++) {</span>
+<span class="nc" id="L92">           calles.get(listaCalles[i]).setVisible(true);</span>
+       }
+<span class="nc" id="L94">    }</span>
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L99">        jPanel1 = new javax.swing.JPanel();</span>
+<span class="nc" id="L100">        jPanel2 = new javax.swing.JPanel();</span>
+<span class="nc" id="L101">        jButton1 = new javax.swing.JButton();</span>
+<span class="nc" id="L102">        c0001 = new javax.swing.JButton();</span>
+<span class="nc" id="L103">        c1011 = new javax.swing.JButton();</span>
+<span class="nc" id="L104">        c2021 = new javax.swing.JButton();</span>
+<span class="nc" id="L105">        c3031 = new javax.swing.JButton();</span>
+<span class="nc" id="L106">        c4041 = new javax.swing.JButton();</span>
+<span class="nc" id="L107">        c0102 = new javax.swing.JButton();</span>
+<span class="nc" id="L108">        c1112 = new javax.swing.JButton();</span>
+<span class="nc" id="L109">        c2122 = new javax.swing.JButton();</span>
+<span class="nc" id="L110">        c3132 = new javax.swing.JButton();</span>
+<span class="nc" id="L111">        c4142 = new javax.swing.JButton();</span>
+<span class="nc" id="L112">        c0304 = new javax.swing.JButton();</span>
+<span class="nc" id="L113">        c3334 = new javax.swing.JButton();</span>
+<span class="nc" id="L114">        c1314 = new javax.swing.JButton();</span>
+<span class="nc" id="L115">        c2324 = new javax.swing.JButton();</span>
+<span class="nc" id="L116">        c4344 = new javax.swing.JButton();</span>
+<span class="nc" id="L117">        c0203 = new javax.swing.JButton();</span>
+<span class="nc" id="L118">        c1213 = new javax.swing.JButton();</span>
+<span class="nc" id="L119">        c2223 = new javax.swing.JButton();</span>
+<span class="nc" id="L120">        c3233 = new javax.swing.JButton();</span>
+<span class="nc" id="L121">        c4243 = new javax.swing.JButton();</span>
+<span class="nc" id="L122">        c0010 = new javax.swing.JButton();</span>
+<span class="nc" id="L123">        c1020 = new javax.swing.JButton();</span>
+<span class="nc" id="L124">        c2030 = new javax.swing.JButton();</span>
+<span class="nc" id="L125">        c3040 = new javax.swing.JButton();</span>
+<span class="nc" id="L126">        c0111 = new javax.swing.JButton();</span>
+<span class="nc" id="L127">        c1121 = new javax.swing.JButton();</span>
+<span class="nc" id="L128">        c2131 = new javax.swing.JButton();</span>
+<span class="nc" id="L129">        c3141 = new javax.swing.JButton();</span>
+<span class="nc" id="L130">        c0212 = new javax.swing.JButton();</span>
+<span class="nc" id="L131">        c1222 = new javax.swing.JButton();</span>
+<span class="nc" id="L132">        c2232 = new javax.swing.JButton();</span>
+<span class="nc" id="L133">        c3242 = new javax.swing.JButton();</span>
+<span class="nc" id="L134">        c0313 = new javax.swing.JButton();</span>
+<span class="nc" id="L135">        c1323 = new javax.swing.JButton();</span>
+<span class="nc" id="L136">        c2333 = new javax.swing.JButton();</span>
+<span class="nc" id="L137">        c3343 = new javax.swing.JButton();</span>
+<span class="nc" id="L138">        c3444 = new javax.swing.JButton();</span>
+<span class="nc" id="L139">        c0414 = new javax.swing.JButton();</span>
+<span class="nc" id="L140">        c2434 = new javax.swing.JButton();</span>
+<span class="nc" id="L141">        c1424 = new javax.swing.JButton();</span>
+<span class="nc" id="L142">        ImagenDeFondo = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L144">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+
+<span class="nc" id="L146">        jPanel1.setBackground(new java.awt.Color(255, 153, 153));</span>
+<span class="nc" id="L147">        jPanel1.setLayout(null);</span>
+
+<span class="nc" id="L149">        jButton1.setBackground(new java.awt.Color(0, 0, 0));</span>
+<span class="nc" id="L150">        jButton1.setForeground(new java.awt.Color(102, 255, 102));</span>
+<span class="nc" id="L151">        jButton1.setText(&quot;Ok&quot;);</span>
+<span class="nc" id="L152">        jButton1.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L154">                jButton1ActionPerformed(evt);</span>
+<span class="nc" id="L155">            }</span>
+        });
+
+<span class="nc" id="L158">        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);</span>
+<span class="nc" id="L159">        jPanel2.setLayout(jPanel2Layout);</span>
+<span class="nc" id="L160">        jPanel2Layout.setHorizontalGroup(</span>
+<span class="nc" id="L161">            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L162">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()</span>
+<span class="nc" id="L163">                .addContainerGap(67, Short.MAX_VALUE)</span>
+<span class="nc" id="L164">                .addComponent(jButton1)</span>
+<span class="nc" id="L165">                .addGap(28, 28, 28))</span>
+        );
+<span class="nc" id="L167">        jPanel2Layout.setVerticalGroup(</span>
+<span class="nc" id="L168">            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L169">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()</span>
+<span class="nc" id="L170">                .addContainerGap(428, Short.MAX_VALUE)</span>
+<span class="nc" id="L171">                .addComponent(jButton1)</span>
+<span class="nc" id="L172">                .addGap(29, 29, 29))</span>
+        );
+
+<span class="nc" id="L175">        jPanel1.add(jPanel2);</span>
+<span class="nc" id="L176">        jPanel2.setBounds(580, 0, 140, 480);</span>
+
+<span class="nc" id="L178">        c0001.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L179">        jPanel1.add(c0001);</span>
+<span class="nc" id="L180">        c0001.setBounds(30, 460, 100, 20);</span>
+
+<span class="nc" id="L182">        c1011.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L183">        jPanel1.add(c1011);</span>
+<span class="nc" id="L184">        c1011.setBounds(30, 340, 100, 20);</span>
+
+<span class="nc" id="L186">        c2021.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L187">        jPanel1.add(c2021);</span>
+<span class="nc" id="L188">        c2021.setBounds(30, 230, 100, 20);</span>
+
+<span class="nc" id="L190">        c3031.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L191">        jPanel1.add(c3031);</span>
+<span class="nc" id="L192">        c3031.setBounds(30, 110, 100, 20);</span>
+
+<span class="nc" id="L194">        c4041.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L195">        jPanel1.add(c4041);</span>
+<span class="nc" id="L196">        c4041.setBounds(30, 0, 100, 20);</span>
+
+<span class="nc" id="L198">        c0102.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L199">        jPanel1.add(c0102);</span>
+<span class="nc" id="L200">        c0102.setBounds(170, 460, 100, 20);</span>
+
+<span class="nc" id="L202">        c1112.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L203">        jPanel1.add(c1112);</span>
+<span class="nc" id="L204">        c1112.setBounds(170, 340, 100, 20);</span>
+
+<span class="nc" id="L206">        c2122.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L207">        jPanel1.add(c2122);</span>
+<span class="nc" id="L208">        c2122.setBounds(170, 230, 100, 20);</span>
+
+<span class="nc" id="L210">        c3132.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L211">        jPanel1.add(c3132);</span>
+<span class="nc" id="L212">        c3132.setBounds(170, 110, 100, 20);</span>
+
+<span class="nc" id="L214">        c4142.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L215">        jPanel1.add(c4142);</span>
+<span class="nc" id="L216">        c4142.setBounds(170, 0, 100, 20);</span>
+
+<span class="nc" id="L218">        c0304.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L219">        jPanel1.add(c0304);</span>
+<span class="nc" id="L220">        c0304.setBounds(450, 460, 100, 20);</span>
+
+<span class="nc" id="L222">        c3334.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L223">        jPanel1.add(c3334);</span>
+<span class="nc" id="L224">        c3334.setBounds(450, 110, 100, 20);</span>
+
+<span class="nc" id="L226">        c1314.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L227">        jPanel1.add(c1314);</span>
+<span class="nc" id="L228">        c1314.setBounds(450, 340, 100, 20);</span>
+
+<span class="nc" id="L230">        c2324.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L231">        jPanel1.add(c2324);</span>
+<span class="nc" id="L232">        c2324.setBounds(450, 230, 100, 20);</span>
+
+<span class="nc" id="L234">        c4344.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L235">        jPanel1.add(c4344);</span>
+<span class="nc" id="L236">        c4344.setBounds(450, 0, 100, 20);</span>
+
+<span class="nc" id="L238">        c0203.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L239">        jPanel1.add(c0203);</span>
+<span class="nc" id="L240">        c0203.setBounds(310, 460, 100, 20);</span>
+
+<span class="nc" id="L242">        c1213.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L243">        jPanel1.add(c1213);</span>
+<span class="nc" id="L244">        c1213.setBounds(310, 340, 100, 20);</span>
+
+<span class="nc" id="L246">        c2223.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L247">        jPanel1.add(c2223);</span>
+<span class="nc" id="L248">        c2223.setBounds(310, 230, 100, 20);</span>
+
+<span class="nc" id="L250">        c3233.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L251">        jPanel1.add(c3233);</span>
+<span class="nc" id="L252">        c3233.setBounds(310, 110, 100, 20);</span>
+
+<span class="nc" id="L254">        c4243.setBackground(new java.awt.Color(255, 153, 51));</span>
+<span class="nc" id="L255">        jPanel1.add(c4243);</span>
+<span class="nc" id="L256">        c4243.setBounds(310, 0, 100, 20);</span>
+
+<span class="nc" id="L258">        c0010.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L259">        jPanel1.add(c0010);</span>
+<span class="nc" id="L260">        c0010.setBounds(0, 360, 20, 100);</span>
+
+<span class="nc" id="L262">        c1020.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L263">        jPanel1.add(c1020);</span>
+<span class="nc" id="L264">        c1020.setBounds(0, 250, 20, 100);</span>
+
+<span class="nc" id="L266">        c2030.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L267">        jPanel1.add(c2030);</span>
+<span class="nc" id="L268">        c2030.setBounds(0, 130, 20, 100);</span>
+
+<span class="nc" id="L270">        c3040.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L271">        jPanel1.add(c3040);</span>
+<span class="nc" id="L272">        c3040.setBounds(0, 20, 20, 100);</span>
+
+<span class="nc" id="L274">        c0111.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L275">        jPanel1.add(c0111);</span>
+<span class="nc" id="L276">        c0111.setBounds(140, 360, 20, 100);</span>
+
+<span class="nc" id="L278">        c1121.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L279">        jPanel1.add(c1121);</span>
+<span class="nc" id="L280">        c1121.setBounds(140, 250, 20, 100);</span>
+
+<span class="nc" id="L282">        c2131.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L283">        jPanel1.add(c2131);</span>
+<span class="nc" id="L284">        c2131.setBounds(140, 130, 20, 100);</span>
+
+<span class="nc" id="L286">        c3141.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L287">        jPanel1.add(c3141);</span>
+<span class="nc" id="L288">        c3141.setBounds(140, 20, 20, 100);</span>
+
+<span class="nc" id="L290">        c0212.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L291">        jPanel1.add(c0212);</span>
+<span class="nc" id="L292">        c0212.setBounds(280, 360, 20, 100);</span>
+
+<span class="nc" id="L294">        c1222.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L295">        jPanel1.add(c1222);</span>
+<span class="nc" id="L296">        c1222.setBounds(280, 250, 20, 100);</span>
+
+<span class="nc" id="L298">        c2232.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L299">        jPanel1.add(c2232);</span>
+<span class="nc" id="L300">        c2232.setBounds(280, 130, 20, 100);</span>
+
+<span class="nc" id="L302">        c3242.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L303">        jPanel1.add(c3242);</span>
+<span class="nc" id="L304">        c3242.setBounds(280, 20, 20, 100);</span>
+
+<span class="nc" id="L306">        c0313.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L307">        jPanel1.add(c0313);</span>
+<span class="nc" id="L308">        c0313.setBounds(420, 360, 20, 100);</span>
+
+<span class="nc" id="L310">        c1323.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L311">        jPanel1.add(c1323);</span>
+<span class="nc" id="L312">        c1323.setBounds(420, 250, 20, 100);</span>
+
+<span class="nc" id="L314">        c2333.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L315">        jPanel1.add(c2333);</span>
+<span class="nc" id="L316">        c2333.setBounds(420, 130, 20, 100);</span>
+
+<span class="nc" id="L318">        c3343.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L319">        jPanel1.add(c3343);</span>
+<span class="nc" id="L320">        c3343.setBounds(420, 20, 20, 100);</span>
+
+<span class="nc" id="L322">        c3444.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L323">        jPanel1.add(c3444);</span>
+<span class="nc" id="L324">        c3444.setBounds(560, 20, 20, 100);</span>
+
+<span class="nc" id="L326">        c0414.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L327">        jPanel1.add(c0414);</span>
+<span class="nc" id="L328">        c0414.setBounds(560, 360, 20, 100);</span>
+
+<span class="nc" id="L330">        c2434.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L331">        jPanel1.add(c2434);</span>
+<span class="nc" id="L332">        c2434.setBounds(560, 130, 20, 100);</span>
+
+<span class="nc" id="L334">        c1424.setBackground(new java.awt.Color(255, 153, 0));</span>
+<span class="nc" id="L335">        jPanel1.add(c1424);</span>
+<span class="nc" id="L336">        c1424.setBounds(560, 250, 20, 100);</span>
+
+<span class="nc" id="L338">        ImagenDeFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/imagenes/mapa.JPG&quot;))); // NOI18N</span>
+<span class="nc" id="L339">        jPanel1.add(ImagenDeFondo);</span>
+<span class="nc" id="L340">        ImagenDeFondo.setBounds(0, 0, 950, 480);</span>
+
+<span class="nc" id="L342">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L343">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L344">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L345">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L346">            .addGap(0, 719, Short.MAX_VALUE)</span>
+<span class="nc" id="L347">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L348">                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE))</span>
+        );
+<span class="nc" id="L350">        layout.setVerticalGroup(</span>
+<span class="nc" id="L351">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L352">            .addGap(0, 480, Short.MAX_VALUE)</span>
+<span class="nc" id="L353">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L354">                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))</span>
+        );
+
+<span class="nc" id="L357">        pack();</span>
+<span class="nc" id="L358">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+<span class="nc" id="L361">        this.setVisible(false);</span>
+<span class="nc" id="L362">    }//GEN-LAST:event_jButton1ActionPerformed</span>
+
+    
+    void desactivarCalles() {
+        //Horizontales
+<span class="nc" id="L367">        c0001.setVisible(false);</span>
+<span class="nc" id="L368">        c0102.setVisible(false);</span>
+<span class="nc" id="L369">        c0203.setVisible(false);</span>
+<span class="nc" id="L370">        c0304.setVisible(false);</span>
+<span class="nc" id="L371">        c1011.setVisible(false);</span>
+<span class="nc" id="L372">        c1112.setVisible(false);</span>
+<span class="nc" id="L373">        c1213.setVisible(false);</span>
+<span class="nc" id="L374">        c1314.setVisible(false);</span>
+<span class="nc" id="L375">        c2021.setVisible(false);</span>
+<span class="nc" id="L376">        c2122.setVisible(false);</span>
+<span class="nc" id="L377">        c2223.setVisible(false);</span>
+<span class="nc" id="L378">        c2324.setVisible(false);</span>
+<span class="nc" id="L379">        c3031.setVisible(false);</span>
+<span class="nc" id="L380">        c3132.setVisible(false);</span>
+<span class="nc" id="L381">        c3233.setVisible(false);</span>
+<span class="nc" id="L382">        c3334.setVisible(false);</span>
+<span class="nc" id="L383">        c4041.setVisible(false);</span>
+<span class="nc" id="L384">        c4142.setVisible(false);</span>
+<span class="nc" id="L385">        c4243.setVisible(false);</span>
+<span class="nc" id="L386">        c4344.setVisible(false);</span>
+        //Verticales
+<span class="nc" id="L388">        c0010.setVisible(false);</span>
+<span class="nc" id="L389">        c1020.setVisible(false);</span>
+<span class="nc" id="L390">        c2030.setVisible(false);</span>
+<span class="nc" id="L391">        c3040.setVisible(false);</span>
+<span class="nc" id="L392">        c0111.setVisible(false);</span>
+<span class="nc" id="L393">        c1121.setVisible(false);</span>
+<span class="nc" id="L394">        c2131.setVisible(false);</span>
+<span class="nc" id="L395">        c3141.setVisible(false);</span>
+<span class="nc" id="L396">        c0212.setVisible(false);</span>
+<span class="nc" id="L397">        c1222.setVisible(false);</span>
+<span class="nc" id="L398">        c2232.setVisible(false);</span>
+<span class="nc" id="L399">        c3242.setVisible(false);</span>
+<span class="nc" id="L400">        c0313.setVisible(false);</span>
+<span class="nc" id="L401">        c1323.setVisible(false);</span>
+<span class="nc" id="L402">        c2333.setVisible(false);</span>
+<span class="nc" id="L403">        c3343.setVisible(false);</span>
+<span class="nc" id="L404">        c0414.setVisible(false);</span>
+<span class="nc" id="L405">        c1424.setVisible(false);</span>
+<span class="nc" id="L406">        c2434.setVisible(false);</span>
+<span class="nc" id="L407">        c3444.setVisible(false);</span>
+
+<span class="nc" id="L409">    }</span>
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+<span class="nc bnc" id="L418" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L419" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L420">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L421">                    break;</span>
+                }
+            }
+<span class="nc" id="L424">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L425">            java.util.logging.Logger.getLogger(MapaMuestra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L426">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L427">            java.util.logging.Logger.getLogger(MapaMuestra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L428">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L429">            java.util.logging.Logger.getLogger(MapaMuestra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L430">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L431">            java.util.logging.Logger.getLogger(MapaMuestra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L432">        }</span>
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L439">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+                //   new VentanaPrincipal(sistema,username).setVisible(true);.
+<span class="nc" id="L442">            }</span>
+        });
+<span class="nc" id="L444">    }</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ImagenDeFondo;
+    private javax.swing.JButton c0001;
+    private javax.swing.JButton c0010;
+    private javax.swing.JButton c0102;
+    private javax.swing.JButton c0111;
+    private javax.swing.JButton c0203;
+    private javax.swing.JButton c0212;
+    private javax.swing.JButton c0304;
+    private javax.swing.JButton c0313;
+    private javax.swing.JButton c0414;
+    private javax.swing.JButton c1011;
+    private javax.swing.JButton c1020;
+    private javax.swing.JButton c1112;
+    private javax.swing.JButton c1121;
+    private javax.swing.JButton c1213;
+    private javax.swing.JButton c1222;
+    private javax.swing.JButton c1314;
+    private javax.swing.JButton c1323;
+    private javax.swing.JButton c1424;
+    private javax.swing.JButton c2021;
+    private javax.swing.JButton c2030;
+    private javax.swing.JButton c2122;
+    private javax.swing.JButton c2131;
+    private javax.swing.JButton c2223;
+    private javax.swing.JButton c2232;
+    private javax.swing.JButton c2324;
+    private javax.swing.JButton c2333;
+    private javax.swing.JButton c2434;
+    private javax.swing.JButton c3031;
+    private javax.swing.JButton c3040;
+    private javax.swing.JButton c3132;
+    private javax.swing.JButton c3141;
+    private javax.swing.JButton c3233;
+    private javax.swing.JButton c3242;
+    private javax.swing.JButton c3334;
+    private javax.swing.JButton c3343;
+    private javax.swing.JButton c3444;
+    private javax.swing.JButton c4041;
+    private javax.swing.JButton c4142;
+    private javax.swing.JButton c4243;
+    private javax.swing.JButton c4344;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

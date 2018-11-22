@@ -17,107 +17,70 @@ public class Alimento {
     private Familiar familiar;
     private Date fecha;
     private String alimento;
-    private int hora;
-    private int minutos;
-    private String estado;
 
     //Metodos de acceso
     public Familiar getFamiliar() {
-<span class="nc" id="L26">        return this.familiar;</span>
+<span class="nc" id="L23">        return this.familiar;</span>
     }
 
     public Mascota getMascota() {
-<span class="nc" id="L30">        return this.mascota;</span>
-    }
-
-    public int getHora() {
-<span class="nc" id="L34">        return this.hora;</span>
-    }
-
-    public int getMinutos() {
-<span class="nc" id="L38">        return this.minutos;</span>
+<span class="nc" id="L27">        return this.mascota;</span>
     }
 
     public Date getFecha() {
-<span class="nc" id="L42">        return this.fecha;</span>
+<span class="nc" id="L31">        return this.fecha;</span>
     }
     
     public String getAlimento() {
-<span class="nc" id="L46">        return this.alimento;</span>
+<span class="nc" id="L35">        return this.alimento;</span>
     }
     
-    public String getEstado(){
-<span class="nc" id="L50">        return this.estado;</span>
-    }
+ 
 
     //Métodos de modificación
     public void setFamiliar(Familiar fam) {
-<span class="fc" id="L55">        this.familiar = fam;</span>
-<span class="fc" id="L56">    }</span>
+<span class="nc" id="L42">        this.familiar = fam;</span>
+<span class="nc" id="L43">    }</span>
 
     public void setMascota(Mascota mas) {
-<span class="fc" id="L59">        this.mascota = mas;</span>
-<span class="fc" id="L60">    }</span>
-
-    public void setHora(int hor) {
-<span class="pc bpc" id="L63" title="2 of 4 branches missed.">        if (hor &gt;= 0 &amp;&amp; hor &lt;= 23) {</span>
-<span class="fc" id="L64">            this.hora = hor;</span>
-        }
-<span class="fc" id="L66">    }</span>
-
-    public void setMinutos(int min) {
-<span class="pc bpc" id="L69" title="2 of 4 branches missed.">        if (min &gt;= 0 &amp;&amp; min &lt;= 60) {</span>
-<span class="fc" id="L70">            this.minutos = min;</span>
-        }
-<span class="fc" id="L72">    }</span>
+<span class="nc" id="L46">        this.mascota = mas;</span>
+<span class="nc" id="L47">    }</span>
 
     public void setFecha(Date f) {
-<span class="fc" id="L75">        this.fecha = f;</span>
-<span class="fc" id="L76">    }</span>
+<span class="nc" id="L50">        this.fecha = f;</span>
+<span class="nc" id="L51">    }</span>
     
     public void setAlimento(String a) {
-<span class="pc bpc" id="L79" title="2 of 4 branches missed.">        if(a.length()&gt; 0 &amp;&amp; a.length()&lt;200){</span>
-<span class="fc" id="L80">        this.alimento = a;</span>
+<span class="nc bnc" id="L54" title="All 4 branches missed.">        if(a.length()&gt; 0 &amp;&amp; a.length()&lt;200){</span>
+<span class="nc" id="L55">        this.alimento = a;</span>
         }
-<span class="fc" id="L82">    }</span>
+<span class="nc" id="L57">    }</span>
     
-    public void setEstado(String estado){
-<span class="pc bpc" id="L85" title="1 of 2 branches missed.">        if(estado.equalsIgnoreCase(&quot;hecho&quot;) || </span>
-<span class="pc bpc" id="L86" title="1 of 2 branches missed.">           estado.equalsIgnoreCase(&quot;pendiente&quot;) || </span>
-<span class="nc bnc" id="L87" title="All 2 branches missed.">           estado.equalsIgnoreCase(&quot;pendiente&quot;)){</span>
-<span class="nc" id="L88">            this.setEstado(estado);</span>
-        }
-<span class="nc" id="L90">    }</span>
     
     //Constructores
-    public Alimento(Familiar unF, Mascota unaM, int unahora, int minuto,
-<span class="nc" id="L94">            Date fech, String alimento, String estado) {</span>
-<span class="nc" id="L95">        this.setFamiliar(unF);</span>
-<span class="nc" id="L96">        this.setMascota(unaM);</span>
-<span class="nc" id="L97">        this.setHora(unahora);</span>
-<span class="nc" id="L98">        this.setMinutos(minuto);</span>
-<span class="nc" id="L99">        this.setFecha(fech);</span>
-<span class="nc" id="L100">        this.setEstado(estado);</span>
-<span class="nc" id="L101">    }</span>
+<span class="nc" id="L61">    public Alimento(Familiar unF, Mascota unaM,Date fech, String alimento) {</span>
+<span class="nc" id="L62">        this.setFamiliar(unF);</span>
+<span class="nc" id="L63">        this.setMascota(unaM);</span>
+<span class="nc" id="L64">        this.setFecha(fech);</span>
+<span class="nc" id="L65">        this.setAlimento(alimento);</span>
+<span class="nc" id="L66">    }</span>
 
-<span class="fc" id="L103">    public Alimento() {</span>
-<span class="fc" id="L104">        this.setFamiliar(new Familiar());</span>
-<span class="fc" id="L105">        this.setMascota(new Mascota());</span>
-<span class="fc" id="L106">        this.setHora(0);</span>
-<span class="fc" id="L107">        this.setMinutos(0);</span>
-<span class="fc" id="L108">        this.setFecha(new java.util.Date());</span>
-<span class="fc" id="L109">        this.setAlimento(&quot;Alimento por Defecto&quot;);</span>
-<span class="nc" id="L110">        this.setEstado(&quot;pendiente&quot;);</span>
-<span class="nc" id="L111">    }</span>
+<span class="nc" id="L68">    public Alimento() {</span>
+<span class="nc" id="L69">        this.setFamiliar(new Familiar());</span>
+<span class="nc" id="L70">        this.setMascota(new Mascota());</span>
+<span class="nc" id="L71">        this.setFecha(new java.util.Date());</span>
+<span class="nc" id="L72">        this.setAlimento(&quot;Alimento por Defecto&quot;);</span>
+        
+<span class="nc" id="L74">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L115">        return &quot;Fmiliar a cargo de la alimientació: &quot; + </span>
-<span class="nc" id="L116">                this.getFamiliar().getNombre() + &quot; alimenta a: &quot; </span>
-<span class="nc" id="L117">                + this.getMascota().getNombre() + &quot; a la hora: &quot;</span>
-<span class="nc" id="L118">                + this.getHora() + &quot;:&quot; + this.getMinutos() + &quot; el día: &quot; + </span>
-<span class="nc" id="L119">                this.getFecha() + &quot;, alimenta con: &quot; + this.getAlimento() +</span>
-<span class="nc" id="L120">                &quot;. Estado actual: &quot; + this.getEstado();</span>
+<span class="nc" id="L78">        return &quot;Familiar a cargo alimentar: &quot; + </span>
+<span class="nc" id="L79">                this.getFamiliar().getNombre() + &quot; alimenta a: &quot; </span>
+<span class="nc" id="L80">                + this.getMascota().getNombre() + &quot; el dia: &quot;</span>
+<span class="nc" id="L81">                + this.getFecha().getDate()+&quot;/&quot;+this.getFecha().getMonth()+&quot;/&quot;</span>
+<span class="nc" id="L82">                + (this.getFecha().getYear()+1900)+&quot; &quot;</span>
+<span class="nc" id="L83">                + &quot;, alimenta con: &quot; + this.getAlimento();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

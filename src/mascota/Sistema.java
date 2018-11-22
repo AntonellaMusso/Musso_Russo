@@ -38,7 +38,15 @@ public class Sistema {
         listadoPaseos = new ArrayList();
         usuarioSeleccionado = null;
        // cordenadasMapa = new ArrayList();
-        listadoFamiliar.add(new Familiar("Emiliano", 170, 65, "estudiante", null)); //borrar luego
+       Familiar fam = new Familiar("Emiliano", 170, 65, "estudiante", null);
+       Mascota masc =new Mascota("Firulais",50,20,"Labrador",null);
+       Date fecha = new Date(2018-1900,10,10);
+        System.out.println("fecha "+fecha);
+       
+        listadoFamiliar.add(fam); //borrar luego
+        listadoMascota.add(masc);
+        listadoActividades.add(new Actividad(fam,masc,"Entrenamiento",fecha,0,null));
+        listadoServicio.add(new Servicio(masc,"Fernando","Corte de pelo",fecha));
         
     }
     

@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Emi/Documents/NetBeansProjects/asd/Musso_Russo/src/interfaz/VentanaPrincipal.java</file>
-            <file>file:/C:/Users/Emi/Documents/NetBeansProjects/asd/Musso_Russo/test/mascota/ActividadTest.java</file>
-            <file>file:/C:/Users/Emi/Documents/NetBeansProjects/asd/Musso_Russo/src/interfaz/Calendario.java</file>
-            <file>file:/C:/Users/Emi/Documents/NetBeansProjects/asd/Musso_Russo/test/mascota/FamiliarTest.java</file>
+            <file>file:/C:/Users/Emi/Documents/NetBeansProjects/asd/Musso_Russo/src/mascota/Sistema.java</file>
+            <file>file:/C:/Users/Emi/Documents/NetBeansProjects/asd/Musso_Russo/test/mascota/SistemaTest.java</file>
+            <file>file:/C:/Users/Emi/Documents/NetBeansProjects/asd/Musso_Russo/src/mascota/Alimento.java</file>
+            <file>file:/C:/Users/Emi/Documents/NetBeansProjects/asd/Musso_Russo/test/mascota/AlimentoTest.java</file>
         </group>
     </open-files>
 </project-private>

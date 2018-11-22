@@ -14,96 +14,74 @@ import java.util.Date;
 public class Servicio {
 
     private String nombreVeterinario;
+    private Mascota mascota;
     private String servicio;
     private Date fecha;
-    private int hora;
-    private int minutos;
-    private String estado;
-    
+
     //Métodos de acceso
+
+    public Mascota getMascota() {
+<span class="nc" id="L24">        return mascota;</span>
+    }
+    
+    
     public String getNombreVeterinario() {
-<span class="nc" id="L25">        return nombreVeterinario;</span>
+<span class="nc" id="L29">        return nombreVeterinario;</span>
     }
 
     public String getServicio() {
-<span class="nc" id="L29">        return servicio;</span>
+<span class="nc" id="L33">        return servicio;</span>
     }
 
     public Date getFecha() {
-<span class="nc" id="L33">        return fecha;</span>
+<span class="nc" id="L37">        return fecha;</span>
     }
 
-    public int getHora() {
-<span class="nc" id="L37">        return hora;</span>
-    }
 
-    public int getMinutos() {
-<span class="nc" id="L41">        return minutos;</span>
-    }
-    
-    public String getEstado(){
-<span class="nc" id="L45">        return this.estado;</span>
-    }
     
     //Métodos de modificación
+    
+    
+    public void setMascota(Mascota mascota) {
+<span class="nc" id="L46">        this.mascota = mascota;</span>
+<span class="nc" id="L47">    }</span>
+
     public void setNombreVeterinario(String nombreVeterinario) {
-<span class="fc" id="L50">        this.nombreVeterinario = nombreVeterinario;</span>
-<span class="fc" id="L51">    }</span>
+<span class="nc" id="L50">        this.nombreVeterinario = nombreVeterinario;</span>
+<span class="nc" id="L51">    }</span>
 
     public void setServicio(String servicio) {
-<span class="fc" id="L54">        this.servicio = servicio;</span>
-<span class="fc" id="L55">    }</span>
+<span class="nc" id="L54">        this.servicio = servicio;</span>
+<span class="nc" id="L55">    }</span>
 
     public void setFecha(Date fecha) {
-<span class="fc" id="L58">        this.fecha = fecha;</span>
-<span class="fc" id="L59">    }</span>
+<span class="nc" id="L58">        this.fecha = fecha;</span>
+<span class="nc" id="L59">    }</span>
 
-   public void setHora(int hor) {
-<span class="pc bpc" id="L62" title="2 of 4 branches missed.">        if (hor &gt;= 0 &amp;&amp; hor &lt;= 23) {</span>
-<span class="fc" id="L63">            this.hora = hor;</span>
-        }
-<span class="fc" id="L65">    }</span>
 
-    public void setMinutos(int min) {
-<span class="pc bpc" id="L68" title="2 of 4 branches missed.">        if (min &gt;= 0 &amp;&amp; min &lt;= 60) {</span>
-<span class="fc" id="L69">            this.minutos = min;</span>
-        }
-<span class="fc" id="L71">    }</span>
     
-    public void setEstado(String estado){
-<span class="pc bpc" id="L74" title="1 of 2 branches missed.">        if(estado.equalsIgnoreCase(&quot;hecho&quot;) || </span>
-<span class="pc bpc" id="L75" title="1 of 2 branches missed.">           estado.equalsIgnoreCase(&quot;pendiente&quot;) || </span>
-<span class="nc bnc" id="L76" title="All 2 branches missed.">           estado.equalsIgnoreCase(&quot;pendiente&quot;)){</span>
-<span class="nc" id="L77">            this.setEstado(estado);</span>
-        }
-<span class="nc" id="L79">    }</span>
+   
     
     //Constructores
-    public Servicio(String nombreVeterinario, String servicio, Date fecha, 
-<span class="nc" id="L83">                    int hora, int minutos, String estado) {</span>
-<span class="nc" id="L84">        this.setNombreVeterinario(nombreVeterinario);</span>
-<span class="nc" id="L85">        this.setServicio(servicio);</span>
-<span class="nc" id="L86">        this.setFecha(fecha);</span>
-<span class="nc" id="L87">        this.setHora(hora);</span>
-<span class="nc" id="L88">        this.setMinutos(minutos);</span>
-<span class="nc" id="L89">        this.setEstado(estado);</span>
-<span class="nc" id="L90">    }</span>
+<span class="nc" id="L66">    public Servicio(Mascota m,String nombreVeterinario, String servicio, Date fecha) {</span>
+<span class="nc" id="L67">        this.setMascota(m);</span>
+<span class="nc" id="L68">        this.setNombreVeterinario(nombreVeterinario);</span>
+<span class="nc" id="L69">        this.setServicio(servicio);</span>
+<span class="nc" id="L70">        this.setFecha(fecha);</span>
+<span class="nc" id="L71">    }</span>
     
-<span class="fc" id="L92">    public Servicio() {</span>
-<span class="fc" id="L93">        this.setNombreVeterinario(&quot;Veterinario por defecto&quot;);</span>
-<span class="fc" id="L94">        this.setServicio(&quot;Servicio por defecto&quot;);</span>
-<span class="fc" id="L95">        this.setFecha(new java.util.Date());</span>
-<span class="fc" id="L96">        this.setHora(0);</span>
-<span class="fc" id="L97">        this.setMinutos(0);</span>
-<span class="nc" id="L98">        this.setEstado(&quot;pendiente&quot;);</span>
-<span class="nc" id="L99">    }</span>
+<span class="nc" id="L73">    public Servicio() {</span>
+<span class="nc" id="L74">        this.setNombreVeterinario(&quot;Veterinario por defecto&quot;);</span>
+<span class="nc" id="L75">        this.setServicio(&quot;Servicio por defecto&quot;);</span>
+<span class="nc" id="L76">        this.setFecha(new java.util.Date());</span>
+<span class="nc" id="L77">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L103">        return &quot;Nombre veterinario&quot; + this.getNombreVeterinario()</span>
-<span class="nc" id="L104">                + &quot;, servicio: &quot; + this.getServicio()+ &quot; a la hora: &quot;</span>
-<span class="nc" id="L105">                + this.getHora() + &quot;:&quot; + this.getMinutos() + &quot; el día: &quot; + </span>
-<span class="nc" id="L106">                this.getFecha() + &quot;. Estado actual: &quot; + this.getEstado();</span>
+<span class="nc" id="L81">        return &quot;  Veterinario: &quot; + this.getNombreVeterinario() + &quot; Mascota &quot;+</span>
+<span class="nc" id="L82">                this.getMascota().getNombre()</span>
+<span class="nc" id="L83">                + &quot;, servicio: &quot; + this.getServicio()+&quot; el día: &quot; + </span>
+<span class="nc" id="L84">                this.getFecha() ;</span>
     }
 
 }

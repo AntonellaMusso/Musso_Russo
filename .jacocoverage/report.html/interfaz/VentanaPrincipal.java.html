@@ -7,7 +7,6 @@
 package interfaz;
 
 import mascota.Familiar;
-import mascota.Mascota;
 import mascota.Sistema;
 
 /**
@@ -18,82 +17,169 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     static private Sistema sistema;
     private Familiar username;
-
-<span class="nc" id="L22">    public VentanaPrincipal(Sistema modelo) {</span>
-<span class="nc" id="L23">        initComponents();</span>
-<span class="nc" id="L24">        sistema = modelo;</span>
+    
+    public void activarDisplay1(){
+<span class="nc" id="L22">        ImagenMascota1.setVisible(true);</span>
+<span class="nc" id="L23">        NombreMascota1.setVisible(true);</span>
+<span class="nc" id="L24">        pesoLabel1.setVisible(true);</span>
+<span class="nc" id="L25">        alturaLabel1.setVisible(true);</span>
+<span class="nc" id="L26">        comentarioLabel1.setVisible(true);</span>
+<span class="nc" id="L27">        }</span>
+    public void activarDisplay2(){
+<span class="nc" id="L29">        ImagenMascota2.setVisible(true);</span>
+<span class="nc" id="L30">        NombreMascota2.setVisible(true);</span>
+<span class="nc" id="L31">        pesoLabel2.setVisible(true);</span>
+<span class="nc" id="L32">        alturaLabel2.setVisible(true);</span>
+<span class="nc" id="L33">        comentarioLabel2.setVisible(true);</span>
+<span class="nc" id="L34">    }</span>
+    public void activarDisplay3(){
+<span class="nc" id="L36">        ImagenMascota3.setVisible(true);</span>
+<span class="nc" id="L37">        NombreMascota3.setVisible(true);</span>
+<span class="nc" id="L38">        pesoLabel3.setVisible(true);</span>
+<span class="nc" id="L39">        alturaLabel3.setVisible(true);</span>
+<span class="nc" id="L40">        comentarioLabel3.setVisible(true);</span>
+<span class="nc" id="L41">        }</span>
+    public void activarDisplay4(){
+<span class="nc" id="L43">        ImagenMascota4.setVisible(true);</span>
+<span class="nc" id="L44">        NombreMascota4.setVisible(true);</span>
+<span class="nc" id="L45">        pesoLabel4.setVisible(true);</span>
+<span class="nc" id="L46">        alturaLabel4.setVisible(true);</span>
+<span class="nc" id="L47">        comentarioLabel4.setVisible(true);</span>
+<span class="nc" id="L48">    }</span>
+    public void desactivarTodoDisplay(){
+<span class="nc" id="L50">        ImagenMascota1.setVisible(false);</span>
+<span class="nc" id="L51">        ImagenMascota2.setVisible(false);</span>
+<span class="nc" id="L52">        ImagenMascota3.setVisible(false);</span>
+<span class="nc" id="L53">        ImagenMascota4.setVisible(false);</span>
+<span class="nc" id="L54">          NombreMascota1.setVisible(false);</span>
+<span class="nc" id="L55">        pesoLabel1.setVisible(false);</span>
+<span class="nc" id="L56">        alturaLabel1.setVisible(false);</span>
+<span class="nc" id="L57">        comentarioLabel1.setVisible(false);</span>
+<span class="nc" id="L58">        NombreMascota2.setVisible(false);</span>
+<span class="nc" id="L59">        pesoLabel2.setVisible(false);</span>
+<span class="nc" id="L60">        alturaLabel2.setVisible(false);</span>
+<span class="nc" id="L61">        comentarioLabel2.setVisible(false);</span>
+<span class="nc" id="L62">         NombreMascota3.setVisible(false);</span>
+<span class="nc" id="L63">        pesoLabel3.setVisible(false);</span>
+<span class="nc" id="L64">        alturaLabel3.setVisible(false);</span>
+<span class="nc" id="L65">        comentarioLabel3.setVisible(false);</span>
+<span class="nc" id="L66">        NombreMascota4.setVisible(false);</span>
+<span class="nc" id="L67">        pesoLabel4.setVisible(false);</span>
+<span class="nc" id="L68">        alturaLabel4.setVisible(false);</span>
+<span class="nc" id="L69">        comentarioLabel4.setVisible(false);</span>
+<span class="nc" id="L70">    }</span>
+<span class="nc" id="L71">    public VentanaPrincipal(Sistema modelo) {</span>
+<span class="nc" id="L72">        initComponents();</span>
+<span class="nc" id="L73">        sistema = modelo;      </span>
+<span class="nc" id="L74">        setLocationRelativeTo(null); </span>
         //configuro usuario
-<span class="nc" id="L26">        username = sistema.getUsuarioSeleccionado();</span>
-<span class="nc" id="L27">        UsernameLabel.setText(username.getNombre());</span>
-<span class="nc" id="L28">        ImagenUsuario.setIcon(username.getFoto());</span>
-        //configuro mascota
-<span class="nc" id="L30">        int numeroMascotas = sistema.getListaMascotas().size();</span>
-        //porque se muestran las 4 primeras
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (numeroMascotas &gt; 4) {</span>
-<span class="nc" id="L33">            numeroMascotas = 4;</span>
+<span class="nc" id="L76">        username = sistema.getUsuarioSeleccionado();</span>
+<span class="nc" id="L77">        UsernameLabel.setText(username.getNombre());</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        if (username.getFoto()!=null){</span>
+<span class="nc" id="L79">        rsscalelabel.RSScaleLabel.setScaleLabel(ImagenUsuario, username.getFoto().toString());</span>
         }
-
-<span class="nc bnc" id="L36" title="All 5 branches missed.">        switch (numeroMascotas) {</span>
-            case 1:
-<span class="nc" id="L38">                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());</span>
-<span class="nc" id="L39">                pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso()));</span>
-<span class="nc" id="L40">                alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura()));</span>
-<span class="nc" id="L41">                comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());</span>
-<span class="nc" id="L42">                break;</span>
+<span class="nc" id="L81">        pesoUser.setText(username.getPeso()+&quot; Kg&quot;);</span>
+<span class="nc" id="L82">        alturaUser.setText(username.getAltura()+&quot; Cm&quot;);</span>
+<span class="nc" id="L83">        comentario.setText(username.getComentario());</span>
+        //configuro mascota
+<span class="nc" id="L85">        int numeroMascotas = sistema.getListaMascotas().size();</span>
+        //porque se muestran las 4 primeras
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        if (numeroMascotas &gt; 4) {</span>
+<span class="nc" id="L88">            numeroMascotas = 4;</span>
+        }
+<span class="nc" id="L90">        desactivarTodoDisplay();</span>
+        
+<span class="nc bnc" id="L92" title="All 5 branches missed.">        switch (numeroMascotas) {</span>
+            case 1:          
+<span class="nc" id="L94">                activarDisplay1();</span>
+<span class="nc" id="L95">                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota1, </span>
+<span class="nc" id="L96">                        sistema.getListaMascotas().get(0).getFoto().toString());</span>
+<span class="nc" id="L97">                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());</span>
+<span class="nc" id="L98">                pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso())+&quot; Kg&quot;);</span>
+<span class="nc" id="L99">                alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura())+&quot; Cm&quot;);</span>
+<span class="nc" id="L100">                comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());</span>
+<span class="nc" id="L101">                break;</span>
             case 2:
+<span class="nc" id="L103">                activarDisplay1();</span>
+<span class="nc" id="L104">                activarDisplay2();</span>
                 //mascota1
-<span class="nc" id="L45">                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());</span>
-<span class="nc" id="L46">                pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso()));</span>
-<span class="nc" id="L47">                alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura()));</span>
-<span class="nc" id="L48">                comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());</span>
+<span class="nc" id="L106">                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota1, </span>
+<span class="nc" id="L107">                        sistema.getListaMascotas().get(0).getFoto().toString());</span>
+<span class="nc" id="L108">                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());</span>
+<span class="nc" id="L109">                pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso())+&quot; Kg&quot;);</span>
+<span class="nc" id="L110">                alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura())+&quot; Cm&quot;);</span>
+<span class="nc" id="L111">                comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());</span>
                 //mascota 2
-<span class="nc" id="L50">                NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());</span>
-<span class="nc" id="L51">                pesoLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getPeso()));</span>
-<span class="nc" id="L52">                alturaLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getAltura()));</span>
-<span class="nc" id="L53">                comentarioLabel2.setText(sistema.getListaMascotas().get(1).getComentario());</span>
-<span class="nc" id="L54">                break;</span>
+<span class="nc" id="L113">                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota2, </span>
+<span class="nc" id="L114">                        sistema.getListaMascotas().get(1).getFoto().toString());</span>
+<span class="nc" id="L115">                NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());</span>
+<span class="nc" id="L116">                pesoLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getPeso())+&quot; Kg&quot;);</span>
+<span class="nc" id="L117">                alturaLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getAltura())+&quot; Cm&quot;);</span>
+<span class="nc" id="L118">                comentarioLabel2.setText(sistema.getListaMascotas().get(1).getComentario());</span>
+<span class="nc" id="L119">                break;</span>
             case 3:
+<span class="nc" id="L121">                 activarDisplay1();</span>
+<span class="nc" id="L122">                activarDisplay2();</span>
+<span class="nc" id="L123">                activarDisplay3();</span>
                 //mascota1
-<span class="nc" id="L57">                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());</span>
-<span class="nc" id="L58">                pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso()));</span>
-<span class="nc" id="L59">                alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura()));</span>
-<span class="nc" id="L60">                comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());</span>
+<span class="nc" id="L125">                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota1, </span>
+<span class="nc" id="L126">                        sistema.getListaMascotas().get(0).getFoto().toString());</span>
+<span class="nc" id="L127">               NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());</span>
+<span class="nc" id="L128">                pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso())+&quot; Kg&quot;);</span>
+<span class="nc" id="L129">                alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura())+&quot; Cm&quot;);</span>
+<span class="nc" id="L130">                comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());</span>
                 //mascota 2
-<span class="nc" id="L62">                NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());</span>
-<span class="nc" id="L63">                pesoLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getPeso()));</span>
-<span class="nc" id="L64">                alturaLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getAltura()));</span>
-<span class="nc" id="L65">                comentarioLabel2.setText(sistema.getListaMascotas().get(1).getComentario());</span>
+<span class="nc" id="L132">                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota2, </span>
+<span class="nc" id="L133">                        sistema.getListaMascotas().get(1).getFoto().toString());</span>
+<span class="nc" id="L134">                NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());</span>
+<span class="nc" id="L135">                pesoLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getPeso())+&quot; Kg&quot;);</span>
+<span class="nc" id="L136">                alturaLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getAltura())+&quot; Cm&quot;);</span>
+<span class="nc" id="L137">                comentarioLabel2.setText(sistema.getListaMascotas().get(1).getComentario());</span>
                 //mascota 3
-<span class="nc" id="L67">                NombreMascota3.setText(sistema.getListaMascotas().get(2).getNombre());</span>
-<span class="nc" id="L68">                pesoLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getPeso()));</span>
-<span class="nc" id="L69">                alturaLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getAltura()));</span>
-<span class="nc" id="L70">                comentarioLabel3.setText(sistema.getListaMascotas().get(2).getComentario());</span>
-<span class="nc" id="L71">                break;</span>
+<span class="nc" id="L139">                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota3, </span>
+<span class="nc" id="L140">                        sistema.getListaMascotas().get(2).getFoto().toString());</span>
+<span class="nc" id="L141">                NombreMascota3.setText(sistema.getListaMascotas().get(2).getNombre());</span>
+<span class="nc" id="L142">                pesoLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getPeso())+&quot; Kg&quot;);</span>
+<span class="nc" id="L143">                alturaLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getAltura())+&quot; Cm&quot;);</span>
+<span class="nc" id="L144">                comentarioLabel3.setText(sistema.getListaMascotas().get(2).getComentario());</span>
+<span class="nc" id="L145">                break;</span>
             case 4:
+<span class="nc" id="L147">                 activarDisplay1();</span>
+<span class="nc" id="L148">                activarDisplay2();</span>
+<span class="nc" id="L149">                activarDisplay3();</span>
+<span class="nc" id="L150">                activarDisplay4();</span>
                  //mascota1
-<span class="nc" id="L74">                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());</span>
-<span class="nc" id="L75">                pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso()));</span>
-<span class="nc" id="L76">                alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura()));</span>
-<span class="nc" id="L77">                comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());</span>
+<span class="nc" id="L152">                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota1, </span>
+<span class="nc" id="L153">                        sistema.getListaMascotas().get(0).getFoto().toString());</span>
+<span class="nc" id="L154">                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());</span>
+<span class="nc" id="L155">                pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso())+&quot; Kg&quot;);</span>
+<span class="nc" id="L156">                alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura())+&quot; Cm&quot;);</span>
+<span class="nc" id="L157">                comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());</span>
                 //mascota 2
-<span class="nc" id="L79">                NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());</span>
-<span class="nc" id="L80">                pesoLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getPeso()));</span>
-<span class="nc" id="L81">                alturaLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getAltura()));</span>
-<span class="nc" id="L82">                comentarioLabel2.setText(sistema.getListaMascotas().get(1).getComentario());</span>
+<span class="nc" id="L159">                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota2, </span>
+<span class="nc" id="L160">                        sistema.getListaMascotas().get(1).getFoto().toString());</span>
+<span class="nc" id="L161">                NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());</span>
+<span class="nc" id="L162">                pesoLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getPeso())+&quot; Kg&quot;);</span>
+<span class="nc" id="L163">                alturaLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getAltura())+&quot; Cm&quot;);</span>
+<span class="nc" id="L164">                comentarioLabel2.setText(sistema.getListaMascotas().get(1).getComentario());</span>
                 //mascota 3
-<span class="nc" id="L84">                NombreMascota3.setText(sistema.getListaMascotas().get(2).getNombre());</span>
-<span class="nc" id="L85">                pesoLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getPeso()));</span>
-<span class="nc" id="L86">                alturaLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getAltura()));</span>
-<span class="nc" id="L87">                comentarioLabel3.setText(sistema.getListaMascotas().get(2).getComentario());</span>
+<span class="nc" id="L166">                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota3, </span>
+<span class="nc" id="L167">                        sistema.getListaMascotas().get(2).getFoto().toString());</span>
+<span class="nc" id="L168">                   NombreMascota3.setText(sistema.getListaMascotas().get(2).getNombre());</span>
+<span class="nc" id="L169">                pesoLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getPeso())+&quot; Kg&quot;);</span>
+<span class="nc" id="L170">                alturaLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getAltura())+&quot; Cm&quot;);</span>
+<span class="nc" id="L171">                comentarioLabel3.setText(sistema.getListaMascotas().get(2).getComentario());</span>
                 //mascota 4
-<span class="nc" id="L89">                NombreMascota4.setText(sistema.getListaMascotas().get(3).getNombre());</span>
-<span class="nc" id="L90">                pesoLabel4.setText(String.valueOf(sistema.getListaMascotas().get(3).getPeso()));</span>
-<span class="nc" id="L91">                alturaLabel4.setText(String.valueOf(sistema.getListaMascotas().get(3).getAltura()));</span>
-<span class="nc" id="L92">                comentarioLabel4.setText(sistema.getListaMascotas().get(3).getComentario());</span>
+<span class="nc" id="L173">                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota4, </span>
+<span class="nc" id="L174">                        sistema.getListaMascotas().get(3).getFoto().toString());</span>
+<span class="nc" id="L175">                NombreMascota4.setText(sistema.getListaMascotas().get(3).getNombre());</span>
+<span class="nc" id="L176">                pesoLabel4.setText(String.valueOf(sistema.getListaMascotas().get(3).getPeso())+&quot; Kg&quot;);</span>
+<span class="nc" id="L177">                alturaLabel4.setText(String.valueOf(sistema.getListaMascotas().get(3).getAltura())+&quot; Cm&quot;);</span>
+<span class="nc" id="L178">                comentarioLabel4.setText(sistema.getListaMascotas().get(3).getComentario());</span>
                 break;
         }
 
-<span class="nc" id="L96">    }</span>
+<span class="nc" id="L182">    }</span>
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -104,248 +190,269 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L107">        jPanel1 = new javax.swing.JPanel();</span>
-<span class="nc" id="L108">        NombreMascota1 = new javax.swing.JLabel();</span>
-<span class="nc" id="L109">        comentarioLabel1 = new javax.swing.JLabel();</span>
-<span class="nc" id="L110">        pesoLabel1 = new javax.swing.JLabel();</span>
-<span class="nc" id="L111">        alturaLabel1 = new javax.swing.JLabel();</span>
-<span class="nc" id="L112">        ImagenMascota1 = new javax.swing.JLabel();</span>
-<span class="nc" id="L113">        NombreMascota2 = new javax.swing.JLabel();</span>
-<span class="nc" id="L114">        pesoLabel2 = new javax.swing.JLabel();</span>
-<span class="nc" id="L115">        comentarioLabel2 = new javax.swing.JLabel();</span>
-<span class="nc" id="L116">        alturaLabel2 = new javax.swing.JLabel();</span>
-<span class="nc" id="L117">        ImagenMascota2 = new javax.swing.JLabel();</span>
-<span class="nc" id="L118">        NombreMascota3 = new javax.swing.JLabel();</span>
-<span class="nc" id="L119">        pesoLabel3 = new javax.swing.JLabel();</span>
-<span class="nc" id="L120">        alturaLabel3 = new javax.swing.JLabel();</span>
-<span class="nc" id="L121">        comentarioLabel3 = new javax.swing.JLabel();</span>
-<span class="nc" id="L122">        ImagenMascota3 = new javax.swing.JLabel();</span>
-<span class="nc" id="L123">        pesoLabel4 = new javax.swing.JLabel();</span>
-<span class="nc" id="L124">        alturaLabel4 = new javax.swing.JLabel();</span>
-<span class="nc" id="L125">        comentarioLabel4 = new javax.swing.JLabel();</span>
-<span class="nc" id="L126">        NombreMascota4 = new javax.swing.JLabel();</span>
-<span class="nc" id="L127">        ImagenMascota4 = new javax.swing.JLabel();</span>
-<span class="nc" id="L128">        UsernameLabel = new javax.swing.JLabel();</span>
-<span class="nc" id="L129">        PanelSostieneInfo = new javax.swing.JPanel();</span>
-<span class="nc" id="L130">        jButton1 = new javax.swing.JButton();</span>
-<span class="nc" id="L131">        perfilSeleccionBoton = new javax.swing.JButton();</span>
-<span class="nc" id="L132">        registrarMascota = new javax.swing.JButton();</span>
-<span class="nc" id="L133">        VeterinarioBoton = new javax.swing.JButton();</span>
-<span class="nc" id="L134">        calendarioBoton = new javax.swing.JButton();</span>
-<span class="nc" id="L135">        ImagenUsuario = new javax.swing.JLabel();</span>
-<span class="nc" id="L136">        ImagenDeFondo = new javax.swing.JLabel();</span>
+<span class="nc" id="L193">        jPanel1 = new javax.swing.JPanel();</span>
+<span class="nc" id="L194">        NombreMascota1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L195">        comentarioLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L196">        pesoLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L197">        alturaLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L198">        ImagenMascota1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L199">        NombreMascota2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L200">        pesoLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L201">        comentarioLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L202">        alturaLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L203">        NombreMascota3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L204">        pesoLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L205">        alturaLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L206">        comentarioLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L207">        ImagenMascota3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L208">        pesoLabel4 = new javax.swing.JLabel();</span>
+<span class="nc" id="L209">        alturaLabel4 = new javax.swing.JLabel();</span>
+<span class="nc" id="L210">        comentarioLabel4 = new javax.swing.JLabel();</span>
+<span class="nc" id="L211">        NombreMascota4 = new javax.swing.JLabel();</span>
+<span class="nc" id="L212">        ImagenMascota4 = new javax.swing.JLabel();</span>
+<span class="nc" id="L213">        UsernameLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L214">        pesoUser = new javax.swing.JLabel();</span>
+<span class="nc" id="L215">        alturaUser = new javax.swing.JLabel();</span>
+<span class="nc" id="L216">        comentario = new javax.swing.JLabel();</span>
+<span class="nc" id="L217">        ImagenMascota2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L218">        borrarMascotaBoton = new javax.swing.JButton();</span>
+<span class="nc" id="L219">        PanelSostieneInfo = new javax.swing.JPanel();</span>
+<span class="nc" id="L220">        perfilSeleccionBoton = new javax.swing.JButton();</span>
+<span class="nc" id="L221">        registrarMascota = new javax.swing.JButton();</span>
+<span class="nc" id="L222">        calendarioBoton = new javax.swing.JButton();</span>
+<span class="nc" id="L223">        ImagenUsuario = new javax.swing.JLabel();</span>
+<span class="nc" id="L224">        ImagenDeFondo = new javax.swing.JLabel();</span>
 
-<span class="nc" id="L138">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L226">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
 
-<span class="nc" id="L140">        jPanel1.setBackground(new java.awt.Color(255, 153, 153));</span>
-<span class="nc" id="L141">        jPanel1.setLayout(null);</span>
+<span class="nc" id="L228">        jPanel1.setBackground(new java.awt.Color(255, 153, 153));</span>
+<span class="nc" id="L229">        jPanel1.setLayout(null);</span>
 
-<span class="nc" id="L143">        NombreMascota1.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 12)); // NOI18N</span>
-<span class="nc" id="L144">        NombreMascota1.setText(&quot;Nombre mascota 1&quot;);</span>
-<span class="nc" id="L145">        jPanel1.add(NombreMascota1);</span>
-<span class="nc" id="L146">        NombreMascota1.setBounds(90, 260, 120, 30);</span>
+<span class="nc" id="L231">        NombreMascota1.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 12)); // NOI18N</span>
+<span class="nc" id="L232">        NombreMascota1.setText(&quot;Nombre mascota 1&quot;);</span>
+<span class="nc" id="L233">        jPanel1.add(NombreMascota1);</span>
+<span class="nc" id="L234">        NombreMascota1.setBounds(90, 260, 120, 30);</span>
 
-<span class="nc" id="L148">        comentarioLabel1.setText(&quot;Comentario&quot;);</span>
-<span class="nc" id="L149">        jPanel1.add(comentarioLabel1);</span>
-<span class="nc" id="L150">        comentarioLabel1.setBounds(90, 340, 100, 14);</span>
+<span class="nc" id="L236">        comentarioLabel1.setText(&quot;Comentario&quot;);</span>
+<span class="nc" id="L237">        jPanel1.add(comentarioLabel1);</span>
+<span class="nc" id="L238">        comentarioLabel1.setBounds(90, 340, 100, 14);</span>
 
-<span class="nc" id="L152">        pesoLabel1.setText(&quot;peso kg&quot;);</span>
-<span class="nc" id="L153">        jPanel1.add(pesoLabel1);</span>
-<span class="nc" id="L154">        pesoLabel1.setBounds(90, 300, 50, 14);</span>
+<span class="nc" id="L240">        pesoLabel1.setText(&quot;peso kg&quot;);</span>
+<span class="nc" id="L241">        jPanel1.add(pesoLabel1);</span>
+<span class="nc" id="L242">        pesoLabel1.setBounds(90, 300, 80, 14);</span>
 
-<span class="nc" id="L156">        alturaLabel1.setText(&quot;altura cm&quot;);</span>
-<span class="nc" id="L157">        jPanel1.add(alturaLabel1);</span>
-<span class="nc" id="L158">        alturaLabel1.setBounds(90, 320, 50, 14);</span>
+<span class="nc" id="L244">        alturaLabel1.setText(&quot;altura cm&quot;);</span>
+<span class="nc" id="L245">        jPanel1.add(alturaLabel1);</span>
+<span class="nc" id="L246">        alturaLabel1.setBounds(90, 320, 70, 14);</span>
 
-<span class="nc" id="L160">        ImagenMascota1.setText(&quot;IMAGEN&quot;);</span>
-<span class="nc" id="L161">        jPanel1.add(ImagenMascota1);</span>
-<span class="nc" id="L162">        ImagenMascota1.setBounds(120, 220, 50, 30);</span>
+<span class="nc" id="L248">        ImagenMascota1.setText(&quot;IMAGEN&quot;);</span>
+<span class="nc" id="L249">        jPanel1.add(ImagenMascota1);</span>
+<span class="nc" id="L250">        ImagenMascota1.setBounds(110, 210, 60, 50);</span>
 
-<span class="nc" id="L164">        NombreMascota2.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 12)); // NOI18N</span>
-<span class="nc" id="L165">        NombreMascota2.setText(&quot;Nombre mascota 2&quot;);</span>
-<span class="nc" id="L166">        jPanel1.add(NombreMascota2);</span>
-<span class="nc" id="L167">        NombreMascota2.setBounds(240, 260, 120, 30);</span>
+<span class="nc" id="L252">        NombreMascota2.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 12)); // NOI18N</span>
+<span class="nc" id="L253">        NombreMascota2.setText(&quot;Nombre mascota 2&quot;);</span>
+<span class="nc" id="L254">        jPanel1.add(NombreMascota2);</span>
+<span class="nc" id="L255">        NombreMascota2.setBounds(240, 260, 120, 30);</span>
 
-<span class="nc" id="L169">        pesoLabel2.setText(&quot;peso kg&quot;);</span>
-<span class="nc" id="L170">        jPanel1.add(pesoLabel2);</span>
-<span class="nc" id="L171">        pesoLabel2.setBounds(240, 300, 50, 14);</span>
+<span class="nc" id="L257">        pesoLabel2.setText(&quot;peso kg&quot;);</span>
+<span class="nc" id="L258">        jPanel1.add(pesoLabel2);</span>
+<span class="nc" id="L259">        pesoLabel2.setBounds(240, 300, 90, 14);</span>
 
-<span class="nc" id="L173">        comentarioLabel2.setText(&quot;Comentario&quot;);</span>
-<span class="nc" id="L174">        jPanel1.add(comentarioLabel2);</span>
-<span class="nc" id="L175">        comentarioLabel2.setBounds(240, 340, 100, 14);</span>
+<span class="nc" id="L261">        comentarioLabel2.setText(&quot;Comentario&quot;);</span>
+<span class="nc" id="L262">        jPanel1.add(comentarioLabel2);</span>
+<span class="nc" id="L263">        comentarioLabel2.setBounds(240, 340, 100, 14);</span>
 
-<span class="nc" id="L177">        alturaLabel2.setText(&quot;altura cm&quot;);</span>
-<span class="nc" id="L178">        jPanel1.add(alturaLabel2);</span>
-<span class="nc" id="L179">        alturaLabel2.setBounds(240, 320, 50, 14);</span>
+<span class="nc" id="L265">        alturaLabel2.setText(&quot;altura cm&quot;);</span>
+<span class="nc" id="L266">        jPanel1.add(alturaLabel2);</span>
+<span class="nc" id="L267">        alturaLabel2.setBounds(240, 320, 80, 14);</span>
 
-<span class="nc" id="L181">        ImagenMascota2.setText(&quot;IMAGEN&quot;);</span>
-<span class="nc" id="L182">        jPanel1.add(ImagenMascota2);</span>
-<span class="nc" id="L183">        ImagenMascota2.setBounds(270, 220, 50, 30);</span>
+<span class="nc" id="L269">        NombreMascota3.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 12)); // NOI18N</span>
+<span class="nc" id="L270">        NombreMascota3.setText(&quot;Nombre mascota 3&quot;);</span>
+<span class="nc" id="L271">        jPanel1.add(NombreMascota3);</span>
+<span class="nc" id="L272">        NombreMascota3.setBounds(390, 260, 120, 30);</span>
 
-<span class="nc" id="L185">        NombreMascota3.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 12)); // NOI18N</span>
-<span class="nc" id="L186">        NombreMascota3.setText(&quot;Nombre mascota 3&quot;);</span>
-<span class="nc" id="L187">        jPanel1.add(NombreMascota3);</span>
-<span class="nc" id="L188">        NombreMascota3.setBounds(390, 260, 120, 30);</span>
+<span class="nc" id="L274">        pesoLabel3.setText(&quot;peso kg&quot;);</span>
+<span class="nc" id="L275">        jPanel1.add(pesoLabel3);</span>
+<span class="nc" id="L276">        pesoLabel3.setBounds(390, 300, 90, 14);</span>
 
-<span class="nc" id="L190">        pesoLabel3.setText(&quot;peso kg&quot;);</span>
-<span class="nc" id="L191">        jPanel1.add(pesoLabel3);</span>
-<span class="nc" id="L192">        pesoLabel3.setBounds(390, 300, 50, 14);</span>
+<span class="nc" id="L278">        alturaLabel3.setText(&quot;altura cm&quot;);</span>
+<span class="nc" id="L279">        jPanel1.add(alturaLabel3);</span>
+<span class="nc" id="L280">        alturaLabel3.setBounds(390, 320, 90, 14);</span>
 
-<span class="nc" id="L194">        alturaLabel3.setText(&quot;altura cm&quot;);</span>
-<span class="nc" id="L195">        jPanel1.add(alturaLabel3);</span>
-<span class="nc" id="L196">        alturaLabel3.setBounds(390, 320, 50, 14);</span>
+<span class="nc" id="L282">        comentarioLabel3.setText(&quot;Comentario&quot;);</span>
+<span class="nc" id="L283">        jPanel1.add(comentarioLabel3);</span>
+<span class="nc" id="L284">        comentarioLabel3.setBounds(390, 340, 100, 14);</span>
 
-<span class="nc" id="L198">        comentarioLabel3.setText(&quot;Comentario&quot;);</span>
-<span class="nc" id="L199">        jPanel1.add(comentarioLabel3);</span>
-<span class="nc" id="L200">        comentarioLabel3.setBounds(390, 340, 100, 14);</span>
+<span class="nc" id="L286">        ImagenMascota3.setText(&quot;IMAGEN&quot;);</span>
+<span class="nc" id="L287">        jPanel1.add(ImagenMascota3);</span>
+<span class="nc" id="L288">        ImagenMascota3.setBounds(410, 210, 60, 50);</span>
 
-<span class="nc" id="L202">        ImagenMascota3.setText(&quot;IMAGEN&quot;);</span>
-<span class="nc" id="L203">        jPanel1.add(ImagenMascota3);</span>
-<span class="nc" id="L204">        ImagenMascota3.setBounds(420, 220, 50, 30);</span>
+<span class="nc" id="L290">        pesoLabel4.setText(&quot;peso kg&quot;);</span>
+<span class="nc" id="L291">        jPanel1.add(pesoLabel4);</span>
+<span class="nc" id="L292">        pesoLabel4.setBounds(540, 300, 50, 14);</span>
 
-<span class="nc" id="L206">        pesoLabel4.setText(&quot;peso kg&quot;);</span>
-<span class="nc" id="L207">        jPanel1.add(pesoLabel4);</span>
-<span class="nc" id="L208">        pesoLabel4.setBounds(540, 300, 50, 14);</span>
+<span class="nc" id="L294">        alturaLabel4.setText(&quot;altura cm&quot;);</span>
+<span class="nc" id="L295">        jPanel1.add(alturaLabel4);</span>
+<span class="nc" id="L296">        alturaLabel4.setBounds(540, 320, 50, 14);</span>
 
-<span class="nc" id="L210">        alturaLabel4.setText(&quot;altura cm&quot;);</span>
-<span class="nc" id="L211">        jPanel1.add(alturaLabel4);</span>
-<span class="nc" id="L212">        alturaLabel4.setBounds(540, 320, 50, 14);</span>
+<span class="nc" id="L298">        comentarioLabel4.setText(&quot;Comentario&quot;);</span>
+<span class="nc" id="L299">        jPanel1.add(comentarioLabel4);</span>
+<span class="nc" id="L300">        comentarioLabel4.setBounds(540, 340, 100, 14);</span>
 
-<span class="nc" id="L214">        comentarioLabel4.setText(&quot;Comentario&quot;);</span>
-<span class="nc" id="L215">        jPanel1.add(comentarioLabel4);</span>
-<span class="nc" id="L216">        comentarioLabel4.setBounds(540, 340, 100, 14);</span>
+<span class="nc" id="L302">        NombreMascota4.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 12)); // NOI18N</span>
+<span class="nc" id="L303">        NombreMascota4.setText(&quot;Nombre mascota 4&quot;);</span>
+<span class="nc" id="L304">        jPanel1.add(NombreMascota4);</span>
+<span class="nc" id="L305">        NombreMascota4.setBounds(540, 260, 120, 30);</span>
 
-<span class="nc" id="L218">        NombreMascota4.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 12)); // NOI18N</span>
-<span class="nc" id="L219">        NombreMascota4.setText(&quot;Nombre mascota 4&quot;);</span>
-<span class="nc" id="L220">        jPanel1.add(NombreMascota4);</span>
-<span class="nc" id="L221">        NombreMascota4.setBounds(540, 260, 120, 30);</span>
+<span class="nc" id="L307">        ImagenMascota4.setText(&quot;IMAGEN&quot;);</span>
+<span class="nc" id="L308">        jPanel1.add(ImagenMascota4);</span>
+<span class="nc" id="L309">        ImagenMascota4.setBounds(550, 210, 60, 50);</span>
 
-<span class="nc" id="L223">        ImagenMascota4.setText(&quot;IMAGEN&quot;);</span>
-<span class="nc" id="L224">        jPanel1.add(ImagenMascota4);</span>
-<span class="nc" id="L225">        ImagenMascota4.setBounds(570, 220, 50, 30);</span>
+<span class="nc" id="L311">        UsernameLabel.setBackground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L312">        UsernameLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 18)); // NOI18N</span>
+<span class="nc" id="L313">        UsernameLabel.setForeground(new java.awt.Color(255, 255, 0));</span>
+<span class="nc" id="L314">        UsernameLabel.setText(&quot;NOMBRE USUARIO&quot;);</span>
+<span class="nc" id="L315">        jPanel1.add(UsernameLabel);</span>
+<span class="nc" id="L316">        UsernameLabel.setBounds(40, 90, 140, 30);</span>
 
-<span class="nc" id="L227">        UsernameLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 14)); // NOI18N</span>
-<span class="nc" id="L228">        UsernameLabel.setText(&quot;NOMBRE USUARIO&quot;);</span>
-<span class="nc" id="L229">        jPanel1.add(UsernameLabel);</span>
-<span class="nc" id="L230">        UsernameLabel.setBounds(60, 90, 110, 30);</span>
+<span class="nc" id="L318">        pesoUser.setBackground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L319">        pesoUser.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 18)); // NOI18N</span>
+<span class="nc" id="L320">        pesoUser.setForeground(new java.awt.Color(255, 255, 0));</span>
+<span class="nc" id="L321">        pesoUser.setText(&quot;Peso&quot;);</span>
+<span class="nc" id="L322">        jPanel1.add(pesoUser);</span>
+<span class="nc" id="L323">        pesoUser.setBounds(40, 120, 140, 20);</span>
 
-<span class="nc" id="L232">        PanelSostieneInfo.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L325">        alturaUser.setBackground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L326">        alturaUser.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 18)); // NOI18N</span>
+<span class="nc" id="L327">        alturaUser.setForeground(new java.awt.Color(255, 255, 0));</span>
+<span class="nc" id="L328">        alturaUser.setText(&quot;Altura&quot;);</span>
+<span class="nc" id="L329">        jPanel1.add(alturaUser);</span>
+<span class="nc" id="L330">        alturaUser.setBounds(40, 140, 140, 30);</span>
 
-<span class="nc" id="L234">        javax.swing.GroupLayout PanelSostieneInfoLayout = new javax.swing.GroupLayout(PanelSostieneInfo);</span>
-<span class="nc" id="L235">        PanelSostieneInfo.setLayout(PanelSostieneInfoLayout);</span>
-<span class="nc" id="L236">        PanelSostieneInfoLayout.setHorizontalGroup(</span>
-<span class="nc" id="L237">            PanelSostieneInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L238">            .addGap(0, 610, Short.MAX_VALUE)</span>
+<span class="nc" id="L332">        comentario.setBackground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L333">        comentario.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 18)); // NOI18N</span>
+<span class="nc" id="L334">        comentario.setForeground(new java.awt.Color(255, 255, 0));</span>
+<span class="nc" id="L335">        comentario.setText(&quot;Altura&quot;);</span>
+<span class="nc" id="L336">        jPanel1.add(comentario);</span>
+<span class="nc" id="L337">        comentario.setBounds(40, 170, 140, 30);</span>
+
+<span class="nc" id="L339">        ImagenMascota2.setText(&quot;IMAGEN&quot;);</span>
+<span class="nc" id="L340">        jPanel1.add(ImagenMascota2);</span>
+<span class="nc" id="L341">        ImagenMascota2.setBounds(260, 210, 60, 50);</span>
+
+<span class="nc" id="L343">        borrarMascotaBoton.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L344">        borrarMascotaBoton.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 12)); // NOI18N</span>
+<span class="nc" id="L345">        borrarMascotaBoton.setText(&quot;Borrar Mascota&quot;);</span>
+<span class="nc" id="L346">        borrarMascotaBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L348">                borrarMascotaBotonActionPerformed(evt);</span>
+<span class="nc" id="L349">            }</span>
+        });
+<span class="nc" id="L351">        jPanel1.add(borrarMascotaBoton);</span>
+<span class="nc" id="L352">        borrarMascotaBoton.setBounds(410, 440, 120, 25);</span>
+
+<span class="nc" id="L354">        PanelSostieneInfo.setBackground(new java.awt.Color(255, 255, 255));</span>
+
+<span class="nc" id="L356">        javax.swing.GroupLayout PanelSostieneInfoLayout = new javax.swing.GroupLayout(PanelSostieneInfo);</span>
+<span class="nc" id="L357">        PanelSostieneInfo.setLayout(PanelSostieneInfoLayout);</span>
+<span class="nc" id="L358">        PanelSostieneInfoLayout.setHorizontalGroup(</span>
+<span class="nc" id="L359">            PanelSostieneInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L360">            .addGap(0, 610, Short.MAX_VALUE)</span>
         );
-<span class="nc" id="L240">        PanelSostieneInfoLayout.setVerticalGroup(</span>
-<span class="nc" id="L241">            PanelSostieneInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L242">            .addGap(0, 110, Short.MAX_VALUE)</span>
-        );
-
-<span class="nc" id="L245">        jPanel1.add(PanelSostieneInfo);</span>
-<span class="nc" id="L246">        PanelSostieneInfo.setBounds(60, 260, 610, 110);</span>
-
-<span class="nc" id="L248">        jButton1.setText(&quot;Registrar Paseo&quot;);</span>
-<span class="nc" id="L249">        jPanel1.add(jButton1);</span>
-<span class="nc" id="L250">        jButton1.setBounds(570, 100, 130, 30);</span>
-
-<span class="nc" id="L252">        perfilSeleccionBoton.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 12)); // NOI18N</span>
-<span class="nc" id="L253">        perfilSeleccionBoton.setText(&quot;Seleccionar Perfil&quot;);</span>
-<span class="nc" id="L254">        perfilSeleccionBoton.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L256">                perfilSeleccionBotonActionPerformed(evt);</span>
-<span class="nc" id="L257">            }</span>
-        });
-<span class="nc" id="L259">        jPanel1.add(perfilSeleccionBoton);</span>
-<span class="nc" id="L260">        perfilSeleccionBoton.setBounds(20, 440, 150, 25);</span>
-
-<span class="nc" id="L262">        registrarMascota.setBackground(new java.awt.Color(204, 255, 255));</span>
-<span class="nc" id="L263">        registrarMascota.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 12)); // NOI18N</span>
-<span class="nc" id="L264">        registrarMascota.setForeground(new java.awt.Color(0, 102, 102));</span>
-<span class="nc" id="L265">        registrarMascota.setText(&quot;Registrar mascota&quot;);</span>
-<span class="nc" id="L266">        registrarMascota.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L268">                registrarMascotaActionPerformed(evt);</span>
-<span class="nc" id="L269">            }</span>
-        });
-<span class="nc" id="L271">        jPanel1.add(registrarMascota);</span>
-<span class="nc" id="L272">        registrarMascota.setBounds(550, 440, 140, 25);</span>
-
-<span class="nc" id="L274">        VeterinarioBoton.setBackground(new java.awt.Color(153, 204, 255));</span>
-<span class="nc" id="L275">        VeterinarioBoton.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 12)); // NOI18N</span>
-<span class="nc" id="L276">        VeterinarioBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Imagenes/veterinaria.jpg&quot;))); // NOI18N</span>
-<span class="nc" id="L277">        VeterinarioBoton.setMaximumSize(new java.awt.Dimension(10, 10));</span>
-<span class="nc" id="L278">        VeterinarioBoton.setMinimumSize(new java.awt.Dimension(5, 5));</span>
-<span class="nc" id="L279">        VeterinarioBoton.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L281">                VeterinarioBotonActionPerformed(evt);</span>
-<span class="nc" id="L282">            }</span>
-        });
-<span class="nc" id="L284">        jPanel1.add(VeterinarioBoton);</span>
-<span class="nc" id="L285">        VeterinarioBoton.setBounds(430, 100, 120, 30);</span>
-
-<span class="nc" id="L287">        calendarioBoton.setBackground(new java.awt.Color(153, 204, 255));</span>
-<span class="nc" id="L288">        calendarioBoton.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 12)); // NOI18N</span>
-<span class="nc" id="L289">        calendarioBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Imagenes/calendario.jpg&quot;))); // NOI18N</span>
-<span class="nc" id="L290">        calendarioBoton.setMaximumSize(new java.awt.Dimension(10, 10));</span>
-<span class="nc" id="L291">        calendarioBoton.setMinimumSize(new java.awt.Dimension(5, 5));</span>
-<span class="nc" id="L292">        calendarioBoton.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L294">                calendarioBotonActionPerformed(evt);</span>
-<span class="nc" id="L295">            }</span>
-        });
-<span class="nc" id="L297">        jPanel1.add(calendarioBoton);</span>
-<span class="nc" id="L298">        calendarioBoton.setBounds(300, 100, 120, 30);</span>
-
-<span class="nc" id="L300">        ImagenUsuario.setText(&quot;Imagen Usuario (el texto se borra)&quot;);</span>
-<span class="nc" id="L301">        jPanel1.add(ImagenUsuario);</span>
-<span class="nc" id="L302">        ImagenUsuario.setBounds(40, 40, 170, 14);</span>
-
-<span class="nc" id="L304">        ImagenDeFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Imagenes/dog summer.jpg&quot;))); // NOI18N</span>
-<span class="nc" id="L305">        jPanel1.add(ImagenDeFondo);</span>
-<span class="nc" id="L306">        ImagenDeFondo.setBounds(0, 0, 950, 480);</span>
-
-<span class="nc" id="L308">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L309">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L310">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L311">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L312">            .addGap(0, 720, Short.MAX_VALUE)</span>
-<span class="nc" id="L313">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L314">                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE))</span>
-        );
-<span class="nc" id="L316">        layout.setVerticalGroup(</span>
-<span class="nc" id="L317">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L318">            .addGap(0, 480, Short.MAX_VALUE)</span>
-<span class="nc" id="L319">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L320">                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))</span>
+<span class="nc" id="L362">        PanelSostieneInfoLayout.setVerticalGroup(</span>
+<span class="nc" id="L363">            PanelSostieneInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L364">            .addGap(0, 110, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L323">        pack();</span>
-<span class="nc" id="L324">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L367">        jPanel1.add(PanelSostieneInfo);</span>
+<span class="nc" id="L368">        PanelSostieneInfo.setBounds(60, 260, 610, 110);</span>
+
+<span class="nc" id="L370">        perfilSeleccionBoton.setBackground(new java.awt.Color(0, 204, 204));</span>
+<span class="nc" id="L371">        perfilSeleccionBoton.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L372">        perfilSeleccionBoton.setForeground(new java.awt.Color(255, 255, 0));</span>
+<span class="nc" id="L373">        perfilSeleccionBoton.setText(&quot;Seleccionar Perfil&quot;);</span>
+<span class="nc" id="L374">        perfilSeleccionBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L376">                perfilSeleccionBotonActionPerformed(evt);</span>
+<span class="nc" id="L377">            }</span>
+        });
+<span class="nc" id="L379">        jPanel1.add(perfilSeleccionBoton);</span>
+<span class="nc" id="L380">        perfilSeleccionBoton.setBounds(20, 440, 150, 25);</span>
+
+<span class="nc" id="L382">        registrarMascota.setBackground(new java.awt.Color(204, 255, 255));</span>
+<span class="nc" id="L383">        registrarMascota.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L384">        registrarMascota.setForeground(new java.awt.Color(0, 102, 102));</span>
+<span class="nc" id="L385">        registrarMascota.setText(&quot;Registrar mascota&quot;);</span>
+<span class="nc" id="L386">        registrarMascota.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L388">                registrarMascotaActionPerformed(evt);</span>
+<span class="nc" id="L389">            }</span>
+        });
+<span class="nc" id="L391">        jPanel1.add(registrarMascota);</span>
+<span class="nc" id="L392">        registrarMascota.setBounds(550, 440, 140, 25);</span>
+
+<span class="nc" id="L394">        calendarioBoton.setBackground(new java.awt.Color(153, 204, 255));</span>
+<span class="nc" id="L395">        calendarioBoton.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L396">        calendarioBoton.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/imagenes/calendario.jpg&quot;))); // NOI18N</span>
+<span class="nc" id="L397">        calendarioBoton.setMaximumSize(new java.awt.Dimension(10, 10));</span>
+<span class="nc" id="L398">        calendarioBoton.setMinimumSize(new java.awt.Dimension(5, 5));</span>
+<span class="nc" id="L399">        calendarioBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L401">                calendarioBotonActionPerformed(evt);</span>
+<span class="nc" id="L402">            }</span>
+        });
+<span class="nc" id="L404">        jPanel1.add(calendarioBoton);</span>
+<span class="nc" id="L405">        calendarioBoton.setBounds(540, 100, 120, 30);</span>
+
+<span class="nc" id="L407">        ImagenUsuario.setText(&quot;Imagen Usuario &quot;);</span>
+<span class="nc" id="L408">        jPanel1.add(ImagenUsuario);</span>
+<span class="nc" id="L409">        ImagenUsuario.setBounds(40, 20, 110, 70);</span>
+
+<span class="nc" id="L411">        ImagenDeFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/imagenes/dog summer.jpg&quot;))); // NOI18N</span>
+<span class="nc" id="L412">        jPanel1.add(ImagenDeFondo);</span>
+<span class="nc" id="L413">        ImagenDeFondo.setBounds(0, 0, 950, 480);</span>
+
+<span class="nc" id="L415">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L416">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L417">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L418">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L419">            .addGap(0, 720, Short.MAX_VALUE)</span>
+<span class="nc" id="L420">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L421">                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE))</span>
+        );
+<span class="nc" id="L423">        layout.setVerticalGroup(</span>
+<span class="nc" id="L424">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L425">            .addGap(0, 480, Short.MAX_VALUE)</span>
+<span class="nc" id="L426">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L427">                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE))</span>
+        );
+
+<span class="nc" id="L430">        pack();</span>
+<span class="nc" id="L431">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void calendarioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calendarioBotonActionPerformed
-<span class="nc" id="L327">        Calendario calendario = new Calendario(sistema);</span>
-<span class="nc" id="L328">        calendario.setVisible(true);</span>
-<span class="nc" id="L329">        this.setVisible(false);</span>
-<span class="nc" id="L330">    }//GEN-LAST:event_calendarioBotonActionPerformed</span>
-
-    private void VeterinarioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VeterinarioBotonActionPerformed
-<span class="nc" id="L333">        Veterinaria vet = new Veterinaria(sistema);</span>
-<span class="nc" id="L334">        vet.setVisible(true);</span>
-<span class="nc" id="L335">        this.setVisible(false);</span>
-<span class="nc" id="L336">    }//GEN-LAST:event_VeterinarioBotonActionPerformed</span>
+<span class="nc" id="L434">        Calendario calendario = new Calendario(sistema);</span>
+<span class="nc" id="L435">        calendario.setVisible(true);</span>
+<span class="nc" id="L436">        this.setVisible(false);</span>
+<span class="nc" id="L437">    }//GEN-LAST:event_calendarioBotonActionPerformed</span>
 
     private void registrarMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarMascotaActionPerformed
-<span class="nc" id="L339">        AltaMascota altaMascota = new AltaMascota(sistema);</span>
-<span class="nc" id="L340">        altaMascota.setVisible(true);</span>
-<span class="nc" id="L341">        this.setVisible(false);</span>
-<span class="nc" id="L342">    }//GEN-LAST:event_registrarMascotaActionPerformed</span>
+<span class="nc" id="L440">        AltaMascota altaMascota = new AltaMascota(sistema);</span>
+<span class="nc" id="L441">        altaMascota.setVisible(true);</span>
+<span class="nc" id="L442">        this.setVisible(false);</span>
+<span class="nc" id="L443">    }//GEN-LAST:event_registrarMascotaActionPerformed</span>
 
     private void perfilSeleccionBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_perfilSeleccionBotonActionPerformed
-<span class="nc" id="L345">        Perfiles perfiles = new Perfiles(sistema);</span>
-<span class="nc" id="L346">        perfiles.setVisible(true);</span>
-<span class="nc" id="L347">        this.setVisible(false);</span>
-<span class="nc" id="L348">    }//GEN-LAST:event_perfilSeleccionBotonActionPerformed</span>
+<span class="nc" id="L446">        Perfiles perfiles = new Perfiles(sistema);</span>
+<span class="nc" id="L447">        perfiles.setVisible(true);</span>
+<span class="nc" id="L448">        this.setVisible(false);</span>
+<span class="nc" id="L449">    }//GEN-LAST:event_perfilSeleccionBotonActionPerformed</span>
+
+    private void borrarMascotaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarMascotaBotonActionPerformed
+<span class="nc" id="L452">        BorrarMascota bm = new BorrarMascota(sistema);</span>
+<span class="nc" id="L453">        bm.setVisible(true);</span>
+<span class="nc" id="L454">        this.setVisible(false);</span>
+<span class="nc" id="L455">    }//GEN-LAST:event_borrarMascotaBotonActionPerformed</span>
 
     /**
      * @param args the command line arguments
@@ -357,30 +464,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="nc bnc" id="L360" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L361" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L362">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L363">                    break;</span>
+<span class="nc bnc" id="L467" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L468" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L469">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L470">                    break;</span>
                 }
             }
-<span class="nc" id="L366">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L367">            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L368">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L369">            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L370">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L371">            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L372">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L373">            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L374">        }</span>
+<span class="nc" id="L473">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L474">            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L475">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L476">            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L477">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L478">            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L479">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L480">            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L481">        }</span>
         //&lt;/editor-fold&gt;
 
         /* Create and display the form */
-<span class="nc" id="L378">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L485">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
                 //   new VentanaPrincipal(sistema,username).setVisible(true);.
-<span class="nc" id="L381">            }</span>
+<span class="nc" id="L488">            }</span>
         });
-<span class="nc" id="L383">    }</span>
+<span class="nc" id="L490">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ImagenDeFondo;
@@ -395,23 +502,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel NombreMascota4;
     private javax.swing.JPanel PanelSostieneInfo;
     private javax.swing.JLabel UsernameLabel;
-    private javax.swing.JButton VeterinarioBoton;
     private javax.swing.JLabel alturaLabel1;
     private javax.swing.JLabel alturaLabel2;
     private javax.swing.JLabel alturaLabel3;
     private javax.swing.JLabel alturaLabel4;
+    private javax.swing.JLabel alturaUser;
+    private javax.swing.JButton borrarMascotaBoton;
     private javax.swing.JButton calendarioBoton;
+    private javax.swing.JLabel comentario;
     private javax.swing.JLabel comentarioLabel1;
     private javax.swing.JLabel comentarioLabel2;
     private javax.swing.JLabel comentarioLabel3;
     private javax.swing.JLabel comentarioLabel4;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton perfilSeleccionBoton;
     private javax.swing.JLabel pesoLabel1;
     private javax.swing.JLabel pesoLabel2;
     private javax.swing.JLabel pesoLabel3;
     private javax.swing.JLabel pesoLabel4;
+    private javax.swing.JLabel pesoUser;
     private javax.swing.JButton registrarMascota;
     // End of variables declaration//GEN-END:variables
 }

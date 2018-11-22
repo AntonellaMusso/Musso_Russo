@@ -5,9 +5,12 @@
  */
 package mascota;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,191 +24,324 @@ public class Sistema {
     private ArrayList&lt;Familiar&gt; listadoFamiliar;
     private ArrayList&lt;Actividad&gt; listadoActividades;
     private ArrayList&lt;Alimento&gt; listadoAlimento;
+    private ArrayList&lt;Paseo&gt; listadoPaseos;
     private ArrayList&lt;Servicio&gt; listadoServicio;
-    private ArrayList&lt;String&gt; listadoEventos;
+    //private ArrayList&lt;String&gt; cordenadasMapa;
 
     //Constructor
-<span class="fc" id="L28">    public Sistema() {</span>
-<span class="fc" id="L29">        listadoMascota = new ArrayList&lt;Mascota&gt;();</span>
-<span class="fc" id="L30">        listadoFamiliar = new ArrayList&lt;Familiar&gt;();</span>
-<span class="fc" id="L31">        listadoActividades = new ArrayList&lt;Actividad&gt;();</span>
-<span class="fc" id="L32">        listadoAlimento = new ArrayList&lt;Alimento&gt;();</span>
-<span class="fc" id="L33">        listadoServicio = new ArrayList&lt;Servicio&gt;();</span>
-<span class="fc" id="L34">        listadoEventos = new ArrayList();</span>
-<span class="fc" id="L35">        usuarioSeleccionado = null;</span>
-<span class="fc" id="L36">        listadoFamiliar.add(new Familiar(&quot;Emiliano&quot;, 20, 65, &quot;estudiante&quot;, null)); //borrar luego</span>
-<span class="fc" id="L37">    }</span>
-
-    //Métodos de acceso
-    public Familiar getUsuarioSeleccionadoPorNombre(String name) {
-<span class="fc" id="L41">        Familiar usuario = null;</span>
-<span class="fc bfc" id="L42" title="All 2 branches covered.">        for (int i = 0; i &lt; getListaFamiliares().size(); i++) {</span>
-<span class="pc bpc" id="L43" title="1 of 2 branches missed.">            if (getListaFamiliares().get(i).getNombre() == name) {</span>
-<span class="nc" id="L44">                usuario = getListaFamiliares().get(i);</span>
-            }
-        }
-<span class="fc" id="L47">        return usuario; // si es null no se encontro conicidencia</span>
-    }
-    public ArrayList&lt;String&gt; getListadoEventos() {
-<span class="fc" id="L50">        return listadoEventos;</span>
-    }
-    public String getFechaDeEvento(int i){
-<span class="fc" id="L53">        String texto = &quot;&quot;;</span>
-<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        if (listadoEventos.size() &gt; i){</span>
-<span class="nc bnc" id="L55" title="All 2 branches missed.">            for (int j = 0; j &lt; 10; j++) {</span>
-<span class="nc" id="L56">                texto += listadoEventos.get(i).charAt(j);</span>
-            }
-        }
-<span class="fc" id="L59">        texto+=&quot;&quot;;</span>
-<span class="fc" id="L60">        return texto;</span>
-    }
-    public String getEvento(int i){
-<span class="fc" id="L63">        String texto = &quot;&quot;;</span>
-<span class="fc" id="L64">        int cont = 11;</span>
-<span class="pc bpc" id="L65" title="1 of 2 branches missed.">        if (listadoEventos.size() &gt; i){</span>
-<span class="nc bnc" id="L66" title="All 2 branches missed.">            while(cont &lt; listadoEventos.get(i).length()){</span>
-<span class="nc" id="L67">                texto +=listadoEventos.get(i).charAt(cont);</span>
-<span class="nc" id="L68">                cont++;</span>
-            }
-        }
-<span class="fc" id="L71">        return texto;</span>
-    }
-    public String getDiasConEventosEnMes(String mes,String Anio){
-<span class="fc" id="L74">       String texto = &quot;&quot;;</span>
-<span class="fc" id="L75">       boolean matris[] = new boolean[32];       </span>
-       
-<span class="pc bpc" id="L77" title="1 of 2 branches missed.">        for (int i = 0; i &lt; listadoEventos.size(); i++) {</span>
-<span class="nc" id="L78">            String evento =listadoEventos.get(i);</span>
-<span class="nc bnc" id="L79" title="All 2 branches missed.">           if (evento.substring(3,10).equalsIgnoreCase(mes+&quot;/&quot;+Anio)){</span>
-<span class="nc" id="L80">               System.out.println(evento.substring(3,10)+&quot; es igual a esto &quot;+mes+&quot;/&quot;+Anio);</span>
-<span class="nc" id="L81">             matris[Integer.parseInt(evento.substring(0,2))]  = true; </span>
-           }                 
-        }
-<span class="fc bfc" id="L84" title="All 2 branches covered.">        for (int i = 0; i &lt; matris.length; i++) {</span>
-<span class="pc bpc" id="L85" title="1 of 2 branches missed.">            if (matris[i]){              </span>
-<span class="nc" id="L86">                texto += String.valueOf(i)+&quot;,&quot;;</span>
-            }
-        }
-       
-<span class="fc" id="L90">       return texto;</span>
-    }
-    public void quitarEvento(String evento){
-<span class="pc bpc" id="L93" title="1 of 2 branches missed.">        for (int i = 0; i &lt; listadoEventos.size(); i++) {</span>
-            //si coincide quitar y reordenar el array
-        }
-<span class="fc" id="L96">    }</span>
+<span class="fc" id="L32">    public Sistema() {</span>
+<span class="fc" id="L33">        listadoMascota = new ArrayList&lt;Mascota&gt;();</span>
+<span class="fc" id="L34">        listadoFamiliar = new ArrayList&lt;Familiar&gt;();</span>
+<span class="fc" id="L35">        listadoActividades = new ArrayList&lt;Actividad&gt;();</span>
+<span class="fc" id="L36">        listadoAlimento = new ArrayList&lt;Alimento&gt;();</span>
+<span class="fc" id="L37">        listadoServicio = new ArrayList&lt;Servicio&gt;();</span>
+<span class="fc" id="L38">        listadoPaseos = new ArrayList();</span>
+<span class="fc" id="L39">        usuarioSeleccionado = null;</span>
+       // cordenadasMapa = new ArrayList();
+<span class="fc" id="L41">        listadoFamiliar.add(new Familiar(&quot;Emiliano&quot;, 170, 65, &quot;estudiante&quot;, null)); //borrar luego</span>
         
+<span class="fc" id="L43">    }</span>
+    
+    //Metodos de calendario
+    public Date sumarDiasAFecha(Date fecha, int diasSuma, int limite) {   
+<span class="nc" id="L47">        int dia = fecha.getDate() + diasSuma;</span>
+        
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (dia &gt; limite) {         </span>
+<span class="nc" id="L50">            dia = dia - limite;</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">            if (fecha.getMonth() &lt;= 11) {</span>
+<span class="nc" id="L52">                fecha.setMonth(fecha.getMonth() + 1);</span>
+            } else {
+<span class="nc" id="L54">                fecha.setYear(fecha.getYear() + 1);</span>
+<span class="nc" id="L55">                fecha.setMonth(1);</span>
+            }
+        }
+<span class="nc" id="L58">        Date date = new Date(fecha.getYear(), fecha.getMonth(), dia);</span>
+<span class="nc" id="L59">        return date;</span>
+    }
+
+    public int conversionMesANumero(String mes) {
+<span class="nc" id="L63">        int mesNumerico = 0;</span>
+<span class="nc bnc" id="L64" title="All 50 branches missed.">        switch (mes) {</span>
+            case &quot;Jan&quot;:
+<span class="nc" id="L66">                mesNumerico = 1;</span>
+<span class="nc" id="L67">                break;</span>
+            case &quot;Feb&quot;:
+<span class="nc" id="L69">                mesNumerico = 2;</span>
+<span class="nc" id="L70">                break;</span>
+            case &quot;Mar&quot;:
+<span class="nc" id="L72">                mesNumerico = 3;</span>
+<span class="nc" id="L73">                break;</span>
+            case &quot;Apr&quot;:
+<span class="nc" id="L75">                mesNumerico = 4;</span>
+<span class="nc" id="L76">                break;</span>
+            case &quot;May&quot;:
+<span class="nc" id="L78">                mesNumerico = 5;</span>
+<span class="nc" id="L79">                break;</span>
+            case &quot;Jun&quot;:
+<span class="nc" id="L81">                mesNumerico = 6;</span>
+<span class="nc" id="L82">                break;</span>
+            case &quot;Jul&quot;:
+<span class="nc" id="L84">                mesNumerico = 7;</span>
+<span class="nc" id="L85">                break;</span>
+            case &quot;Aug&quot;:
+<span class="nc" id="L87">                mesNumerico = 8;</span>
+<span class="nc" id="L88">                break;</span>
+            case &quot;Sep&quot;:
+<span class="nc" id="L90">                mesNumerico = 9;</span>
+<span class="nc" id="L91">                break;</span>
+            case &quot;Oct&quot;:
+<span class="nc" id="L93">                mesNumerico = 10;</span>
+<span class="nc" id="L94">                break;</span>
+            case &quot;Nov&quot;:
+<span class="nc" id="L96">                mesNumerico = 11;</span>
+<span class="nc" id="L97">                break;</span>
+            case &quot;Dec&quot;:
+<span class="nc" id="L99">                mesNumerico = 12;</span>
+                break;
+        }
+
+<span class="nc" id="L103">        return mesNumerico;</span>
+    }
+
+    public int getMes(Date fecha) {
+<span class="nc" id="L107">        int mes = conversionMesANumero(fecha.toString().substring(4, 7));</span>
+<span class="nc" id="L108">        return mes;</span>
+    }
+
+    public int ultimoDiaDelMes(int mes) {
+<span class="nc" id="L112">        int ultimoDia = 0;</span>
+<span class="nc bnc" id="L113" title="All 13 branches missed.">        switch (mes) {</span>
+            case 1:
+                //enero
+<span class="nc" id="L116">                ultimoDia = 31;</span>
+<span class="nc" id="L117">                break;</span>
+            case 2:
+                //febrero
+<span class="nc" id="L120">                ultimoDia = 28;</span>
+<span class="nc" id="L121">                break;</span>
+            case 3:
+                //marzo
+<span class="nc" id="L124">                ultimoDia = 31;</span>
+<span class="nc" id="L125">                break;</span>
+            case 4:
+                //abril
+<span class="nc" id="L128">                ultimoDia = 30;</span>
+<span class="nc" id="L129">                break;</span>
+            case 5:
+                //mayo
+<span class="nc" id="L132">                ultimoDia = 31;</span>
+<span class="nc" id="L133">                break;</span>
+            case 6:
+                //junio
+<span class="nc" id="L136">                ultimoDia = 30;</span>
+<span class="nc" id="L137">                break;</span>
+            case 7:
+                //julio
+<span class="nc" id="L140">                ultimoDia = 31;</span>
+<span class="nc" id="L141">                break;</span>
+            case 8:
+                //agosto
+<span class="nc" id="L144">                ultimoDia = 31;</span>
+<span class="nc" id="L145">                break;</span>
+            case 9:
+                //septiembre
+<span class="nc" id="L148">                ultimoDia = 30;</span>
+<span class="nc" id="L149">                break;</span>
+            case 10:
+                //octubre
+<span class="nc" id="L152">                ultimoDia = 31;</span>
+<span class="nc" id="L153">                break;</span>
+            case 11:
+                //noviembre
+<span class="nc" id="L156">                ultimoDia = 30;</span>
+<span class="nc" id="L157">                break;</span>
+            case 12:
+                //diciembre
+<span class="nc" id="L160">                ultimoDia = 31;</span>
+                break;
+        }
+<span class="nc" id="L163">        return ultimoDia;</span>
+    }
+
+    public Date fechaMenor(Date fecha1, Date fecha2) {
+<span class="nc bnc" id="L167" title="All 2 branches missed.">        if (fecha1.getYear() == fecha2.getYear()) {</span>
+            //anios iguales
+<span class="nc bnc" id="L169" title="All 2 branches missed.">            if (fecha1.getMonth() == fecha2.getMonth()) {</span>
+                //meses iguales
+<span class="nc bnc" id="L171" title="All 2 branches missed.">                if (fecha1.getDate() == fecha2.getDate()) {</span>
+                    //dias iguales, aca no deberia llegar
+<span class="nc" id="L173">                    return fecha1; // retorno cualquiera</span>
+                } else {
+                    // dias diferentes
+<span class="nc bnc" id="L176" title="All 2 branches missed.">                    if (fecha1.getDate() &lt; fecha2.getDate()) {</span>
+<span class="nc" id="L177">                        return fecha1;</span>
+                    } else {
+<span class="nc" id="L179">                        return fecha2;</span>
+                    }
+                }
+            } else {
+                //meses diferentes
+<span class="nc bnc" id="L184" title="All 2 branches missed.">                if (fecha1.getMonth() &lt; fecha2.getMonth()) {</span>
+<span class="nc" id="L185">                    return fecha1;</span>
+                } else {
+<span class="nc" id="L187">                    return fecha2;</span>
+                }
+            }
+        } else {
+            //anios diferentes
+<span class="nc bnc" id="L192" title="All 2 branches missed.">            if (fecha1.getYear() &lt; fecha2.getYear()) {</span>
+<span class="nc" id="L193">                return fecha1;</span>
+            } else {
+<span class="nc" id="L195">                return fecha2;</span>
+            }
+        }
+    }
+
+    public boolean fechasIguales(Date fecha1, Date fecha2) {
+<span class="nc bnc" id="L201" title="All 2 branches missed.">        return fecha1.getYear() == fecha2.getYear()</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">                &amp;&amp; fecha1.getMonth() == fecha2.getMonth()</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">                &amp;&amp; fecha1.getDate() == fecha2.getDate();</span>
+    }
+  
+    public void borrarActividadPorNombre(String actividad){
+<span class="nc bnc" id="L207" title="All 2 branches missed.">        for (int i = 0; i &lt; getListaActividades().size(); i++) {</span>
+<span class="nc" id="L208">            Actividad a = getListaActividades().get(i);</span>
+<span class="nc bnc" id="L209" title="All 2 branches missed.">            if (a.getDescripcion().equalsIgnoreCase(actividad)){</span>
+                //borramos actividad
+<span class="nc" id="L211">                getListaActividades().remove(a);</span>
+            }
+        }
+<span class="nc" id="L214">    }</span>
+    
+    //Métodos de acceso
+    
+    public ArrayList&lt;Alimento&gt; getListadoAlimento() {
+<span class="nc" id="L219">        return listadoAlimento;</span>
+    }
+
+    public ArrayList&lt;Paseo&gt; getListadoPaseos() {
+<span class="nc" id="L223">        return listadoPaseos;</span>
+    }
+
+    public Mascota getMascotaPorNombre(String mascota) {
+
+<span class="nc bnc" id="L228" title="All 2 branches missed.">        if (mascota != null) {</span>
+<span class="nc bnc" id="L229" title="All 2 branches missed.">            for (int i = 0; i &lt; listadoMascota.size(); i++) {</span>
+<span class="nc" id="L230">                Mascota m = getListaMascotas().get(i);</span>
+<span class="nc bnc" id="L231" title="All 2 branches missed.">                if (m.getNombre().equalsIgnoreCase(mascota)) {</span>
+<span class="nc" id="L232">                    return m;</span>
+                }
+            }
+        } 
+<span class="nc" id="L236">        return null; // si es null no se encontro coincidencia</span>
+    }
+
+    public Familiar getUsuarioSeleccionadoPorNombre(String name) {
+<span class="nc bnc" id="L240" title="All 2 branches missed.">        if (name != null) {</span>
+<span class="nc" id="L241">            Familiar usuario = null;</span>
+<span class="nc bnc" id="L242" title="All 2 branches missed.">            for (int i = 0; i &lt; getListaFamiliares().size(); i++) {</span>
+<span class="nc bnc" id="L243" title="All 2 branches missed.">                if (getListaFamiliares().get(i).getNombre().equalsIgnoreCase(name)) {</span>
+<span class="nc" id="L244">                    usuario = getListaFamiliares().get(i);</span>
+                }
+            }
+<span class="nc" id="L247">            return usuario; </span>
+        }
+<span class="nc" id="L249">    return null;        // si es null no se encontro conicidencia</span>
+    }
 
     public Familiar getUsuarioSeleccionado() {
-<span class="fc" id="L100">        return usuarioSeleccionado;</span>
+<span class="nc" id="L253">        return usuarioSeleccionado;</span>
     }
 
     public ArrayList&lt;Mascota&gt; getListaMascotas() {
-<span class="fc" id="L104">        return listadoMascota;</span>
+<span class="nc" id="L257">        return listadoMascota;</span>
     }
 
     public ArrayList&lt;Familiar&gt; getListaFamiliares() {
-<span class="fc" id="L108">        return listadoFamiliar;</span>
+<span class="fc" id="L261">        return listadoFamiliar;</span>
     }
 
     public ArrayList&lt;Actividad&gt; getListaActividades() {
-<span class="fc" id="L112">        return listadoActividades;</span>
+<span class="nc" id="L265">        return listadoActividades;</span>
     }
 
     public ArrayList&lt;Alimento&gt; getListaAlimentos() {
-<span class="fc" id="L116">        return listadoAlimento;</span>
+<span class="nc" id="L269">        return listadoAlimento;</span>
     }
 
     public ArrayList&lt;Servicio&gt; getListaServicios() {
-<span class="fc" id="L120">        return listadoServicio;</span>
+<span class="nc" id="L273">        return listadoServicio;</span>
     }
 
     //Agregar listado al sistema
-    public void agregarEvento(String event) {
-<span class="fc" id="L125">        listadoEventos.add(event);</span>
-<span class="fc" id="L126">    }</span>
+    
+    public void setListadoAlimento(ArrayList&lt;Alimento&gt; listadoAlimento) {
+<span class="nc" id="L279">        this.listadoAlimento = listadoAlimento;</span>
+<span class="nc" id="L280">    }</span>
+
+    public void setListadoPaseos(ArrayList&lt;Paseo&gt; listadoPaseos) {
+<span class="nc" id="L283">        this.listadoPaseos = listadoPaseos;</span>
+<span class="nc" id="L284">    }</span>
 
     public void setUsuarioSeleccionado(Familiar usuarioSeleccionado) {
-<span class="fc" id="L129">        this.usuarioSeleccionado = usuarioSeleccionado;</span>
-<span class="fc" id="L130">    }</span>
+<span class="nc" id="L287">        this.usuarioSeleccionado = usuarioSeleccionado;</span>
+<span class="nc" id="L288">    }</span>
 
     public void agregoMascotaALista(Mascota mascota) {
-<span class="pc bpc" id="L133" title="1 of 2 branches missed.">        if (getListaMascotas().size() &lt; 4) {</span>
-<span class="fc" id="L134">            this.getListaMascotas().add(mascota);</span>
+<span class="nc bnc" id="L291" title="All 2 branches missed.">        if (getListaMascotas().size() &lt; 4) {</span>
+<span class="nc" id="L292">            this.getListaMascotas().add(mascota);</span>
         }
-<span class="fc" id="L136">    }</span>
+<span class="nc" id="L294">    }</span>
 
     public void agregoFamiliarALista(Familiar familiar) {
-<span class="fc" id="L139">        this.getListaFamiliares().add(familiar);</span>
-<span class="fc" id="L140">    }</span>
+<span class="nc" id="L297">        this.getListaFamiliares().add(familiar);</span>
+<span class="nc" id="L298">    }</span>
 
     public void agregoActividadALista(Actividad actividad) {
-<span class="fc" id="L143">        this.getListaActividades().add(actividad);</span>
-<span class="fc" id="L144">    }</span>
+<span class="nc" id="L301">        this.getListaActividades().add(actividad);</span>
+<span class="nc" id="L302">    }</span>
 
     public void agregoAlimentoALista(Alimento alimento) {
-<span class="fc" id="L147">        this.getListaAlimentos().add(alimento);</span>
-<span class="fc" id="L148">    }</span>
+<span class="nc" id="L305">        this.getListaAlimentos().add(alimento);</span>
+<span class="nc" id="L306">    }</span>
 
     public void agregoServicioALista(Servicio servicio) {
-<span class="fc" id="L151">        this.getListaServicios().add(servicio);</span>
-<span class="fc" id="L152">    }</span>
+<span class="nc" id="L309">        this.getListaServicios().add(servicio);</span>
+<span class="nc" id="L310">    }</span>
 
     //Eliminar elemento del listado
     public void eliminarMascotaDeLista(Mascota mascota) {
-<span class="fc" id="L156">        this.getListaMascotas().remove(mascota);</span>
-<span class="fc" id="L157">    }</span>
+<span class="nc" id="L314">        this.getListaMascotas().remove(mascota);</span>
+<span class="nc" id="L315">    }</span>
 
     public void eliminarFamiliarDeLista(Familiar familiar) {
-<span class="fc" id="L160">        this.getListaFamiliares().remove(familiar);</span>
-<span class="fc" id="L161">    }</span>
+<span class="nc" id="L318">        this.getListaFamiliares().remove(familiar);</span>
+<span class="nc" id="L319">    }</span>
 
     //Método que valida que no exista mascota con el mismo nombre en el listado
-    public boolean validoNombreMascota(ArrayList&lt;Mascota&gt; lista,
-            String nombre) {
-<span class="fc" id="L166">        boolean esValido = true;</span>
-<span class="nc" id="L167">        Iterator&lt;Mascota&gt; it = lista.iterator();</span>
-<span class="nc bnc" id="L168" title="All 2 branches missed.">        while (it.hasNext()) {</span>
-<span class="nc" id="L169">            Mascota mas = it.next();</span>
-<span class="nc bnc" id="L170" title="All 2 branches missed.">            if (mas.getNombre().equalsIgnoreCase(nombre)) {</span>
-<span class="nc" id="L171">                esValido = false;</span>
+    public boolean validoNombreMascota(String nombre) {
+<span class="nc" id="L323">        boolean esValido = true;</span>
+<span class="nc" id="L324">        Iterator&lt;Mascota&gt; it = getListaMascotas().iterator();</span>
+<span class="nc bnc" id="L325" title="All 2 branches missed.">        while (it.hasNext()) {</span>
+<span class="nc" id="L326">            Mascota mas = it.next();</span>
+<span class="nc bnc" id="L327" title="All 2 branches missed.">            if (mas.getNombre().equalsIgnoreCase(nombre)) {</span>
+<span class="nc" id="L328">                esValido = false;</span>
             }
-<span class="nc" id="L173">        }</span>
-<span class="nc" id="L174">        return esValido;</span>
+<span class="nc" id="L330">        }</span>
+<span class="nc" id="L331">        return esValido;</span>
     }
 
     //Método que valida que no exista familiar con el mismo nombre en el listado
-    public boolean validoNombreFamiliar(ArrayList&lt;Familiar&gt; lista,
-            String nombre) {
-<span class="fc" id="L180">        boolean esValido = true;</span>
-<span class="nc" id="L181">        Iterator&lt;Familiar&gt; it = lista.iterator();</span>
-<span class="nc bnc" id="L182" title="All 2 branches missed.">        while (it.hasNext()) {</span>
-<span class="nc" id="L183">            Familiar fam = it.next();</span>
-<span class="nc bnc" id="L184" title="All 2 branches missed.">            if (fam.getNombre().equalsIgnoreCase(nombre)) {</span>
-<span class="nc" id="L185">                esValido = false;</span>
+    public boolean validoNombreFamiliar(String nombre) {    
+<span class="nc" id="L336">        boolean esValido = true;</span>
+<span class="nc" id="L337">        Iterator&lt;Familiar&gt; it =  getListaFamiliares().iterator();</span>
+<span class="nc bnc" id="L338" title="All 2 branches missed.">        while (it.hasNext()) {</span>
+<span class="nc" id="L339">            Familiar fam = it.next();</span>
+<span class="nc bnc" id="L340" title="All 2 branches missed.">            if (fam.getNombre().equalsIgnoreCase(nombre)) {</span>
+<span class="nc" id="L341">                esValido = false;</span>
             }
-<span class="nc" id="L187">        }</span>
-<span class="nc" id="L188">        return esValido;</span>
-    }
-
-    //Métodos de modificación de elementos de los listados
-    public boolean modificarFamiliar(ArrayList&lt;Familiar&gt; listado, String nombre,
-            int altura, int peso, String comentario, ImageIcon foto) {
-<span class="fc" id="L194">        boolean modificar = false;</span>
-<span class="nc" id="L195">        Iterator&lt;Familiar&gt; it = listado.iterator();</span>
-<span class="nc bnc" id="L196" title="All 2 branches missed.">        while (it.hasNext()) {</span>
-<span class="nc" id="L197">            Familiar f = it.next();</span>
-<span class="nc bnc" id="L198" title="All 2 branches missed.">            if (!f.getNombre().equalsIgnoreCase(nombre)) {</span>
-<span class="nc" id="L199">                modificar = false;</span>
-            } else {
-<span class="nc" id="L201">                f.setPeso(peso);</span>
-<span class="nc" id="L202">                f.setAltura(altura);</span>
-<span class="nc" id="L203">                f.setComentario(comentario);</span>
-<span class="nc" id="L204">                f.setImagen(foto);</span>
-<span class="nc" id="L205">                modificar = true;</span>
-            }
-<span class="nc" id="L207">        }</span>
-<span class="nc" id="L208">        return modificar;</span>
+<span class="nc" id="L343">        }</span>
+<span class="nc" id="L344">        return esValido;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

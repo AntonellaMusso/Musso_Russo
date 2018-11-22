@@ -5,7 +5,13 @@
  */
 package interfaz;
 
+import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import mascota.Actividad;
+import mascota.Alimento;
+import mascota.Paseo;
+import mascota.Servicio;
 import mascota.Sistema;
 
 /**
@@ -16,345 +22,266 @@ public class Calendario extends javax.swing.JFrame {
 
     static Sistema sistema;
 
-<span class="nc" id="L19">    public Calendario(Sistema modelo) {</span>
-<span class="nc" id="L20">        initComponents();</span>
-<span class="nc" id="L21">        sistema = modelo;</span>
-<span class="nc" id="L22">        hayEventosLosDiasLabel.setVisible(false);</span>
-<span class="nc" id="L23">        linea1Label.setVisible(false);     </span>
-<span class="nc" id="L24">        visibilidadEventos(false);</span>
+<span class="nc" id="L25">    public Calendario(Sistema modelo) {</span>
+<span class="nc" id="L26">        initComponents();</span>
+<span class="nc" id="L27">        sistema = modelo;</span>
+<span class="nc" id="L28">        setLocationRelativeTo(null); </span>
+<span class="nc" id="L29">        hayEventosLosDiasLabel.setVisible(false);</span>
+<span class="nc" id="L30">        diasLabel.setVisible(false);</span>
 
-<span class="nc" id="L26">    }</span>
+<span class="nc" id="L32">    }</span>
+
+    
 
     @SuppressWarnings(&quot;unchecked&quot;)
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L32">        atrasBoton = new javax.swing.JButton();</span>
-<span class="nc" id="L33">        calendario = new com.toedter.calendar.JCalendar();</span>
-<span class="nc" id="L34">        eventoText = new javax.swing.JTextField();</span>
-<span class="nc" id="L35">        agregarActividadBoton = new javax.swing.JButton();</span>
-<span class="nc" id="L36">        borrarEventoBoton = new javax.swing.JButton();</span>
-<span class="nc" id="L37">        eventosDiaBoton = new javax.swing.JButton();</span>
-<span class="nc" id="L38">        refresh = new javax.swing.JButton();</span>
-<span class="nc" id="L39">        linea1Label = new javax.swing.JLabel();</span>
-<span class="nc" id="L40">        hayEventosLosDiasLabel = new javax.swing.JLabel();</span>
-<span class="nc" id="L41">        paseosBoton = new javax.swing.JButton();</span>
-<span class="nc" id="L42">        eventLabel1 = new javax.swing.JLabel();</span>
-<span class="nc" id="L43">        eventLabel2 = new javax.swing.JLabel();</span>
-<span class="nc" id="L44">        eventLabel3 = new javax.swing.JLabel();</span>
-<span class="nc" id="L45">        eventLabel4 = new javax.swing.JLabel();</span>
-<span class="nc" id="L46">        eventLabel5 = new javax.swing.JLabel();</span>
-<span class="nc" id="L47">        eventLabel6 = new javax.swing.JLabel();</span>
-<span class="nc" id="L48">        eventLabel7 = new javax.swing.JLabel();</span>
+<span class="nc" id="L40">        atrasBoton = new javax.swing.JButton();</span>
+<span class="nc" id="L41">        calendario = new com.toedter.calendar.JCalendar();</span>
+<span class="nc" id="L42">        eventosDiaBoton = new javax.swing.JButton();</span>
+<span class="nc" id="L43">        diasLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L44">        hayEventosLosDiasLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L45">        actPeriodicaBoton = new javax.swing.JButton();</span>
+<span class="nc" id="L46">        actividadRegBoton = new javax.swing.JButton();</span>
+<span class="nc" id="L47">        eventosDiaBoton1 = new javax.swing.JButton();</span>
+<span class="nc" id="L48">        borrarActividad = new javax.swing.JButton();</span>
+<span class="nc" id="L49">        jButton1 = new javax.swing.JButton();</span>
 
-<span class="nc" id="L50">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L51">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
 
-<span class="nc" id="L52">        atrasBoton.setText(&quot;Atras&quot;);</span>
-<span class="nc" id="L53">        atrasBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L53">        atrasBoton.setText(&quot;Atras&quot;);</span>
+<span class="nc" id="L54">        atrasBoton.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L55">                atrasBotonActionPerformed(evt);</span>
-<span class="nc" id="L56">            }</span>
+<span class="nc" id="L56">                atrasBotonActionPerformed(evt);</span>
+<span class="nc" id="L57">            }</span>
         });
 
-<span class="nc" id="L59">        agregarActividadBoton.setText(&quot;Agregar Actividad&quot;);</span>
-<span class="nc" id="L60">        agregarActividadBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L60">        calendario.setBackground(new java.awt.Color(0, 204, 204));</span>
+<span class="nc" id="L61">        calendario.setForeground(new java.awt.Color(51, 51, 51));</span>
+<span class="nc" id="L62">        calendario.setDecorationBackgroundColor(new java.awt.Color(0, 204, 153));</span>
+
+<span class="nc" id="L64">        eventosDiaBoton.setBackground(new java.awt.Color(0, 204, 153));</span>
+<span class="nc" id="L65">        eventosDiaBoton.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L66">        eventosDiaBoton.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L67">        eventosDiaBoton.setText(&quot;Ver eventos del dia&quot;);</span>
+<span class="nc" id="L68">        eventosDiaBoton.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L62">                agregarActividadBotonActionPerformed(evt);</span>
-<span class="nc" id="L63">            }</span>
+<span class="nc" id="L70">                eventosDiaBotonActionPerformed(evt);</span>
+<span class="nc" id="L71">            }</span>
         });
 
-<span class="nc" id="L66">        borrarEventoBoton.setText(&quot;Borrar Eventos&quot;);</span>
-<span class="nc" id="L67">        borrarEventoBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L74">        diasLabel.setText(&quot;[&quot;);</span>
+
+<span class="nc" id="L76">        hayEventosLosDiasLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L77">        hayEventosLosDiasLabel.setText(&quot;Hay eventos los dias&quot;);</span>
+
+<span class="nc" id="L79">        actPeriodicaBoton.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L80">        actPeriodicaBoton.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L81">        actPeriodicaBoton.setText(&quot;Responsable actividad periodica&quot;);</span>
+<span class="nc" id="L82">        actPeriodicaBoton.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L69">                borrarEventoBotonActionPerformed(evt);</span>
-<span class="nc" id="L70">            }</span>
+<span class="nc" id="L84">                actPeriodicaBotonActionPerformed(evt);</span>
+<span class="nc" id="L85">            }</span>
         });
 
-<span class="nc" id="L73">        eventosDiaBoton.setText(&quot;Ver eventos del dia&quot;);</span>
-<span class="nc" id="L74">        eventosDiaBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L88">        actividadRegBoton.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L89">        actividadRegBoton.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 12)); // NOI18N</span>
+<span class="nc" id="L90">        actividadRegBoton.setText(&quot;Registrar una actividad Realizada&quot;);</span>
+<span class="nc" id="L91">        actividadRegBoton.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L76">                eventosDiaBotonActionPerformed(evt);</span>
-<span class="nc" id="L77">            }</span>
+<span class="nc" id="L93">                actividadRegBotonActionPerformed(evt);</span>
+<span class="nc" id="L94">            }</span>
         });
 
-<span class="nc" id="L80">        refresh.setText(&quot;Eventos del mes&quot;);</span>
-<span class="nc" id="L81">        refresh.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L97">        eventosDiaBoton1.setBackground(new java.awt.Color(255, 255, 255));</span>
+<span class="nc" id="L98">        eventosDiaBoton1.setForeground(new java.awt.Color(102, 102, 102));</span>
+<span class="nc" id="L99">        eventosDiaBoton1.setText(&quot;Ver dias con eventos&quot;);</span>
+<span class="nc" id="L100">        eventosDiaBoton1.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L83">                refreshActionPerformed(evt);</span>
-<span class="nc" id="L84">            }</span>
+<span class="nc" id="L102">                eventosDiaBoton1ActionPerformed(evt);</span>
+<span class="nc" id="L103">            }</span>
         });
 
-<span class="nc" id="L87">        linea1Label.setText(&quot;1,2,3,4,5,6,7,8,9,10&quot;);</span>
+<span class="nc" id="L106">        borrarActividad.setText(&quot;Borrar una actividad&quot;);</span>
+<span class="nc" id="L107">        borrarActividad.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L109">                borrarActividadActionPerformed(evt);</span>
+<span class="nc" id="L110">            }</span>
+        });
 
-<span class="nc" id="L89">        hayEventosLosDiasLabel.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 12)); // NOI18N</span>
-<span class="nc" id="L90">        hayEventosLosDiasLabel.setText(&quot;Hay eventos los dias&quot;);</span>
+<span class="nc" id="L113">        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/imagenes/veterinaria.jpg&quot;))); // NOI18N</span>
+<span class="nc" id="L114">        jButton1.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L116">                jButton1ActionPerformed(evt);</span>
+<span class="nc" id="L117">            }</span>
+        });
 
-<span class="nc" id="L92">        paseosBoton.setText(&quot;Asignar responsable de paseos&quot;);</span>
-
-<span class="nc" id="L94">        eventLabel1.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L95">        eventLabel1.setText(&quot;jLabel1&quot;);</span>
-
-<span class="nc" id="L97">        eventLabel2.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L98">        eventLabel2.setText(&quot;jLabel2&quot;);</span>
-
-<span class="nc" id="L100">        eventLabel3.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L101">        eventLabel3.setText(&quot;jLabel3&quot;);</span>
-
-<span class="nc" id="L103">        eventLabel4.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L104">        eventLabel4.setText(&quot;jLabel4&quot;);</span>
-
-<span class="nc" id="L106">        eventLabel5.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L107">        eventLabel5.setText(&quot;jLabel5&quot;);</span>
-
-<span class="nc" id="L109">        eventLabel6.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L110">        eventLabel6.setText(&quot;jLabel6&quot;);</span>
-
-<span class="nc" id="L112">        eventLabel7.setFont(new java.awt.Font(&quot;Calibri&quot;, 1, 14)); // NOI18N</span>
-<span class="nc" id="L113">        eventLabel7.setText(&quot;jLabel7&quot;);</span>
-
-<span class="nc" id="L115">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L116">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L117">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L118">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L119">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L120">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L121">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L122">                        .addGap(26, 26, 26)</span>
-<span class="nc" id="L123">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L124">                            .addComponent(hayEventosLosDiasLabel)</span>
-<span class="nc" id="L125">                            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L126">                                .addComponent(atrasBoton)</span>
-<span class="nc" id="L127">                                .addGap(55, 55, 55)</span>
-<span class="nc" id="L128">                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L129">                                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L130">                                        .addComponent(agregarActividadBoton)</span>
-<span class="nc" id="L131">                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L132">                                        .addComponent(eventoText, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L133">                                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L134">                                        .addComponent(borrarEventoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L135">                                        .addGap(18, 18, 18)</span>
-<span class="nc" id="L136">                                        .addComponent(paseosBoton))))</span>
-<span class="nc" id="L137">                            .addComponent(linea1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
-<span class="nc" id="L138">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L139">                        .addContainerGap()</span>
-<span class="nc" id="L140">                        .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L141">                        .addGap(26, 26, 26)</span>
-<span class="nc" id="L142">                        .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L143">                        .addGap(52, 52, 52)</span>
-<span class="nc" id="L144">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L145">                            .addComponent(eventosDiaBoton)</span>
-<span class="nc" id="L146">                            .addComponent(eventLabel1)</span>
-<span class="nc" id="L147">                            .addComponent(eventLabel2)</span>
-<span class="nc" id="L148">                            .addComponent(eventLabel3)</span>
-<span class="nc" id="L149">                            .addComponent(eventLabel4)</span>
-<span class="nc" id="L150">                            .addComponent(eventLabel5)</span>
-<span class="nc" id="L151">                            .addComponent(eventLabel6)</span>
-<span class="nc" id="L152">                            .addComponent(eventLabel7))))</span>
-<span class="nc" id="L153">                .addContainerGap(55, Short.MAX_VALUE))</span>
+<span class="nc" id="L120">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L121">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L122">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L123">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L124">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L125">                .addContainerGap()</span>
+<span class="nc" id="L126">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L127">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L128">                        .addComponent(hayEventosLosDiasLabel)</span>
+<span class="nc" id="L129">                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
+<span class="nc" id="L130">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L131">                        .addComponent(diasLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L132">                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))</span>
+<span class="nc" id="L133">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L134">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L135">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L136">                        .addGap(22, 22, 22)</span>
+<span class="nc" id="L137">                        .addComponent(eventosDiaBoton1)</span>
+<span class="nc" id="L138">                        .addGap(18, 18, 18)</span>
+<span class="nc" id="L139">                        .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L140">                        .addGap(55, 55, 55)</span>
+<span class="nc" id="L141">                        .addComponent(eventosDiaBoton)</span>
+<span class="nc" id="L142">                        .addGap(0, 0, Short.MAX_VALUE))</span>
+<span class="nc" id="L143">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L144">                        .addGap(25, 25, 25)</span>
+<span class="nc" id="L145">                        .addComponent(atrasBoton)</span>
+<span class="nc" id="L146">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L147">                        .addComponent(borrarActividad)))</span>
+<span class="nc" id="L148">                .addContainerGap())</span>
+<span class="nc" id="L149">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L150">                .addGap(0, 0, Short.MAX_VALUE)</span>
+<span class="nc" id="L151">                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L152">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L153">                .addComponent(actividadRegBoton)</span>
+<span class="nc" id="L154">                .addGap(2, 2, 2)</span>
+<span class="nc" id="L155">                .addComponent(actPeriodicaBoton)</span>
+<span class="nc" id="L156">                .addGap(98, 98, 98))</span>
         );
-<span class="nc" id="L155">        layout.setVerticalGroup(</span>
-<span class="nc" id="L156">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L157">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L158">                .addGap(35, 35, 35)</span>
-<span class="nc" id="L159">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L160">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L161">                        .addComponent(eventosDiaBoton)</span>
-<span class="nc" id="L162">                        .addGap(45, 45, 45)</span>
-<span class="nc" id="L163">                        .addComponent(eventLabel1)</span>
-<span class="nc" id="L164">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L165">                        .addComponent(eventLabel2)</span>
-<span class="nc" id="L166">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L167">                        .addComponent(eventLabel3)</span>
-<span class="nc" id="L168">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L169">                        .addComponent(eventLabel4)</span>
-<span class="nc" id="L170">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L171">                        .addComponent(eventLabel5)</span>
-<span class="nc" id="L172">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L173">                        .addComponent(eventLabel6)</span>
-<span class="nc" id="L174">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L175">                        .addComponent(eventLabel7))</span>
-<span class="nc" id="L176">                    .addComponent(refresh)</span>
-<span class="nc" id="L177">                    .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L178">                .addGap(26, 26, 26)</span>
-<span class="nc" id="L179">                .addComponent(hayEventosLosDiasLabel)</span>
-<span class="nc" id="L180">                .addGap(5, 5, 5)</span>
-<span class="nc" id="L181">                .addComponent(linea1Label)</span>
-<span class="nc" id="L182">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)</span>
-<span class="nc" id="L183">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L184">                    .addComponent(eventoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L185">                    .addComponent(agregarActividadBoton))</span>
-<span class="nc" id="L186">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L187">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L188">                        .addGap(39, 39, 39)</span>
-<span class="nc" id="L189">                        .addComponent(atrasBoton))</span>
-<span class="nc" id="L190">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L191">                        .addGap(18, 18, 18)</span>
-<span class="nc" id="L192">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L193">                            .addComponent(borrarEventoBoton)</span>
-<span class="nc" id="L194">                            .addComponent(paseosBoton))))</span>
-<span class="nc" id="L195">                .addContainerGap())</span>
+<span class="nc" id="L158">        layout.setVerticalGroup(</span>
+<span class="nc" id="L159">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L160">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L161">                .addGap(35, 35, 35)</span>
+<span class="nc" id="L162">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L163">                    .addComponent(eventosDiaBoton)</span>
+<span class="nc" id="L164">                    .addComponent(calendario, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L165">                    .addComponent(eventosDiaBoton1))</span>
+<span class="nc" id="L166">                .addGap(13, 13, 13)</span>
+<span class="nc" id="L167">                .addComponent(hayEventosLosDiasLabel)</span>
+<span class="nc" id="L168">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="nc" id="L169">                .addComponent(diasLabel)</span>
+<span class="nc" id="L170">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)</span>
+<span class="nc" id="L171">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
+<span class="nc" id="L172">                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L173">                    .addComponent(actividadRegBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L174">                    .addComponent(actPeriodicaBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L175">                .addGap(28, 28, 28)</span>
+<span class="nc" id="L176">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L177">                    .addComponent(borrarActividad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L178">                    .addComponent(atrasBoton))</span>
+<span class="nc" id="L179">                .addContainerGap())</span>
         );
 
-<span class="nc" id="L198">        pack();</span>
-<span class="nc" id="L199">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L182">        pack();</span>
+<span class="nc" id="L183">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void atrasBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasBotonActionPerformed
-<span class="nc" id="L202">        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(sistema);</span>
-<span class="nc" id="L203">        ventanaPrincipal.setVisible(true);</span>
-<span class="nc" id="L204">        this.setVisible(false);</span>
-<span class="nc" id="L205">    }//GEN-LAST:event_atrasBotonActionPerformed</span>
-
-    public int conversionMesANumero(String mes) {
-<span class="nc" id="L208">        int mesNumerico = 0;</span>
-<span class="nc bnc" id="L209" title="All 50 branches missed.">        switch (mes) {</span>
-            case &quot;Jan&quot;:
-<span class="nc" id="L211">                mesNumerico = 1;</span>
-<span class="nc" id="L212">                break;</span>
-            case &quot;Feb&quot;:
-<span class="nc" id="L214">                mesNumerico = 2;</span>
-<span class="nc" id="L215">                break;</span>
-            case &quot;Mar&quot;:
-<span class="nc" id="L217">                mesNumerico = 3;</span>
-<span class="nc" id="L218">                break;</span>
-            case &quot;Apr&quot;:
-<span class="nc" id="L220">                mesNumerico = 4;</span>
-<span class="nc" id="L221">                break;</span>
-            case &quot;May&quot;:
-<span class="nc" id="L223">                mesNumerico = 5;</span>
-<span class="nc" id="L224">                break;</span>
-            case &quot;Jun&quot;:
-<span class="nc" id="L226">                mesNumerico = 6;</span>
-<span class="nc" id="L227">                break;</span>
-            case &quot;Jul&quot;:
-<span class="nc" id="L229">                mesNumerico = 7;</span>
-<span class="nc" id="L230">                break;</span>
-            case &quot;Aug&quot;:
-<span class="nc" id="L232">                mesNumerico = 8;</span>
-<span class="nc" id="L233">                break;</span>
-            case &quot;Sep&quot;:
-<span class="nc" id="L235">                mesNumerico = 9;</span>
-<span class="nc" id="L236">                break;</span>
-            case &quot;Oct&quot;:
-<span class="nc" id="L238">                mesNumerico = 10;</span>
-<span class="nc" id="L239">                break;</span>
-            case &quot;Nov&quot;:
-<span class="nc" id="L241">                mesNumerico = 11;</span>
-<span class="nc" id="L242">                break;</span>
-            case &quot;Dec&quot;:
-<span class="nc" id="L244">                mesNumerico = 12;</span>
-                break;
-        }
-
-<span class="nc" id="L248">        return mesNumerico;</span>
-    }
-
-    public String conversionFecha(String fecha) {
-<span class="nc" id="L252">        String aux = fecha.charAt(8) + &quot;&quot; + fecha.charAt(9)</span>
-                + &quot;/&quot;
-<span class="nc" id="L254">                + conversionMesANumero(&quot;&quot; + fecha.charAt(4) + fecha.charAt(5) + fecha.charAt(6))</span>
-<span class="nc" id="L255">                + &quot;/&quot; + fecha.charAt(24) + &quot;&quot; + fecha.charAt(25) + fecha.charAt(26) + fecha.charAt(27);</span>
-<span class="nc" id="L256">        return aux;</span>
-    }
-    private void agregarActividadBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActividadBotonActionPerformed
-<span class="nc" id="L259">        String fecha = calendario.getDate().toString();</span>
-<span class="nc" id="L260">        String aux = conversionFecha(fecha);</span>
-<span class="nc" id="L261">        sistema.agregarEvento(aux + &quot; &quot; + eventoText.getText());</span>
-<span class="nc" id="L262">        eventoText.setText(&quot;&quot;);</span>
-       
-
-<span class="nc" id="L265">    }//GEN-LAST:event_agregarActividadBotonActionPerformed</span>
-    void visibilidadEventos(boolean x) {
-<span class="nc" id="L267">        eventLabel1.setVisible(x);</span>
-<span class="nc" id="L268">        eventLabel2.setVisible(x);</span>
-<span class="nc" id="L269">        eventLabel3.setVisible(x);</span>
-<span class="nc" id="L270">        eventLabel4.setVisible(x);</span>
-<span class="nc" id="L271">        eventLabel5.setVisible(x);</span>
-<span class="nc" id="L272">        eventLabel6.setVisible(x);</span>
-<span class="nc" id="L273">        eventLabel7.setVisible(x);</span>
-<span class="nc" id="L274">    }</span>
+<span class="nc" id="L186">        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal(sistema);</span>
+<span class="nc" id="L187">        ventanaPrincipal.setVisible(true);</span>
+<span class="nc" id="L188">        this.setVisible(false);</span>
+<span class="nc" id="L189">    }//GEN-LAST:event_atrasBotonActionPerformed</span>
 
 
     private void eventosDiaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventosDiaBotonActionPerformed
-<span class="nc" id="L278">        String fecha = calendario.getDate().toString();</span>
-<span class="nc" id="L279">        String aux = conversionFecha(fecha);</span>
-<span class="nc" id="L280">        int n = 1;</span>
-<span class="nc" id="L281">        int i = 0;</span>
-<span class="nc" id="L282">        visibilidadEventos(false);</span>
+        //este boton abre una nueva ventan para ver los metodos de dia seleccionado
+<span class="nc" id="L194">        Date fechaSelected = calendario.getDate();</span>
+        MuestraActividadesInterfaz muestra;
+<span class="nc" id="L196">        muestra = new MuestraActividadesInterfaz(sistema, fechaSelected);</span>
+<span class="nc" id="L197">        muestra.setVisible(true);</span>
+<span class="nc" id="L198">        this.setVisible(false);</span>
 
-<span class="nc bnc" id="L284" title="All 2 branches missed.">        while (sistema.getListadoEventos().size() &gt; i) {</span>
+<span class="nc" id="L200">    }//GEN-LAST:event_eventosDiaBotonActionPerformed</span>
 
-<span class="nc bnc" id="L286" title="All 2 branches missed.">            if (sistema.getFechaDeEvento(i).equalsIgnoreCase(aux)) {</span>
-                //son iguales y hay que mostrarlo en un label           
-<span class="nc bnc" id="L288" title="All 8 branches missed.">                switch (n) {</span>
-                    case 1:
-<span class="nc" id="L290">                        eventLabel1.setVisible(true);</span>
-<span class="nc" id="L291">                        eventLabel1.setText(sistema.getEvento(i));</span>
-<span class="nc" id="L292">                        break;</span>
-                    case 2:
-<span class="nc" id="L294">                        eventLabel2.setVisible(true);</span>
-<span class="nc" id="L295">                        eventLabel2.setText(sistema.getEvento(i));</span>
-<span class="nc" id="L296">                        break;</span>
-                    case 3:
-<span class="nc" id="L298">                        eventLabel3.setVisible(true);</span>
-<span class="nc" id="L299">                        eventLabel3.setText(sistema.getEvento(i));</span>
-<span class="nc" id="L300">                        break;</span>
-                    case 4:
-<span class="nc" id="L302">                        eventLabel4.setVisible(true);</span>
-<span class="nc" id="L303">                        eventLabel4.setText(sistema.getEvento(i));</span>
-<span class="nc" id="L304">                        break;</span>
-                    case 5:
-<span class="nc" id="L306">                        eventLabel5.setVisible(true);</span>
-<span class="nc" id="L307">                        eventLabel5.setText(sistema.getEvento(i));</span>
-<span class="nc" id="L308">                        break;</span>
-                    case 6:
-<span class="nc" id="L310">                        eventLabel6.setVisible(true);</span>
-<span class="nc" id="L311">                        eventLabel6.setText(sistema.getEvento(i));</span>
-<span class="nc" id="L312">                        break;</span>
-                    case 7:
-<span class="nc" id="L314">                        eventLabel7.setVisible(true);</span>
-<span class="nc" id="L315">                        eventLabel7.setText(sistema.getEvento(i));</span>
-                        break;
-                }
-<span class="nc" id="L318">                n++;</span>
+    private void actPeriodicaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actPeriodicaBotonActionPerformed
+        registroActividadPeriodica rg;
+<span class="nc" id="L204">        rg = new registroActividadPeriodica(sistema, calendario.getDate());</span>
+<span class="nc" id="L205">        rg.setVisible(true);</span>
+<span class="nc" id="L206">        this.setVisible(false);</span>
 
+
+<span class="nc" id="L209">    }//GEN-LAST:event_actPeriodicaBotonActionPerformed</span>
+
+    private void actividadRegBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actividadRegBotonActionPerformed
+<span class="nc" id="L212">        Calendar cal = Calendar.getInstance();</span>
+        RegsitroActividad ra;
+<span class="nc bnc" id="L214" title="All 2 branches missed.">        if (!sistema.fechasIguales(calendario.getDate(), cal.getTime())) {</span>
+            //no son iguales
+<span class="nc" id="L216">            Date menorFecha = null;</span>
+<span class="nc" id="L217">            menorFecha = sistema.fechaMenor(calendario.getDate(), cal.getTime());</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">            if (sistema.fechasIguales(menorFecha, calendario.getDate())) {</span>
+<span class="nc" id="L219">                ra = new RegsitroActividad(sistema, calendario.getDate());</span>
+<span class="nc" id="L220">                ra.setVisible(true);</span>
+<span class="nc" id="L221">                this.setVisible(false);</span>
+            } else {
+                //se abre un panel que no pueden registrarse en dias posteriores
+<span class="nc" id="L224">                JOptionPane.showMessageDialog(null, &quot;No es posible registrar recordatorios en dias futuros&quot;);</span>
             }
-
-<span class="nc" id="L322">            i++;</span>
+<span class="nc" id="L226">        } else {</span>
+            //son el mismo dia asi que se peude
+<span class="nc" id="L228">            ra = new RegsitroActividad(sistema, calendario.getDate());</span>
+<span class="nc" id="L229">            ra.setVisible(true);</span>
+<span class="nc" id="L230">            this.setVisible(false);</span>
         }
-<span class="nc bnc" id="L324" title="All 2 branches missed.">        if (n==1)</span>
-<span class="nc" id="L325">        visibilidadEventos(false);</span>
+<span class="nc" id="L232">    }//GEN-LAST:event_actividadRegBotonActionPerformed</span>
 
-
-<span class="nc" id="L328">    }//GEN-LAST:event_eventosDiaBotonActionPerformed</span>
-
-    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-<span class="nc" id="L331">        String mes = calendario.getDate().toString().substring(4,7);</span>
-<span class="nc" id="L332">        String anio = calendario.getDate().toString().substring(24,28);</span>
-<span class="nc" id="L333">        mes= String.valueOf(conversionMesANumero(mes));      </span>
-<span class="nc" id="L334">        String eventos = sistema.getDiasConEventosEnMes(mes, anio);       </span>
-<span class="nc bnc" id="L335" title="All 2 branches missed.">        if (!eventos.isEmpty()) {</span>
-<span class="nc" id="L336">            eventos = eventos.substring(0,eventos.length()-1);</span>
-<span class="nc" id="L337">            hayEventosLosDiasLabel.setVisible(true);</span>
-<span class="nc" id="L338">            linea1Label.setVisible(true);</span>
-<span class="nc" id="L339">            linea1Label.setText(eventos);</span>
-        } else {
-<span class="nc" id="L341">            hayEventosLosDiasLabel.setVisible(false);</span>
-<span class="nc" id="L342">            linea1Label.setVisible(false);</span>
+    private void eventosDiaBoton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eventosDiaBoton1ActionPerformed
+<span class="nc" id="L235">        boolean arrayDias[] = new boolean[32];</span>
+<span class="nc bnc" id="L236" title="All 2 branches missed.">        for (int i = 0; i &lt; sistema.getListaActividades().size(); i++) {</span>
+<span class="nc" id="L237">           Actividad act = sistema.getListaActividades().get(i);</span>
+<span class="nc bnc" id="L238" title="All 2 branches missed.">           if (sistema.getMes(act.getFecha()) == (sistema.getMes(calendario.getDate()))</span>
+<span class="nc bnc" id="L239" title="All 2 branches missed.">                   &amp;&amp; act.getFecha().getYear() == calendario.getDate().getYear()){</span>
+<span class="nc" id="L240">               arrayDias[act.getFecha().getDate()] = true;</span>
+           }
+        }//termina el recorrido de actividades
+<span class="nc bnc" id="L243" title="All 2 branches missed.">        for (int i = 0; i &lt; sistema.getListadoAlimento().size(); i++) {</span>
+<span class="nc" id="L244">           Alimento al = sistema.getListaAlimentos().get(i);</span>
+<span class="nc bnc" id="L245" title="All 2 branches missed.">           if (sistema.getMes(al.getFecha()) == (sistema.getMes(calendario.getDate()))</span>
+<span class="nc bnc" id="L246" title="All 2 branches missed.">                   &amp;&amp; al.getFecha().getYear() == calendario.getDate().getYear()){</span>
+<span class="nc" id="L247">               arrayDias[al.getFecha().getDate()] = true;</span>
+           }
+        }//termina el recorrido de alimentos
+<span class="nc bnc" id="L250" title="All 2 branches missed.">        for (int i = 0; i &lt; sistema.getListadoPaseos().size(); i++) {</span>
+<span class="nc" id="L251">           Paseo paseo = sistema.getListadoPaseos().get(i);</span>
+<span class="nc bnc" id="L252" title="All 2 branches missed.">           if (sistema.getMes(paseo.getFecha()) == (sistema.getMes(calendario.getDate()))</span>
+<span class="nc bnc" id="L253" title="All 2 branches missed.">                   &amp;&amp; paseo.getFecha().getYear() == calendario.getDate().getYear()){</span>
+<span class="nc" id="L254">               arrayDias[paseo.getFecha().getDate()] = true;</span>
+           }
+        }//termina el recorrido de Paseos      
+<span class="nc bnc" id="L257" title="All 2 branches missed.">         for (int i = 0; i &lt; sistema.getListaServicios().size(); i++) {</span>
+<span class="nc" id="L258">           Servicio s = sistema.getListaServicios().get(i);</span>
+<span class="nc bnc" id="L259" title="All 2 branches missed.">           if (sistema.getMes(s.getFecha()) == (sistema.getMes(calendario.getDate()))</span>
+<span class="nc bnc" id="L260" title="All 2 branches missed.">                   &amp;&amp; s.getFecha().getYear() == calendario.getDate().getYear()){</span>
+<span class="nc" id="L261">               arrayDias[s.getFecha().getDate()] = true;</span>
+           }
+        }             
+<span class="nc bnc" id="L264" title="All 2 branches missed.">        for (int i = 0; i &lt; arrayDias.length; i++) {</span>
+<span class="nc bnc" id="L265" title="All 2 branches missed.">            if (arrayDias[i]){</span>
+<span class="nc" id="L266">                diasLabel.setVisible(true);</span>
+<span class="nc" id="L267">                diasLabel.setText(diasLabel.getText()+&quot; &quot;+i);</span>
+            }
+        }
+<span class="nc" id="L270">        diasLabel.setText(diasLabel.getText()+&quot;]&quot;);</span>
         
-        }
-<span class="nc" id="L345">    }//GEN-LAST:event_refreshActionPerformed</span>
+<span class="nc" id="L272">    }//GEN-LAST:event_eventosDiaBoton1ActionPerformed</span>
 
-    private void borrarEventoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarEventoBotonActionPerformed
-<span class="nc" id="L348">       String eventoSeleccioando = calendario.getDate().toString();</span>
-<span class="nc" id="L349">       eventoSeleccioando = conversionFecha(eventoSeleccioando);</span>
-<span class="nc bnc" id="L350" title="All 2 branches missed.">        for (int i = 0; i &lt; sistema.getListadoEventos().size(); i++) {</span>
-<span class="nc" id="L351">            String evento = sistema.getFechaDeEvento(i);</span>
-<span class="nc bnc" id="L352" title="All 2 branches missed.">            if (eventoSeleccioando == evento){</span>
-<span class="nc" id="L353">                sistema.quitarEvento(evento);</span>
-            }          
-        }
-        
-<span class="nc" id="L357">    }//GEN-LAST:event_borrarEventoBotonActionPerformed</span>
+    private void borrarActividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActividadActionPerformed
+<span class="nc" id="L275">        BorrarActividad ba = new BorrarActividad(sistema, calendario.getDate());</span>
+<span class="nc" id="L276">        ba.setVisible(true);</span>
+<span class="nc" id="L277">        this.setVisible(false);</span>
+<span class="nc" id="L278">    }//GEN-LAST:event_borrarActividadActionPerformed</span>
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+<span class="nc" id="L281">        Veterinaria v = new Veterinaria(sistema,calendario.getDate());</span>
+<span class="nc" id="L282">        v.setVisible(true);</span>
+<span class="nc" id="L283">        this.setVisible(false);</span>
+<span class="nc" id="L284">    }//GEN-LAST:event_jButton1ActionPerformed</span>
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -363,49 +290,42 @@ public class Calendario extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="nc bnc" id="L366" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L367" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L368">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L369">                    break;</span>
+<span class="nc bnc" id="L293" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L294" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L295">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L296">                    break;</span>
                 }
             }
-<span class="nc" id="L372">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L373">            java.util.logging.Logger.getLogger(Calendario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L374">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L375">            java.util.logging.Logger.getLogger(Calendario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L376">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L377">            java.util.logging.Logger.getLogger(Calendario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L378">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L379">            java.util.logging.Logger.getLogger(Calendario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L380">        }</span>
+<span class="nc" id="L299">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L300">            java.util.logging.Logger.getLogger(Calendario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L301">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L302">            java.util.logging.Logger.getLogger(Calendario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L303">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L304">            java.util.logging.Logger.getLogger(Calendario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L305">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L306">            java.util.logging.Logger.getLogger(Calendario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L307">        }</span>
         //&lt;/editor-fold&gt;
 
         /* Create and display the form */
-<span class="nc" id="L384">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L311">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L386">                new Calendario(sistema).setVisible(true);</span>
-<span class="nc" id="L387">            }</span>
+<span class="nc" id="L313">                new Calendario(sistema).setVisible(true);</span>
+<span class="nc" id="L314">            }</span>
         });
-<span class="nc" id="L389">    }</span>
+<span class="nc" id="L316">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregarActividadBoton;
+    private javax.swing.JButton actPeriodicaBoton;
+    private javax.swing.JButton actividadRegBoton;
     private javax.swing.JButton atrasBoton;
-    private javax.swing.JButton borrarEventoBoton;
+    private javax.swing.JButton borrarActividad;
     private com.toedter.calendar.JCalendar calendario;
-    private javax.swing.JLabel eventLabel1;
-    private javax.swing.JLabel eventLabel2;
-    private javax.swing.JLabel eventLabel3;
-    private javax.swing.JLabel eventLabel4;
-    private javax.swing.JLabel eventLabel5;
-    private javax.swing.JLabel eventLabel6;
-    private javax.swing.JLabel eventLabel7;
-    private javax.swing.JTextField eventoText;
+    private javax.swing.JLabel diasLabel;
     private javax.swing.JButton eventosDiaBoton;
+    private javax.swing.JButton eventosDiaBoton1;
     private javax.swing.JLabel hayEventosLosDiasLabel;
-    private javax.swing.JLabel linea1Label;
-    private javax.swing.JButton paseosBoton;
-    private javax.swing.JButton refresh;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

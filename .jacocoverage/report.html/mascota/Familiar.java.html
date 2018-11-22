@@ -10,6 +10,7 @@ package mascota;
  * @author usuario
  */
 
+import java.io.File;
 import javax.swing.ImageIcon;
 
 public class Familiar {
@@ -19,79 +20,79 @@ public class Familiar {
     private int altura;
     private int peso;
     private String comentario;
-    private ImageIcon foto;
+    private File foto;
 
     //Métodos de acceso
     public String getNombre() {
-<span class="fc" id="L26">        return this.nombre;</span>
+<span class="fc" id="L27">        return this.nombre;</span>
     }
 
     public int getAltura() {
-<span class="fc" id="L30">        return this.altura;</span>
+<span class="nc" id="L31">        return this.altura;</span>
     }
 
     public int getPeso() {
-<span class="fc" id="L34">        return this.peso;</span>
+<span class="nc" id="L35">        return this.peso;</span>
     }
 
     public String getComentario() {
-<span class="fc" id="L38">        return this.comentario;</span>
+<span class="nc" id="L39">        return this.comentario;</span>
     }
 
-    public ImageIcon getFoto() {
-<span class="fc" id="L42">        return this.foto;</span>
+    public File getFoto() {
+<span class="nc" id="L43">        return this.foto;</span>
     }
 
     //Métodos de modificación
     public void setNombre(String nom) {
-<span class="fc" id="L47">        this.nombre = nom;</span>
-<span class="fc" id="L48">    }</span>
+<span class="fc" id="L48">        this.nombre = nom;</span>
+<span class="fc" id="L49">    }</span>
 
     public void setAltura(int alt) {
-<span class="pc bpc" id="L51" title="1 of 4 branches missed.">        if (alt &gt; 0 &amp;&amp; alt &lt; 200) {</span>
-<span class="fc" id="L52">            this.altura = alt;</span>
+<span class="pc bpc" id="L52" title="2 of 4 branches missed.">        if (alt &gt; 0 &amp;&amp; alt &lt; 200) {</span>
+<span class="fc" id="L53">            this.altura = alt;</span>
         }
-<span class="fc" id="L54">    }</span>
+<span class="fc" id="L55">    }</span>
 
     public void setPeso(int pes) {
-<span class="pc bpc" id="L57" title="1 of 4 branches missed.">        if (pes &gt; 0 &amp;&amp; pes &lt; 250) {</span>
-<span class="fc" id="L58">            this.peso = pes;</span>
+<span class="pc bpc" id="L58" title="2 of 4 branches missed.">        if (pes &gt; 0 &amp;&amp; pes &lt; 250) {</span>
+<span class="fc" id="L59">            this.peso = pes;</span>
         }
-<span class="fc" id="L60">    }</span>
+<span class="fc" id="L61">    }</span>
 
     public void setComentario(String com) {
-<span class="pc bpc" id="L63" title="1 of 4 branches missed.">        if (com.length() &gt; 0 &amp;&amp; com.length() &lt; 200) {</span>
-<span class="fc" id="L64">            this.comentario = com;</span>
+<span class="pc bpc" id="L64" title="2 of 4 branches missed.">        if (com.length() &gt; 0 &amp;&amp; com.length() &lt; 200) {</span>
+<span class="fc" id="L65">            this.comentario = com;</span>
         }
-<span class="fc" id="L66">    }</span>
+<span class="fc" id="L67">    }</span>
 
-    public void setImagen(ImageIcon ima) {
-<span class="fc" id="L69">        this.foto = ima;</span>
-<span class="fc" id="L70">    }</span>
+    public void setImagen(File ima) {
+<span class="fc" id="L70">        this.foto = ima;</span>
+<span class="fc" id="L71">    }</span>
     
    //Constructores
-<span class="fc" id="L73">    public Familiar(String nom, int alt, int pes, String com, ImageIcon im) {</span>
-<span class="fc" id="L74">        this.setNombre(nom);</span>
-<span class="fc" id="L75">        this.setAltura(alt);</span>
-<span class="fc" id="L76">        this.setPeso(pes);</span>
-<span class="fc" id="L77">        this.setComentario(com);</span>
-<span class="fc" id="L78">        this.setImagen(im);</span>
-<span class="fc" id="L79">    }</span>
+<span class="fc" id="L74">    public Familiar(String nom, int alt, int pes, String com, File im) {</span>
+<span class="fc" id="L75">        this.setNombre(nom);</span>
+<span class="fc" id="L76">        this.setAltura(alt);</span>
+<span class="fc" id="L77">        this.setPeso(pes);</span>
+<span class="fc" id="L78">        this.setComentario(com);</span>
+<span class="fc" id="L79">        this.setImagen(im);</span>
+<span class="fc" id="L80">    }</span>
 
-<span class="fc" id="L81">    public Familiar() {</span>
-<span class="fc" id="L82">        this.setNombre(&quot;Nombre por defecto&quot;);</span>
-<span class="fc" id="L83">        this.setAltura(1);</span>
-<span class="fc" id="L84">        this.setPeso(1);</span>
-<span class="fc" id="L85">        this.setComentario(&quot;Comentario por defecto&quot;);</span>
-<span class="fc" id="L86">        this.setImagen(null);</span>
-<span class="fc" id="L87">    }</span>
+<span class="nc" id="L82">    public Familiar() {</span>
+<span class="nc" id="L83">        this.setNombre(&quot;Nombre por defecto&quot;);</span>
+<span class="nc" id="L84">        this.setAltura(1);</span>
+<span class="nc" id="L85">        this.setPeso(1);</span>
+<span class="nc" id="L86">        this.setComentario(&quot;Comentario por defecto&quot;);</span>
+<span class="nc" id="L87">        this.setImagen(null);</span>
+<span class="nc" id="L88">    }</span>
 
     @Override
     public String toString() {
-<span class="fc" id="L91">        return &quot;Nombre: &quot; + this.getNombre()</span>
-<span class="fc" id="L92">                + &quot;, altura: &quot; + this.getAltura() + &quot;, peso: &quot;</span>
-<span class="fc" id="L93">                + this.getPeso()+ &quot;, comentario: &quot; + </span>
-<span class="fc" id="L94">                this.getComentario();</span>
+<span class="nc" id="L92">        return &quot;Nombre: &quot; + this.getNombre()</span>
+<span class="nc" id="L93">                + &quot;, altura: &quot; + this.getAltura() + &quot;, peso: &quot;</span>
+<span class="nc" id="L94">                + this.getPeso()+ &quot;, comentario: &quot; + </span>
+<span class="nc" id="L95">                this.getComentario();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
