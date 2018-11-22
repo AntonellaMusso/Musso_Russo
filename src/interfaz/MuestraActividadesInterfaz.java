@@ -2,6 +2,7 @@ package interfaz;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import mascota.Actividad;
@@ -9,15 +10,15 @@ import mascota.Alimento;
 import mascota.Paseo;
 import mascota.Servicio;
 import mascota.Sistema;
-//import java.util.Properties
-        /*
+import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-*/
+import mascota.Familiar;
+
 public class MuestraActividadesInterfaz extends javax.swing.JFrame {
 
     Date fecha;
@@ -474,15 +475,28 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String mail = JOptionPane.showInputDialog(rootPane, "Ingrese mail para recordatorio");
-        //ArrayList<Actividad> ac =  sistema.getListaActividades();
-        enviarConGMail(mail, "hola", "prueba en codigo");
+        ArrayList<Alimento> ac =  sistema.getListaAlimentos();
+        Iterator<Alimento> it =  ac.iterator();
+        String Ac = "";
+        while (it.hasNext()) {
+            Alimento a = it.next();
+            Ac = a.toString() + "/n";
+        } 
+        ArrayList<Paseo> pa =  sistema.getListadoPaseos();
+        Iterator<Paseo> itP =  pa.iterator();
+        String pas = "";
+        while (it.hasNext()) {
+            Paseo p = itP.next();
+            pas = p.toString() + "/n";
+        } 
+        enviarConGMail(mail, "Recotdatorio de actividades", Ac);  
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
     // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
     String remitente = "mascotais2018";  //Para la dirección nomcuenta@gmail.com
     String clave = "isMascota2018!";
-/*    Properties props = System.getProperties();
+    Properties props = System.getProperties();
     props.put("mail.smtp.host", "smtp.gmail.com");  //El servidor SMTP de Google
     props.put("mail.smtp.user", remitente);
     props.put("mail.smtp.clave", "isMascota2018!");    //La clave de la cuenta
@@ -505,7 +519,8 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
     }
     catch (MessagingException me) {
         me.printStackTrace();   //Si se produce un error
-    }*/
+    }
+ 
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

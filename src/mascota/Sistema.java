@@ -41,11 +41,7 @@ public class Sistema {
         listadoFamiliar.add(new Familiar("Emiliano", 170, 65, "estudiante", null)); //borrar luego
         
     }
-
-   
-
-  
-
+    
     //Metodos de calendario
     public Date sumarDiasAFecha(Date fecha, int diasSuma, int limite) {   
         int dia = fecha.getDate() + diasSuma;
@@ -352,25 +348,5 @@ public class Sistema {
             }
         }
         return esValido;
-    }
-
-    //Métodos de modificación de elementos de los listados
-    public boolean modificarFamiliar(ArrayList<Familiar> listado, String nombre,
-            int altura, int peso, String comentario, File foto) {
-        boolean modificar = false;
-        Iterator<Familiar> it = listado.iterator();
-        while (it.hasNext()) {
-            Familiar f = it.next();
-            if (!f.getNombre().equalsIgnoreCase(nombre)) {
-                modificar = false;
-            } else {
-                f.setPeso(peso);
-                f.setAltura(altura);
-                f.setComentario(comentario);
-                f.setImagen(foto);
-                modificar = true;
-            }
-        }
-        return modificar;
     }
 }

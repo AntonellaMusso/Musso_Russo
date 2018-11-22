@@ -7,7 +7,6 @@
 package interfaz;
 
 import mascota.Familiar;
-import mascota.Mascota;
 import mascota.Sistema;
 
 /**
