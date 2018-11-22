@@ -48,6 +48,7 @@ public class PaseoTest {
      */
     @Test
     public void testGetFamiliar() {
+        assertEquals(familiar, p.getFamiliar());
         
     }
 
@@ -56,13 +57,7 @@ public class PaseoTest {
      */
     @Test
     public void testGetMascota() {
-        System.out.println("getMascota");
-        Paseo instance = new Paseo();
-        Mascota expResult = null;
-        Mascota result = instance.getMascota();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       assertEquals(masc, p.getMascota());
     }
 
     /**
@@ -70,13 +65,7 @@ public class PaseoTest {
      */
     @Test
     public void testGetFecha() {
-        System.out.println("getFecha");
-        Paseo instance = new Paseo();
-        Date expResult = null;
-        Date result = instance.getFecha();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       assertEquals(date, p.getFecha());
     }
 
     /**
@@ -84,12 +73,8 @@ public class PaseoTest {
      */
     @Test
     public void testSetFamiliar() {
-        System.out.println("setFamiliar");
-        Familiar fam = null;
-        Paseo instance = new Paseo();
-        instance.setFamiliar(fam);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       p.setFamiliar(null);
+       assertEquals(null, p.getFamiliar());
     }
 
     /**
@@ -97,12 +82,8 @@ public class PaseoTest {
      */
     @Test
     public void testSetMascota() {
-        System.out.println("setMascota");
-        Mascota mas = null;
-        Paseo instance = new Paseo();
-        instance.setMascota(mas);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        p.setMascota(null);
+       assertEquals(null, p.getMascota());
     }
 
     /**
@@ -110,12 +91,8 @@ public class PaseoTest {
      */
     @Test
     public void testSetFecha() {
-        System.out.println("setFecha");
-        Date f = null;
-        Paseo instance = new Paseo();
-        instance.setFecha(f);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        p.setFecha(null);
+       assertEquals(null, p.getFecha());
     }
 
     /**
@@ -123,13 +100,11 @@ public class PaseoTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
-        Paseo instance = new Paseo();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals("Familiar a cargo del paseo: " + p.getFamiliar().getNombre()
+                + " pasea a: " + p.getMascota().getNombre() + " el dia: "
+                + p.getFecha().getDate()+"/"+p.getFecha().getMonth()+"/"
+                + (p.getFecha().getYear()+1900), p.toString());
+        
     }
 
 }
