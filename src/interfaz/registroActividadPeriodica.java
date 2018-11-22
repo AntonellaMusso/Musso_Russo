@@ -30,7 +30,7 @@ public class registroActividadPeriodica extends javax.swing.JFrame {
     public registroActividadPeriodica(Sistema modelo, Date date) {
         initComponents();
         sistema = modelo;
-        setLocationRelativeTo(null); 
+        setLocationRelativeTo(null);
         fechaInicio = date;
         mes = sistema.conversionMesANumero(date.toString().substring(4, 7));
         //para rellenar lista familiares
@@ -228,46 +228,57 @@ public class registroActividadPeriodica extends javax.swing.JFrame {
 
 
     private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
+
         if (paseo != alimento) {
-            //listo para crearla           
-            if (paseo) {
-                Familiar persona;
-                Mascota mascota;
-                persona = sistema.getUsuarioSeleccionadoPorNombre(familiarList.getSelectedValue());
-                mascota = sistema.getMascotaPorNombre(mascotaList.getSelectedValue());
-                int cadaCuanto = Integer.parseInt(diferenciaDias.getText());
-                Date fecha = fechaInicio;
-                while (sistema.getMes(fecha) == mes) {
-                    //1) registro
-                    //2) sumo
-                    Paseo paseo = new Paseo(persona, mascota, fecha);
-                    sistema.getListadoPaseos().add(paseo);
-                    fecha = sistema.sumarDiasAFecha(fecha, cadaCuanto, sistema.ultimoDiaDelMes(sistema.getMes(fecha)));
+            //listo para crearla  
+            int cadaCuanto = 0;
+            if (!diferenciaDias.getText().isEmpty()) {
+                if (paseo) {
+                    Familiar persona;
+                    Mascota mascota;
+                    persona = sistema.getUsuarioSeleccionadoPorNombre(familiarList.getSelectedValue());
+                    mascota = sistema.getMascotaPorNombre(mascotaList.getSelectedValue());
+                    cadaCuanto = Integer.parseInt(diferenciaDias.getText());
+                    Date fecha = fechaInicio;
+                    while (sistema.getMes(fecha) == mes) {
+                        //1) registro
+                        //2) sumo
+                        Paseo paseo = new Paseo(persona, mascota, fecha);
+                        sistema.getListadoPaseos().add(paseo);
+                        fecha = sistema.sumarDiasAFecha(fecha, cadaCuanto, 
+                                sistema.ultimoDiaDelMes(sistema.getMes(fecha)));
+                    }
+                } else if (alimento) {
+                    Familiar persona;
+                    Mascota mascota;
+                    persona = sistema.getUsuarioSeleccionadoPorNombre(familiarList.getSelectedValue());
+                    mascota = sistema.getMascotaPorNombre(mascotaList.getSelectedValue());
+                    Date fecha = fechaInicio;
+                    cadaCuanto = Integer.parseInt(diferenciaDias.getText());
+                    while (sistema.getMes(fecha) == mes) {
+                        //1) registro
+                        //2) sumo
+                        Alimento alimento = new Alimento(persona, mascota, fecha, 
+                                alimentoText.getText());
+                        sistema.getListaAlimentos().add(alimento);
+                        fecha = sistema.sumarDiasAFecha(fecha, cadaCuanto, 
+                                sistema.ultimoDiaDelMes(sistema.getMes(fecha)));
+                    }
                 }
-            } else if (alimento) {
-                Familiar persona;
-                Mascota mascota;
-                persona = sistema.getUsuarioSeleccionadoPorNombre(familiarList.getSelectedValue());
-                mascota = sistema.getMascotaPorNombre(mascotaList.getSelectedValue());
-                int cadaCuanto = Integer.parseInt(diferenciaDias.getText());
-                Date fecha = fechaInicio;
-                while (sistema.getMes(fecha) == mes) {
-                    //1) registro
-                    //2) sumo
-                    Alimento alimento = new Alimento(persona, mascota, fecha,alimentoText.getText());
-                    sistema.getListaAlimentos().add(alimento);
-                    fecha = sistema.sumarDiasAFecha(fecha, cadaCuanto, sistema.ultimoDiaDelMes(sistema.getMes(fecha)));
-                }
-            }
             JOptionPane.showMessageDialog(null, "Actividad periódica registrada con éxito!");
             Calendario c = new Calendario(sistema);
             c.setVisible(true);
             this.setVisible(false);
-        }else {
-                //avisar por ventana que son iguales
-                JOptionPane.showMessageDialog(null, "No pueden haber 2 selecciones o 2 sin seleccionar");
+            }else{
+                JOptionPane.showMessageDialog(null, "Campos sin completar");
             }
-        
+           
+        } else {
+            //avisar por ventana que son iguales
+            JOptionPane.showMessageDialog(null, "No pueden haber 2 selecciones "
+                    + "o 2 sin seleccionar");
+        }
+
     }//GEN-LAST:event_registrarActionPerformed
 
     private void esPaseoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esPaseoActionPerformed
@@ -276,14 +287,14 @@ public class registroActividadPeriodica extends javax.swing.JFrame {
 
     private void esAlimentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esAlimentacionActionPerformed
         alimento = !alimento;
-        if (alimento){
-           alimentoLabel.setVisible(true);
-        alimentoText.setVisible(true);  
-        }else{
-             alimentoLabel.setVisible(false);
-        alimentoText.setVisible(false);
+        if (alimento) {
+            alimentoLabel.setVisible(true);
+            alimentoText.setVisible(true);
+        } else {
+            alimentoLabel.setVisible(false);
+            alimentoText.setVisible(false);
         }
-       
+
     }//GEN-LAST:event_esAlimentacionActionPerformed
 
     private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
@@ -294,8 +305,8 @@ public class registroActividadPeriodica extends javax.swing.JFrame {
 
     private void diferenciaDiasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_diferenciaDiasKeyTyped
         char c = evt.getKeyChar();
-        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE 
-                ||c == KeyEvent.VK_DELETE){
+        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE
+                || c == KeyEvent.VK_DELETE) {
             evt.consume();
         }
     }//GEN-LAST:event_diferenciaDiasKeyTyped

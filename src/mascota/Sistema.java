@@ -5,6 +5,7 @@
  */
 package mascota;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -38,7 +39,6 @@ public class Sistema {
         usuarioSeleccionado = null;
         cordenadasMapa = new ArrayList();
         listadoFamiliar.add(new Familiar("Emiliano", 170, 65, "estudiante", null)); //borrar luego
-        listadoMascota.add(new Mascota("Firulais", 50, 13, "perro sin raza", null));
         
     }
 
@@ -239,9 +239,7 @@ public class Sistema {
                     return m;
                 }
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "No hay mascota seleccionada");
-        }
+        } 
         return null; // si es null no se encontro coincidencia
     }
 
@@ -253,11 +251,9 @@ public class Sistema {
                     usuario = getListaFamiliares().get(i);
                 }
             }
-            return usuario; // si es null no se encontro conicidencia
-        } else {
-            JOptionPane.showMessageDialog(null, "No hay usuario seleccionado");
-            return null;
+            return usuario; 
         }
+    return null;        // si es null no se encontro conicidencia
     }
 
     public Familiar getUsuarioSeleccionado() {
@@ -360,7 +356,7 @@ public class Sistema {
 
     //Métodos de modificación de elementos de los listados
     public boolean modificarFamiliar(ArrayList<Familiar> listado, String nombre,
-            int altura, int peso, String comentario, ImageIcon foto) {
+            int altura, int peso, String comentario, File foto) {
         boolean modificar = false;
         Iterator<Familiar> it = listado.iterator();
         while (it.hasNext()) {

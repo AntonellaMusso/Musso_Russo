@@ -217,7 +217,7 @@ public class RegsitroActividad extends javax.swing.JFrame {
         Familiar fam = sistema.getUsuarioSeleccionadoPorNombre(listaFamiliares.getSelectedValue());
         Mascota masc = sistema.getMascotaPorNombre(mascotaLista.getSelectedValue());
         String des = descripcionText.getText();
-
+        System.out.println(des!=null+ " "+ des);
         if (fam != null && masc != null) {
             if (esPaseo) {
                 int distancia = Integer.parseInt(distanciaText.getText());
@@ -235,7 +235,7 @@ public class RegsitroActividad extends javax.swing.JFrame {
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Familiar o Mascota sin seleccionar");
+            JOptionPane.showMessageDialog(null, "Familiar/Mascota sin seleccionar");
         }
     }//GEN-LAST:event_registrarBotonActionPerformed
 

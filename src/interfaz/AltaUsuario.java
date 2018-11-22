@@ -7,7 +7,9 @@ package interfaz;
 
 import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import mascota.Familiar;
 import mascota.Mascota;
@@ -20,10 +22,12 @@ import mascota.Sistema;
 public class AltaUsuario extends javax.swing.JFrame {
 
     static Sistema sistema;
+    File imagen;
+
     public AltaUsuario(Sistema modelo) {
         initComponents();
-       sistema = modelo;
-       setLocationRelativeTo(null); 
+        sistema = modelo;
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -240,21 +244,29 @@ public class AltaUsuario extends javax.swing.JFrame {
 
     private void BotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarActionPerformed
         String nombre = NombreText.getText();
-        int altura = Integer.parseInt(AlturaText.getText());
-        int peso = Integer.parseInt(pesoText.getText());
-        String comentario = textoAreaComentario.getText();
-        ImageIcon imagen = null; // arreglar despues             
-        Familiar usuario = new Familiar(nombre,altura,peso,comentario,imagen); 
-        if (sistema.validoNombreFamiliar(nombre)){
-        sistema.agregoFamiliarALista(usuario);
-        //ahora abrimos la ventana de perfiles
-        Perfiles perfiles = new Perfiles(sistema);
-        perfiles.setVisible(true);
-        this.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario ya registrado");
+        int altura = 0;
+        int peso = 0;
+        if (!AlturaText.getText().isEmpty() && !pesoText.getText().isEmpty()) {
+            altura = Integer.parseInt(AlturaText.getText());
+            peso = Integer.parseInt(pesoText.getText());
         }
-        
+        String comentario = textoAreaComentario.getText();
+
+        if (altura != 0 && imagen != null && nombre != null && peso != 0) {
+            Familiar usuario = new Familiar(nombre, altura, peso, comentario, imagen);
+            if (sistema.validoNombreFamiliar(nombre)) {
+                sistema.agregoFamiliarALista(usuario);
+                //ahora abrimos la ventana de perfiles
+                Perfiles perfiles = new Perfiles(sistema);
+                perfiles.setVisible(true);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario ya registrado");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos");
+        }
+
     }//GEN-LAST:event_BotonRegistrarActionPerformed
 
     private void AlturaTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlturaTextActionPerformed
@@ -266,28 +278,33 @@ public class AltaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_pesoTextActionPerformed
 
     private void AddFotoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddFotoBotonActionPerformed
-        // TODO add your handling code here:
+        JFileChooser buscador = new JFileChooser();
+        buscador.setDialogTitle("Buscar Imagen");
+        if (buscador.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            imagen = new File(buscador.getSelectedFile().toString());
+        }
+
     }//GEN-LAST:event_AddFotoBotonActionPerformed
 
     private void cancelarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBotonActionPerformed
-        Perfiles perfiles = new Perfiles(sistema);    
+        Perfiles perfiles = new Perfiles(sistema);
         perfiles.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_cancelarBotonActionPerformed
 
     private void AlturaTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AlturaTextKeyTyped
         char c = evt.getKeyChar();
-        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE 
-                ||c == KeyEvent.VK_DELETE){
+        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE
+                || c == KeyEvent.VK_DELETE) {
             evt.consume();
         }
-        
+
     }//GEN-LAST:event_AlturaTextKeyTyped
 
     private void pesoTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesoTextKeyTyped
-      char c = evt.getKeyChar();
-        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE 
-                ||c == KeyEvent.VK_DELETE){
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c) || c == KeyEvent.VK_BACK_SPACE
+                || c == KeyEvent.VK_DELETE) {
             evt.consume();
         }
     }//GEN-LAST:event_pesoTextKeyTyped

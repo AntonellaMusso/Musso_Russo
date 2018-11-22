@@ -10,6 +10,7 @@ package mascota;
  * @author usuario
  */
 
+import java.io.File;
 import javax.swing.ImageIcon;
 
 public class Mascota {
@@ -18,7 +19,7 @@ public class Mascota {
     private int altura;
     private int peso;
     private String comentario;
-    private ImageIcon foto;
+    private File foto;
 
     //Métodos de acceso
     public String getNombre() {
@@ -37,7 +38,7 @@ public class Mascota {
         return comentario;
     }
 
-    public ImageIcon getFoto() {
+    public File getFoto() {
         return foto;
     }
 
@@ -64,12 +65,12 @@ public class Mascota {
         }
     }
 
-    public void setImagen(ImageIcon ima) {
+    public void setImagen(File ima) {
         foto = ima;
     }
     
     //Constructores
-    public Mascota(String nom, int alt, int pes, String com, ImageIcon im) {
+    public Mascota(String nom, int alt, int pes, String com, File im) {
         this.setNombre(nom);
         this.setAltura(alt);
         this.setPeso(pes);

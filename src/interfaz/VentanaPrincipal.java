@@ -76,7 +76,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         //configuro usuario
         username = sistema.getUsuarioSeleccionado();
         UsernameLabel.setText(username.getNombre());
-        ImagenUsuario.setIcon(username.getFoto());
+        if (username.getFoto()!=null){
+        rsscalelabel.RSScaleLabel.setScaleLabel(ImagenUsuario, username.getFoto().toString());
+        }
         pesoUser.setText(username.getPeso()+" Kg");
         alturaUser.setText(username.getAltura()+" Cm");
         comentario.setText(username.getComentario());
@@ -91,7 +93,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         switch (numeroMascotas) {
             case 1:          
                 activarDisplay1();
-               NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
+                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota1, 
+                        sistema.getListaMascotas().get(0).getFoto().toString());
+                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
                 pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso())+" Kg");
                 alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura())+" Cm");
                 comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());
@@ -100,11 +104,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 activarDisplay1();
                 activarDisplay2();
                 //mascota1
+                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota1, 
+                        sistema.getListaMascotas().get(0).getFoto().toString());
                 NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
                 pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso())+" Kg");
                 alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura())+" Cm");
                 comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());
                 //mascota 2
+                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota2, 
+                        sistema.getListaMascotas().get(1).getFoto().toString());
                 NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());
                 pesoLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getPeso())+" Kg");
                 alturaLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getAltura())+" Cm");
@@ -115,16 +123,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 activarDisplay2();
                 activarDisplay3();
                 //mascota1
+                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota1, 
+                        sistema.getListaMascotas().get(0).getFoto().toString());
                NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
                 pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso())+" Kg");
                 alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura())+" Cm");
                 comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());
                 //mascota 2
+                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota2, 
+                        sistema.getListaMascotas().get(1).getFoto().toString());
                 NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());
                 pesoLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getPeso())+" Kg");
                 alturaLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getAltura())+" Cm");
                 comentarioLabel2.setText(sistema.getListaMascotas().get(1).getComentario());
                 //mascota 3
+                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota3, 
+                        sistema.getListaMascotas().get(2).getFoto().toString());
                 NombreMascota3.setText(sistema.getListaMascotas().get(2).getNombre());
                 pesoLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getPeso())+" Kg");
                 alturaLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getAltura())+" Cm");
@@ -136,21 +150,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 activarDisplay3();
                 activarDisplay4();
                  //mascota1
+                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota1, 
+                        sistema.getListaMascotas().get(0).getFoto().toString());
                 NombreMascota1.setText(sistema.getListaMascotas().get(0).getNombre());
                 pesoLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getPeso())+" Kg");
                 alturaLabel1.setText(String.valueOf(sistema.getListaMascotas().get(0).getAltura())+" Cm");
                 comentarioLabel1.setText(sistema.getListaMascotas().get(0).getComentario());
                 //mascota 2
+                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota2, 
+                        sistema.getListaMascotas().get(1).getFoto().toString());
                 NombreMascota2.setText(sistema.getListaMascotas().get(1).getNombre());
                 pesoLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getPeso())+" Kg");
                 alturaLabel2.setText(String.valueOf(sistema.getListaMascotas().get(1).getAltura())+" Cm");
                 comentarioLabel2.setText(sistema.getListaMascotas().get(1).getComentario());
                 //mascota 3
+                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota3, 
+                        sistema.getListaMascotas().get(2).getFoto().toString());
                    NombreMascota3.setText(sistema.getListaMascotas().get(2).getNombre());
                 pesoLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getPeso())+" Kg");
                 alturaLabel3.setText(String.valueOf(sistema.getListaMascotas().get(2).getAltura())+" Cm");
                 comentarioLabel3.setText(sistema.getListaMascotas().get(2).getComentario());
                 //mascota 4
+                rsscalelabel.RSScaleLabel.setScaleLabel(ImagenMascota4, 
+                        sistema.getListaMascotas().get(3).getFoto().toString());
                 NombreMascota4.setText(sistema.getListaMascotas().get(3).getNombre());
                 pesoLabel4.setText(String.valueOf(sistema.getListaMascotas().get(3).getPeso())+" Kg");
                 alturaLabel4.setText(String.valueOf(sistema.getListaMascotas().get(3).getAltura())+" Cm");
@@ -179,7 +201,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pesoLabel2 = new javax.swing.JLabel();
         comentarioLabel2 = new javax.swing.JLabel();
         alturaLabel2 = new javax.swing.JLabel();
-        ImagenMascota2 = new javax.swing.JLabel();
         NombreMascota3 = new javax.swing.JLabel();
         pesoLabel3 = new javax.swing.JLabel();
         alturaLabel3 = new javax.swing.JLabel();
@@ -194,6 +215,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pesoUser = new javax.swing.JLabel();
         alturaUser = new javax.swing.JLabel();
         comentario = new javax.swing.JLabel();
+        ImagenMascota2 = new javax.swing.JLabel();
         borrarMascotaBoton = new javax.swing.JButton();
         PanelSostieneInfo = new javax.swing.JPanel();
         perfilSeleccionBoton = new javax.swing.JButton();
@@ -226,7 +248,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         ImagenMascota1.setText("IMAGEN");
         jPanel1.add(ImagenMascota1);
-        ImagenMascota1.setBounds(120, 220, 50, 30);
+        ImagenMascota1.setBounds(110, 210, 60, 50);
 
         NombreMascota2.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         NombreMascota2.setText("Nombre mascota 2");
@@ -244,10 +266,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         alturaLabel2.setText("altura cm");
         jPanel1.add(alturaLabel2);
         alturaLabel2.setBounds(240, 320, 80, 14);
-
-        ImagenMascota2.setText("IMAGEN");
-        jPanel1.add(ImagenMascota2);
-        ImagenMascota2.setBounds(270, 220, 50, 30);
 
         NombreMascota3.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         NombreMascota3.setText("Nombre mascota 3");
@@ -268,7 +286,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         ImagenMascota3.setText("IMAGEN");
         jPanel1.add(ImagenMascota3);
-        ImagenMascota3.setBounds(420, 220, 50, 30);
+        ImagenMascota3.setBounds(410, 210, 60, 50);
 
         pesoLabel4.setText("peso kg");
         jPanel1.add(pesoLabel4);
@@ -289,7 +307,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         ImagenMascota4.setText("IMAGEN");
         jPanel1.add(ImagenMascota4);
-        ImagenMascota4.setBounds(570, 220, 50, 30);
+        ImagenMascota4.setBounds(550, 210, 60, 50);
 
         UsernameLabel.setBackground(new java.awt.Color(153, 153, 153));
         UsernameLabel.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -318,6 +336,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         comentario.setText("Altura");
         jPanel1.add(comentario);
         comentario.setBounds(40, 170, 140, 30);
+
+        ImagenMascota2.setText("IMAGEN");
+        jPanel1.add(ImagenMascota2);
+        ImagenMascota2.setBounds(260, 210, 60, 50);
 
         borrarMascotaBoton.setBackground(new java.awt.Color(255, 255, 255));
         borrarMascotaBoton.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
@@ -385,7 +407,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         ImagenUsuario.setText("Imagen Usuario ");
         jPanel1.add(ImagenUsuario);
-        ImagenUsuario.setBounds(40, 40, 170, 14);
+        ImagenUsuario.setBounds(40, 20, 110, 70);
 
         ImagenDeFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dog summer.jpg"))); // NOI18N
         jPanel1.add(ImagenDeFondo);
