@@ -56,13 +56,6 @@ public class Alimento {
         }
     }
     
-    public void setEstado(String estado){
-        if(estado.equalsIgnoreCase("hecho") || 
-           estado.equalsIgnoreCase("pendiente") || 
-           estado.equalsIgnoreCase("pendiente")){
-            this.setEstado(estado);
-        }
-    }
     
     //Constructores
     public Alimento(Familiar unF, Mascota unaM,Date fech, String alimento) {
@@ -77,7 +70,7 @@ public class Alimento {
         this.setMascota(new Mascota());
         this.setFecha(new java.util.Date());
         this.setAlimento("Alimento por Defecto");
-        this.setEstado("pendiente");
+        
     }
 
     @Override
