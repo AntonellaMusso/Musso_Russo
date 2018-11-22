@@ -26,7 +26,7 @@ public class Sistema {
     private ArrayList<Alimento> listadoAlimento;
     private ArrayList<Paseo> listadoPaseos;
     private ArrayList<Servicio> listadoServicio;
-    private ArrayList<String> cordenadasMapa;
+    //private ArrayList<String> cordenadasMapa;
 
     //Constructor
     public Sistema() {
@@ -37,7 +37,7 @@ public class Sistema {
         listadoServicio = new ArrayList<Servicio>();
         listadoPaseos = new ArrayList();
         usuarioSeleccionado = null;
-        cordenadasMapa = new ArrayList();
+       // cordenadasMapa = new ArrayList();
         listadoFamiliar.add(new Familiar("Emiliano", 170, 65, "estudiante", null)); //borrar luego
         
     }
@@ -214,9 +214,6 @@ public class Sistema {
     }
     
     //Métodos de acceso
-     public ArrayList<String> getCordenadasMapa() {
-        return cordenadasMapa;
-    }
     
     public ArrayList<Alimento> getListadoAlimento() {
         return listadoAlimento;
@@ -277,9 +274,6 @@ public class Sistema {
     }
 
     //Agregar listado al sistema
-      public void agregarCordenada(String cord) {
-        getCordenadasMapa().add(cord);
-    }
     
     public void setListadoAlimento(ArrayList<Alimento> listadoAlimento) {
         this.listadoAlimento = listadoAlimento;
