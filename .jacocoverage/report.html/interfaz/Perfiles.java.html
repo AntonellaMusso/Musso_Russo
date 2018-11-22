@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Perfiles.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Mascota&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaz</a> &gt; <span class="el_source">Perfiles.java</span></div><h1>Perfiles.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package interfaz;
+
+import java.util.ArrayList;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+import mascota.Familiar;
+import mascota.Sistema;
+
+/**
+ *
+ * @author usuario
+ */
+public class Perfiles extends javax.swing.JFrame {
+
+    static Sistema sistema;
+    private Familiar usuario;
+<span class="fc" id="L23">    public Perfiles(Sistema modelo) {</span>
+<span class="fc" id="L24">        initComponents();</span>
+<span class="fc" id="L25">        sistema = modelo;   </span>
+<span class="fc" id="L26">         String[] selections = new String[sistema.getListaFamiliares().size()];</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (int i = 0; i &lt; sistema.getListaFamiliares().size(); i++) {</span>
+<span class="fc" id="L28">            selections[i] = sistema.getListaFamiliares().get(i).getNombre();</span>
+        }
+<span class="fc" id="L30">        lista.setListData(selections);</span>
+  
+<span class="fc" id="L32">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="fc" id="L38">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="fc" id="L39">        lista = new javax.swing.JList&lt;&gt;();</span>
+<span class="fc" id="L40">        titulo = new javax.swing.JLabel();</span>
+<span class="fc" id="L41">        ingresarBoton = new javax.swing.JButton();</span>
+<span class="fc" id="L42">        regsitrarBoton = new javax.swing.JButton();</span>
+<span class="fc" id="L43">        actualizarBoton = new javax.swing.JButton();</span>
+
+<span class="fc" id="L45">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+
+<span class="fc" id="L47">        lista.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 48)); // NOI18N</span>
+<span class="fc" id="L48">        lista.setModel(new javax.swing.AbstractListModel&lt;String&gt;() {</span>
+<span class="fc" id="L49">            String[] strings = { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot;, &quot;Item 5&quot; };</span>
+<span class="fc" id="L50">            public int getSize() { return strings.length; }</span>
+<span class="fc" id="L51">            public String getElementAt(int i) { return strings[i]; }</span>
+        });
+<span class="fc" id="L53">        jScrollPane1.setViewportView(lista);</span>
+
+<span class="fc" id="L55">        titulo.setFont(new java.awt.Font(&quot;Calibri&quot;, 0, 24)); // NOI18N</span>
+<span class="fc" id="L56">        titulo.setText(&quot;Seleccion de Perfiles&quot;);</span>
+
+<span class="fc" id="L58">        ingresarBoton.setText(&quot;Ingresar&quot;);</span>
+<span class="fc" id="L59">        ingresarBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L61">                ingresarBotonActionPerformed(evt);</span>
+<span class="nc" id="L62">            }</span>
+        });
+
+<span class="fc" id="L65">        regsitrarBoton.setText(&quot;Registrar Usuario&quot;);</span>
+<span class="fc" id="L66">        regsitrarBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L68">                regsitrarBotonActionPerformed(evt);</span>
+<span class="nc" id="L69">            }</span>
+        });
+
+<span class="fc" id="L72">        actualizarBoton.setText(&quot;Actualizar&quot;);</span>
+<span class="fc" id="L73">        actualizarBoton.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L75">                actualizarBotonActionPerformed(evt);</span>
+<span class="nc" id="L76">            }</span>
+        });
+
+<span class="fc" id="L79">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="fc" id="L80">        getContentPane().setLayout(layout);</span>
+<span class="fc" id="L81">        layout.setHorizontalGroup(</span>
+<span class="fc" id="L82">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L83">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="fc" id="L84">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L85">                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L86">                .addGap(233, 233, 233))</span>
+<span class="fc" id="L87">            .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L88">                .addGap(35, 35, 35)</span>
+<span class="fc" id="L89">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L90">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L91">                        .addComponent(actualizarBoton)</span>
+<span class="fc" id="L92">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)</span>
+<span class="fc" id="L93">                        .addComponent(titulo)</span>
+<span class="fc" id="L94">                        .addGap(255, 255, 255))</span>
+<span class="fc" id="L95">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L96">                        .addComponent(regsitrarBoton)</span>
+<span class="fc" id="L97">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L98">                        .addComponent(ingresarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L99">                        .addGap(308, 308, 308))))</span>
+        );
+<span class="fc" id="L101">        layout.setVerticalGroup(</span>
+<span class="fc" id="L102">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L103">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="fc" id="L104">                .addGap(26, 26, 26)</span>
+<span class="fc" id="L105">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="fc" id="L106">                    .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L107">                    .addComponent(actualizarBoton))</span>
+<span class="fc" id="L108">                .addGap(18, 18, 18)</span>
+<span class="fc" id="L109">                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L110">                .addGap(48, 48, 48)</span>
+<span class="fc" id="L111">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="fc" id="L112">                    .addComponent(ingresarBoton)</span>
+<span class="fc" id="L113">                    .addComponent(regsitrarBoton))</span>
+<span class="fc" id="L114">                .addGap(29, 29, 29))</span>
+        );
+
+<span class="fc" id="L117">        pack();</span>
+<span class="fc" id="L118">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void ingresarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarBotonActionPerformed
+<span class="nc" id="L121">        usuario = sistema.getUsuarioSeleccionadoPorNombre(lista.getSelectedValue());</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        if (usuario != null){</span>
+<span class="nc" id="L123">        sistema.setUsuarioSeleccionado(usuario);</span>
+<span class="nc" id="L124">        VentanaPrincipal ventanaCentral = new VentanaPrincipal(sistema);</span>
+<span class="nc" id="L125">        ventanaCentral.setVisible(true);</span>
+<span class="nc" id="L126">        this.setVisible(false);    </span>
+<span class="nc" id="L127">        }else{</span>
+<span class="nc" id="L128">            JOptionPane.showMessageDialog(null, &quot;No hay ningun usuario seleccionado&quot;);</span>
+        }
+<span class="nc" id="L130">    }//GEN-LAST:event_ingresarBotonActionPerformed</span>
+
+    private void regsitrarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regsitrarBotonActionPerformed
+<span class="nc" id="L133">        AltaUsuario registro = new AltaUsuario(sistema);</span>
+<span class="nc" id="L134">        registro.setVisible(true);</span>
+<span class="nc" id="L135">        this.setVisible(false);</span>
+<span class="nc" id="L136">    }//GEN-LAST:event_regsitrarBotonActionPerformed</span>
+
+    private void actualizarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarBotonActionPerformed
+<span class="nc" id="L139">        String[] selections = new String[sistema.getListaFamiliares().size()];</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        for (int i = 0; i &lt; sistema.getListaFamiliares().size(); i++) {</span>
+<span class="nc" id="L141">            selections[i] = sistema.getListaFamiliares().get(i).getNombre();</span>
+        }
+<span class="nc" id="L143">        lista.setListData(selections);</span>
+
+<span class="nc" id="L145">    }//GEN-LAST:event_actualizarBotonActionPerformed</span>
+
+ 
+    
+    
+    
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+<span class="nc bnc" id="L158" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L160">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L161">                    break;</span>
+                }
+            }
+<span class="nc" id="L164">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L165">            java.util.logging.Logger.getLogger(Perfiles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L166">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L167">            java.util.logging.Logger.getLogger(Perfiles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L168">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L169">            java.util.logging.Logger.getLogger(Perfiles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L170">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L171">            java.util.logging.Logger.getLogger(Perfiles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L172">        }</span>
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L177">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+<span class="nc" id="L179">                new Perfiles(sistema).setVisible(true);</span>
+<span class="nc" id="L180">            }</span>
+        });
+<span class="nc" id="L182">    }</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton actualizarBoton;
+    private javax.swing.JButton ingresarBoton;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList&lt;String&gt; lista;
+    private javax.swing.JButton regsitrarBoton;
+    private javax.swing.JLabel titulo;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

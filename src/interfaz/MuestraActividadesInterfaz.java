@@ -1,11 +1,21 @@
 package interfaz;
 
+import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import mascota.Actividad;
 import mascota.Alimento;
 import mascota.Paseo;
 import mascota.Servicio;
 import mascota.Sistema;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 public class MuestraActividadesInterfaz extends javax.swing.JFrame {
 
@@ -165,6 +175,7 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
         titulo3 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -273,6 +284,13 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
 
         jSeparator4.setBackground(new java.awt.Color(204, 204, 204));
 
+        jButton1.setText("Enviar recordatorio");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -301,15 +319,6 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(m7))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(284, 284, 284)
-                                        .addComponent(ok))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(135, 135, 135)
-                                        .addComponent(jLabel1)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(linea6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(m6))
@@ -332,7 +341,18 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(linea1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(m1))))
+                                .addComponent(m1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(135, 135, 135)
+                                        .addComponent(jLabel1))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(284, 284, 284)
+                                        .addComponent(ok)
+                                        .addGap(67, 67, 67)
+                                        .addComponent(jButton1)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -394,7 +414,9 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(servicio1)
                 .addGap(22, 22, 22)
-                .addComponent(ok)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ok)
+                    .addComponent(jButton1))
                 .addGap(21, 21, 21))
         );
 
@@ -449,9 +471,45 @@ public class MuestraActividadesInterfaz extends javax.swing.JFrame {
         mp.setVisible(true);
     }//GEN-LAST:event_m7ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String mail = JOptionPane.showInputDialog(rootPane, "Ingrese mail para recordatorio");
+        //ArrayList<Actividad> ac =  sistema.getListaActividades();
+        enviarConGMail(mail, "hola", "prueba en codigo");
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    private static void enviarConGMail(String destinatario, String asunto, String cuerpo) {
+    // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el remitente también.
+    String remitente = "mascotais2018";  //Para la dirección nomcuenta@gmail.com
+    String clave = "isMascota2018!";
+    Properties props = System.getProperties();
+    props.put("mail.smtp.host", "smtp.gmail.com");  //El servidor SMTP de Google
+    props.put("mail.smtp.user", remitente);
+    props.put("mail.smtp.clave", "isMascota2018!");    //La clave de la cuenta
+    props.put("mail.smtp.auth", "true");    //Usar autenticación mediante usuario y clave
+    props.put("mail.smtp.starttls.enable", "true"); //Para conectar de manera segura al servidor SMTP
+    props.put("mail.smtp.port", "587"); //El puerto SMTP seguro de Google
+
+    Session session = Session.getDefaultInstance(props);
+    MimeMessage message = new MimeMessage(session);
+
+    try {
+        message.setFrom(new InternetAddress(remitente));
+        message.addRecipient(Message.RecipientType.TO,  new InternetAddress(destinatario));   //Se podrían añadir varios de la misma manera
+        message.setSubject(asunto);
+        message.setText(cuerpo);
+        Transport transport = session.getTransport("smtp");
+        transport.connect("smtp.gmail.com", remitente, clave);
+        transport.sendMessage(message, message.getAllRecipients());
+        transport.close();
+    }
+    catch (MessagingException me) {
+        me.printStackTrace();   //Si se produce un error
+    }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel alimento;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
